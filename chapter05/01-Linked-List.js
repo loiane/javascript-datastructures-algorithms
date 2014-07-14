@@ -149,7 +149,7 @@ function LinkedList() {
 
     this.toString = function(){
 
-        var current = head,
+       var current = head,
             s = current.element;
 
         while(current.next){
@@ -157,10 +157,10 @@ function LinkedList() {
             s += ', ' + current.element;
         }
 
-        return s;
+        return s.toString();
     };
 
     this.print = function(){
         console.log(this.toString());
-    }
+    };
 }

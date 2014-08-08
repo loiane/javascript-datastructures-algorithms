@@ -64,7 +64,7 @@ array = createNonSortedArray();
 
 console.log(array.toString());
 
-array.mergeSort();
+array.quickSort();
 
 console.log(array.toString());
 

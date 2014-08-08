@@ -121,7 +121,7 @@ function ArrayList(){
         return result;
     };
 
-    this.quickStort = function(){
+    this.quickSort = function(){
         quick(array,  0, array.length - 1);
     };
 
@@ -141,13 +141,19 @@ function ArrayList(){
             }
 
             if (i <= j) {
-                swap(array, i, j);
+                swapQuickStort(array, i, j);
                 i++;
                 j--;
             }
         }
 
         return i;
+    };
+
+    var swapQuickStort = function(array, index1, index2){
+        var aux = array[index1];
+        array[index1] = array[index2];
+        array[index2] = aux;
     };
 
     var quick = function(array, left, right){

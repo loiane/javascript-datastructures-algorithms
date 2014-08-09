@@ -25,7 +25,9 @@ function ArrayList(){
 
         for (var i=0; i<length; i++){
             for (var j=0; j<length-1; j++ ){
+                console.log('compare ' + array[j] + ' with ' + array[j+1]);
                 if (array[j] > array[j+1]){
+                    console.log('swap ' + array[j] + ' with ' + array[j+1]);
                     swap(j, j+1);
                 }
             }
@@ -33,18 +35,17 @@ function ArrayList(){
     };
 
     this.modifiedBubbleSort = function(){
-        var length = array.length,
-            swapped;
+        var length = array.length;
 
-        do {
-            swapped = false;
-            for (var i=0; i<length-1; i++){
-                if (array[i] > array[i+1]){
-                    swap(i, i+1);
-                    swapped = true;
+        for (var i=0; i<length; i++){
+            for (var j=0; j<length-1-i; j++ ){
+                console.log('compare ' + array[j] + ' with ' + array[j+1]);
+                if (array[j] > array[j+1]){
+                    console.log('swap ' + array[j] + ' with ' + array[j+1]);
+                    swap(j, j+1);
                 }
             }
-        } while (swapped);
+        }
 
     };
 
@@ -52,14 +53,19 @@ function ArrayList(){
         var length = array.length,
             indexMin;
 
-        for (var i=0; i<length; i++){
+        for (var i=0; i<length-1; i++){
             indexMin = i;
+            console.log('index ' + array[i]);
             for (var j=i; j<length; j++){
                 if(array[indexMin]>array[j]){
+                    console.log('new index min ' + array[j]);
                     indexMin = j;
                 }
             }
-            swap(i, indexMin);
+            if (i !== indexMin){
+                console.log('swap ' + array[i] + ' with ' + array[indexMin]);
+                swap(i, indexMin);
+            }
         }
     };
 
@@ -69,10 +75,13 @@ function ArrayList(){
         for (var i=1; i<length; i++){
             j = i;
             temp = array[i];
+            console.log('to be inserted ' + temp);
             while (j>0 && array[j-1] > temp){
+                console.log('shift ' + array[j-1]);
                 array[j] = array[j-1];
                 j--;
             }
+            console.log('insert ' + temp);
             array[j] = temp;
         }
     };
@@ -86,6 +95,7 @@ function ArrayList(){
         var length = array.length;
 
         if(length === 1) {
+            console.log(array);
             return array;
         }
 
@@ -118,6 +128,8 @@ function ArrayList(){
             result.push(right[ir++]);
         }
 
+        console.log(result);
+
         return result;
     };
 
@@ -131,16 +143,21 @@ function ArrayList(){
             i = left,
             j = right;
 
+        console.log('pivot is ' + pivot + '; left is ' + left + '; right is ' + right);
+
         while (i <= j) {
             while (array[i] < pivot) {
                 i++;
+                console.log('i = ' + i);
             }
 
             while (array[j] > pivot) {
                 j--;
+                console.log('j = ' + j);
             }
 
             if (i <= j) {
+                console.log('swap ' + array[i] + ' with ' + array[j]);
                 swapQuickStort(array, i, j);
                 i++;
                 j--;

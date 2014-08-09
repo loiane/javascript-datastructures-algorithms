@@ -57,11 +57,15 @@ function ArrayList(){
         while (low <= high){
             mid = Math.floor((low + high) / 2);
             element = array[mid];
+            console.log('mid element is ' + element);
             if (element < item) {
                 low = mid + 1;
+                console.log('low is ' + low);
             } else if (element > item) {
                 high = mid - 1;
+                console.log('high is ' + high);
             } else {
+                console.log('found it');
                 return mid;
             }
         }

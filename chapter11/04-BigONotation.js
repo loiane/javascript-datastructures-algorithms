@@ -10,7 +10,7 @@ increment(2);
 //*************** o(n)
 
 function createNonSortedArray(size){
-    var array = []
+    var array = [];
 
     for (var i = size; i> 0; i--){
         array[i] = i;

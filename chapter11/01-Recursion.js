@@ -1,3 +1,4 @@
+//Recursive solution - DP
 function fibonacci(num){
     if (num === 1 || num === 2){
         return 1;
@@ -7,6 +8,7 @@ function fibonacci(num){
     }
 }
 
+//Non Recursive solution
 function fib(num){
     var n1 = 1,
         n2 = 1,
@@ -18,3 +20,6 @@ function fib(num){
     }
     return n;
 }
+
+console.log(fibonacci(6));
+console.log(fib(6));

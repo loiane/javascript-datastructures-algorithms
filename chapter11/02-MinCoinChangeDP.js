@@ -34,5 +34,7 @@ function MinCoinChange(coins){
 
 
 var minCoinChange = new MinCoinChange([1, 5, 10, 25]);
+console.log(minCoinChange.makeChange(36));
 
-console.log(minCoinChange.makeChange(37));
+var minCoinChange2 = new MinCoinChange([1, 3, 4]);
+console.log(minCoinChange2.makeChange(6));

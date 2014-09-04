@@ -4,7 +4,9 @@ var positiveNumbers = [1,2,3];
 var negativeNumbers = [-3,-2,-1];
 var numbers = negativeNumbers.concat(zero, positiveNumbers);
 
-//document.writeln(numbers);
+console.log(numbers);
+
+//console.log(numbers);
 
 //*** every and some
 var isEven = function (x) {
@@ -24,22 +26,77 @@ numbers.forEach(function(x){
     console.log((x % 2 == 0));
 });
 
-document.writeln(numbers.reverse());
+console.log(numbers.reverse());
 
-//document.writeln('*** filter ***');
+//console.log('*** filter ***');
 
 var evenNumbers = numbers.filter(isEven);
 
-//document.writeln(evenNumbers);
+//console.log(evenNumbers);
 
-document.writeln('*** map ***');
+console.log('*** map ***');
 
-//document.writeln(numbers.map(isEven));
+//console.log(numbers.map(isEven));
 
-document.writeln(numbers.sort());
+console.log(numbers.reduce(function(previous, current, index){
+    return previous + current;
+}));
 
-document.writeln(numbers.sort(function(a,b){
+console.log(numbers.sort());
+
+console.log(numbers.sort(function(a,b){
     return a-b;
+}));
+
+function compare(a, b) {
+    if (a < b) {
+        return -1;
+    }
+    if (a > b) {
+        return 1;
+    }
+    // a must be equal to b
+    return 0;
+}
+
+console.log(numbers.sort(compare));
+
+//Sorting objects
+
+var friends = [
+    {name: 'John', age: 30},
+    {name: 'Ana', age: 20},
+    {name: 'Chris', age: 25}
+];
+
+function comparePerson(a, b){
+    if (a.age < b.age){
+        return -1
+    }
+    if (a.age > b.age){
+        return 1
+    }
+    return 0;
+}
+
+console.log(friends.sort(comparePerson));
+
+var names =['Ana', 'ana', 'john', 'John'];
+console.log(names.sort());
+
+console.log(names.sort(function(a, b){
+    if (a.toLowerCase() < b.toLowerCase()){
+        return -1
+    }
+    if (a.toLowerCase() > b.toLowerCase()){
+        return 1
+    }
+    return 0;
+}));
+
+var names2 = ['Maève', 'Maeve'];
+console.log(names2.sort(function(a, b){
+    return a.localeCompare(b);
 }));
 
 //*** toString

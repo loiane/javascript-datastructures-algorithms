@@ -3,14 +3,14 @@ function PriorityQueue() {
     var items = [];
 
     function QueueElement (element, priority){
-        element = element;
-        priority = priority;
+        this.element = element;
+        this.priority = priority;
     }
 
     this.enqueue = function(element, priority){
         var queueElement = new QueueElement(element, priority);
 
-        if (isEmpty()){
+        if (this.isEmpty()){
             items.push(queueElement);
         } else {
             var added = false;

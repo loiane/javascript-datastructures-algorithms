@@ -1,28 +1,32 @@
 function Queue() {
 
-    this.items = [];
+    var items = [];
 
     this.enqueue = function(element){
-        this.items.push(element);
+        items.push(element);
     };
 
     this.dequeue = function(){
-        return this.items.shift();
+        return items.shift();
     };
 
     this.front = function(){
-        return this.items[0];
+        return items[0];
     };
 
     this.isEmpty = function(){
-        return this.items.length == 0;
+        return items.length == 0;
+    };
+
+    this.clear = function(){
+        items = [];
     };
 
     this.size = function(){
-        return this.items.length;
+        return items.length;
     };
 
     this.print = function(){
-        console.log(this.items.toString());
+        console.log(items.toString());
     };
 }

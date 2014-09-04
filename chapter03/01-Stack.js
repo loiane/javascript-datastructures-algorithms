@@ -1,28 +1,36 @@
 function Stack() {
 
-    this.items = [];
+    var items = [];
 
     this.push = function(element){
-        this.items.push(element);
+        items.push(element);
     };
 
     this.pop = function(){
-        return this.items.pop();
+        return items.pop();
     };
 
     this.peek = function(){
-        return this.items[this.items.length-1];
+        return items[items.length-1];
     };
 
     this.isEmpty = function(){
-        return this.items.length == 0;
+        return items.length == 0;
     };
 
     this.size = function(){
-        return this.items.length;
+        return items.length;
+    };
+
+    this.clear = function(){
+        items = [];
     };
 
     this.print = function(){
-        console.log(this.items.toString());
+        console.log(items.toString());
+    };
+
+    this.toString = function(){
+        return items.toString();
     };
 }

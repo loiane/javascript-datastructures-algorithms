@@ -4,9 +4,9 @@ function towerOfHanoi(n, from, to, helper){
         towerOfHanoi(n-1, from, helper, to);
         to.push(from.pop());
         console.log('-----')
-        console.log('Source: ' + from.items.toString());
-        console.log('Dest: ' + to.items.toString());
-        console.log('Helper: ' + helper.items.toString());
+        console.log('Source: ' + from.toString());
+        console.log('Dest: ' + to.toString());
+        console.log('Helper: ' + helper.toString());
         towerOfHanoi(n-1, helper, to, from);
     }
 }

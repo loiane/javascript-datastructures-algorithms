@@ -8,8 +8,30 @@ var nullVar = null; //{6}
 var und;  //7
 
 console.log("num: "+ num);
-console.log("name: "+ num);
-console.log("trueValue: "+ num);
-console.log("price: "+ num);
+console.log("name: "+ name);
+console.log("trueValue: "+ trueValue);
+console.log("price: "+ price);
 console.log("nullVar: "+ nullVar);
 console.log("und: "+ und);
+
+//******* Variable Scope
+
+var myVariable = 'global';
+myOtherVariable = 'global';
+
+function myFunction(){
+    var myVariable = 'local';
+    return myVariable;
+}
+
+function myOtherFunction(){
+    myOtherVariable = 'local';
+    return myOtherVariable;
+}
+
+console.log(myVariable);   //{1}
+console.log(myFunction()); //{2}
+
+console.log(myOtherVariable);   //{3}
+console.log(myOtherFunction()); //{4}
+console.log(myOtherVariable);   //{5}

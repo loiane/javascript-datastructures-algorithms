@@ -9,6 +9,7 @@ set.add(2);
 console.log(set.values()); //outputs ["1", "2"]
 console.log(set.has(2));   //true
 console.log(set.size());   //2
+console.log(set.sizeLegacy());   //3
 
 set.remove(1);
 console.log(set.values()); //outputs ["2"]

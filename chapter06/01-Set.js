@@ -50,7 +50,8 @@ function Set() {
     this.sizeLegacy = function(){
         var count = 0;
         for(var prop in items) {
-            ++count;
+            if(items.hasOwnProperty(prop))
+                ++count;
         }
         return count;
     };

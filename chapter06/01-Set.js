@@ -25,7 +25,8 @@ function Set() {
     };
 
     this.has = function(value){
-        return value in items;
+        return items.hasOwnProperty(value);
+        //return value in items;
     };
 
     this.clear = function(){
@@ -49,8 +50,7 @@ function Set() {
     this.sizeLegacy = function(){
         var count = 0;
         for(var prop in items) {
-            if(items.hasOwnProperty(prop))
-                ++count;
+            ++count;
         }
         return count;
     };
@@ -93,16 +93,16 @@ function Set() {
     };
 
     this.intersection = function(otherSet){
-        var insertectionSet = new Set(); //{1}
+        var intersectionSet = new Set(); //{1}
 
         var values = this.values();
         for (var i=0; i<values.length; i++){ //{2}
             if (otherSet.has(values[i])){    //{3}
-                insertectionSet.add(values[i]); //{4}
+                intersectionSet.add(values[i]); //{4}
             }
         }
 
-        return insertectionSet;
+        return intersectionSet;
     };
 
     this.difference = function(otherSet){

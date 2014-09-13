@@ -6,6 +6,7 @@ setA.add(2);
 setA.add(3);
 
 var setB = new Set();
+setB.add(3);
 setB.add(4);
 setB.add(5);
 setB.add(6);

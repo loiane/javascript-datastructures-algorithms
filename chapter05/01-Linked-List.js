@@ -149,15 +149,15 @@ function LinkedList() {
 
     this.toString = function(){
 
-       var current = head,
-            s = current.element;
+        var current = head,
+            string = '';
 
-        while(current.next){
+        while (current) {
+            string = current.element;
             current = current.next;
-            s += ', ' + current.element;
         }
+        return string;
 
-        return s.toString();
     };
 
     this.print = function(){

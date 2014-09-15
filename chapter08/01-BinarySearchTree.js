@@ -103,11 +103,14 @@ function BinarySearchTree() {
     };
 
     var minNode = function (node) {
-        while (node && node.left !== null) {
-            node = node.left;
-        }
+        if (node){
+            while (node && node.left !== null) {
+                node = node.left;
+            }
 
-        return node.key;
+            return node.key;
+        }
+        return null;
     };
 
     this.max = function() {
@@ -115,11 +118,14 @@ function BinarySearchTree() {
     };
 
     var maxNode = function (node) {
-        while (node && node.right !== null) {
-            node = node.right;
-        }
+        if (node){
+            while (node && node.right !== null) {
+                node = node.right;
+            }
 
-        return node.key;
+            return node.key;
+        }
+        return null;
     };
 
     this.remove = function(element){

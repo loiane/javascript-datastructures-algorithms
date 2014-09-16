@@ -16,7 +16,7 @@ list.insert(0,13);
 list.print();
 list.printInverse();
 
-list.insert(list.size()-1,18);
+list.insert(4,18);
 list.print();
 list.printInverse();
 

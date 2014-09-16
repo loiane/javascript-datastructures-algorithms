@@ -42,11 +42,16 @@ function DoublyLinkedList() {
 
             if (position === 0){ //add on first position
 
-                node.next = current;
-                current.prev = node; //NEW {1}
-                head = node;
+                if (!head){       //NEW
+                    head = node;
+                    tail = node;
+                } else {
+                    node.next = current;
+                    current.prev = node; //NEW {1}
+                    head = node;
+                }
 
-            } else  if (position === length-1) { //last item //NEW
+            } else  if (position === length) { //last item //NEW
 
                 current = tail;     // {2}
                 current.next = node;

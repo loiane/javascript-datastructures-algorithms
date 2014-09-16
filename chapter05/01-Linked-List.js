@@ -107,29 +107,14 @@ function LinkedList() {
     this.indexOf = function(element){
 
         var current = head,
-            index = -1;
+            index = 0;
 
-        //check first item
-        if (element == current.element){
-            return 0;
-        }
-
-        index++;
-
-        //check in the middle of the list
-        while(current.next){
-
-            if (element == current.element){
+        while (current) {
+            if (element === current.element) {
                 return index;
             }
-
-            current = current.next;
             index++;
-        }
-
-        //check last item
-        if (element == current.element){
-            return index;
+            current = current.next;
         }
 
         return -1;

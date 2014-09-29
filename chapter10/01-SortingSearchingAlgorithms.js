@@ -13,11 +13,7 @@ function ArrayList(){
     };
 
     this.toString= function(){
-        var s = array[0] ? array[0] : '';
-        for (var i=1; i<array.length; i++){
-            s += ', ' + array[i];
-        }
-        return s;
+        return array.join();
     };
 
     this.bubbleSort = function(){

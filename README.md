@@ -23,6 +23,6 @@ Book link:
 * 11: More about Algorithms (Recursion, Dynamic Programing, Greedy Algorithms and Big-O Notation) - Extra chapter that can be donwloaded from [Packt](https://www.packtpub.com/application-development/learning-javascript-data-structures-and-algorithms) website
 * Apendix A: Big-O Cheat Sheet - Extra chapter that can be donwloaded from [Packt](https://www.packtpub.com/application-development/learning-javascript-data-structures-and-algorithms) website
 
-###Found and issue or have a question?
+###Found an issue or have a question?
 
 Please create an [Issue](https://github.com/loiane/javascript-datastructures-algorithms/issues) or [Pull Request](https://github.com/loiane/javascript-datastructures-algorithms/pulls) 

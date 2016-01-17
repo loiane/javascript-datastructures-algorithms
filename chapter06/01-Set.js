@@ -49,8 +49,8 @@ function Set() {
      */
     this.sizeLegacy = function(){
         var count = 0;
-        for(var prop in items) {
-            if(items.hasOwnProperty(prop))
+        for(var key in items) {
+            if(items.hasOwnProperty(key))
                 ++count;
         }
         return count;
@@ -62,15 +62,21 @@ function Set() {
      * @returns {Array}
      */
     this.values = function(){
-        return Object.keys(items);
+        var values = [];
+        for (var i=0, keys=Object.keys(items); i<keys.length; i++) {
+            values.push(items[keys[i]]);
+        }
+        return values;
     };
 
     this.valuesLegacy = function(){
-        var keys = [];
-        for(var key in items){
-            keys.push(key);
+        var values = [];
+        for(var key in items) {
+            if(items.hasOwnProperty(key)) {
+                values.push(items[key]);
+            }
         }
-        return keys;
+        return values;
     };
 
     this.getItems = function(){

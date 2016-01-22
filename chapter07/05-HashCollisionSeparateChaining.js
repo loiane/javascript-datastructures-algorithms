@@ -41,17 +41,12 @@ function HashTableSeparateChaining(){
             //iterate linked list to find key/value
             var current = table[position].getHead();
 
-            while(current.next){
+            do {
                 if (current.element.key === key){
                     return current.element.value;
                 }
                 current = current.next;
-            }
-
-            //check in case first or last element
-            if (current.element.key === key){
-                return current.element.value;
-            }
+            } while(current);
         }
         return undefined;
     };
@@ -65,7 +60,7 @@ function HashTableSeparateChaining(){
             //iterate linked list to find key/value
             var current = table[position].getHead();
 
-            while(current.next){
+            do {
                 if (current.element.key === key){
                     table[position].remove(current.element);
                     if (table[position].isEmpty()){
@@ -74,16 +69,7 @@ function HashTableSeparateChaining(){
                     return true;
                 }
                 current = current.next;
-            }
-
-            //check in case first or last element
-            if (current.element.key === key){
-                table[position].remove(current.element);
-                if (table[position].isEmpty()){
-                    table[position] = undefined;
-                }
-                return true;
-            }
+            } while(current);
         }
 
         return false;

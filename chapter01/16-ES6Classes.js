@@ -86,5 +86,3 @@ lotrChar2.name = 'Gandalf';
 console.log(lotrChar2.name);
 
 console.log(Object.getOwnPropertySymbols(lotrChar2));
-
-//http://davidvujic.blogspot.com.br/2015/03/what-wait-really-oh-no-a-post-about-es6-classes-and-privacy.html

@@ -41,9 +41,9 @@ console.log(aKeys.next()); // {value: 2, done: false }
 
 console.log('Array.values');
 //let aValues = numbers.values();
-//console.log(aValues.next()); // {value: 1, done: false } done false means iterator has more values
-//console.log(aValues.next()); // {value: 2, done: false }
-//console.log(aValues.next()); // {value: 3, done: false }
+console.log(aValues.next()); // {value: 1, done: false } done false means iterator has more values
+console.log(aValues.next()); // {value: 2, done: false }
+console.log(aValues.next()); // {value: 3, done: false }
 
 //********** Using the from method
 console.log('Using the from method');
@@ -107,3 +107,6 @@ console.log('EcmaScript 7: using the method includes');
 
 console.log(numbers.includes(15));
 console.log(numbers.includes(20));
+
+let numbers5 = [7,6,5,4,3,2,1];
+console.log(numbers5.includes(4,5));

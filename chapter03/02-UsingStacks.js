@@ -11,3 +11,14 @@ var stack = new Stack();
  stack.pop();
  console.log(stack.size()); // outputs 2
  stack.print(); // outputs [5, 8]
+
+
+//how to ensure true privacy
+//in case using Stack 2 uncomment code below
+/*var objectSymbols = Object.getOwnPropertySymbols(stack);
+
+ console.log(objectSymbols.length); // 2
+ console.log(objectSymbols);        // [Symbol(a), Symbol(b)]
+ console.log(objectSymbols[0]);     // Symbol(a)
+ stack[objectSymbols[0]].push(1);
+ stack.print();*/

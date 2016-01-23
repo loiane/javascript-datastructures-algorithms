@@ -1,6 +1,6 @@
 function Queue() {
 
-    var items = [];
+    let items = [];
 
     this.enqueue = function(element){
         items.push(element);

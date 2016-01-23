@@ -1,4 +1,4 @@
-var stack = new Stack();
+let stack = new Stack2();
  console.log(stack.isEmpty()); //outputs true
  stack.push(5);
  stack.push(8);
@@ -15,10 +15,10 @@ var stack = new Stack();
 
 //how to ensure true privacy
 //in case using Stack 2 uncomment code below
-/*var objectSymbols = Object.getOwnPropertySymbols(stack);
+let objectSymbols = Object.getOwnPropertySymbols(stack);
 
- console.log(objectSymbols.length); // 2
- console.log(objectSymbols);        // [Symbol(a), Symbol(b)]
- console.log(objectSymbols[0]);     // Symbol(a)
+ console.log(objectSymbols.length); // 1
+ console.log(objectSymbols);        // [Symbol()]
+ console.log(objectSymbols[0]);     // Symbol()
  stack[objectSymbols[0]].push(1);
- stack.print();*/
+ stack.print(); //5, 8, 1

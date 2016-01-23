@@ -3,7 +3,7 @@ function towerOfHanoi(n, from, to, helper){
     if (n > 0){
         towerOfHanoi(n-1, from, helper, to);
         to.push(from.pop());
-        console.log('-----')
+        console.log('-----');
         console.log('Source: ' + from.toString());
         console.log('Dest: ' + to.toString());
         console.log('Helper: ' + helper.toString());
@@ -19,7 +19,7 @@ source.push(1);
 var dest = new Stack();
 var helper = new Stack();
 
-towerOfHanoi(3, source, dest, helper);
+towerOfHanoi(source.size(), source, dest, helper);
 
 source.print();
 helper.print();

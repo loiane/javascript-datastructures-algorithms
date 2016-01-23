@@ -1,6 +1,6 @@
 function Stack() {
 
-    var items = [];
+    let items = [];
 
     this.push = function(element){
         items.push(element);

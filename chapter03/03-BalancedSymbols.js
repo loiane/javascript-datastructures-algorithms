@@ -1,27 +1,30 @@
-function matches(open, close){
-    var opens = "([{",
-        closers = ")]}";
-    return opens.indexOf(open) == closers.indexOf(close);
-}
-
 function parenthesesChecker(symbols){
 
-    var stack = new Stack(),
+    let stack = new Stack(),
         balanced = true,
         index = 0,
-        symbol, top;
+        symbol, top,
+        opens = "([{",
+        closers = ")]}";
 
     while (index < symbols.length && balanced){
         symbol = symbols.charAt(index);
-        if (symbol == '('|| symbol == '[' || symbol == '{'){
+        if (opens.indexOf(symbol) >= 0){
             stack.push(symbol);
+            console.log(`open symbol - stacking ${symbol}`);
         } else {
+            console.log(`close symbol ${symbol}`);
             if (stack.isEmpty()){
                 balanced = false;
+                console.log('Stack is empty, no more symbols to pop and compare');
             } else {
                 top = stack.pop();
-                if (!matches(top, symbol)){
+                //if (!matches(top, symbol)){
+                if (!(opens.indexOf(top) === closers.indexOf(symbol))) {
                     balanced = false;
+                    console.log(`poping symbol ${top} - is not a match compared to ${symbol}`);
+                } else {
+                    console.log(`poping symbol ${top} - is is a match compared to ${symbol}`);
                 }
             }
         }
@@ -33,5 +36,6 @@ function parenthesesChecker(symbols){
     return false;
 }
 
-console.log(parenthesesChecker('{{([][])}()}'));
-console.log(parenthesesChecker('[{()]'));
+console.log(parenthesesChecker('{([])}')); //true
+console.log(parenthesesChecker('{{([][])}()}')); //true
+console.log(parenthesesChecker('[{()]')); //false

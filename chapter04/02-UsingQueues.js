@@ -1,4 +1,4 @@
-var queue = new Queue();
+let queue = new Queue();
 console.log(queue.isEmpty()); //outputs true
 queue.enqueue("John");
 queue.enqueue("Jack");

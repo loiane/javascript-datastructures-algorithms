@@ -28,7 +28,7 @@ function Graph() {
     };
 
     var initializeColor = function(){
-        var color = [];
+        var color = {};
         for (var i=0; i<vertices.length; i++){
             color[vertices[i]] = 'white';
         }
@@ -93,8 +93,8 @@ function Graph() {
 
         var color = initializeColor(),
             queue = new Queue(),
-            d = [],
-            pred = [];
+            d = {},
+            pred = {};
         queue.enqueue(v);
 
         for (var i=0; i<vertices.length; i++){
@@ -128,9 +128,9 @@ function Graph() {
     this.DFS = function(){
 
         var color = initializeColor(),
-            d = [],
-            f = [],
-            p = [];
+            d = {},
+            f = {},
+            p = {};
         time = 0;
 
         for (var i=0; i<vertices.length; i++){

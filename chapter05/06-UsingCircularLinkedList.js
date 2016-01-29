@@ -1,4 +1,4 @@
-var circularLinkedList = new CircularLinkedList();
+let circularLinkedList = new CircularLinkedList();
 
 circularLinkedList.append(15);
 circularLinkedList.print();

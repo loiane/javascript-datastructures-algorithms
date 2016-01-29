@@ -1,17 +1,17 @@
 function CircularLinkedList() {
 
-    var Node = function(element){
+    let Node = function(element){
 
         this.element = element;
         this.next = null;
     };
 
-    var length = 0;
-    var head = null;
+    let length = 0;
+    let head = null;
 
     this.append = function(element){
 
-        var node = new Node(element),
+        let node = new Node(element),
             current;
 
         if (head === null){ //first node on list
@@ -40,7 +40,7 @@ function CircularLinkedList() {
         //check for out-of-bounds values
         if (position >= 0 && position <= length){
 
-            var node = new Node(element),
+            let node = new Node(element),
                 current = head,
                 previous,
                 index = 0;
@@ -84,7 +84,7 @@ function CircularLinkedList() {
         //check for out-of-bounds values
         if (position > -1 && position < length){
 
-            var current = head,
+            let current = head,
                 previous,
                 index = 0;
 
@@ -121,13 +121,13 @@ function CircularLinkedList() {
 
     this.remove = function(element){
 
-        var index = this.indexOf(element);
+        let index = this.indexOf(element);
         return this.removeAt(index);
     };
 
     this.indexOf = function(element){
 
-        var current = head,
+        let current = head,
             index = -1;
 
         //check first item
@@ -170,7 +170,7 @@ function CircularLinkedList() {
 
     this.toString = function(){
 
-        var current = head,
+        let current = head,
             s = current.element;
 
         while(current.next !== head){

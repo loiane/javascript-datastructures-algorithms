@@ -1,19 +1,19 @@
 function DoublyLinkedList() {
 
-    var Node = function(element){
+    let Node = function(element){
 
         this.element = element;
         this.next = null;
         this.prev = null; //NEW
     };
 
-    var length = 0;
-    var head = null;
-    var tail = null; //NEW
+    let length = 0;
+    let head = null;
+    let tail = null; //NEW
 
     this.append = function(element){
 
-        var node = new Node(element),
+        let node = new Node(element),
             current;
 
         if (head === null){ //first node on list
@@ -35,7 +35,7 @@ function DoublyLinkedList() {
         //check for out-of-bounds values
         if (position >= 0 && position <= length){
 
-            var node = new Node(element),
+            let node = new Node(element),
                 current = head,
                 previous,
                 index = 0;
@@ -84,7 +84,7 @@ function DoublyLinkedList() {
         //check for out-of-bounds values
         if (position > -1 && position < length){
 
-            var current = head,
+            let current = head,
                 previous,
                 index = 0;
 
@@ -130,13 +130,13 @@ function DoublyLinkedList() {
 
     this.remove = function(element){
 
-        var index = this.indexOf(element);
+        let index = this.indexOf(element);
         return this.removeAt(index);
     };
 
     this.indexOf = function(element){
 
-        var current = head,
+        let current = head,
             index = -1;
 
         //check first item
@@ -175,7 +175,7 @@ function DoublyLinkedList() {
 
     this.toString = function(){
 
-        var current = head,
+        let current = head,
             s = current ? current.element : '';
 
         while(current && current.next){
@@ -188,7 +188,7 @@ function DoublyLinkedList() {
 
     this.inverseToString = function() {
 
-        var current = tail,
+        let current = tail,
             s = current ? current.element : '';
 
         while(current && current.prev){

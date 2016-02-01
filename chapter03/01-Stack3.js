@@ -11,13 +11,11 @@ let Stack3 = (function () {
         push(element){
             let s = items.get(this);
             s.push(element);
-            items.set(this, s);
         }
 
         pop(){
             let s = items.get(this);
             let r = s.pop();
-            items.set(this, s);
             return r;
         }
 

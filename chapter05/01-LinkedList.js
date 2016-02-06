@@ -138,7 +138,7 @@ function LinkedList() {
             string = '';
 
         while (current) {
-            string += current.element + (current.next ? '\n' : '');
+            string += current.element + (current.next ? ', ' : '');
             current = current.next;
         }
         return string;

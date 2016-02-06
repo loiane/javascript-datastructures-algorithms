@@ -1,27 +1,34 @@
 let LinkedList2 = (function () {
 
     class Node {
-        constructor(element, priority){
+        constructor(element){
             this.element = element;
             this.next = null;
         }
     }
 
-    let length = 0;
-    let head = null;
+    const length = new WeakMap();
+    const head = new WeakMap();
 
     class LinkedList2 {
+
+        constructor () {
+            length.set(this, 0);
+            head.set(this, null);
+        }
 
         append(element) {
 
             let node = new Node(element),
-                current;
+                current,
+                _head = this.getHead();
 
-            if (head === null) { //first node on list
-                head = node;
+            if (_head === null) { //first node on list
+                _head = node;
+                head.set(this, _head);
             } else {
 
-                current = head;
+                current = _head;
 
                 //loop the list until find last item
                 while (current.next) {
@@ -32,23 +39,28 @@ let LinkedList2 = (function () {
                 current.next = node;
             }
 
-            length++; //update size of list
+            //update size of list
+            let l = this.size();
+            l++;
+            length.set(this, l);
         }
 
         insert(position, element) {
 
             //check for out-of-bounds values
-            if (position >= 0 && position <= length) {
+            if (position >= 0 && position <= this.size()) {
 
                 let node = new Node(element),
-                    current = head,
+                    _head = this.getHead(),
+                    current = _head,
                     previous,
                     index = 0;
 
                 if (position === 0) { //add on first position
 
                     node.next = current;
-                    head = node;
+                    _head = node;
+                    head.set(this, _head);
 
                 } else {
                     while (index++ < position) {
@@ -59,7 +71,10 @@ let LinkedList2 = (function () {
                     previous.next = node;
                 }
 
-                length++; //update size of list
+                //update size of list
+                let l = this.size();
+                l++;
+                length.set(this, l);
 
                 return true;
 
@@ -71,15 +86,17 @@ let LinkedList2 = (function () {
         removeAt(position) {
 
             //check for out-of-bounds values
-            if (position > -1 && position < length) {
+            if (position > -1 && position < this.size()) {
 
-                let current = head,
+                let _head = this.getHead(),
+                    current = _head,
                     previous,
                     index = 0;
 
                 //removing first item
                 if (position === 0) {
-                    head = current.next;
+                    _head = current.next;
+                    head.set(this, _head);
                 } else {
 
                     while (index++ < position) {
@@ -92,7 +109,9 @@ let LinkedList2 = (function () {
                     previous.next = current.next;
                 }
 
-                length--;
+                let l = this.size();
+                l--;
+                length.set(this, l);
 
                 return current.element;
 
@@ -109,7 +128,8 @@ let LinkedList2 = (function () {
 
         indexOf(element) {
 
-            let current = head,
+            let _head = this.getHead(),
+                current = _head,
                 index = 0;
 
             while (current) {
@@ -124,24 +144,24 @@ let LinkedList2 = (function () {
         }
 
         isEmpty() {
-            return length === 0;
+            return this.size() === 0;
         }
 
         size() {
-            return length;
+            return length.get(this);
         }
 
         getHead() {
-            return head;
+            return head.get(this);
         }
 
         toString() {
 
-            let current = head,
+            let current = this.getHead(),
                 string = '';
 
             while (current) {
-                string += current.element + (current.next ? '\n' : '');
+                string += current.element + (current.next ? ', ' : '');
                 current = current.next;
             }
             return string;

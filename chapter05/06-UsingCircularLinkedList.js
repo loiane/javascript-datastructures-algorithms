@@ -1,6 +1,6 @@
-let circularLinkedList = new CircularLinkedList();
+let circularLinkedList = new CircularLinkedList2();
 
-circularLinkedList.append(15);
+/*circularLinkedList.append(15);
 circularLinkedList.print();
 
 circularLinkedList.append(16);
@@ -25,4 +25,4 @@ circularLinkedList.removeAt(2);
 circularLinkedList.print();
 
 console.log(circularLinkedList.indexOf(14.5));
-console.log(circularLinkedList.indexOf(16));
+console.log(circularLinkedList.indexOf(16));*/

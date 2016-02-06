@@ -1,4 +1,4 @@
-let list = new DoublyLinkedList();
+let list = new DoublyLinkedList2();
 
 list.append(15);
 list.print();

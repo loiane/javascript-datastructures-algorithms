@@ -64,10 +64,6 @@ function CircularLinkedList() {
                 }
                 node.next = current;
                 previous.next = node;
-
-                if (node.next === null){ //update in case last element
-                    node.next = head;
-                }
             }
 
             length++; //update size of list

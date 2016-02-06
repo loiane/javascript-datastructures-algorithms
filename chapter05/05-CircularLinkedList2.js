@@ -56,12 +56,12 @@ let CircularLinkedList2 = (function () {
                     previous,
                     index = 0;
 
-                if (position === 0) { //add on first position
+              if (position === 0) { //add on first position
 
                     node.next = current;
 
                     //update last element
-                    while (current.next !== head) { //last element will be head instead of NULL
+                    while (current.next !== this.getHead()) { //last element will be head instead of NULL
                         current = current.next;
                     }
 
@@ -101,7 +101,7 @@ let CircularLinkedList2 = (function () {
                 //removing first item
                 if (position === 0) {
 
-                    while (current.next !== head) { //needs to update last element first
+                    while (current.next !== this.getHead()) { //needs to update last element first
                         current = current.next;
                     }
 

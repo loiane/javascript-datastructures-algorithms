@@ -20,7 +20,7 @@ let DoublyLinkedList2 = (function () {
             tail.set(this, null);
         }
 
-        append = function (element) {
+        append(element) {
 
             let node = new Node(element),
                 current, _tail;
@@ -42,7 +42,7 @@ let DoublyLinkedList2 = (function () {
             length.set(this, l);
         }
 
-        insert = function (position, element) {
+        insert(position, element) {
 
             //check for out-of-bounds values
             if (position >= 0 && position <= this.size()) {
@@ -94,7 +94,7 @@ let DoublyLinkedList2 = (function () {
             }
         }
 
-        removeAt = function (position) {
+        removeAt(position) {
 
             //check for out-of-bounds values
             if (position > -1 && position < this.size()) {
@@ -151,13 +151,13 @@ let DoublyLinkedList2 = (function () {
             }
         }
 
-        remove = function (element) {
+        remove(element) {
 
             let index = this.indexOf(element);
             return this.removeAt(index);
         }
 
-        indexOf = function (element) {
+        indexOf(element) {
 
             let current = this.getHead(),
                 index = -1;
@@ -196,7 +196,7 @@ let DoublyLinkedList2 = (function () {
             return length.get(this);
         }
 
-        toString = function () {
+        toString() {
 
             let current = this.getHead(),
                 s = current ? current.element : '';
@@ -209,7 +209,7 @@ let DoublyLinkedList2 = (function () {
             return s;
         }
 
-        inverseToString = function () {
+        inverseToString() {
 
             let current = this.getTail(),
                 s = current ? current.element : '';
@@ -222,11 +222,11 @@ let DoublyLinkedList2 = (function () {
             return s;
         }
 
-        print = function () {
+        print() {
             console.log(this.toString());
         }
 
-        printInverse = function () {
+        printInverse() {
             console.log(this.inverseToString());
         }
 
@@ -234,7 +234,7 @@ let DoublyLinkedList2 = (function () {
             return head.get(this);
         }
 
-        getTail = function () {
+        getTail() {
             return tail.get(this);
         }
     }

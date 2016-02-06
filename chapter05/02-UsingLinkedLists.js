@@ -1,4 +1,4 @@
-let list = new LinkedList2();
+let list = new LinkedList();
 list.append(15);
 list.print();
 console.log(list.indexOf(15));

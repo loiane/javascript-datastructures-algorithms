@@ -11,13 +11,11 @@ let Queue2 = (function () {
         enqueue(element) {
             let q = items.get(this);
             q.push(element);
-            items.set(this, q)
         }
 
         dequeue() {
             let q = items.get(this);
             let r = q.shift();
-            items.set(this, q);
             return r;
         }
 

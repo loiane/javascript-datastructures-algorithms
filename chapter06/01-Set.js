@@ -16,7 +16,7 @@ function Set() {
         return false;
     };
 
-    this.remove = function(value){
+    this.delete = function(value){
         if (this.has(value)){
             delete items[value];
             return true;

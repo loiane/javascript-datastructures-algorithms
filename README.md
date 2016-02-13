@@ -4,8 +4,8 @@ Learning JavaScript Data Structures and Algorithms
 Source code of **Learning JavaScript Data Structures and Algorithms** book.
 
 Book link - first edition:
-  - [Packt](https://www.packtpub.com/application-development/learning-javascript-data-structures-and-algorithms){:target="_blank"}
-  - [Amazon](http://www.amazon.com/gp/product/1783554878/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1783554878&linkCode=as2&tag=loiagron-20&linkId=7VBQ7OMJ47XY7MUV){:target="_blank"}
+  - [Packt](https://www.packtpub.com/application-development/learning-javascript-data-structures-and-algorithms)
+  - [Amazon](http://www.amazon.com/gp/product/1783554878/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1783554878&linkCode=as2&tag=loiagron-20&linkId=7VBQ7OMJ47XY7MUV)
 
 
 ### List of Chapters:

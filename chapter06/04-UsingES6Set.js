@@ -53,15 +53,15 @@ console.log(intersectionAB);
 
 //--------- Difference ----------
 let difference = function(setA, setB){
-    let intersectionSet = new Set();
+    let differenceSet = new Set();
 
     for (let x of setA){
         if (!setB.has(x)){
-            intersectionSet.add(x);
+            differenceSet.add(x);
         }
     }
 
-    return intersectionSet;
+    return differenceSet;
 };
 let differenceAB = difference(setA, setB);
 console.log(differenceAB);

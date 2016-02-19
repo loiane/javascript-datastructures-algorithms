@@ -6,7 +6,7 @@ function Dictionary(){
         items[key] = value; //{1}
     };
 
-    this.remove = function(key){
+    this.delete = function(key){
         if (this.has(key)){
             delete items[key];
             return true;

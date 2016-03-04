@@ -6,14 +6,17 @@ Source code of **Learning JavaScript Data Structures and Algorithms** book.
 | 1st edition   | 2nd edition   | 
 | ------------- |:-------------:| 
 | ![1st edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/4874OS_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms.jpg)      | ![2nd edition](https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B05348_MockupCover_Normal.jpg) | 
-| [Book link](https://www.packtpub.com/application-development/learning-javascript-data-structures-and-algorithms)| [Book link](https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-second-edition)|
+| [Book link](http://amzn.to/1Y1OWPx)| [Book link](http://amzn.to/1TSkcA1)|
 
 Book link - first edition:
   - [Packt](https://www.packtpub.com/application-development/learning-javascript-data-structures-and-algorithms)
-  - [Amazon](http://www.amazon.com/gp/product/1783554878/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1783554878&linkCode=as2&tag=loiagron-20&linkId=7VBQ7OMJ47XY7MUV)
+  - [Amazon](http://amzn.to/1Y1OWPx)
+  - [Chinese version](http://www.ituring.com.cn/book/1613)
+  - [Korean version](http://www.acornpub.co.kr/book/javascript-data-structure)
 
 Book link - second edition:
  - [Packt](https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-second-edition)
+ - [Amazon](http://amzn.to/1TSkcA1)
 
 ### List of Chapters:
   

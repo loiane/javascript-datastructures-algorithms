@@ -1,6 +1,8 @@
 //adjacent matrix
+var i;
+
 var graph = [[0, 2, 4, 0, 0, 0],
-             [0, 0, 1, 4, 2, 0],
+             [0, 0, 2, 4, 2, 0],
              [0, 0, 0, 0, 3, 0],
              [0, 0, 0, 0, 0, 2],
              [0, 0, 0, 3, 0, 2],
@@ -12,7 +14,7 @@ console.log("********* Dijkstra's Algorithm - Shortest Path ***********");
 
 var dist = shortestPath.dijkstra(0);
 
-for (var i = 0; i < dist.length; i++){
+for (i = 0; i < dist.length; i++){
     console.log(i + '\t\t' + dist[i]);
 }
 
@@ -20,7 +22,7 @@ console.log("********* Floyd-Warshall Algorithm - All-Pairs Shortest Path ******
 
 var INF = Number.MAX_SAFE_INTEGER;
 graph = [[0, 2, 4, INF, INF, INF],
-        [INF, 0, 1, 4, 2, INF],
+        [INF, 0, 2, 4, 2, INF],
         [INF, INF, 0, INF, 3, INF],
         [INF, INF, INF, 0, INF, 2],
         [INF, INF, INF, 3, 0, 2],
@@ -31,7 +33,7 @@ shortestPath = new ShortestPath(graph);
 dist = shortestPath.floydWarshall();
 
 var s = '';
-for (var i=0; i<dist.length; ++i) {
+for (i=0; i<dist.length; ++i) {
     s = '';
     for (var j=0; j<dist.length; ++j) {
         if (dist[i][j] === INF)

@@ -6,10 +6,12 @@ function ArrayList(){
         array.push(item);
     };
 
-    var swap = function(index1, index2){
+    var swap = function(array, index1, index2){
         var aux = array[index1];
         array[index1] = array[index2];
         array[index2] = aux;
+        //ES2015 swap - Firefox only, for other browser, uncomment code above and coment line below
+        //[array[index1], array[index2]] = [array[index2], array[index1]];
     };
 
     this.toString= function(){
@@ -25,7 +27,7 @@ function ArrayList(){
                 console.log('compare ' + array[j] + ' with ' + array[j+1]);
                 if (array[j] > array[j+1]){
                     console.log('swap ' + array[j] + ' with ' + array[j+1]);
-                    swap(j, j+1);
+                    swap(array, j, j+1);
                 }
             }
         }
@@ -80,6 +82,20 @@ function ArrayList(){
                 j--;
             }
             console.log('insert ' + temp);
+            array[j] = temp;
+        }
+    };
+
+    var insertionSort_ = function(array){
+        var length = array.length,
+            j, temp;
+        for (var i=1; i<length; i++){
+            j = i;
+            temp = array[i];
+            while (j>0 && array[j-1] > temp){
+                array[j] = array[j-1];
+                j--;
+            }
             array[j] = temp;
         }
     };
@@ -156,19 +172,13 @@ function ArrayList(){
 
             if (i <= j) {
                 console.log('swap ' + array[i] + ' with ' + array[j]);
-                swapQuickStort(array, i, j);
+                swap(array, i, j);
                 i++;
                 j--;
             }
         }
 
         return i;
-    };
-
-    var swapQuickStort = function(array, index1, index2){
-        var aux = array[index1];
-        array[index1] = array[index2];
-        array[index2] = aux;
     };
 
     var quick = function(array, left, right){
@@ -188,6 +198,60 @@ function ArrayList(){
             }
         }
         return array;
+    };
+
+    this.countingSort = function(){
+
+        var i,
+            maxValue = this.findMaxValue(),
+            sortedIndex = 0,
+            counts = new Array(maxValue + 1);
+
+        for (i = 0; i < array.length; i++) {
+            if (!counts[array[i]]) {
+                counts[array[i]] = 0;
+            }
+            counts[array[i]]++;
+        }
+
+        console.log('Frequencies: ' + counts.join());
+
+        for (i = 0; i < counts.length; i++) {
+            while (counts[i] > 0) {
+                array[sortedIndex++] = i;
+                counts[i]--;
+            }
+        }
+    };
+
+    this.bucketSort = function(bucketSize){
+
+        var i,
+            minValue = this.findMinValue(),
+            maxValue = this.findMaxValue(),
+            BUCKET_SIZE = 10;
+
+        bucketSize = bucketSize || BUCKET_SIZE;
+        var bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
+        var buckets = new Array(bucketCount);
+        for (i = 0; i < buckets.length; i++) {
+            buckets[i] = [];
+        }
+
+        for (i = 0; i < array.length; i++) {
+            buckets[Math.floor((array[i] - minValue) / bucketSize)].push(array[i]);
+        }
+
+        array = [];
+        for (i = 0; i < buckets.length; i++) {
+            insertionSort_(buckets[i]);
+
+            console.log('bucket ' + i + ': ' + buckets[i].join());
+
+            for (var j = 0; j < buckets[i].length; j++) {
+                array.push(buckets[i][j]);
+            }
+        }
     };
 
     this.sequentialSearch = function(item){

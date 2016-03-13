@@ -18,6 +18,10 @@ function ArrayList(){
         return array.join();
     };
 
+    this.array= function(){
+        return array;
+    };
+
     this.bubbleSort = function(){
         var length = array.length;
 
@@ -298,6 +302,53 @@ function ArrayList(){
                 array.push(buckets[i][j]);
             }
         }
+    };
+
+    this.radixSort = function(radixBase){
+
+        var i,
+            minValue = this.findMinValue(),
+            maxValue = this.findMaxValue(),
+            radixBase = radixBase || 10;
+
+        // Perform counting sort for each significant digit), starting at 1
+        var significantDigit = 1;
+        while (((maxValue - minValue) / significantDigit) >= 1) {
+            console.log('radix sort for digit ' + significantDigit);
+            array = countingSortForRadix(array, radixBase, significantDigit, minValue);
+            console.log(array.join());
+            significantDigit *= radixBase;
+        }
+    };
+
+    var countingSortForRadix = function(array, radixBase, significantDigit, minValue){
+        var i, countsIndex,
+            counts = new Array(radixBase),
+            aux = new Array(radixBase);
+
+        for (i = 0; i < radixBase; i++) {
+            counts[i] = 0;
+        }
+
+        for (i = 0; i < array.length; i++) {
+            countsIndex = Math.floor(((array[i] - minValue) / significantDigit) % radixBase);
+            counts[countsIndex]++;
+        }
+
+        for (i = 1; i < radixBase; i++) {
+            counts[i] += counts[i - 1];
+        }
+
+        for (i = array.length - 1; i >= 0; i--) {
+            countsIndex = Math.floor(((array[i] - minValue) / significantDigit) % radixBase);
+            aux[--counts[countsIndex]] = array[i];
+        }
+
+        for (i = 0; i < array.length; i++) {
+            array[i] = aux[i];
+        }
+
+        return array;
     };
 
     this.sequentialSearch = function(item){

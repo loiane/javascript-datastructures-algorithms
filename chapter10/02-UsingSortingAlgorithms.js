@@ -14,77 +14,96 @@ function createRandomNonSortedArray(){
     array.insert(3);
     array.insert(5);
     array.insert(1);
+    array.insert(6);
     array.insert(4);
+    array.insert(7);
     array.insert(2);
+
+    return array;
+}
+
+function printArray(array){
+    console.log(array.toString());
+}
+
+function createNonSortedArrayAndPrint(size){
+    var array = createNonSortedArray(size);
+    printArray(array);
 
     return array;
 }
 
 console.log('********** Bubble Sort **********');
 
-var array = createNonSortedArray(5);
-
-console.log(array.toString());
+var array = createNonSortedArrayAndPrint(5);
 
 array.bubbleSort();
 
-console.log(array.toString());
+printArray(array);
 
 console.log('********** Modified Bubble Sort **********');
 
-array = createNonSortedArray(5);
-
-console.log(array.toString());
+array = createNonSortedArrayAndPrint(5);
 
 array.modifiedBubbleSort();
 
-console.log(array.toString());
+printArray(array);
 
 console.log('********** Selection Sort **********');
 
-array = createNonSortedArray(5);
-
-console.log(array.toString());
+array = createNonSortedArrayAndPrint(5);
 
 array.selectionSort();
 
-console.log(array.toString());
+printArray(array);
 
 console.log('********** Insertion Sort **********');
 
-array = createRandomNonSortedArray();
-
-console.log(array.toString());
+array = createNonSortedArrayAndPrint();
 
 array.insertionSort();
 
-console.log(array.toString());
+printArray(array);
 
 console.log('********** Merge Sort **********');
 
-array = createNonSortedArray(8);
-
-console.log(array.toString());
+array = createNonSortedArrayAndPrint(8);
 
 array.mergeSort();
 
-console.log(array.toString());
+printArray(array);
 
 console.log('********** Quick Sort **********');
-array = new ArrayList();
+array = createRandomNonSortedArray();
 
-array.insert(3);
-array.insert(5);
-array.insert(1);
-array.insert(6);
-array.insert(4);
-array.insert(7);
-array.insert(2);
-
-console.log(array.toString());
+printArray(array);
 
 array.quickSort();
 
-console.log(array.toString());
+printArray(array);
+
+console.log('********** Heap Sort **********');
+array = createRandomNonSortedArray();
+
+printArray(array);
+
+array.heapSort();
+
+printArray(array);
 
 
+console.log('********** Counting Sort **********');
+
+array = createNonSortedArrayAndPrint(8);
+
+array.countingSort();
+
+printArray(array);
+
+console.log('********** Bucket Sort **********');
+
+array = createNonSortedArrayAndPrint(8);
+
+array.bucketSort(3);
+
+printArray(array);

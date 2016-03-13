@@ -200,6 +200,47 @@ function ArrayList(){
         return array;
     };
 
+    this.heapSort = function(){
+        var heapSize = array.length;
+
+        buildHeap(array);
+
+        while (heapSize > 1) {
+            heapSize--;
+            swap(array, 0, heapSize);
+            heapify(array, heapSize, 0);
+        }
+    };
+
+    var buildHeap = function(array){
+        var heapSize = array.length;
+        for (var i = Math.floor(array.length / 2); i >= 0; i--) {
+            heapify(array, heapSize, i);
+        }
+    };
+
+    var heapify = function(array, heapSize, i){
+        var left = i * 2 + 1,
+            right = i * 2 + 2,
+            largest = i;
+
+        if (left < heapSize && array[left] > array[largest]) {
+            largest = left;
+        }
+
+        if (right < heapSize && array[right] > array[largest]) {
+            largest = right;
+        }
+
+        console.log('Heap Index = '+ i + ' and Heap Size = ' + heapSize);
+
+        if (largest !== i) {
+            console.log('swap index ' + i + ' with ' + largest + ' (' + + array[i] + ',' + array[largest] + ')');
+            swap(array, i, largest);
+            heapify(array, heapSize, largest);
+        }
+    };
+
     this.countingSort = function(){
 
         var i,
@@ -229,24 +270,29 @@ function ArrayList(){
         var i,
             minValue = this.findMinValue(),
             maxValue = this.findMaxValue(),
-            BUCKET_SIZE = 10;
+            BUCKET_SIZE = 5;
+
+        console.log('minValue ' + minValue);
+        console.log('maxValue ' + maxValue);
 
         bucketSize = bucketSize || BUCKET_SIZE;
         var bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
         var buckets = new Array(bucketCount);
+        console.log('bucketSize = ' + bucketCount);
         for (i = 0; i < buckets.length; i++) {
             buckets[i] = [];
         }
 
         for (i = 0; i < array.length; i++) {
             buckets[Math.floor((array[i] - minValue) / bucketSize)].push(array[i]);
+            console.log('pushing item ' + array[i] + ' to bucket index ' + Math.floor((array[i] - minValue) / bucketSize));
         }
 
         array = [];
         for (i = 0; i < buckets.length; i++) {
             insertionSort_(buckets[i]);
 
-            console.log('bucket ' + i + ': ' + buckets[i].join());
+            console.log('bucket sorted ' + i + ': ' + buckets[i].join());
 
             for (var j = 0; j < buckets[i].length; j++) {
                 array.push(buckets[i][j]);

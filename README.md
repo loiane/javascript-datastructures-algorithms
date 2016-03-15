@@ -29,7 +29,7 @@ Book link - second edition:
 * 07: [Dictionaries and Hashes](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter07)
 * 08: [Trees](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter08)
 * 09: [Graphs](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter09)
-* 10: Sorting and searching algorithms
+* 10: [Sorting and searching algorithms](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter10)
 * 11: Pattern of algorithms
 * 12: More about algorithms
 * 13: Functional programming and data structures

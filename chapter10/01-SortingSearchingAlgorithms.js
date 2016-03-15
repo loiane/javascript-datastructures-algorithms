@@ -211,16 +211,20 @@ function ArrayList(){
 
         while (heapSize > 1) {
             heapSize--;
+            console.log('swap (' + + array[0] + ',' + array[heapSize] + ')');
             swap(array, 0, heapSize);
+            console.log('heapify ' + array.join());
             heapify(array, heapSize, 0);
         }
     };
 
     var buildHeap = function(array){
+        console.log('building heap');
         var heapSize = array.length;
         for (var i = Math.floor(array.length / 2); i >= 0; i--) {
             heapify(array, heapSize, i);
         }
+        console.log('heap created: ' + array.join());
     };
 
     var heapify = function(array, heapSize, i){
@@ -236,11 +240,12 @@ function ArrayList(){
             largest = right;
         }
 
-        console.log('Heap Index = '+ i + ' and Heap Size = ' + heapSize);
+        console.log('Heapify Index = '+ i + ' and Heap Size = ' + heapSize);
 
         if (largest !== i) {
             console.log('swap index ' + i + ' with ' + largest + ' (' + + array[i] + ',' + array[largest] + ')');
             swap(array, i, largest);
+            console.log('heapify ' + array.join());
             heapify(array, heapSize, largest);
         }
     };

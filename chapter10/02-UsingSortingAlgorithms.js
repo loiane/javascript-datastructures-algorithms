@@ -59,7 +59,7 @@ printArray(array);
 
 console.log('********** Insertion Sort **********');
 
-array = createNonSortedArrayAndPrint();
+array = createNonSortedArrayAndPrint(5);
 
 array.insertionSort();
 

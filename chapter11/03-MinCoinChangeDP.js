@@ -1,7 +1,5 @@
 function MinCoinChange(coins){
 
-    var coins = coins;
-
     var cache = {};
 
     this.makeChange = function(amount) {

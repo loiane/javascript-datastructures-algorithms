@@ -18,7 +18,6 @@ function MinCoinChange(coins){
     };
 }
 
-
 var minCoinChange = new MinCoinChange([1, 5, 10, 25]);
 console.log(minCoinChange.makeChange(36));
 

@@ -31,7 +31,7 @@ Book link - second edition:
 * 09: [Graphs](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter09)
 * 10: [Sorting and searching algorithms](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter10)
 * 11: [Pattern of algorithms](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter11)
-* 12: [More about algorithms](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter12)
+* 12: [Algorithm Complexity](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter12)
 
 ### First Edition source code:
 

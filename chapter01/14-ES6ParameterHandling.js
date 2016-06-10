@@ -30,7 +30,7 @@ function restParamaterFunction (x, y, ...a) {
 console.log(restParamaterFunction(1, 2, "hello", true, 7)); // outputs 9;
 
 //code above is the same as ES5:
-function restParamaterFunction (x, y) {
+function restParamaterFunction2 (x, y) {
     var a = Array.prototype.slice.call(arguments, 2);
     return (x + y) * a.length;
 };

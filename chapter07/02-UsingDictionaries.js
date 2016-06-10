@@ -11,7 +11,7 @@ console.log(dictionary.keys()); //outputs ["Gandalf", "John", "Tyrion"]
 console.log(dictionary.values()); //outputs ["gandalf@email.com", "johnsnow@email.com", "tyrion@email.com"]
 console.log(dictionary.get('Tyrion')); //outputs tyrion@email.com
 
-dictionary.delete(‘John');
+dictionary.delete('John');
 
 console.log(dictionary.keys()); //outputs ["Gandalf", "Tyrion"]
 console.log(dictionary.values()); //outputs ["gandalf@email.com", "tyrion@email.com"]

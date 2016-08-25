@@ -50,7 +50,3 @@ tree.inOrderTraverse(printNode);
 
 console.log('********* raw data structure ***********');
 console.log(tree.getRoot());
-
-console.log('********* printing HTML tree ***********');
-var parent = document.getElementsByTagName('body')[0];
-printHTMLTree(tree.getRoot(), parent, 255);

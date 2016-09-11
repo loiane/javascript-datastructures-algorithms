@@ -133,8 +133,8 @@ let CircularLinkedList2 = (function () {
 
         remove(element) {
 
-            let index = indexOf(element);
-            return removeAt(index);
+            let index = this.indexOf(element);
+            return this.removeAt(index);
         }
 
         indexOf(element) {

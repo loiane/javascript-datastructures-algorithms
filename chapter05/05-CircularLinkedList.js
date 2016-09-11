@@ -46,16 +46,22 @@ function CircularLinkedList() {
                 index = 0;
 
             if (position === 0){ //add on first position
+                
+                if(!head){ // if no node  in list
+                    head = node;
+                    node.next = head;
+                }else{
+                    node.next = current;
 
-                node.next = current;
+                    //update last element
+                    while(current.next !== head){ //last element will be head instead of NULL
+                        current = current.next;
+                    }
 
-                //update last element
-                while(current.next !== head){ //last element will be head instead of NULL
-                    current = current.next;
+                    head = node;
+                    current.next = head;
                 }
-
-                head = node;
-                current.next = head;
+                
 
             } else {
                 while (index++ < position){
@@ -181,3 +187,4 @@ function CircularLinkedList() {
         console.log(this.toString());
     };
 }
+

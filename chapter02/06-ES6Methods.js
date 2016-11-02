@@ -40,7 +40,7 @@ console.log(aKeys.next()); // {value: 1, done: false }
 console.log(aKeys.next()); // {value: 2, done: false }
 
 console.log('Array.values');
-//let aValues = numbers.values();
+let aValues = numbers.values();
 console.log(aValues.next()); // {value: 1, done: false } done false means iterator has more values
 console.log(aValues.next()); // {value: 2, done: false }
 console.log(aValues.next()); // {value: 3, done: false }

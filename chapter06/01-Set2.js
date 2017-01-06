@@ -55,7 +55,7 @@ let Set2 = (function () {
         }
 
         union(otherSet){
-            let unionSet = new Set();
+            let unionSet = new Set2();
 
             let values = this.values();
             for (let i=0; i<values.length; i++){
@@ -71,7 +71,7 @@ let Set2 = (function () {
         }
 
         intersection(otherSet){
-            let intersectionSet = new Set();
+            let intersectionSet = new Set2();
 
             let values = this.values();
             for (let i=0; i<values.length; i++){
@@ -84,7 +84,7 @@ let Set2 = (function () {
         }
 
         difference(otherSet){
-            let differenceSet = new Set();
+            let differenceSet = new Set2();
 
             let values = this.values();
             for (let i=0; i<values.length; i++){

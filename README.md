@@ -5,7 +5,7 @@ Source code of **Learning JavaScript Data Structures and Algorithms** book.
 
 | 1st edition   | 2nd edition   | 
 | ------------- |:-------------:| 
-| ![1st edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/4874OS_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms.jpg)      | ![2nd edition](https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B05348_MockupCover_Normal.jpg) | 
+| ![1st edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/4874OS_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms.jpg)      | ![2nd edition](https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/5493OS_5348_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms,%20Second%20Edition.jpg) | 
 | [Book link](http://amzn.to/1Y1OWPx)| [Book link](http://amzn.to/1TSkcA1)|
 
 Book link - first edition:
@@ -17,6 +17,7 @@ Book link - first edition:
 Book link - second edition:
  - [Packt](https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-second-edition)
  - [Amazon](http://amzn.to/1TSkcA1)
+ - [Brazilian Portuguese version](https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript/)
 
 ### List of Chapters:
   

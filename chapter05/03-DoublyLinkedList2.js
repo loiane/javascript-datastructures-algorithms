@@ -23,7 +23,7 @@ let DoublyLinkedList2 = (function () {
         append(element) {
 
             let node = new Node(element),
-                current, _tail;
+                _tail;
 
             if (this.getHead() === null) { //first node on list
                 head.set(this, node);
@@ -54,7 +54,7 @@ let DoublyLinkedList2 = (function () {
 
                 if (position === 0) { //add on first position
 
-                    if (!this.getHead()) {       //NEW
+                    if (!current) {       //NEW
                         head.set(this, node);
                         tail.set(this, node);
                     } else {

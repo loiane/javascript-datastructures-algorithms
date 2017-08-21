@@ -53,6 +53,15 @@ function HashLinearProbing(){
                     return table[index].value;
                 }
             }
+        } else { //search for possible deleted value
+            var index = ++position;
+            while (table[index] == undefined || index == table.length ||
+                (table[index] !== undefined && table[index] && table[index].key !== key)){
+                index++;
+            }
+            if (table[index] && table[index].key === key) {
+                return table[index].value;
+            }
         }
         return undefined;
     };

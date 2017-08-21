@@ -27,3 +27,11 @@ console.log('**** Remove **** ');
 hashLinearProbing.remove('Gandalf');
 console.log(hashLinearProbing.get('Gandalf'));
 hashLinearProbing.print();
+
+console.log('**** Remove Test 2 **** ');
+console.log('Removing Jonathan', hashLinearProbing.remove('Jonathan'));
+console.log('**** Print **** ');
+hashLinearProbing.print();
+console.log('Get Jamie', hashLinearProbing.get('Jamie'));
+console.log('**** Print **** ');
+hashLinearProbing.print();

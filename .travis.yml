@@ -1,5 +1,13 @@
 language: node_js
 node_js:
   - node
-script: "make"
-after_success: "make coveralls"
+install:
+  - npm install
+
+script:
+  - npm run lint
+  - npm run lint-test
+  - npm run cover
+
+after_script:
+  - "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js"

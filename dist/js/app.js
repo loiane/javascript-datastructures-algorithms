@@ -1,10 +1,11 @@
 'use strict';
 
-// @ts-check
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hello = hello;
+function hello() {
+  return 'Hello World!';
+}
 
-var myvar;
-
-console.log('Hello World!');
-
-myvar++;
-console.log(myvar);
+exports.default = hello;

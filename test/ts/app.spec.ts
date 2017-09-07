@@ -1,7 +1,6 @@
-import hello from './../../lib/ts/app';
-import { expect } from 'chai';
-// if you used the '@types/mocha' method to install mocha type definitions, uncomment the following line
 import 'mocha';
+import { expect } from 'chai';
+import hello from './../../lib/ts/app';
 
 describe('Hello function', () => {
   it('should return hello world', () => {

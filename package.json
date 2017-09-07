@@ -24,7 +24,8 @@
     "test:ts": "mocha -r ts-node/register --colors --recursive ./test/ts/**/*.spec.ts",
     "test": "npm run test:js && npm run test:ts",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -R spec --recursive ./test/js -- --compilers js:babel-core/register",
-    "go": "npm run clean && npm run test && npm run build"
+    "go": "npm run clean && npm run test && npm run build",
+    "serve": "http-serve html"
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",

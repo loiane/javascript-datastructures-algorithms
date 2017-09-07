@@ -1,0 +1,41 @@
+{
+  "name": "javascript-datastructures-algorithms",
+  "version": "1.0.0",
+  "description": "Learning JavaScript Data Structures and Algorithms",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loiane/javascript-datastructures-algorithms.git"
+  },
+  "keywords": [],
+  "author": "Loiane Groner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loiane/javascript-datastructures-algorithms/issues"
+  },
+  "homepage": "https://github.com/loiane/javascript-datastructures-algorithms#readme",
+  "scripts": {
+    "build": "webpack --env build",
+    "watch": "webpack --watch --env dev",
+    "start": "webpack-dev-server --hot --inline --progress --colors --watch --env dev",
+    "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
+    "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "coveralls": "^2.13.1",
+    "eslint": "^4.6.1",
+    "eslint-loader": "^1.9.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.0",
+    "path": "^0.12.7",
+    "webpack": "^3.5.6",
+    "webpack-dev-server": "^2.7.1",
+    "yargs": "^8.0.2"
+  }
+}

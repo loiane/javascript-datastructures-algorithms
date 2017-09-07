@@ -23,7 +23,7 @@
     "test:js": "mocha --compilers js:babel-core/register --colors -R spec --recursive ./test/js",
     "test:ts": "mocha -r ts-node/register --colors --recursive ./test/ts/**/*.spec.ts",
     "test": "npm run test:js && npm run test:ts",
-    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -R spec --recursive ./test/js -- --compilers js:babel-core/register",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -R spec --recursive ./test/js/**/*.spec.ts -- --compilers js:babel-core/register && codecov",
     "go": "npm run clean && npm run test && npm run build",
     "serve": "http-serve html"
   },
@@ -36,11 +36,10 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.1.2",
-    "coveralls": "^2.13.1",
+    "codecov": "^2.3.0",
     "eslint": "^4.6.1",
     "istanbul": "^v1.1.0-alpha.1",
     "mocha": "^3.5.0",
-    "ts-node": "^3.3.0",
-    "typings": "^2.1.1"
+    "ts-node": "^3.3.0"
   }
 }

@@ -5,6 +5,16 @@
     "es6": true,
     "node": true
   },
+  "globals": {
+    "expect": true,
+    "it": true,
+    "describe": true,
+    "beforeEach": true,
+    "afterEach": true,
+    "document": false,
+    "navigator": false,
+    "window": false
+  },
   "parser": "babel-eslint",
   "rules": {
     "block-scoped-var": 2,
@@ -26,10 +36,10 @@
     "func-style": 0,
     "generator-star-spacing": [2, "both"],
     "guard-for-in": 0,
-    "handle-callback-err": [2, "^(err|error|anySpecificError)$"],
+    "handle-callback-err": [2, "^(err|error|anySpecificError)$" ],
     "indent": [2, 2, { "SwitchCase": 1 }],
     "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
-    "keyword-spacing": [2, { "before": true, "after": true }],
+    "keyword-spacing": [2, {"before": true, "after": true}],
     "linebreak-style": 0,
     "max-depth": 0,
     "max-len": [2, 120, 4],
@@ -142,10 +152,7 @@
     "semi-spacing": 0,
     "sort-vars": 0,
     "space-before-blocks": [2, "always"],
-    "space-before-function-paren": [
-      2,
-      { "anonymous": "always", "named": "never" }
-    ],
+    "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
     "space-in-brackets": 0,
     "space-in-parens": [2, "never"],
     "space-infix-ops": 2,

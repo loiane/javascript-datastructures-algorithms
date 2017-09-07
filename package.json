@@ -40,6 +40,7 @@
     "eslint": "^4.6.1",
     "istanbul": "^v1.1.0-alpha.1",
     "mocha": "^3.5.0",
-    "ts-node": "^3.3.0"
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.2"
   }
 }

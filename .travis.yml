@@ -3,10 +3,11 @@ node_js:
   - node
 install:
   - npm install
-
 script:
   - npm run go
-  - npm run coverage
-
 after_script:
   - "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js"
+notifications:
+  email:
+    on_failure: change
+    on_success: change

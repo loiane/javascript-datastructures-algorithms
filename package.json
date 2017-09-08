@@ -15,8 +15,6 @@
   "homepage": "https://github.com/loiane/javascript-datastructures-algorithms",
   "scripts": {
     "clean": "rm -rf ./dist; mkdir ./dist",
-    "lint": "node_modules/.bin/eslint src/index.js",
-    "lint-test": "node_modules/.bin/eslint test/index.js",
     "build:js": "babel lib/js --presets babel-preset-es2015 --out-dir dist/js",
     "build:ts": "tsc",
     "build": "npm run build:js && npm run build:ts",
@@ -24,8 +22,8 @@
     "test:ts": "mocha -r ts-node/register --colors --recursive ./test/ts/**/*.spec.ts",
     "test": "npm run test:js && npm run test:ts",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -R spec --recursive ./test/js -- --compilers js:babel-core/register && codecov",
-    "go": "npm run clean && npm run test && npm run build",
-    "serve": "http-serve html"
+    "serve": "http-server html",
+    "go": "npm run clean && npm run test && npm run build && npm run coverage"
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",
@@ -38,9 +36,11 @@
     "chai": "^4.1.2",
     "codecov": "^2.3.0",
     "eslint": "^4.6.1",
+    "http-server": "^0.10.0",
     "istanbul": "^v1.1.0-alpha.1",
     "mocha": "^3.5.0",
     "ts-node": "^3.3.0",
+    "tslint": "^5.7.0",
     "typescript": "^2.5.2"
   }
 }

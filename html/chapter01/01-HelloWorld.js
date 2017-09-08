@@ -1,6 +1,8 @@
+// @ts-check
+
 function output(t) {
-    document.write('<p>' + t + '</p>');
-    return;
+  document.write('<p>' + t + '</p>');
+  return;
 }
 
 alert('Hello, World!');

@@ -1,6 +1,8 @@
+// @ts-check
+
 // Template literals
 var book = {
-    name: 'Learning JavaScript DataStructures and Algorithms'
+  name: 'Learning JavaScript DataStructures and Algorithms'
 };
 
 console.log(`You are reading ${book.name}.,

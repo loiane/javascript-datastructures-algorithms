@@ -24,8 +24,8 @@
     "test": "npm run test:js && npm run test:ts",
     "coverage:js": "./node_modules/.bin/istanbul cover --include-all-sources --root ./lib/js ./node_modules/.bin/_mocha --recursive ./test/js/**/*.spec.js -- --compilers js:babel-core/register",
     "nyc-report": "npm run coverage && nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "cover:local": "npm run coverage && nyc report --reporter=text",
-    "coverage": "NODE_ENV=test nyc --report-dir coverage/tscov npm run test",
+    "local": "npm run clean && npm run coverage && nyc report --reporter=text",
+    "coverage": "NODE_ENV=test nyc --report-dir coverage npm run test",
     "go": "npm run clean && npm run build && npm run test"
 
   },
@@ -42,9 +42,6 @@
     "extension": [
       ".ts",
       ".js"
-    ],
-    "require": [
-      "ts-node/register"
     ],
     "reporter": [
       "json",

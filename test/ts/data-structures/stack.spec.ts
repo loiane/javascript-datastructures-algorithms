@@ -3,10 +3,10 @@ import { expect } from 'chai';
 import Stack from '../../../lib/ts/data-structures/stack';
 
 describe('Stack', () => {
-  let stack: Stack;
+  let stack: Stack<number>;
 
   beforeEach(function() {
-    stack = new Stack();
+    stack = new Stack<number>();
   });
 
   it('starts empty', () => {
@@ -152,11 +152,12 @@ describe('Stack', () => {
     stack.clear();
     expect(stack.toString()).to.equal('');
 
-    stack.push('el1');
-    expect(stack.toString()).to.equal('el1');
+    const stackString = new Stack<string>();
+    stackString.push('el1');
+    expect(stackString.toString()).to.equal('el1');
 
-    stack.push('el2');
-    expect(stack.toString()).to.equal('el1,el2');
+    stackString.push('el2');
+    expect(stackString.toString()).to.equal('el1,el2');
   });
 
   it('returns toString objects', () => {
@@ -167,13 +168,13 @@ describe('Stack', () => {
         return `${this.el1.toString()}|${this.el2.toString()}`;
       }
     }
-    expect(stack.toString()).to.equal('');
+    const stackMyObj = new Stack<MyObj>();
+    expect(stackMyObj.toString()).to.equal('');
 
-    stack.push(new MyObj(1, 2));
-    expect(stack.toString()).to.equal('1|2');
+    stackMyObj.push(new MyObj(1, 2));
+    expect(stackMyObj.toString()).to.equal('1|2');
 
-    stack.push(new MyObj(3, 4));
-    expect(stack.toString()).to.equal('1|2,3|4');
-
+    stackMyObj.push(new MyObj(3, 4));
+    expect(stackMyObj.toString()).to.equal('1|2,3|4');
   });
 });

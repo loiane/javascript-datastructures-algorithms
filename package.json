@@ -14,15 +14,15 @@
   },
   "homepage": "https://github.com/loiane/javascript-datastructures-algorithms",
   "scripts": {
+    "start": "gulp",
     "clean": "rm -rf ./dist; mkdir ./dist",
-    "build:js": "babel lib/js --out-dir dist/js",
+    "build:js": "babel lib/js --presets babel-preset-es2015 --out-dir dist/js",
     "build:ts": "tsc",
     "build": "npm run build:js && npm run build:ts",
-    "test:js": "mocha --compilers js:babel-core/register --colors -R spec --recursive ./test/js",
+    "test:js": "mocha --compilers js:babel-core/register --colors--recursive ./test/js/**/*.spec.js",
     "test:ts": "mocha -r ts-node/register --colors --recursive ./test/ts/**/*.spec.ts",
     "test": "npm run test:js && npm run test:ts",
-    "coverage": "./node_modules/.bin/istanbul cover --include-all-sources --root ./lib/js ./node_modules/.bin/_mocha -R spec.js --recursive ./test/js -- --compilers js:babel-core/register && codecov",
-    "serve": "http-server html",
+    "coverage": "./node_modules/.bin/istanbul cover --include-all-sources --root ./lib/js ./node_modules/.bin/_mocha --recursive ./test/js/**/*.spec.js -- --compilers js:babel-core/register && codecov",
     "go": "npm run clean && npm run test && npm run build && npm run coverage"
   },
   "devDependencies": {
@@ -30,19 +30,24 @@
     "@types/mocha": "^2.2.42",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2016": "^6.24.1",
     "babel-preset-es2017": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
     "chai": "^4.1.2",
     "codecov": "^2.3.0",
+    "del": "^3.0.0",
     "eslint": "^4.6.1",
-    "http-server": "^0.10.0",
+    "event-stream": "^3.3.4",
+    "glob": "^7.1.2",
+    "gulp": "^3.9.1",
     "istanbul": "^v1.1.0-alpha.1",
     "mocha": "^3.5.0",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
-    "typescript": "^2.5.2"
+    "typescript": "^2.5.2",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

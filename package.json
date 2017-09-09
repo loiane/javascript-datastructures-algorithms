@@ -15,15 +15,42 @@
   "homepage": "https://github.com/loiane/javascript-datastructures-algorithms",
   "scripts": {
     "gulp": "gulp",
-    "clean": "rm -rf ./dist; mkdir ./dist",
+    "clean": "rm -rf ./dist; mkdir ./dist rm; rm -rf ./coverage",
     "build:js": "babel lib/js --presets babel-preset-es2015 --out-dir dist/js",
     "build:ts": "tsc",
     "build": "npm run build:js && npm run build:ts",
     "test:js": "mocha --compilers js:babel-core/register --colors --recursive ./test/js/**/*.spec.js",
     "test:ts": "mocha -r ts-node/register --colors --recursive ./test/ts/**/*.spec.ts",
     "test": "npm run test:js && npm run test:ts",
-    "coverage": "./node_modules/.bin/istanbul cover --include-all-sources --root ./lib/js ./node_modules/.bin/_mocha --recursive ./test/js/**/*.spec.js -- --compilers js:babel-core/register && codecov",
-    "go": "npm run clean && npm run test && npm run build && npm run coverage"
+    "coverage:js": "./node_modules/.bin/istanbul cover --include-all-sources --root ./lib/js ./node_modules/.bin/_mocha --recursive ./test/js/**/*.spec.js -- --compilers js:babel-core/register",
+    "nyc-report": "npm run coverage && nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "cover:local": "npm run coverage && nyc report --reporter=text",
+    "coverage": "NODE_ENV=test nyc --report-dir coverage/tscov npm run test",
+    "go": "npm run clean && npm run build && npm run test"
+
+  },
+  "nyc": {
+    "include": [
+      "lib/ts/*.ts",
+      "lib/ts/**/*.ts",
+      "lib/js/*.js",
+      "lib/js/**/*.js"
+    ],
+    "exclude": [
+      "typings"
+    ],
+    "extension": [
+      ".ts",
+      ".js"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ],
+    "all": true
   },
   "devDependencies": {
     "@types/chai": "^4.0.4",
@@ -45,6 +72,7 @@
     "gulp": "^3.9.1",
     "istanbul": "^v1.1.0-alpha.1",
     "mocha": "^3.5.0",
+    "nyc": "^11.2.1",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
     "typescript": "^2.5.2",

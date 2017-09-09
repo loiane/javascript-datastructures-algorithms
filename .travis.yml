@@ -5,8 +5,8 @@ install:
   - npm install
 script:
   - npm run go
-after_script:
-  - "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js"
+after_success:
+  - npm run nyc-report
 notifications:
   email:
     on_failure: change

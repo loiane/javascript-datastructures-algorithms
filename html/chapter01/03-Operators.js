@@ -1,24 +1,19 @@
 // @ts-check
 
 /* Arithmetic operators */
-var num = 0;
-
+var num = 0; // {1}
 console.log('num value is ' + num);
 
 num = num + 2;
-
 console.log('New num value is ' + num);
 
 num = num * 3;
-
 console.log('New num value is ' + num);
 
 num = num / 2;
-
 console.log('New num value is ' + num);
 
 num++;
-
 num--;
 
 console.log('New num value is ' + num);

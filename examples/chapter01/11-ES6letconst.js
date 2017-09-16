@@ -1,12 +1,8 @@
 // @ts-check
 
-//* ****** EcmaScript 6: let and const keywords
-// EcmaScript 6 Constants
-const PI = 3.141593;
-// PI = 3.0; //throws error
-console.log(PI);
+//* ****** EcmaScript 2015 (ES6): let and const keywords
 
-//* ****** EcmaScript 6: let is the new var
+//* ****** EcmaScript 2015 (ES6): let is the new var
 var framework = 'Angular';
 var framework = 'React';
 console.log(framework);
@@ -15,7 +11,7 @@ let language = 'JavaScript!';
 // let language = 'Ruby!'; //throws error
 console.log(language);
 
-//* ****** EcmaScript 6: variables scope
+//* ****** EcmaScript 2015 (ES6): variables scope
 let movie = 'Lord of the Rings';
 // var movie = 'Batman v Superman'; //throws error, variable movie already declared
 
@@ -47,3 +43,8 @@ console.log(starWarsFan());
 console.log(marvelFan());
 console.log(movie);
 blizzardFan();
+
+// EcmaScript 2015 (ES6) Constants
+const PI = 3.141593;
+// PI = 3.0; //throws error
+console.log(PI);

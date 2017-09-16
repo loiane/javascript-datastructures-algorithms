@@ -1,6 +1,6 @@
 // @ts-check
 
-// ES6 classes
+//* ****** EcmaScript 2015 (ES6): classes (https://goo.gl/UhK1n4)
 class Book {
   constructor(title, pages, isbn) {
     this.title = title;
@@ -20,10 +20,10 @@ book.title = 'new title'; // update the value of the book title
 
 console.log(book.title); // outputs the book title
 
-// inheritance
-class ITBook extends Book {
+// inheritance (https://goo.gl/hgQvo9)
+class ITBook extends Book { // {1}
   constructor(title, pages, isbn, technology) {
-    super(title, pages, isbn);
+    super(title, pages, isbn); // {2}
     this.technology = technology;
   }
 
@@ -42,27 +42,26 @@ let jsBook = new ITBook(
 console.log(jsBook.title);
 console.log(jsBook.printTechnology());
 
-// getter and setters
+// getter and setters (https://goo.gl/SMRYsv)
 class Person {
   constructor(name) {
-    this._name = name;
+    this._name = name; // {1}
   }
 
-  get name() {
+  get name() { // {2}
     return this._name;
   }
 
-  set name(value) {
+  set name(value) { // {3}
     this._name = value;
   }
 }
 
 let lotrChar = new Person('Frodo');
+console.log(lotrChar.name); // {4}
+lotrChar.name = 'Gandalf'; // {5}
 console.log(lotrChar.name);
-lotrChar.name = 'Gandalf';
-console.log(lotrChar.name);
-
-lotrChar._name = 'Sam';
+lotrChar._name = 'Sam'; // {6}
 console.log(lotrChar.name);
 
 // using symbols for private atributes

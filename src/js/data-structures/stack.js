@@ -1,3 +1,5 @@
+// @ts-check
+
 let items;
 export default class Stack {
   constructor() {

@@ -6,7 +6,7 @@ install:
 script:
   - npm run go
 after_success:
-  - npm run nyc-report
+  - npm run coverage
 notifications:
   email:
     on_failure: change

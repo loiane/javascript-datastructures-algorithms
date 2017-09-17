@@ -5,7 +5,7 @@ import Stack from '../../../src/js/data-structures/stack';
 describe('Stack', () => {
   let stack;
 
-  beforeEach(function() {
+  beforeEach(() => {
     stack = new Stack();
   });
 

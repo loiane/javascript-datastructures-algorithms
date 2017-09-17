@@ -1,4 +1,4 @@
-import Stack from './../../lib/js/data-structures/stack.js';
+import Stack from './../../src/js/data-structures/stack.js';
 
 const stack = new Stack();
 

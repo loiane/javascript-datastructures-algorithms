@@ -7,7 +7,7 @@ import glob from 'glob';
 import es from 'event-stream';
 
 const paths = {
-  scriptsJs: 'lib/js/**/*.js',
+  scriptsJs: 'src/js/**/*.js',
   dist: 'dist/',
   distJs: 'dist/js'
 };

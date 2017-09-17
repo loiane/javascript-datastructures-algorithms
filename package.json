@@ -16,13 +16,13 @@
   "scripts": {
     "gulp": "gulp",
     "clean": "rm -rf ./dist; mkdir ./dist rm; rm -rf ./coverage",
-    "build:js": "babel lib/js --presets babel-preset-es2015 --out-dir dist/js",
+    "build:js": "babel src/js --presets babel-preset-es2015 --out-dir dist/js",
     "build:ts": "tsc",
     "build": "npm run build:js && npm run build:ts",
     "test:js": "mocha --compilers js:babel-core/register --colors --recursive ./test/js/**/*.spec.js",
     "test:ts": "mocha -r ts-node/register --colors --recursive ./test/ts/**/*.spec.ts",
     "test": "npm run test:js && npm run test:ts",
-    "coverage:js": "./node_modules/.bin/istanbul cover --include-all-sources --root ./lib/js ./node_modules/.bin/_mocha --recursive ./test/js/**/*.spec.js -- --compilers js:babel-core/register",
+    "coverage:js": "./node_modules/.bin/istanbul cover --include-all-sources --root ./src/js ./node_modules/.bin/_mocha --recursive ./test/js/**/*.spec.js -- --compilers js:babel-core/register",
     "nyc-report": "npm run coverage && nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "local": "npm run clean && npm run coverage && nyc report --reporter=text",
     "coverage": "NODE_ENV=test nyc --report-dir coverage npm run test",
@@ -30,10 +30,10 @@
   },
   "nyc": {
     "include": [
-      "lib/ts/*.ts",
-      "lib/ts/**/*.ts",
-      "lib/js/*.js",
-      "lib/js/**/*.js"
+      "src/ts/*.ts",
+      "src/ts/**/*.ts",
+      "src/js/*.js",
+      "src/js/**/*.js"
     ],
     "exclude": [
       "typings"

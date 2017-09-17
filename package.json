@@ -22,7 +22,7 @@
     "lint:ts": "tslint -c tslint.json 'src/ts/**/*.ts' && tslint -c tslint.json 'test/ts/**/*.ts'",
     "lint": "npm run lint:js && npm run lint:ts",
     "test:js": "mocha --compilers js:babel-core/register ./test/js/**/*.spec.js",
-    "test:ts": "mocha -r ts-node/register ./test/ts/**/*.spec.ts",
+    "test:ts": "mocha -r ts-node/register --recursive ./test/ts/**/*.spec.ts",
     "test": "npm run test:js && npm run test:ts",
     "test:dev": "npm run clean && npm run generate-report",
     "coverage": "npm run generate-report && nyc report --reporter=text-lcov > coverage.lcov && codecov",

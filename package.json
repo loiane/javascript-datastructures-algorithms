@@ -14,9 +14,9 @@
   },
   "homepage": "https://github.com/loiane/javascript-datastructures-algorithms",
   "scripts": {
-    "clean": "rm -rf ./dist ./coverage ./.nyc_output",
+    "clean": "rm -rf ./dist ./coverage ./.nyc_output ./coverage.lcov",
     "build:js": "babel src/js -d dist/js",
-    "build:ts": "tsc",
+    "build:ts": "tsc -p ./ --rootDir ./src/ts",
     "build": "npm run build:js && npm run build:ts",
     "lint:js": "eslint src/js && eslint test/js",
     "lint:ts": "tslint -c tslint.json 'src/ts/**/*.ts' && tslint -c tslint.json 'test/ts/**/*.ts'",
@@ -24,7 +24,7 @@
     "test:js": "mocha --compilers js:babel-core/register ./test/js/**/*.spec.js",
     "test:ts": "mocha -r ts-node/register --recursive ./test/ts/**/*.spec.ts",
     "test": "npm run test:js && npm run test:ts",
-    "test:dev": "npm run clean && npm run generate-report",
+    "dev": "npm run clean && npm run lint && npm run generate-report",
     "coverage": "npm run generate-report && nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "generate-report": "nyc --report-dir coverage npm run test && nyc report --reporter=text",
     "go": "npm run clean && npm run lint && npm run build"

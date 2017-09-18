@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 
 //* ****** EcmaScript 2015 (ES6): Default Parameter Values (https://goo.gl/AP5EYb)
 function sum(x = 1, y = 2, z = 3) {

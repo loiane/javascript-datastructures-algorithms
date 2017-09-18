@@ -1,3 +1,6 @@
+// @ts-check
+/* eslint-disable */
+
 console.log('**** for example ****');
 /* for - example */
 for (var i = 0; i < 10; i++) {

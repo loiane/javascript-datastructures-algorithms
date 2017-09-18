@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 
 // Packt == true
 

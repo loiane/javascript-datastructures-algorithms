@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 
 //* ****** EcmaScript 2015 (ES6): let and const keywords
 

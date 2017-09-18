@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 
 /* Object example 1 */
 var obj = new Object();

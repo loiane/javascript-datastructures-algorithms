@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 
 //* ****** EcmaScript 2015 (ES6): Destructuring Assignment + Property Shorthand (https://goo.gl/VsLecp )
 let [x, y] = ['a', 'b'];

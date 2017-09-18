@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 
 function sayHello() {
   console.log('Hello!');

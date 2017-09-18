@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 
 //* ****** EcmaScript 2016 (ES7): Exponentiation operator (https://goo.gl/Z6dCFB)
 let r = 2;

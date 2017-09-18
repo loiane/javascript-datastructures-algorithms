@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 
 /* Example 01 - if */
 var num = 1;

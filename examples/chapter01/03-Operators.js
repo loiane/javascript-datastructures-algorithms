@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 
 /* Arithmetic operators */
 var num = 0; // {1}

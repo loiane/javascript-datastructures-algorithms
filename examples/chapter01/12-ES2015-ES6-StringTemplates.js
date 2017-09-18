@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 
 //* ****** EcmaScript 2015 (ES6): Template literals (https://goo.gl/4N36CS)
 const book = {

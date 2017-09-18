@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 // import { circleArea, squareArea } from './17-CalcArea'; // {2}
 // import { circleArea as circle } from './17-CalcArea';
 

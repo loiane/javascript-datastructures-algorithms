@@ -1,3 +1,6 @@
+// @ts-check
+/* eslint-disable */
+
 export default class Book {
   constructor(title) {
     this.title = title;

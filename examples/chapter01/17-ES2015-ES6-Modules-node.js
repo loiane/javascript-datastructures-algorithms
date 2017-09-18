@@ -1,3 +1,6 @@
+// @ts-check
+/* eslint-disable */
+
 const area = require('./lib/17-CalcArea');
 const Book = require('./lib/17-Book');
 

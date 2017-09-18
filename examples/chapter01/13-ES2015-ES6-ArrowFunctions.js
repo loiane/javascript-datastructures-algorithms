@@ -1,4 +1,5 @@
 // @ts-check
+/* eslint-disable */
 
 //* ****** EcmaScript 2015 (ES6): arrow functions (https://goo.gl/nM414v)
 var circleAreaES5 = function circleArea(r) {

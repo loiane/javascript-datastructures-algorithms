@@ -10,8 +10,8 @@ Work in Progress.
 
 ## List of available chapters:
 
-* 01: [JavaScript, ECMAScript and TypeScript: a quick overview](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/html/chapter01)
-* 02: [Arrays](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/html/chapter02)
+* 01: [JavaScript, ECMAScript and TypeScript: a quick overview](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter01)
+* 02: [Arrays](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter02)
 
 
 ## Installing and running the book examples With Node

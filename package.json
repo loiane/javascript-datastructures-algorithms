@@ -27,7 +27,7 @@
     "dev": "npm run clean && npm run lint && npm run generate-report",
     "coverage": "npm run generate-report && nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "generate-report": "nyc --report-dir coverage npm run test && nyc report --reporter=text",
-    "go": "npm run clean && npm run lint && npm run build"
+    "go": "npm run clean && npm run lint && npm run build && npm run test"
   },
   "nyc": {
     "include": [

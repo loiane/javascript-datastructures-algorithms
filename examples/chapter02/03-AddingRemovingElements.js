@@ -1,12 +1,13 @@
 // @ts-check
 
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+
 function printArray(myArray) {
-  for (var i = 0; i < myArray.length; i++) {
+  for (let i = 0; i < myArray.length; i++) {
     console.log(myArray[i]);
   }
 }
-
-var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // add a new element to the numbers array
 numbers[numbers.length] = 10;
@@ -18,7 +19,7 @@ numbers.push(12, 13);
 printArray(numbers);
 
 // insert first position manually
-for (var i = numbers.length; i >= 0; i--) {
+for (let i = numbers.length; i >= 0; i--) {
   numbers[i] = numbers[i - 1];
 }
 
@@ -40,9 +41,9 @@ printArray(numbers);
 numbers.pop();
 
 // remove first position manually
-/* for (var i=0; i<numbers.length; i++){
-    numbers[i] = numbers[i+1];
-}*/
+for (let i = 0; i < numbers.length; i++) {
+  numbers[i] = numbers[i + 1];
+}
 
 printArray(numbers);
 

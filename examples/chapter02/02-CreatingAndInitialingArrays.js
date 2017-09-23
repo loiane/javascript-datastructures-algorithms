@@ -1,18 +1,20 @@
 // @ts-check
+/* eslint-disable */
 
-var daysOfWeek = [];
+let daysOfWeek = new Array(); // {1}
 
-var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+daysOfWeek = new Array(7); // {2}
 
-var daysOfWeek = new Array(); // {1}
+daysOfWeek = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'); // {3}
 
-var daysOfWeek = new Array(7); // {2}
+// preferred
+daysOfWeek = [];
+
+daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; // {3}
 
 console.log(daysOfWeek.length);
 
-var daysOfWeek = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'); // {3}
-
-for (var i = 0; i < daysOfWeek.length; i++) {
+for (let i = 0; i < daysOfWeek.length; i++) {
   console.log(daysOfWeek[i]);
 }
 
@@ -20,16 +22,16 @@ for (var i = 0; i < daysOfWeek.length; i++) {
 
 // fibonacci numbers
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
-var fibonacci = []; // {1}
-fibonacci[1] = 1;   // {2}
-fibonacci[2] = 1;   // {3}
+const fibonacci = []; // {1}
+fibonacci[1] = 1; // {2}
+fibonacci[2] = 1; // {3}
 
-for (var i = 3; i < 20; i++) {
+for (let i = 3; i < 20; i++) {
   fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2]; // //{4}
 }
 
-for (var i = 1; i < fibonacci.length; i++) { // {5}
-  console.log(fibonacci[i]);                 // {6}
+for (let i = 1; i < fibonacci.length; i++) { // {5}
+  console.log(fibonacci[i]); // {6}
 }
 
 // instead of {5} and {6} we can simply use

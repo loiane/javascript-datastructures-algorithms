@@ -1,123 +1,47 @@
 // @ts-check
 
-//* ** contact
-var zero = 0;
-var positiveNumbers = [1, 2, 3];
-var negativeNumbers = [-3, -2, -1];
-var numbers = negativeNumbers.concat(zero, positiveNumbers);
+//* ************** Joining multiple arrays
+const zero = 0;
+const positiveNumbers = [1, 2, 3];
+const negativeNumbers = [-3, -2, -1];
+let numbers = negativeNumbers.concat(zero, positiveNumbers);
 
-console.log(numbers);
+console.log('zero', zero);
+console.log('positiveNumbers', positiveNumbers);
+console.log('negativeNumbers', negativeNumbers);
+console.log('negativeNumbers.concat(zero, positiveNumbers)', numbers);
 
-// console.log(numbers);
-
-//* ** every and some
-var isEven = function(x) {
+/* function isEven(x) {
   // returns true if x is a multiple of 2.
   console.log(x);
-  return x % 2 === 0;
-};
-var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  return x % 2 === 0 ? true : false;
+} */ // ES5 syntax
+const isEven = x => x % 2 === 0;
 
-numbers.every(isEven); // is going to execute the function only once
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+console.log('numbers', numbers);
 
-console.log('---');
+// it is going to execute the function only once
+console.log('numbers.every(isEven)', numbers.every(isEven));
 
-numbers.some(isEven); // is going to execute the function twice
+// is going to execute the function twice
+console.log('numbers.some(isEven)', numbers.some(isEven));
 
-numbers.forEach(function(x) {
+/* numbers.forEach(function(x) {
   console.log(x % 2 == 0);
-});
+}); */ // ES5 sintax for function below
 
-console.log(numbers.reverse());
+numbers.forEach(x => console.log(`numbers.forEach: ${x} % 2 === 0`, x % 2 === 0));
 
-// console.log('*** filter ***');
 
-var evenNumbers = numbers.filter(isEven);
+console.log('numbers.map(isEven)', numbers.map(isEven));
 
-// console.log(evenNumbers);
+console.log('numbers.filter(isEven)', numbers.filter(isEven));
 
-console.log('*** map ***');
-
-// console.log(numbers.map(isEven));
-
-console.log(
+/* console.log('numbers.reduce',
   numbers.reduce(function(previous, current, index) {
     return previous + current;
   })
-);
+); */ // ES5 sintax for function below
 
-console.log(numbers.sort());
-
-console.log(
-  numbers.sort(function(a, b) {
-    return a - b;
-  })
-);
-
-function compare(a, b) {
-  if (a < b) {
-    return -1;
-  }
-  if (a > b) {
-    return 1;
-  }
-  // a must be equal to b
-  return 0;
-}
-
-console.log(numbers.sort(compare));
-
-// Sorting objects
-
-var friends = [
-  { name: 'John', age: 30 },
-  { name: 'Ana', age: 20 },
-  { name: 'Chris', age: 25 }
-];
-
-function comparePerson(a, b) {
-  if (a.age < b.age) {
-    return -1;
-  }
-  if (a.age > b.age) {
-    return 1;
-  }
-  return 0;
-}
-
-console.log(friends.sort(comparePerson));
-
-var names = ['Ana', 'ana', 'john', 'John'];
-console.log(names.sort());
-
-console.log(
-  names.sort(function(a, b) {
-    if (a.toLowerCase() < b.toLowerCase()) {
-      return -1;
-    }
-    if (a.toLowerCase() > b.toLowerCase()) {
-      return 1;
-    }
-    return 0;
-  })
-);
-
-var names2 = ['Maève', 'Maeve'];
-console.log(
-  names2.sort(function(a, b) {
-    return a.localeCompare(b);
-  })
-);
-
-//* ** toString
-console.log(numbers.toString());
-
-console.log(numbers.indexOf(10));
-console.log(numbers.indexOf(100));
-
-numbers.push(10);
-console.log(numbers.lastIndexOf(10));
-console.log(numbers.lastIndexOf(100));
-
-var numbersString = numbers.join('-');
-console.log(numbersString);
+console.log('numbers.reduce', numbers.reduce((previous, current) => previous + current));

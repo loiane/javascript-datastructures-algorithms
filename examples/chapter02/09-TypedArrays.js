@@ -1,7 +1,7 @@
-let length = 5;
-let int16 = new Int16Array(length);
+const length = 5;
+const int16 = new Int16Array(length);
 
-let array16 = [];
+const array16 = [];
 array16.length = length;
 
 for (let i = 0; i < length; i++) {

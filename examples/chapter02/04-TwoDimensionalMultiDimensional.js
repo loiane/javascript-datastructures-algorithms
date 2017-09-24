@@ -8,7 +8,7 @@ let averageTemp = [];
 
 // same as
 averageTemp[0] = [72, 75, 79, 79, 81, 81];
-averageTemp[1] = [81, 79, 75, 75, 73, 72];
+averageTemp[1] = [81, 79, 75, 75, 73, 73];
 
 function printMatrix(myMatrix) {
   for (let i = 0; i < myMatrix.length; i++) {
@@ -18,7 +18,8 @@ function printMatrix(myMatrix) {
   }
 }
 
-printMatrix(averageTemp);
+// printMatrix(averageTemp);
+console.log('averageTemp two-dimensional array:');
 
 // same as
 
@@ -37,9 +38,10 @@ averageTemp[1][1] = 79;
 averageTemp[1][2] = 75;
 averageTemp[1][3] = 75;
 averageTemp[1][4] = 73;
-averageTemp[1][5] = 72;
+averageTemp[1][5] = 73;
 
-printMatrix(averageTemp);
+// printMatrix(averageTemp);
+console.table(averageTemp);
 
 //* * Multidimensional Matrix
 
@@ -63,3 +65,14 @@ for (let i = 0; i < matrix3x3x3.length; i++) {
     }
   }
 }
+
+// user-friendly-output
+const matrix3x3x3Output = [];
+for (let i = 0; i < 3; i++) {
+  matrix3x3x3Output[i] = [];
+  for (let j = 0; j < 3; j++) {
+    matrix3x3x3Output[i][j] = `[${matrix3x3x3[i][j].join(', ')}]`;
+  }
+}
+console.log('matrix3x3x3 three-dimensional array:');
+console.table(matrix3x3x3Output);

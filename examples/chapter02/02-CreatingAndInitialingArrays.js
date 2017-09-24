@@ -12,13 +12,11 @@ daysOfWeek = [];
 
 daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; // {3}
 
-console.log(daysOfWeek.length);
+console.log('daysOfWeek.length', daysOfWeek.length);
 
 for (let i = 0; i < daysOfWeek.length; i++) {
-  console.log(daysOfWeek[i]);
+  console.log(`daysOfWeek[${i}]`, daysOfWeek[i]);
 }
-
-// console.table(daysOfWeek);
 
 // fibonacci numbers
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
@@ -31,8 +29,8 @@ for (let i = 3; i < 20; i++) {
 }
 
 for (let i = 1; i < fibonacci.length; i++) { // {5}
-  console.log(fibonacci[i]); // {6}
+  console.log(`fibonacci[${i}]`, fibonacci[i]); // {6}
 }
 
 // instead of {5} and {6} we can simply use
-console.log(fibonacci);
+console.log('fibonacci', fibonacci);

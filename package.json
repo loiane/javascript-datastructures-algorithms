@@ -14,20 +14,21 @@
   },
   "homepage": "https://github.com/loiane/javascript-datastructures-algorithms",
   "scripts": {
-    "clean": "rm -rf ./dist ./coverage ./.nyc_output ./coverage.lcov",
+    "clean": "rm -rf ./dist ./coverage ./.nyc_output ./coverage.lcov ./mochawesome-report",
     "build:js": "babel src/js -d dist/js",
     "build:ts": "tsc -p ./ --rootDir ./src/ts",
     "build": "npm run build:js && npm run build:ts",
     "lint:js": "eslint src/js && eslint test/js",
     "lint:ts": "tslint -c tslint.json 'src/ts/**/*.ts' && tslint -c tslint.json 'test/ts/**/*.ts'",
     "lint": "npm run lint:js && npm run lint:ts",
-    "test:js": "mocha --compilers js:babel-core/register ./test/js/**/*.spec.js",
+    "test:js": "mocha --compilers js:babel-core/register ./test/js/**/*.spec.js --reporter mochawesome",
     "test:ts": "mocha -r ts-node/register --recursive ./test/ts/**/*.spec.ts",
     "test": "npm run test:js && npm run test:ts",
     "dev": "npm run clean && npm run lint && npm run generate-report",
     "coverage": "npm run generate-report && nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "generate-report": "nyc --report-dir coverage npm run test && nyc report --reporter=text",
-    "go": "npm run clean && npm run lint && npm run build && npm run test"
+    "go": "npm run clean && npm run lint && npm run build && npm run test",
+    "webpack": "webpack --env build"
   },
   "nyc": {
     "include": [
@@ -55,6 +56,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
+    "babel-loader": "^7.1.2",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-env": "^1.6.0",
@@ -65,9 +67,12 @@
     "eslint-plugin-import": "^2.7.0",
     "istanbul": "^v1.1.0-alpha.1",
     "mocha": "^3.5.0",
+    "mochawesome": "^2.3.1",
     "nyc": "^11.2.1",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
-    "typescript": "^2.5.2"
+    "typescript": "^2.5.2",
+    "webpack": "^3.6.0",
+    "yargs": "^9.0.1"
   }
 }

@@ -123,23 +123,6 @@ describe('Stack', () => {
     expect(stack.isEmpty()).to.equal(true);
   });
 
-  it('returns an Array', () => {
-    let stackArray = stack.toArray();
-    expect(stackArray.length).to.equal(0);
-
-    stack.push(1);
-    stack.push(2);
-
-    stackArray = stack.toArray();
-    expect(stackArray.length).to.equal(2);
-
-    let i = 1;
-    stackArray.forEach(e => {
-      expect(e).to.equal(i);
-      i++;
-    });
-  });
-
   it('returns toString primitive types', () => {
     expect(stack.toString()).to.equal('');
 

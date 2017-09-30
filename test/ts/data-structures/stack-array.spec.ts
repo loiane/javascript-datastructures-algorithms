@@ -1,12 +1,12 @@
 import 'mocha';
 import { expect } from 'chai';
-import Stack from '../../../src/ts/data-structures/stack';
+import StackArray from '../../../src/ts/data-structures/stack-array';
 
-describe('Stack', () => {
-  let stack: Stack<number>;
+describe('StackArray', () => {
+  let stack: StackArray<number>;
 
   beforeEach(function() {
-    stack = new Stack<number>();
+    stack = new StackArray<number>();
   });
 
   it('starts empty', () => {
@@ -123,6 +123,23 @@ describe('Stack', () => {
     expect(stack.isEmpty()).to.equal(true);
   });
 
+  it('returns an Array', () => {
+    let stackArray = stack.toArray();
+    expect(stackArray.length).to.equal(0);
+
+    stack.push(1);
+    stack.push(2);
+
+    stackArray = stack.toArray();
+    expect(stackArray.length).to.equal(2);
+
+    let i = 1;
+    stackArray.forEach(e => {
+      expect(e).to.equal(i);
+      i++;
+    });
+  });
+
   it('returns toString primitive types', () => {
     expect(stack.toString()).to.equal('');
 
@@ -135,7 +152,7 @@ describe('Stack', () => {
     stack.clear();
     expect(stack.toString()).to.equal('');
 
-    const stackString = new Stack<string>();
+    const stackString = new StackArray<string>();
     stackString.push('el1');
     expect(stackString.toString()).to.equal('el1');
 
@@ -151,7 +168,7 @@ describe('Stack', () => {
         return `${this.el1.toString()}|${this.el2.toString()}`;
       }
     }
-    const stackMyObj = new Stack<MyObj>();
+    const stackMyObj = new StackArray<MyObj>();
     expect(stackMyObj.toString()).to.equal('');
 
     stackMyObj.push(new MyObj(1, 2));

@@ -2,37 +2,37 @@
 
 export default class StackArray {
   constructor() {
-    this._items = [];
+    this.items = [];
   }
   push(element) {
-    this._items.push(element);
+    this.items.push(element);
   }
 
   pop() {
-    return this._items.pop();
+    return this.items.pop();
   }
 
   peek() {
-    return this._items[this._items.length - 1];
+    return this.items[this.items.length - 1];
   }
 
   isEmpty() {
-    return this._items.length === 0;
+    return this.items.length === 0;
   }
 
   size() {
-    return this._items.length;
+    return this.items.length;
   }
 
   clear() {
-    this._items = [];
+    this.items = [];
   }
 
   toArray() {
-    return this._items;
+    return this.items;
   }
 
   toString() {
-    return this._items.toString();
+    return this.items.toString();
   }
 }

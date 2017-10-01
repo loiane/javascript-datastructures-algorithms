@@ -7,3 +7,4 @@ coverage.lcov
 mochawesome-report/*
 dist/js/*
 dist/ts/*
+snippet.js

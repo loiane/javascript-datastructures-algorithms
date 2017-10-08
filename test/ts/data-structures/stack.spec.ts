@@ -47,7 +47,7 @@ describe('Stack', () => {
     expect(stack.pop()).to.equal(undefined);
   });
 
-  it('allows to peek at the top element in he stack without popping it', () => {
+  it('allows to peek at the top element in the stack without popping it', () => {
     expect(stack.peek()).to.equal(undefined);
 
     stack.push(1);

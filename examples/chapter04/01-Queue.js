@@ -9,6 +9,6 @@ queue.enqueue('Camila');
 console.log(queue.toString()); // John,Jack,Camila
 console.log(queue.size()); // outputs 3
 console.log(queue.isEmpty()); // outputs false
-queue.dequeue();
-queue.dequeue();
+queue.dequeue(); // remove John
+queue.dequeue(); // remove Jack
 console.log(queue.toString()); // Camila

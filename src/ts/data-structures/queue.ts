@@ -32,7 +32,7 @@ export default class Queue<T> {
   }
 
   isEmpty() {
-    return this.count - this.lowestCount === 0;
+    return this.size() === 0;
   }
 
   clear() {

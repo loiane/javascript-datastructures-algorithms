@@ -1,15 +1,16 @@
 import { defaultEquals, IEqualsFunction } from '../util';
+import LinkedList from './linked-list';
 import { Node } from './models/linked-list-models';
 
-export default class CircularLinkedList<T> {
-  private count = 0;
-  private head: Node<T> | undefined;
+export default class CircularLinkedList<T> extends LinkedList<T> {
 
-  constructor(private equalsFn: IEqualsFunction<T> =  defaultEquals) { }
+  constructor(protected equalsFn: IEqualsFunction<T> = defaultEquals) {
+    super(equalsFn);
+  }
 
   private getLastElement() {
     let current = this.head;
-    for (let i = 2; i <= this.size() && current; i++) {
+    for (let i = 2; i <= this.size() && current != null; i++) {
       current = current.next;
     }
     return current;
@@ -19,11 +20,11 @@ export default class CircularLinkedList<T> {
     const node = new Node(element);
     let current;
 
-    if (this.head === undefined || this.head === null) {
+    if (this.head == null) {
       this.head = node;
     } else {
       current = this.getLastElement();
-      if (current) {
+      if (current != null) {
         current.next = node;
       }
     }
@@ -34,26 +35,13 @@ export default class CircularLinkedList<T> {
     this.count++;
   }
 
-  getElementAt(index: number) {
-    if (index >= 0 && index <= this.count) {
-      let node = this.head;
-      for (let i = 0; i < index; i++) {
-        if (node) {
-          node = node.next;
-        }
-      }
-      return node;
-    }
-    return undefined;
-  }
-
   insert(index: number, element: T) {
     if (index >= 0 && index <= this.count) {
       const node = new Node(element);
       let current = this.head;
 
       if (index === 0) {
-        if (!this.head) {
+        if (this.head == null) {
           // if no node  in list
           this.head = node;
           node.next = this.head;
@@ -62,13 +50,13 @@ export default class CircularLinkedList<T> {
           current = this.getLastElement();
           // update last element
           this.head = node;
-          if (current) {
+          if (current != null) {
             current.next = this.head;
           }
         }
       } else {
         const previous = this.getElementAt(index - 1);
-        if (previous) {
+        if (previous != null) {
           node.next = previous.next;
           previous.next = node;
         }
@@ -90,10 +78,10 @@ export default class CircularLinkedList<T> {
           this.head = undefined;
         } else {
           current = this.getLastElement();
-          if (this.head) {
+          if (this.head != null) {
             this.head = this.head.next;
           }
-          if (current) {
+          if (current != null) {
             current.next = this.head;
           }
           current = removed;
@@ -101,66 +89,18 @@ export default class CircularLinkedList<T> {
       } else {
         // no need to update last element for circular list
         const previous = this.getElementAt(index - 1);
-        if (previous) {
+        if (previous != null) {
           current = previous.next;
-          if (current) {
+          if (current != null) {
             previous.next = current.next;
           }
         }
       }
-      if (current) {
+      if (current != null) {
         this.count--;
         return current.element;
       }
     }
     return undefined;
-  }
-
-  remove(element: T) {
-    const index = this.indexOf(element);
-    return this.removeAt(index);
-  }
-
-  indexOf(element: T) {
-    let current = this.head;
-
-    for (let i = 1; i <= this.size() && current; i++) {
-      if (this.equalsFn(element, current.element)) {
-        return i - 1;
-      }
-      current = current.next;
-    }
-
-    return -1;
-  }
-
-  isEmpty() {
-    return this.size() === 0;
-  }
-
-  size() {
-    return this.count;
-  }
-
-  getHead() {
-    return this.head;
-  }
-
-  clear() {
-    this.head = undefined;
-    this.count = 0;
-  }
-
-  toString() {
-    if (this.head === undefined) {
-      return '';
-    }
-    let objString = `${this.head.element}`;
-    let current = this.head.next;
-    for (let i = 2; i <= this.size() && current; i++) {
-      objString = `${objString},${current.element}`;
-      current = current.next;
-    }
-    return objString;
   }
 }

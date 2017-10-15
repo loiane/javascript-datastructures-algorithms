@@ -8,7 +8,7 @@ describe('LinkedList', () => {
   let min: number;
   let max: number;
 
-  beforeEach(function() {
+  beforeEach(() => {
     list = new LinkedList<number>(util.defaultEquals);
     min = 1;
     max = 3;

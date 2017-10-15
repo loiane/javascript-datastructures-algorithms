@@ -8,7 +8,7 @@ describe('DoublyLinkedList', () => {
   let min: number;
   let max: number;
 
-  beforeEach(function() {
+  beforeEach(() => {
     list = new DoublyLinkedList<number>();
     min = 1;
     max = 3;

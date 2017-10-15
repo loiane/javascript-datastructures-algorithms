@@ -1,15 +1,15 @@
 import 'mocha';
 import { expect } from 'chai';
-import { SortedLinkedList, util } from '../../../src/ts/index';
+import { SortedLinkedList, util } from '../../../src/js/index';
 import MyObj from './my-obj';
 
 describe('SortedLinkedList', () => {
-  let list: SortedLinkedList<number>;
-  let min: number;
-  let max: number;
+  let list;
+  let min;
+  let max;
 
   beforeEach(() => {
-    list = new SortedLinkedList<number>();
+    list = new SortedLinkedList();
     min = 1;
     max = 3;
   });
@@ -48,7 +48,7 @@ describe('SortedLinkedList', () => {
     expect(list.getHead()).to.be.an('undefined');
   });
 
-   it('pushes elements', () => {
+  it('pushes elements', () => {
     pushesElements();
     verifyList();
   });
@@ -100,7 +100,7 @@ describe('SortedLinkedList', () => {
     expect(list.insert(element, 2)).to.equal(true);
   });
 
-   it('inserts elements in the middle of list', () => {
+  it('inserts elements in the middle of list', () => {
     expect(list.insert(3, 0)).to.equal(true);
     expect(list.insert(1, 0)).to.equal(true);
     expect(list.insert(2, 1)).to.equal(true);
@@ -111,7 +111,7 @@ describe('SortedLinkedList', () => {
     max = 5;
 
     for (let i = min; i <= max; i++) {
-      expect(list.insert(i , i - 1)).to.equal(true);
+      expect(list.insert(i, i - 1)).to.equal(true);
     }
 
     verifyList();
@@ -310,13 +310,12 @@ describe('SortedLinkedList', () => {
     expect(list.toString()).to.equal('');
   });
 
-  function stringCompare(a: string, b: string): number {
+  function stringCompare(a, b) {
     return a.localeCompare(b);
   }
 
   it('returns toString primitive types: string', () => {
-
-    const ds = new SortedLinkedList<string>(util.defaultEquals, stringCompare);
+    const ds = new SortedLinkedList(util.defaultEquals, stringCompare);
     ds.push('el2');
     expect(ds.toString()).to.equal('el2');
 
@@ -324,12 +323,12 @@ describe('SortedLinkedList', () => {
     expect(ds.toString()).to.equal('el1,el2');
   });
 
-  function myObjCompare(a: MyObj, b: MyObj): number {
+  function myObjCompare(a, b) {
     return a.toString().localeCompare(b.toString());
   }
 
   it('returns toString objects', () => {
-    const ds = new SortedLinkedList<MyObj>(util.defaultEquals, myObjCompare);
+    const ds = new SortedLinkedList(util.defaultEquals, myObjCompare);
     expect(ds.toString()).to.equal('');
 
     ds.push(new MyObj(3, 4));

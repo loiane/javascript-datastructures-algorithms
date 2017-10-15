@@ -8,6 +8,15 @@ import StackArray from './data-structures/stack-array';
 import Stack from './data-structures/stack';
 import { parenthesesChecker } from './others/balanced-symbols';
 
+import * as _util from './util';
+
+export { default as CircularLinkedList } from './data-structures/circular-linked-list';
+export { default as DoublyLinkedList } from './data-structures/doubly-linked-list';
+export { default as LinkedList } from './data-structures/linked-list';
+export { default as SortedLinkedList } from './data-structures/sorted-linked-list';
+
+export const util = _util;
+
 export {
   Stack,
   StackArray,

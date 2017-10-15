@@ -8,7 +8,7 @@ describe('CircularLinkedList', () => {
   let min: number;
   let max: number;
 
-  beforeEach(function() {
+  beforeEach(() => {
     list = new CircularLinkedList<number>();
     min = 1;
     max = 3;

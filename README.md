@@ -16,10 +16,10 @@ Work in Progress.
 * 04: [Queues and Deques](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter04)
 * 05: [LinkedLists](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter05)
 
-## Thrid Edition Updates
+### Third Edition Updates
 
 * Algorithms using ES2015+
-* Creation of a Data Structure and Algorithms library that can be used in the browser or with Node.js
+* Creation of a Data Structures and Algorithms library that can be used in the browser or with Node.js
 * Algorithms tested with Mocha + Chai (test code available in `test` directory)
 * TypeScript version of the source code included
 

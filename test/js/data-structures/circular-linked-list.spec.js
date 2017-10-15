@@ -1,21 +1,21 @@
 import 'mocha';
 import { expect } from 'chai';
-import { SortedLinkedList, util } from '../../../src/ts/index';
+import { CircularLinkedList } from '../../../src/js/index';
 import MyObj from './my-obj';
 
-describe('SortedLinkedList', () => {
-  let list: SortedLinkedList<number>;
-  let min: number;
-  let max: number;
+describe('CircularLinkedList', () => {
+  let list;
+  let min;
+  let max;
 
   beforeEach(() => {
-    list = new SortedLinkedList<number>();
+    list = new CircularLinkedList();
     min = 1;
     max = 3;
   });
 
   function pushesElements() {
-    for (let i = max; i >= min; i--) {
+    for (let i = min; i <= max; i++) {
       list.push(i);
     }
   }
@@ -35,7 +35,12 @@ describe('SortedLinkedList', () => {
             expect(current.next.element).to.equal(i + 1);
           }
         } else {
-          expect(current.next).to.be.an('undefined');
+          // circular list
+          expect(current.next).to.not.be.an('undefined');
+          expect(current.next).to.equal(list.getHead());
+          if (current.next) {
+            expect(current.next.element).to.equal(min);
+          }
         }
         current = current.next;
       }
@@ -48,7 +53,7 @@ describe('SortedLinkedList', () => {
     expect(list.getHead()).to.be.an('undefined');
   });
 
-   it('pushes elements', () => {
+  it('pushes elements', () => {
     pushesElements();
     verifyList();
   });
@@ -81,7 +86,7 @@ describe('SortedLinkedList', () => {
 
   it('inserts elements first position not empty list', () => {
     max = 2;
-    expect(list.insert(max)).to.equal(true);
+    expect(list.insert(max, 0)).to.equal(true);
 
     expect(list.insert(min, 0)).to.equal(true);
 
@@ -89,18 +94,16 @@ describe('SortedLinkedList', () => {
   });
 
   it('inserts elements invalid position empty list', () => {
-    // sorted list will ignore the index position
-    expect(list.insert(1, 1)).to.equal(true);
+    expect(list.insert(1, 1)).to.equal(false);
   });
 
   it('inserts elements invalid position not empty list', () => {
-    // sorted list will ignore the index position
     const element = 1;
     expect(list.insert(element, 0)).to.equal(true);
-    expect(list.insert(element, 2)).to.equal(true);
+    expect(list.insert(element, 2)).to.equal(false);
   });
 
-   it('inserts elements in the middle of list', () => {
+  it('inserts elements in the middle of list', () => {
     expect(list.insert(3, 0)).to.equal(true);
     expect(list.insert(1, 0)).to.equal(true);
     expect(list.insert(2, 1)).to.equal(true);
@@ -111,7 +114,7 @@ describe('SortedLinkedList', () => {
     max = 5;
 
     for (let i = min; i <= max; i++) {
-      expect(list.insert(i , i - 1)).to.equal(true);
+      expect(list.insert(i, i - 1)).to.equal(true);
     }
 
     verifyList();
@@ -135,10 +138,13 @@ describe('SortedLinkedList', () => {
 
     pushesElements();
 
-    for (let i = min; i <= max; i++) {
+    const minIndex = min;
+    for (let i = minIndex; i <= max; i++) {
       element = list.remove(i);
       expect(element).to.not.be.an('undefined');
       expect(element).to.equal(i);
+      min++;
+      verifyList();
     }
   });
 
@@ -210,10 +216,10 @@ describe('SortedLinkedList', () => {
     expect(current).to.not.be.an('undefined');
     if (current) {
       expect(current.element).to.not.be.an('undefined');
-      expect(current.element).to.equal(1);
+      expect(current.element).to.equal(min);
       expect(current.next).to.not.be.an('undefined');
       if (current.next) {
-        expect(current.next.element).to.equal(3);
+        expect(current.next.element).to.equal(max);
         current = current.next;
       }
     }
@@ -222,8 +228,12 @@ describe('SortedLinkedList', () => {
     expect(current).to.not.be.an('undefined');
     if (current) {
       expect(current.element).to.not.be.an('undefined');
-      expect(current.element).to.equal(3);
-      expect(current.next).to.be.an('undefined');
+      expect(current.element).to.equal(max);
+      expect(current.next).to.not.be.an('undefined');
+      expect(current.next).to.equal(list.getHead());
+      if (current.next) {
+        expect(current.next.element).to.equal(min);
+      }
     }
   });
 
@@ -310,32 +320,23 @@ describe('SortedLinkedList', () => {
     expect(list.toString()).to.equal('');
   });
 
-  function stringCompare(a: string, b: string): number {
-    return a.localeCompare(b);
-  }
-
   it('returns toString primitive types: string', () => {
-
-    const ds = new SortedLinkedList<string>(util.defaultEquals, stringCompare);
-    ds.push('el2');
-    expect(ds.toString()).to.equal('el2');
-
+    const ds = new CircularLinkedList();
     ds.push('el1');
+    expect(ds.toString()).to.equal('el1');
+
+    ds.push('el2');
     expect(ds.toString()).to.equal('el1,el2');
   });
 
-  function myObjCompare(a: MyObj, b: MyObj): number {
-    return a.toString().localeCompare(b.toString());
-  }
-
   it('returns toString objects', () => {
-    const ds = new SortedLinkedList<MyObj>(util.defaultEquals, myObjCompare);
+    const ds = new CircularLinkedList();
     expect(ds.toString()).to.equal('');
 
-    ds.push(new MyObj(3, 4));
-    expect(ds.toString()).to.equal('3|4');
-
     ds.push(new MyObj(1, 2));
+    expect(ds.toString()).to.equal('1|2');
+
+    ds.push(new MyObj(3, 4));
     expect(ds.toString()).to.equal('1|2,3|4');
   });
 });

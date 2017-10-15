@@ -38,4 +38,6 @@ Work in Progress.
 
 * Right click on the html file you would like to see the examples, right click and 'Open with Chrome (or any other browser)'
 
+<img src="examples/examples-screenshot.png">
+
 Happy Coding!

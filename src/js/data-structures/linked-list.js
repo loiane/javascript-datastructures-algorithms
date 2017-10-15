@@ -5,6 +5,7 @@ export default class LinkedList {
   constructor(equalsFn = defaultEquals) {
     this.equalsFn = equalsFn;
     this.count = 0;
+    this.head = undefined;
   }
   push(element) {
     const node = new Node(element);

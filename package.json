@@ -71,7 +71,7 @@
     "nyc": "^11.2.1",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
-    "typescript": "^2.6.0-dev.20171014",
+    "typescript": "^2.5.3",
     "webpack": "^3.7.1",
     "yargs": "^9.0.1"
   }

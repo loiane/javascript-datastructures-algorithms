@@ -132,6 +132,10 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
     return -1;
   }
 
+  getHead() {
+    return this.head;
+  }
+
   getTail() {
     return this.tail;
   }

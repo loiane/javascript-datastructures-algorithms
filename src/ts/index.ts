@@ -1,11 +1,13 @@
 import * as _util from './util';
 
-export { default as CircularLinkedList } from './data-structures/circular-linked-list';
-export { default as DoublyLinkedList } from './data-structures/doubly-linked-list';
 export { default as LinkedList } from './data-structures/linked-list';
+export { default as DoublyLinkedList } from './data-structures/doubly-linked-list';
+export { default as CircularLinkedList } from './data-structures/circular-linked-list';
 export { default as SortedLinkedList } from './data-structures/sorted-linked-list';
+export { default as StackLinkedList } from './data-structures/stack-linked-list';
 
 export const util = _util;
+
 
 /* import { hotPotato } from './others/hot-potato';
 import { palindromeChecker } from './others/palindrome-checker';

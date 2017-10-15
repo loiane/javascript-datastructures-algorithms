@@ -19,6 +19,9 @@ Work in Progress.
 ### Third Edition Updates
 
 * Algorithms using ES2015+
+* All chapters reviewed and rewritten
+* New data structures and algorithms
+* Three (3) new chapters
 * Creation of a Data Structures and Algorithms library that can be used in the browser or with Node.js
 * Algorithms tested with Mocha + Chai (test code available in `test` directory)
 * TypeScript version of the source code included

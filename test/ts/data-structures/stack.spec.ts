@@ -5,7 +5,7 @@ import Stack from '../../../src/ts/data-structures/stack';
 describe('Stack', () => {
   let stack: Stack<number>;
 
-  beforeEach(function() {
+  beforeEach(() => {
     stack = new Stack<number>();
   });
 

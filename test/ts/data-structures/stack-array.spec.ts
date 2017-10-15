@@ -5,7 +5,7 @@ import StackArray from '../../../src/ts/data-structures/stack-array';
 describe('StackArray', () => {
   let stack: StackArray<number>;
 
-  beforeEach(function() {
+  beforeEach(() => {
     stack = new StackArray<number>();
   });
 

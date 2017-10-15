@@ -1,21 +1,21 @@
 import 'mocha';
 import { expect } from 'chai';
-import { LinkedList, util } from '../../../src/ts/index';
+import { SortedLinkedList, util } from '../../../src/ts/index';
 import MyObj from './my-obj';
 
-describe('LinkedList', () => {
-  let list: LinkedList<number>;
+describe('SortedLinkedList', () => {
+  let list: SortedLinkedList<number>;
   let min: number;
   let max: number;
 
   beforeEach(function() {
-    list = new LinkedList<number>(util.defaultEquals);
+    list = new SortedLinkedList<number>();
     min = 1;
     max = 3;
   });
 
   function pushesElements() {
-    for (let i = min; i <= max; i++) {
+    for (let i = max; i >= min; i--) {
       list.push(i);
     }
   }
@@ -48,7 +48,7 @@ describe('LinkedList', () => {
     expect(list.getHead()).to.be.an('undefined');
   });
 
-  it('pushes elements', () => {
+   it('pushes elements', () => {
     pushesElements();
     verifyList();
   });
@@ -81,7 +81,7 @@ describe('LinkedList', () => {
 
   it('inserts elements first position not empty list', () => {
     max = 2;
-    expect(list.insert(max, 0)).to.equal(true);
+    expect(list.insert(max)).to.equal(true);
 
     expect(list.insert(min, 0)).to.equal(true);
 
@@ -89,16 +89,18 @@ describe('LinkedList', () => {
   });
 
   it('inserts elements invalid position empty list', () => {
-    expect(list.insert(1, 1)).to.equal(false);
+    // sorted list will ignore the index position
+    expect(list.insert(1, 1)).to.equal(true);
   });
 
   it('inserts elements invalid position not empty list', () => {
+    // sorted list will ignore the index position
     const element = 1;
     expect(list.insert(element, 0)).to.equal(true);
-    expect(list.insert(element, 2)).to.equal(false);
+    expect(list.insert(element, 2)).to.equal(true);
   });
 
-  it('inserts elements in the middle of list', () => {
+   it('inserts elements in the middle of list', () => {
     expect(list.insert(3, 0)).to.equal(true);
     expect(list.insert(1, 0)).to.equal(true);
     expect(list.insert(2, 1)).to.equal(true);
@@ -308,23 +310,32 @@ describe('LinkedList', () => {
     expect(list.toString()).to.equal('');
   });
 
-  it('returns toString primitive types: string', () => {
-    const ds = new LinkedList<string>();
-    ds.push('el1');
-    expect(ds.toString()).to.equal('el1');
+  function stringCompare(a: string, b: string): number {
+    return a.localeCompare(b);
+  }
 
+  it('returns toString primitive types: string', () => {
+
+    const ds = new SortedLinkedList<string>(util.defaultEquals, stringCompare);
     ds.push('el2');
+    expect(ds.toString()).to.equal('el2');
+
+    ds.push('el1');
     expect(ds.toString()).to.equal('el1,el2');
   });
 
+  function myObjCompare(a: MyObj, b: MyObj): number {
+    return a.toString().localeCompare(b.toString());
+  }
+
   it('returns toString objects', () => {
-    const ds = new LinkedList<MyObj>();
+    const ds = new SortedLinkedList<MyObj>(util.defaultEquals, myObjCompare);
     expect(ds.toString()).to.equal('');
 
-    ds.push(new MyObj(1, 2));
-    expect(ds.toString()).to.equal('1|2');
-
     ds.push(new MyObj(3, 4));
+    expect(ds.toString()).to.equal('3|4');
+
+    ds.push(new MyObj(1, 2));
     expect(ds.toString()).to.equal('1|2,3|4');
   });
 });

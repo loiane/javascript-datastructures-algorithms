@@ -3,7 +3,6 @@ import LinkedList from './linked-list';
 import { Node } from './models/linked-list-models';
 
 export default class CircularLinkedList<T> extends LinkedList<T> {
-
   constructor(protected equalsFn: IEqualsFunction<T> = defaultEquals) {
     super(equalsFn);
   }
@@ -24,9 +23,7 @@ export default class CircularLinkedList<T> extends LinkedList<T> {
       this.head = node;
     } else {
       current = this.getLastElement();
-      if (current != null) {
-        current.next = node;
-      }
+      current.next = node;
     }
 
     // set node.next to head - to have circular list
@@ -35,7 +32,7 @@ export default class CircularLinkedList<T> extends LinkedList<T> {
     this.count++;
   }
 
-  insert(index: number, element: T) {
+  insert(element: T, index: number) {
     if (index >= 0 && index <= this.count) {
       const node = new Node(element);
       let current = this.head;
@@ -50,16 +47,12 @@ export default class CircularLinkedList<T> extends LinkedList<T> {
           current = this.getLastElement();
           // update last element
           this.head = node;
-          if (current != null) {
-            current.next = this.head;
-          }
+          current.next = this.head;
         }
       } else {
         const previous = this.getElementAt(index - 1);
-        if (previous != null) {
-          node.next = previous.next;
-          previous.next = node;
-        }
+        node.next = previous.next;
+        previous.next = node;
       }
       this.count++;
       return true;
@@ -78,28 +71,18 @@ export default class CircularLinkedList<T> extends LinkedList<T> {
           this.head = undefined;
         } else {
           current = this.getLastElement();
-          if (this.head != null) {
-            this.head = this.head.next;
-          }
-          if (current != null) {
-            current.next = this.head;
-          }
+          this.head = this.head.next;
+          current.next = this.head;
           current = removed;
         }
       } else {
         // no need to update last element for circular list
         const previous = this.getElementAt(index - 1);
-        if (previous != null) {
-          current = previous.next;
-          if (current != null) {
-            previous.next = current.next;
-          }
-        }
+        current = previous.next;
+        previous.next = current.next;
       }
-      if (current != null) {
-        this.count--;
-        return current.element;
-      }
+      this.count--;
+      return current.element;
     }
     return undefined;
   }

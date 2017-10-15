@@ -18,16 +18,14 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
       this.tail = node; // NEW
     } else {
       // attach to the tail node // NEW
-      if (this.tail != null) {
-        this.tail.next = node;
-        node.prev = this.tail;
-        this.tail = node;
-      }
+      this.tail.next = node;
+      node.prev = this.tail;
+      this.tail = node;
     }
     this.count++;
   }
 
-  insert(index: number, element: T) {
+  insert(element: T, index: number) {
     if (index >= 0 && index <= this.count) {
       const node = new DoublyNode(element);
       let current = this.head;
@@ -46,23 +44,17 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
         // last item // NEW
 
         current = this.tail; // {2}
-        if (current != null) {
-          current.next = node;
-          node.prev = current;
-          this.tail = node;
-        }
+        current.next = node;
+        node.prev = current;
+        this.tail = node;
       } else {
         const previous = this.getElementAt(index - 1);
-        if (previous != null) {
-          current = previous.next;
-          node.next = current;
-          previous.next = node;
+        current = previous.next;
+        node.next = current;
+        previous.next = node;
 
-          if (current != null) {
-            current.prev = node; // NEW
-            node.prev = previous; // NEW
-          }
-        }
+        current.prev = node; // NEW
+        node.prev = previous; // NEW
       }
       this.count++;
       return true;
@@ -75,44 +67,28 @@ export default class DoublyLinkedList<T> extends LinkedList<T> {
       let current = this.head;
 
       if (index === 0) {
-        if (this.head != null) {
-          this.head = this.head.next; // {1}
-          // if there is only one item, then we update tail as well //NEW
-          if (this.count === 1) {
-            // {2}
-            this.tail = undefined;
-          } else {
-            if (this.head != null) {
-              this.head.prev = undefined; // {3}
-            }
-          }
+        this.head = this.head.next; // {1}
+        // if there is only one item, then we update tail as well //NEW
+        if (this.count === 1) {
+          // {2}
+          this.tail = undefined;
+        } else {
+          this.head.prev = undefined; // {3}
         }
       } else if (index === this.count - 1) {
         // last item //NEW
         current = this.tail; // {4}
-        if (current != null) {
-          this.tail = current.prev;
-          if (this.tail) {
-            this.tail.next = undefined;
-          }
-        }
+        this.tail = current.prev;
+        this.tail.next = undefined;
       } else {
         current = this.getElementAt(index);
-        if (current != null) {
-          const previous = current.prev;
-          if (previous != null) {
-            // link previous with current's next - skip it to remove
-            previous.next = current.next; // {6}
-            if (current != null && current.next != null) {
-              current.next.prev = previous; // NEW
-            }
-          }
-        }
+        const previous = current.prev;
+        // link previous with current's next - skip it to remove
+        previous.next = current.next; // {6}
+        current.next.prev = previous; // NEW
       }
-      if (current != null) {
-        this.count--;
-        return current.element;
-      }
+      this.count--;
+      return current.element;
     }
     return undefined;
   }

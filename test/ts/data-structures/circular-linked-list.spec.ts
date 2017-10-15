@@ -80,15 +80,15 @@ describe('CircularLinkedList', () => {
   it('inserts elements first position empty list', () => {
     const element = 1;
     max = element;
-    expect(list.insert(0, element)).to.equal(true);
+    expect(list.insert(element, 0)).to.equal(true);
     verifyList();
   });
 
   it('inserts elements first position not empty list', () => {
     max = 2;
-    expect(list.insert(0, max)).to.equal(true);
+    expect(list.insert(max, 0)).to.equal(true);
 
-    expect(list.insert(0, min)).to.equal(true);
+    expect(list.insert(min, 0)).to.equal(true);
 
     verifyList();
   });
@@ -99,14 +99,14 @@ describe('CircularLinkedList', () => {
 
   it('inserts elements invalid position not empty list', () => {
     const element = 1;
-    expect(list.insert(0, element)).to.equal(true);
-    expect(list.insert(2, element)).to.equal(false);
+    expect(list.insert(element, 0)).to.equal(true);
+    expect(list.insert(element, 2)).to.equal(false);
   });
 
   it('inserts elements in the middle of list', () => {
-    expect(list.insert(0, 3)).to.equal(true);
-    expect(list.insert(0, 1)).to.equal(true);
-    expect(list.insert(1, 2)).to.equal(true);
+    expect(list.insert(3, 0)).to.equal(true);
+    expect(list.insert(1, 0)).to.equal(true);
+    expect(list.insert(2, 1)).to.equal(true);
     verifyList();
   });
 
@@ -114,7 +114,7 @@ describe('CircularLinkedList', () => {
     max = 5;
 
     for (let i = min; i <= max; i++) {
-      expect(list.insert(i - 1, i)).to.equal(true);
+      expect(list.insert(i , i - 1)).to.equal(true);
     }
 
     verifyList();
@@ -243,7 +243,7 @@ describe('CircularLinkedList', () => {
     pushesElements();
 
     const maxIndex = max;
-    for (let i = max; i >= min; i--) {
+    for (let i = maxIndex; i >= min; i--) {
       element = list.removeAt(i - 1);
       expect(element).to.not.be.an('undefined');
       expect(element).to.equal(i);

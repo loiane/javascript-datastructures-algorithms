@@ -1,8 +1,10 @@
+import * as _util from './util';
+
 export { default as CircularLinkedList } from './data-structures/circular-linked-list';
 export { default as DoublyLinkedList } from './data-structures/doubly-linked-list';
 export { default as LinkedList } from './data-structures/linked-list';
+export { default as SortedLinkedList } from './data-structures/sorted-linked-list';
 
-import * as _util from './util';
 export const util = _util;
 
 /* import { hotPotato } from './others/hot-potato';

@@ -15,6 +15,7 @@ Work in Progress.
 * 03: [Stacks](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter03)
 * 04: [Queues and Deques](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter04)
 * 05: [LinkedLists](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter05)
+* 06: [Sets](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter06)
 
 ### Third Edition Updates
 
@@ -39,6 +40,8 @@ Work in Progress.
 * Right click on the html file you would like to see the examples, right click and 'Open with Chrome (or any other browser)'
 
 * Or open the `examples/index.html` file to easily nagivate through all examples:
+
+* Demo: [https://javascript-ds-algorithms-book.firebaseapp.com](https://javascript-ds-algorithms-book.firebaseapp.com)
 
 <img src="examples/examples-screenshot.png">
 

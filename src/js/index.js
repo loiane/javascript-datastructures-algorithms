@@ -15,6 +15,7 @@ export { default as DoublyLinkedList } from './data-structures/doubly-linked-lis
 export { default as CircularLinkedList } from './data-structures/circular-linked-list';
 export { default as SortedLinkedList } from './data-structures/sorted-linked-list';
 export { default as StackLinkedList } from './data-structures/stack-linked-list';
+export { default as Set } from './data-structures/set';
 
 export const util = _util;
 

@@ -5,25 +5,25 @@ export default class Set<T> {
     this.items = {};
   }
 
-  add(value: T) {
-    if (!this.has(value)) {
-      this.items[value] = value;
+  add(element: T) {
+    if (!this.has(element)) {
+      this.items[element] = element;
       return true;
     }
     return false;
   }
 
-  delete(value: T) {
-    if (this.has(value)) {
-      delete this.items[value];
+  delete(element: T) {
+    if (this.has(element)) {
+      delete this.items[element];
       return true;
     }
     return false;
   }
 
-  has(value: T) {
-    // return this.items.hasOwnProperty(value);
-    return Object.prototype.hasOwnProperty.call(this.items, value);
+  has(element: T) {
+    // return this.items.hasOwnProperty(element);
+    return Object.prototype.hasOwnProperty.call(this.items, element);
   }
 
   values(): T[] {

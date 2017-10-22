@@ -2,22 +2,22 @@ export default class Set {
   constructor() {
     this.items = {};
   }
-  add(value) {
-    if (!this.has(value)) {
-      this.items[value] = value;
+  add(element) {
+    if (!this.has(element)) {
+      this.items[element] = element;
       return true;
     }
     return false;
   }
-  delete(value) {
-    if (this.has(value)) {
-      delete this.items[value];
+  delete(element) {
+    if (this.has(element)) {
+      delete this.items[element];
       return true;
     }
     return false;
   }
-  has(value) {
-    return Object.prototype.hasOwnProperty.call(this.items, value);
+  has(element) {
+    return Object.prototype.hasOwnProperty.call(this.items, element);
   }
   values() {
     return Object.values(this.items);

@@ -5,6 +5,7 @@ import { DoublyNode } from './models/linked-list-models';
 export default class DoublyLinkedList extends LinkedList {
   constructor(equalsFn = defaultEquals) {
     super(equalsFn);
+    this.tail = undefined;
   }
   push(element) {
     const node = new DoublyNode(element);
@@ -24,18 +25,16 @@ export default class DoublyLinkedList extends LinkedList {
       const node = new DoublyNode(element);
       let current = this.head;
       if (index === 0) {
-        if (this.head == null) {
-          // NEW
+        if (this.head == null) { // NEW
           this.head = node;
-          this.tail = node;
+          this.tail = node; // NEW
         } else {
           node.next = this.head;
           this.head.prev = node; // NEW
           this.head = node;
         }
-      } else if (index === this.count) {
-        // last item // NEW
-        current = this.tail; // {2}
+      } else if (index === this.count) { // last item NEW
+        current = this.tail;
         current.next = node;
         node.prev = current;
         this.tail = node;
@@ -56,24 +55,24 @@ export default class DoublyLinkedList extends LinkedList {
     if (index >= 0 && index < this.count) {
       let current = this.head;
       if (index === 0) {
-        this.head = this.head.next; // {1}
+        this.head = this.head.next;
         // if there is only one item, then we update tail as well //NEW
         if (this.count === 1) {
           // {2}
           this.tail = undefined;
         } else {
-          this.head.prev = undefined; // {3}
+          this.head.prev = undefined;
         }
       } else if (index === this.count - 1) {
         // last item //NEW
-        current = this.tail; // {4}
+        current = this.tail;
         this.tail = current.prev;
         this.tail.next = undefined;
       } else {
         current = this.getElementAt(index);
         const previous = current.prev;
         // link previous with current's next - skip it to remove
-        previous.next = current.next; // {6}
+        previous.next = current.next;
         current.next.prev = previous; // NEW
       }
       this.count--;

@@ -35,8 +35,8 @@ export default class LinkedList {
   insert(element, index) {
     if (index >= 0 && index <= this.count) {
       const node = new Node(element);
-      const current = this.head;
       if (index === 0) {
+        const current = this.head;
         node.next = current;
         this.head = node;
       } else {

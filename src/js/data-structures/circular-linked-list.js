@@ -6,20 +6,13 @@ export default class CircularLinkedList extends LinkedList {
   constructor(equalsFn = defaultEquals) {
     super(equalsFn);
   }
-  getLastElement() {
-    let current = this.head;
-    for (let i = 2; i <= this.size() && current != null; i++) {
-      current = current.next;
-    }
-    return current;
-  }
   push(element) {
     const node = new Node(element);
     let current;
     if (this.head == null) {
       this.head = node;
     } else {
-      current = this.getLastElement();
+      current = this.getElementAt(this.size() - 1);
       current.next = node;
     }
     // set node.next to head - to have circular list
@@ -37,7 +30,7 @@ export default class CircularLinkedList extends LinkedList {
           node.next = this.head;
         } else {
           node.next = current;
-          current = this.getLastElement();
+          current = this.getElementAt(this.size());
           // update last element
           this.head = node;
           current.next = this.head;
@@ -56,11 +49,11 @@ export default class CircularLinkedList extends LinkedList {
     if (index >= 0 && index < this.count) {
       let current = this.head;
       if (index === 0) {
-        const removed = this.head;
         if (this.size() === 1) {
           this.head = undefined;
         } else {
-          current = this.getLastElement();
+          const removed = this.head;
+          current = this.getElementAt(this.size() - 1);
           this.head = this.head.next;
           current.next = this.head;
           current = removed;

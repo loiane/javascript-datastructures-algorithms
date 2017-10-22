@@ -1,12 +1,15 @@
 language: node_js
 node_js:
   - node
+before_script:
+  - npm install -g --silent firebase-tools
 install:
   - npm install
 script:
   - npm run go
 after_success:
   - npm run coverage
+  - test $TRAVIS_BRANCH = "master" && firebase deploy --token $FIREBASE_TOKEN --non-interactive
 notifications:
   email:
     on_failure: change

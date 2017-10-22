@@ -35,6 +35,8 @@ const union = (set1, set2) => {
 };
 console.log(union(setA, setB));
 
+console.log(new Set([...setA, ...setB]));
+
 // --------- Intersection ----------
 const intersection = (set1, set2) => {
   const intersectionSet = new Set();
@@ -46,6 +48,8 @@ const intersection = (set1, set2) => {
   return intersectionSet;
 };
 console.log(intersection(setA, setB));
+
+console.log(new Set([...setA].filter(x => setB.has(x))));
 
 // alternative - works on FF only
 // console.log(new Set([x for (x of setA) if (setB.has(x))]));
@@ -61,6 +65,8 @@ const difference = (set1, set2) => {
   return differenceSet;
 };
 console.log(difference(setA, setB));
+
+console.log(new Set([...setA].filter(x => !setB.has(x))));
 
 // alternative  - works on FF only
 // console.log(new Set([x for (x of setA) if (!setB.has(x))]));

@@ -9,7 +9,7 @@ script:
   - npm run go
 after_success:
   - npm run coverage
-  - test $TRAVIS_BRANCH = "master" && firebase deploy --token $FIREBASE_TOKEN --non-interactive
+  - test $TRAVIS_BRANCH = "third-edition" && firebase deploy --token $FIREBASE_TOKEN --non-interactive
 notifications:
   email:
     on_failure: change

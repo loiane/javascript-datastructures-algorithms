@@ -10,6 +10,7 @@ testTruthy(false); // false
 testTruthy(new Boolean(false)); // true (object is always true)
 
 testTruthy(''); // false
+testTruthy('a'); // true
 testTruthy('Packt'); // true
 testTruthy(new String('')); // true (object is always true)
 

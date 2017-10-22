@@ -1,7 +1,8 @@
-import Stack from './../../src/js/data-structures/stack.js'; // ES2015 modules
+// import Stack from './../../src/js/data-structures/stack.js'; // ES2015 modules
 // import StackArray from './../../src/js/data-structures/stack-array.js'; // ES2015 modules
 // const Stack = require('../../dist/js/data-structures/stack'); // for node
 // const Stack = stack; // older browsers - remove from html script import: type="module"
+const { Stack } = PacktDataStructuresAlgorithms;
 
 const stack = new Stack(); // new StackArray();
 

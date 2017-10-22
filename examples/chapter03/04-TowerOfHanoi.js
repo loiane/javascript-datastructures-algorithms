@@ -1,5 +1,5 @@
-const hanoiStack = PacktDataStructuresAlgorithms.hanoiStack;
-const hanoi = PacktDataStructuresAlgorithms.hanoi;
+const { hanoiStack } = PacktDataStructuresAlgorithms;
+const { hanoi } = PacktDataStructuresAlgorithms;
 
 console.log(hanoiStack(3));
 

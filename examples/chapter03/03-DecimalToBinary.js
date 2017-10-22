@@ -1,5 +1,5 @@
-const decimalToBinary = PacktDataStructuresAlgorithms.parenthesesChecker;
-const baseConverter = PacktDataStructuresAlgorithms.baseConverter;
+const { decimalToBinary } = PacktDataStructuresAlgorithms;
+const { baseConverter } = PacktDataStructuresAlgorithms;
 
 // 233 == 11101001
 // 2x(10x10) + 3x(10) + 3x(1)

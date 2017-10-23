@@ -2,7 +2,7 @@
   "ignore": [
     "**/.vscode/**",
     "**/node_modules/**",
-    "**/dist/**"
+    "**/dist/**",
     "**/examples/**"
   ],
   "test": [

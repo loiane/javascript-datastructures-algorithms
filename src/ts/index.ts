@@ -6,6 +6,11 @@ export { default as CircularLinkedList } from './data-structures/circular-linked
 export { default as SortedLinkedList } from './data-structures/sorted-linked-list';
 export { default as StackLinkedList } from './data-structures/stack-linked-list';
 export { default as Set } from './data-structures/set';
+export { default as Dictionary } from './data-structures/dictionary';
+export { default as HashTable } from './data-structures/hash-table';
+export { default as HashTableSeparateChaining } from './data-structures/hash-table-separate-chaining';
+export { default as HashTableLinearProbing } from './data-structures/hash-table-linear-probing';
+export { default as HashTableLinearProbingLazy } from './data-structures/hash-table-linear-probing-lazy';
 
 export const util = _util;
 

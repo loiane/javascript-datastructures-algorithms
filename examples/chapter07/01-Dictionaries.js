@@ -20,3 +20,9 @@ console.log(dictionary.values()); // ["gandalf@email.com", "tyrion@email.com"]
 
 console.log(dictionary.keyValues()); // [{key: "Gandalf", value: "gandalf@email.com"}, {key: "Tyrion", value: "tyrion@email.com"}]
 console.log(dictionary.toString()); // [#Gandalf: gandalf@email.com],[#Tyrion: tyrion@email.com]
+
+dictionary.forEach((k, v) => {
+  console.log('forEach: ', `key: ${k}, value: ${v}`);
+});
+// forEach:  key: Gandalf, value: gandalf@email.com
+// forEach:  key: Tyrion, value: tyrion@email.com

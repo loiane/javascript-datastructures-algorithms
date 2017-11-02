@@ -33,13 +33,13 @@ console.log(hash.toString());
 
 console.log('**** Get **** ');
 
-console.log(hash.get('Gandalf')); // gandalf@email.com
-console.log(hash.get('Loiane')); // undefined
+console.log(hash.get('Ygritte')); // ygritte@email.com
+console.log(hash.get('Loiane')); // jasmine@email.com
 
 console.log('**** Remove **** ');
 
-hash.remove('Gandalf');
-console.log(hash.get('Gandalf')); // undefined
+hash.remove('Ygritte');
+console.log(hash.get('Ygritte')); // undefined
 
 console.log(hash.toString());
-// {5 => [#Sue: sue@email.com]},{10 => [#Nathan: nathan@email.com]},{13 => [#Ana: ana@email.com]},{16 => [#Aaron: aaron@email.com]},{29 => [#John: johnsnow@email.com]},{32 => [#Paul: paul@email.com]}
+// {5 => [#Aethelwulf: aethelwulf@email.com]},{7 => [#Athelstan: athelstan@email.com]},{8 => [#Jasmine: jasmine@email.com]},{9 => [#Jake: jake@email.com]},{10 => [#Sargeras: sargeras@email.com]}

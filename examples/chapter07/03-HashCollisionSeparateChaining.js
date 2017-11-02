@@ -2,23 +2,22 @@ const { HashTableSeparateChaining } = PacktDataStructuresAlgorithms;
 
 const hashTable = new HashTableSeparateChaining();
 
-hashTable.put('Gandalf', 'gandalf@email.com');
-hashTable.put('John', 'johnsnow@email.com');
-hashTable.put('Tyrion', 'tyrion@email.com');
-hashTable.put('Aaron', 'aaron@email.com');
-hashTable.put('Donnie', 'donnie@email.com');
-hashTable.put('Ana', 'ana@email.com');
+hashTable.put('Ygritte', 'ygritte@email.com');
 hashTable.put('Jonathan', 'jonathan@email.com');
 hashTable.put('Jamie', 'jamie@email.com');
-hashTable.put('Sue', 'sue@email.com');
-hashTable.put('Mindy', 'mindy@email.com');
-hashTable.put('Paul', 'paul@email.com');
+hashTable.put('Jack', 'jack@email.com');
+hashTable.put('Jasmine', 'jasmine@email.com');
+hashTable.put('Jake', 'jake@email.com');
 hashTable.put('Nathan', 'nathan@email.com');
+hashTable.put('Athelstan', 'athelstan@email.com');
+hashTable.put('Sue', 'sue@email.com');
+hashTable.put('Aethelwulf', 'aethelwulf@email.com');
+hashTable.put('Sargeras', 'sargeras@email.com');
 
 console.log('**** Printing Hash **** ');
 
 console.log(hashTable.toString());
-// {5 => [#Jonathan: jonathan@email.com],[#Jamie: jamie@email.com],[#Sue: sue@email.com]},{10 => [#Nathan: nathan@email.com]},{13 => [#Donnie: donnie@email.com],[#Ana: ana@email.com]},{16 => [#Tyrion: tyrion@email.com],[#Aaron: aaron@email.com]},{19 => [#Gandalf: gandalf@email.com]},{29 => [#John: johnsnow@email.com]},{32 => [#Mindy: mindy@email.com],[#Paul: paul@email.com]}
+// {4 => [#Ygritte: ygritte@email.com]},{5 => [#Jonathan: jonathan@email.com],[#Jamie: jamie@email.com],[#Sue: sue@email.com],[#Aethelwulf: aethelwulf@email.com]},{7 => [#Jack: jack@email.com],[#Athelstan: athelstan@email.com]},{8 => [#Jasmine: jasmine@email.com]},{9 => [#Jake: jake@email.com]},{10 => [#Nathan: nathan@email.com],[#Sargeras: sargeras@email.com]}
 
 console.log('**** Get **** ');
 
@@ -29,19 +28,19 @@ console.log(hashTable.get('Loiane')); // undefined
 
 console.log('**** Remove **** ');
 
-console.log(hashTable.remove('Gandalf')); // true
-console.log(hashTable.get('Gandalf')); // undefined
+console.log(hashTable.remove('Ygritte')); // true
+console.log(hashTable.get('Ygritte')); // undefined
 console.log(hashTable.toString());
-// {5 => [#Jonathan: jonathan@email.com],[#Jamie: jamie@email.com],[#Sue: sue@email.com]},{10 => [#Nathan: nathan@email.com]},{13 => [#Donnie: donnie@email.com],[#Ana: ana@email.com]},{16 => [#Tyrion: tyrion@email.com],[#Aaron: aaron@email.com]},{29 => [#John: johnsnow@email.com]},{32 => [#Mindy: mindy@email.com],[#Paul: paul@email.com]}
+// {5 => [#Jonathan: jonathan@email.com],[#Jamie: jamie@email.com],[#Sue: sue@email.com],[#Aethelwulf: aethelwulf@email.com]},{7 => [#Jack: jack@email.com],[#Athelstan: athelstan@email.com]},{8 => [#Jasmine: jasmine@email.com]},{9 => [#Jake: jake@email.com]},{10 => [#Nathan: nathan@email.com],[#Sargeras: sargeras@email.com]}
 
 console.log(hashTable.remove('Sue')); // true
 console.log(hashTable.toString());
-// {5 => [#Jonathan: jonathan@email.com],[#Jamie: jamie@email.com]},{10 => [#Nathan: nathan@email.com]},{13 => [#Donnie: donnie@email.com],[#Ana: ana@email.com]},{16 => [#Tyrion: tyrion@email.com],[#Aaron: aaron@email.com]},{29 => [#John: johnsnow@email.com]},{32 => [#Mindy: mindy@email.com],[#Paul: paul@email.com]}
+// {5 => [#Jonathan: jonathan@email.com],[#Jamie: jamie@email.com],[#Aethelwulf: aethelwulf@email.com]},{7 => [#Jack: jack@email.com],[#Athelstan: athelstan@email.com]},{8 => [#Jasmine: jasmine@email.com]},{9 => [#Jake: jake@email.com]},{10 => [#Nathan: nathan@email.com],[#Sargeras: sargeras@email.com]}
 
 console.log(hashTable.remove('Jamie')); // true
 console.log(hashTable.toString());
-// {5 => [#Jonathan: jonathan@email.com]},{10 => [#Nathan: nathan@email.com]},{13 => [#Donnie: donnie@email.com],[#Ana: ana@email.com]},{16 => [#Tyrion: tyrion@email.com],[#Aaron: aaron@email.com]},{29 => [#John: johnsnow@email.com]},{32 => [#Mindy: mindy@email.com],[#Paul: paul@email.com]}
+// {5 => [#Jonathan: jonathan@email.com],[#Aethelwulf: aethelwulf@email.com]},{7 => [#Jack: jack@email.com],[#Athelstan: athelstan@email.com]},{8 => [#Jasmine: jasmine@email.com]},{9 => [#Jake: jake@email.com]},{10 => [#Nathan: nathan@email.com],[#Sargeras: sargeras@email.com]}
 
-console.log(hashTable.remove('Donnie')); // true
+console.log(hashTable.remove('Aethelwulf')); // true
 console.log(hashTable.toString());
-// {5 => [#Jonathan: jonathan@email.com]},{10 => [#Nathan: nathan@email.com]},{13 => [#Ana: ana@email.com]},{16 => [#Tyrion: tyrion@email.com],[#Aaron: aaron@email.com]},{29 => [#John: johnsnow@email.com]},{32 => [#Mindy: mindy@email.com],[#Paul: paul@email.com]}
+// {5 => [#Jonathan: jonathan@email.com]},{7 => [#Jack: jack@email.com],[#Athelstan: athelstan@email.com]},{8 => [#Jasmine: jasmine@email.com]},{9 => [#Jake: jake@email.com]},{10 => [#Nathan: nathan@email.com],[#Sargeras: sargeras@email.com]}

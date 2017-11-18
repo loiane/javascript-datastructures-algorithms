@@ -25,6 +25,7 @@
     "import/prefer-default-export": 0,
     "comma-dangle": 0,
     "no-underscore-dangle": 0,
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    "no-return-assign": 0
   }
 }

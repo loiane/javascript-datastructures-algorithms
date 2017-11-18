@@ -17,6 +17,7 @@ Work in Progress.
 * 05: [LinkedLists](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter05)
 * 06: [Sets](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter06)
 * 07: [Dictionaries and Hashes](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter07)
+* 08: [Recursion](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter08)
 
 ### Third Edition Updates
 

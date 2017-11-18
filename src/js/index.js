@@ -34,3 +34,10 @@ export { default as HashTable } from './data-structures/hash-table';
 export { default as HashTableSeparateChaining } from './data-structures/hash-table-separate-chaining';
 export { default as HashTableLinearProbing } from './data-structures/hash-table-linear-probing';
 export { default as HashTableLinearProbingLazy } from './data-structures/hash-table-linear-probing-lazy';
+
+// chapter 08
+export { default as factorialIterative } from './others/factorial';
+export { default as factorial } from './others/factorial';
+export { default as fibonacci } from './others/fibonacci';
+export { default as fibonacciIterative } from './others/fibonacci';
+export { default as fibonacciMemoization } from './others/fibonacci';

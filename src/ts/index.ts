@@ -1,4 +1,5 @@
 import * as _util from './util';
+export const util = _util;
 
 export { default as LinkedList } from './data-structures/linked-list';
 export { default as DoublyLinkedList } from './data-structures/doubly-linked-list';
@@ -12,7 +13,12 @@ export { default as HashTableSeparateChaining } from './data-structures/hash-tab
 export { default as HashTableLinearProbing } from './data-structures/hash-table-linear-probing';
 export { default as HashTableLinearProbingLazy } from './data-structures/hash-table-linear-probing-lazy';
 
-export const util = _util;
+// chapter 08
+export { factorialIterative as factorialIterative } from './others/factorial';
+export { factorial as factorial} from './others/factorial';
+export { fibonacci as fibonacci} from './others/fibonacci';
+export { fibonacciIterative as fibonacciIterative} from './others/fibonacci';
+export { fibonacciMemoization as fibonacciMemoization} from './others/fibonacci';
 
 
 /* import { hotPotato } from './others/hot-potato';

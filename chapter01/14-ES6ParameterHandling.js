@@ -14,7 +14,7 @@ function sum2 (x, y, z) {
         z = 3;
     return x + y + z;
 };
-console.log(sum2(4,2)); //outpus 10
+console.log(sum2(4,2)); //outpus 9
 
 //******* EcmaScript 6: spread operator ('...')
 var params = [3, 4, 5];

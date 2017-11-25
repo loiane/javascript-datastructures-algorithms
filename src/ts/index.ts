@@ -20,6 +20,10 @@ export { fibonacci as fibonacci} from './others/fibonacci';
 export { fibonacciIterative as fibonacciIterative} from './others/fibonacci';
 export { fibonacciMemoization as fibonacciMemoization} from './others/fibonacci';
 
+// chapter 08
+export { default as BinarySearchTree } from './data-structures/binary-search-tree';
+export { default as AVLTree } from './data-structures/avl-tree';
+
 
 /* import { hotPotato } from './others/hot-potato';
 import { palindromeChecker } from './others/palindrome-checker';

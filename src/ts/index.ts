@@ -20,9 +20,13 @@ export { fibonacci as fibonacci} from './others/fibonacci';
 export { fibonacciIterative as fibonacciIterative} from './others/fibonacci';
 export { fibonacciMemoization as fibonacciMemoization} from './others/fibonacci';
 
-// chapter 08
+// chapter 09
 export { default as BinarySearchTree } from './data-structures/binary-search-tree';
 export { default as AVLTree } from './data-structures/avl-tree';
+
+// chapter 10
+export { MinHeap as MinHeap } from './data-structures/heap';
+export { MaxHeap as MaxHeap } from './data-structures/heap';
 
 
 /* import { hotPotato } from './others/hot-potato';
@@ -34,6 +38,7 @@ import { baseConverter, decimalToBinary } from './others/base-converter';
 import StackArray from './data-structures/stack-array';
 import Stack from './data-structures/stack';
 import { parenthesesChecker } from './others/balanced-symbols';
+import { MinHeap, MaxHeap } from './data-structures/heap';
 
 
 export {

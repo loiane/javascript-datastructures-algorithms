@@ -19,6 +19,7 @@ Work in Progress.
 * 07: [Dictionaries and Hashes](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter07)
 * 08: [Recursion](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter08)
 * 09: [Trees](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter09)
+* 10: [Heap](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter10)
 
 ### Third Edition Updates
 

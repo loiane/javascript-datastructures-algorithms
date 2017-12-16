@@ -41,3 +41,12 @@ export { default as factorial } from './others/factorial';
 export { default as fibonacci } from './others/fibonacci';
 export { default as fibonacciIterative } from './others/fibonacci';
 export { default as fibonacciMemoization } from './others/fibonacci';
+
+// chapter 09
+export { default as BinarySearchTree } from './data-structures/binary-search-tree';
+export { default as AVLTree } from './data-structures/avl-tree';
+
+// chapter 10
+export { MinHeap as MinHeap } from './data-structures/heap';
+export { MaxHeap as MaxHeap } from './data-structures/heap';
+export { default as heapSort } from './data-structures/sorting/heap-sort';

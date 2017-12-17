@@ -29,7 +29,7 @@ function knapSack(capacity, weights, values, n) {
     return kS[n][capacity];
 }
 
-function findValues(n, capacity, kS, weights, values){
+function findValues(n, capacity, kS, values, weights){
     var i=n, k=capacity;
 
     console.log('Items that are part of the solution:');

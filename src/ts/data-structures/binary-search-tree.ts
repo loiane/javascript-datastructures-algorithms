@@ -22,12 +22,10 @@ export default class BinarySearchTree<T> {
       } else {
         this.insertNode(node.left, key);
       }
+    } else if (node.right == null) {
+      node.right = new Node(key);
     } else {
-      if (node.right == null) {
-        node.right = new Node(key);
-      } else {
-        this.insertNode(node.right, key);
-      }
+      this.insertNode(node.right, key);
     }
   }
 
@@ -48,10 +46,9 @@ export default class BinarySearchTree<T> {
       return this.searchNode(node.left, key);
     } else if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
       return this.searchNode(node.right, key);
-    } else {
-      // key is equal to node.item
-      return true;
     }
+    // key is equal to node.item
+    return true;
   }
 
   inOrderTraverse(callback: Function) {

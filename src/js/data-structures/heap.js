@@ -6,10 +6,10 @@ export class MinHeap {
     this.heap = [];
   }
   getLeftIndex(index) {
-    return 2 * index + 1;
+    return (2 * index) + 1;
   }
   getRightIndex(index) {
-    return 2 * index + 2;
+    return (2 * index) + 2;
   }
   getParentIndex(index) {
     if (index === 0) {

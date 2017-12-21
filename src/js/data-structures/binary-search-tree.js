@@ -21,12 +21,10 @@ export default class BinarySearchTree {
       } else {
         this.insertNode(node.left, key);
       }
+    } else if (node.right == null) {
+      node.right = new Node(key);
     } else {
-      if (node.right == null) {
-        node.right = new Node(key);
-      } else {
-        this.insertNode(node.right, key);
-      }
+      this.insertNode(node.right, key);
     }
   }
   getRoot() {
@@ -43,9 +41,8 @@ export default class BinarySearchTree {
       return this.searchNode(node.left, key);
     } else if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
       return this.searchNode(node.right, key);
-    } else {
-      return true;
     }
+    return true;
   }
   inOrderTraverse(callback) {
     this.inOrderTraverseNode(this.root, callback);
@@ -110,30 +107,29 @@ export default class BinarySearchTree {
     } else if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
       node.right = this.removeNode(node.right, key);
       return node;
-    } else {
-      // key is equal to node.item
-      // handle 3 special conditions
-      // 1 - a leaf node
-      // 2 - a node with only 1 child
-      // 3 - a node with 2 children
-      // case 1
-      if (node.left == null && node.right == null) {
-        node = null;
-        return node;
-      }
-      // case 2
-      if (node.left == null) {
-        node = node.right;
-        return node;
-      } else if (node.right == null) {
-        node = node.left;
-        return node;
-      }
-      // case 3
-      const aux = this.minNode(node.right);
-      node.key = aux.key;
-      node.right = this.removeNode(node.right, aux.key);
+    }
+    // key is equal to node.item
+    // handle 3 special conditions
+    // 1 - a leaf node
+    // 2 - a node with only 1 child
+    // 3 - a node with 2 children
+    // case 1
+    if (node.left == null && node.right == null) {
+      node = null;
       return node;
     }
+    // case 2
+    if (node.left == null) {
+      node = node.right;
+      return node;
+    } else if (node.right == null) {
+      node = node.left;
+      return node;
+    }
+    // case 3
+    const aux = this.minNode(node.right);
+    node.key = aux.key;
+    node.right = this.removeNode(node.right, aux.key);
+    return node;
   }
 }

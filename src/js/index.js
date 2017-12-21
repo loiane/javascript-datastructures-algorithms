@@ -47,6 +47,6 @@ export { default as BinarySearchTree } from './data-structures/binary-search-tre
 export { default as AVLTree } from './data-structures/avl-tree';
 
 // chapter 10
-export { MinHeap as MinHeap } from './data-structures/heap';
-export { MaxHeap as MaxHeap } from './data-structures/heap';
-export { default as heapSort } from './data-structures/sorting/heap-sort';
+export { MinHeap } from './data-structures/heap';
+export { MaxHeap } from './data-structures/heap';
+export { default as heapSort } from './sorting/heap-sort';

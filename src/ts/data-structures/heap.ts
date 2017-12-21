@@ -6,11 +6,11 @@ export class MinHeap<T> {
   constructor(protected compareFn: ICompareFunction<T> = defaultCompare) {}
 
   private getLeftIndex(index: number) {
-    return 2 * index + 1;
+    return (2 * index) + 1;
   }
 
   private getRightIndex(index: number) {
-    return 2 * index + 2;
+    return (2 * index) + 2;
   }
 
   private getParentIndex(index: number) {

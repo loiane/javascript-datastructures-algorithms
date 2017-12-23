@@ -50,3 +50,14 @@ export { default as AVLTree } from './data-structures/avl-tree';
 export { MinHeap } from './data-structures/heap';
 export { MaxHeap } from './data-structures/heap';
 export { default as heapSort } from './sorting/heap-sort';
+
+// chapter 11
+export { default as Graph } from './data-structures/graph';
+export { breadthFirstSearch } from './algorithms/graph/breadth-first-search';
+export { BFS } from './algorithms/graph/breadth-first-search';
+export { depthFirstSearch } from './algorithms/graph/depth-first-search';
+export { DFS } from './algorithms/graph/depth-first-search';
+export { dijkstra } from './algorithms/graph/dijkstra';
+export { floydWarshall } from './algorithms/graph/floyd-warshall';
+export { prim } from './algorithms/graph/prim';
+export { kruskal } from './algorithms/graph/kruskal';

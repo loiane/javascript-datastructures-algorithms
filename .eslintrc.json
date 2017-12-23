@@ -26,6 +26,9 @@
     "comma-dangle": 0,
     "no-underscore-dangle": 0,
     "no-param-reassign": 0,
-    "no-return-assign": 0
+    "no-return-assign": 0,
+    "no-restricted-globals": 0,
+    "no-multi-assign": 0,
+    "prefer-destructuring": ["error", {"object": true, "array": false}]
   }
 }

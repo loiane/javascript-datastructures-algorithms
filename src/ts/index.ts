@@ -27,6 +27,18 @@ export { default as AVLTree } from './data-structures/avl-tree';
 // chapter 10
 export { MinHeap as MinHeap } from './data-structures/heap';
 export { MaxHeap as MaxHeap } from './data-structures/heap';
+export { default as heapSort } from './algorithms/sorting/heap-sort';
+
+// chapter 11
+export { default as Graph } from './data-structures/graph';
+export { breadthFirstSearch as breadthFirstSearch  } from './algorithms/graph/breadth-first-search';
+export { bfs as BFS } from './algorithms/graph/breadth-first-search';
+export { depthFirstSearch as depthFirstSearch } from './algorithms/graph/depth-first-search';
+export { DFS as DFS } from './algorithms/graph/depth-first-search';
+export { dijkstra as dijkstra } from './algorithms/graph/dijkstra';
+export { floydWarshall as floydWarshall } from './algorithms/graph/floyd-warshall';
+export { prim as prim } from './algorithms/graph/prim';
+export { kruskal as kruskal } from './algorithms/graph/kruskal';
 
 
 /* import { hotPotato } from './others/hot-potato';

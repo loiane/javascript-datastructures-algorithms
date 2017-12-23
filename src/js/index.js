@@ -49,7 +49,7 @@ export { default as AVLTree } from './data-structures/avl-tree';
 // chapter 10
 export { MinHeap } from './data-structures/heap';
 export { MaxHeap } from './data-structures/heap';
-export { default as heapSort } from './sorting/heap-sort';
+export { default as heapSort } from './algorithms/sorting/heap-sort';
 
 // chapter 11
 export { default as Graph } from './data-structures/graph';

@@ -1,4 +1,4 @@
-import { defaultCompare, ICompareFunction, swap } from '../util';
+import { defaultCompare, ICompareFunction, swap } from '../../util';
 
 function heapify(array: any[], index: number, heapSize: number, compareFn: ICompareFunction<any>) {
   let largest = index;

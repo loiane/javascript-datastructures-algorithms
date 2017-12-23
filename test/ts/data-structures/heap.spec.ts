@@ -2,7 +2,7 @@ import 'mocha';
 // import { expect } from 'chai';
 import { MinHeap } from '../../../src/ts/index';
 import { MaxHeap } from '../../../src/ts/data-structures/heap';
-import heapSort from '../../../src/ts/sorting/heap-sort';
+import heapSort from '../../../src/ts/algorithms/sorting/heap-sort';
 
 describe('Heap', () => {
   let heap: MinHeap<number>;

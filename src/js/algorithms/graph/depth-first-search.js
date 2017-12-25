@@ -15,7 +15,7 @@ const initializeColor = vertices => {
 };
 
 const depthFirstSearchVisit = (u, color, adjList, callback) => {
-  color[u] = 'grey';
+  color[u] = Colors.GREY;
   if (callback) {
     callback(u);
   }

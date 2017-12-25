@@ -27,26 +27,26 @@ console.log(graph.toString());
 
 console.log('********* bfs with callback ***********');
 
-const printNode = (value) => console.log('Visited vertex: ' + value);
+const printVertex = (value) => console.log('Visited vertex: ' + value);
 
-breadthFirstSearch(graph, myVertices[0], printNode);
+breadthFirstSearch(graph, myVertices[0], printVertex);
 
 console.log('********* sorthest path - BFS ***********');
-var shortestPathA = BFS(graph, myVertices[0]);
+const shortestPathA = BFS(graph, myVertices[0]);
 console.log(shortestPathA.distances);
 console.log(shortestPathA.predecessors);
 
 //from A to all other vertices
-var fromVertex = myVertices[0];
+const fromVertex = myVertices[0];
 
-for (i = 1; i < myVertices.length; i++) {
-  var toVertex = myVertices[i],
-    path = new Stack();
-  for (var v = toVertex; v !== fromVertex; v = shortestPathA.predecessors[v]) {
+for (let i = 1; i < myVertices.length; i++) {
+  const toVertex = myVertices[i];
+  const path = new Stack();
+  for (let v = toVertex; v !== fromVertex; v = shortestPathA.predecessors[v]) {
     path.push(v);
   }
   path.push(fromVertex);
-  var s = path.pop();
+  let s = path.pop();
   while (!path.isEmpty()) {
     s += ' - ' + path.pop();
   }

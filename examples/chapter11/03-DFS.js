@@ -2,7 +2,7 @@ const { Graph } = PacktDataStructuresAlgorithms;
 const { depthFirstSearch } = PacktDataStructuresAlgorithms;
 const { DFS } = PacktDataStructuresAlgorithms;
 
-let graph = new Graph();
+let graph = new Graph(true);
 
 let myVertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
 
@@ -26,13 +26,13 @@ console.log(graph.toString());
 
 console.log('********* dfs with callback ***********');
 
-const printNode = value => console.log('Visited vertex: ' + value);
+const printVertex = value => console.log('Visited vertex: ' + value);
 
-depthFirstSearch(graph, printNode);
+depthFirstSearch(graph, printVertex);
 
 console.log('********* topological sort - DFS ***********');
 
-graph = new Graph();
+graph = new Graph(true); // directed graph
 
 myVertices = ['A', 'B', 'C', 'D', 'E', 'F'];
 for (i = 0; i < myVertices.length; i++) {

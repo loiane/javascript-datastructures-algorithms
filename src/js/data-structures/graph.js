@@ -21,9 +21,8 @@ export default class Graph {
     }
     this.adjList.get(a).push(b);
     if (!this.isDirected) {
-      // this.adjList.get(b).push(a);
+      this.adjList.get(b).push(a);
     }
-    // adjList.get(w).push(v); //commented to run the improved DFS with topological sorting
   }
   getVertices() {
     return this.vertices;

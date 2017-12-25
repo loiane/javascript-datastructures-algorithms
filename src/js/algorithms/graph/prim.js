@@ -26,7 +26,7 @@ export const prim = graph => {
     const u = minKey(graph, key, visited);
     visited[u] = true;
     for (let v = 0; v < length; v++) {
-      if (graph[u][v] && visited[v] === false && graph[u][v] < key[v]) {
+      if (graph[u][v] && !visited[v] && graph[u][v] < key[v]) {
         parent[v] = u;
         key[v] = graph[u][v];
       }

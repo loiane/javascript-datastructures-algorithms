@@ -21,6 +21,7 @@ Work in Progress.
 * 09: [Trees](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter09)
 * 10: [Heap](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter10)
 * 11: [Graphs](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter11)
+* 12: [Sorting and Searching Algorithms](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter12)
 
 ### Third Edition Updates
 

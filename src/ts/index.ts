@@ -40,6 +40,27 @@ export { floydWarshall as floydWarshall } from './algorithms/graph/floyd-warshal
 export { prim as prim } from './algorithms/graph/prim';
 export { kruskal as kruskal } from './algorithms/graph/kruskal';
 
+// chapter 12
+export { shuffle as shuffle } from './algorithms/shuffle/fisher–yates';
+
+export { bubbleSort as bubbleSort } from './algorithms/sorting/bubble-sort';
+export { modifiedBubbleSort as modifiedBubbleSort } from './algorithms/sorting/bubble-sort-improved';
+export { bucketSort as bucketSort } from './algorithms/sorting/bucket-sort';
+export { countingSort as countingSort } from './algorithms/sorting/counting-sort';
+export { insertionSort as insertionSort } from './algorithms/sorting/insertion-sort';
+export { mergeSort as mergeSort } from './algorithms/sorting/merge-sort';
+export { quickSort as quickSort } from './algorithms/sorting/quicksort';
+export { radixSort as radixSort } from './algorithms/sorting/radix-sort';
+export { selectionSort as selectionSort } from './algorithms/sorting/selection-sort';
+export { shellSort as shellSort } from './algorithms/sorting/shell-sort';
+
+export { binarySearch as binarySearch } from './algorithms/search/binary-search';
+export { interpolationSearch as interpolationSearch } from './algorithms/search/interpolation-search';
+export { sequentialSearch as sequentialSearch } from './algorithms/search/sequential-search';
+export { findMaxValue as findMaxValue } from './algorithms/search/min-max-search';
+export { findMinValue as findMinValue } from './algorithms/search/min-max-search';
+
+
 
 /* import { hotPotato } from './others/hot-potato';
 import { palindromeChecker } from './others/palindrome-checker';

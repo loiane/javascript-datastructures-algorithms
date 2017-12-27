@@ -61,3 +61,23 @@ export { dijkstra } from './algorithms/graph/dijkstra';
 export { floydWarshall } from './algorithms/graph/floyd-warshall';
 export { prim } from './algorithms/graph/prim';
 export { kruskal } from './algorithms/graph/kruskal';
+
+// chapter 12
+export { shuffle } from './algorithms/shuffle/fisher–yates';
+
+export { bubbleSort } from './algorithms/sorting/bubble-sort';
+export { modifiedBubbleSort } from './algorithms/sorting/bubble-sort-improved';
+export { bucketSort } from './algorithms/sorting/bucket-sort';
+export { countingSort } from './algorithms/sorting/counting-sort';
+export { insertionSort } from './algorithms/sorting/insertion-sort';
+export { mergeSort } from './algorithms/sorting/merge-sort';
+export { quickSort } from './algorithms/sorting/quicksort';
+export { radixSort } from './algorithms/sorting/radix-sort';
+export { selectionSort } from './algorithms/sorting/selection-sort';
+export { shellSort } from './algorithms/sorting/shell-sort';
+
+export { binarySearch } from './algorithms/search/binary-search';
+export { interpolationSearch } from './algorithms/search/interpolation-search';
+export { sequentialSearch } from './algorithms/search/sequential-search';
+export { findMaxValue } from './algorithms/search/min-max-search';
+export { findMinValue } from './algorithms/search/min-max-search';

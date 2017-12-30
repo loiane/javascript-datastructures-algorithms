@@ -30,9 +30,7 @@ function sortBuckets(buckets: number[][]) {
     if (buckets[i] != null) {
       insertionSort(buckets[i]);
 
-      for (let j = 0; j < buckets[i].length; j++) {
-        sortedArray.push(buckets[i][j]);
-      }
+      sortedArray.push(...buckets[i]);
     }
   }
 

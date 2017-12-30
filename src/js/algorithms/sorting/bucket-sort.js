@@ -25,9 +25,7 @@ function sortBuckets(buckets) {
   for (let i = 0; i < buckets.length; i++) {
     if (buckets[i] != null) {
       insertionSort(buckets[i]);
-      for (let j = 0; j < buckets[i].length; j++) {
-        sortedArray.push(buckets[i][j]);
-      }
+      sortedArray.push(...buckets[i]);
     }
   }
   return sortedArray;

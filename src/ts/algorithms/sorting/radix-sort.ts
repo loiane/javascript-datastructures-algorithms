@@ -28,6 +28,9 @@ const countingSortForRadix = (
     aux[--buckets[bucketsIndex]] = array[i];
   }
 
+
+  // array = [];
+  // array.push(...aux);
   for (let i = 0; i < array.length; i++) {
     array[i] = aux[i];
   }

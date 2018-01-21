@@ -6,12 +6,12 @@ export const Compare = {
 
 export const DOES_NOT_EXIST = -1;
 
-export function lesserEquals(a, b, compareFn) {
+export function lesserOrEquals(a, b, compareFn) {
   const comp = compareFn(a, b);
   return comp === Compare.LESS_THAN || comp === Compare.EQUALS;
 }
 
-export function biggerEquals(a, b, compareFn) {
+export function biggerOrEquals(a, b, compareFn) {
   const comp = compareFn(a, b);
   return comp === Compare.BIGGER_THAN || comp === Compare.EQUALS;
 }

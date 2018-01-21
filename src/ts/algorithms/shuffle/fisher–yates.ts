@@ -1,12 +1,9 @@
 import { swap } from '../../util';
 
 export function shuffle<T>(array: T[]) {
-  let currentIndex = array.length;
-
-  while (currentIndex !== 0) {
-    const randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-    swap(array, currentIndex, randomIndex);
+  for (let i = array.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    swap(array, i, randomIndex);
   }
 
   return array;

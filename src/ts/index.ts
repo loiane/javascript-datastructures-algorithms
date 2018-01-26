@@ -60,6 +60,8 @@ export { sequentialSearch as sequentialSearch } from './algorithms/search/sequen
 export { findMaxValue as findMaxValue } from './algorithms/search/min-max-search';
 export { findMinValue as findMinValue } from './algorithms/search/min-max-search';
 
+// chapter 14
+export { binarySearch as binarySearchRecursive } from './algorithms/search/binary-search-recursive';
 
 
 /* import { hotPotato } from './others/hot-potato';

@@ -22,7 +22,7 @@ export function lcs(wordX: string, wordY: string) {
         l[i][j] = a > b ? a : b; // max(a,b)
       }
     }
-    console.log(l[i].join());
+    // console.log(l[i].join());
   }
 
   return l[m][n];

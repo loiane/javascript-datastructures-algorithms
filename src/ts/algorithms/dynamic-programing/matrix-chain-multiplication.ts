@@ -32,8 +32,8 @@ export function matrixChainOrder(p: number[]): number {
     }
   }
 
-  console.log(m);
-  console.log(s);
+  // console.log(m);
+  // console.log(s);
 
   printOptimalParenthesis(s, 1, n - 1);
 
@@ -42,11 +42,11 @@ export function matrixChainOrder(p: number[]): number {
 
 function printOptimalParenthesis(s: Array<Array<number>>, i: number, j: number) {
   if (i === j) {
-    console.log('A[' + i + ']');
+    // console.log('A[' + i + ']');
   } else {
-    console.log('(');
+    // console.log('(');
     printOptimalParenthesis(s, i, s[i][j]);
     printOptimalParenthesis(s, s[i][j] + 1, j);
-    console.log(')');
+    // console.log(')');
   }
 }

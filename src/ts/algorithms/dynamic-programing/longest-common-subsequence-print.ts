@@ -27,8 +27,8 @@ export function lcs(wordX: string, wordY: string) {
         solution[i][j] = l[i][j] === l[i - 1][j] ? 'top' : 'left';
       }
     }
-    console.log(l[i].join());
-    console.log(solution[i].join());
+    // console.log(l[i].join());
+    // console.log(solution[i].join());
   }
 
   printSolution(solution, wordX, m, n);
@@ -55,5 +55,5 @@ function printSolution(solution: Array<Array<string>>, wordX: string, m: number,
     x = solution[a][b];
   }
 
-  console.log('lcs: ' + answer);
+  // console.log('lcs: ' + answer);
 }

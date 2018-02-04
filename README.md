@@ -75,3 +75,29 @@ Work in Progress.
 <img src="examples/examples-screenshot.png">
 
 Happy Coding!
+
+## Other editions
+
+| 1st edition   | 2nd edition   | 3rd edition   | 
+| ------------- |:-------------:|:-------------:| 
+| ![1st edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/4874OS_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms.jpg)      | ![2nd edition](https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/5493OS_5348_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms,%20Second%20Edition.jpg) | ![2nd edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B09377_MockupCover_0.png) |
+| [Book link](http://amzn.to/1Y1OWPx)| [Book link](http://amzn.to/1TSkcA1)| [Book link](http://a.co/cbMlYmJ)|
+
+Book link - first edition:
+  - [Packt](https://www.packtpub.com/application-development/learning-javascript-data-structures-and-algorithms)
+  - [Amazon](http://amzn.to/1Y1OWPx)
+  - [Chinese version](http://www.ituring.com.cn/book/1613)
+  - [Korean version](http://www.acornpub.co.kr/book/javascript-data-structure)
+
+Book link - second edition:
+ - [Packt](https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-second-edition)
+ - [Amazon](http://amzn.to/1TSkcA1)
+ - [Brazilian Portuguese version](https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript/)
+
+ Book link - third edition:
+ - [Packt](https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-third-edition)
+ - [Amazon](http://a.co/cbMlYmJ)
+
+### Found an issue or have a question?
+
+Please create an [Issue](https://github.com/loiane/javascript-datastructures-algorithms/issues) or [Pull Request](https://github.com/loiane/javascript-datastructures-algorithms/pulls) 

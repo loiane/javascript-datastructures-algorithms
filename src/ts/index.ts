@@ -62,6 +62,7 @@ export { findMinValue as findMinValue } from './algorithms/search/min-max-search
 
 // chapter 14
 export { binarySearch as binarySearchRecursive } from './algorithms/search/binary-search-recursive';
+export { minCoinChange as minCoinChange } from './algorithms/dynamic-programing/min-coin-change';
 
 
 /* import { hotPotato } from './others/hot-potato';

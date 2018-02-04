@@ -24,7 +24,7 @@ export function minCoinChange(coins: number[], amount: number) {
         (newMin.length || !newAmount)
       ) {
         min = [coin].concat(newMin);
-        console.log('new Min ' + min + ' for ' + amount);
+        // console.log('new Min ' + min + ' for ' + amount);
       }
     }
     return (cache[amount] = min);

@@ -22,7 +22,7 @@ export function knapSack(capacity: number, weights: number[], values: number[], 
   }
 
   // extra algorithm to find the items that are part of the solution
-  findValues(n, capacity, kS, values, weights);
+  findValues(n, capacity, kS);
 
   return kS[n][capacity];
 }
@@ -30,9 +30,7 @@ export function knapSack(capacity: number, weights: number[], values: number[], 
 function findValues(
   n: number,
   capacity: number,
-  kS: Array<Array<number>>,
-  weights: number[],
-  values: number[]
+  kS: Array<Array<number>>
 ) {
   let i = n;
   let k = capacity;

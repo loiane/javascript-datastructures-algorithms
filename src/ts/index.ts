@@ -63,6 +63,8 @@ export { findMinValue as findMinValue } from './algorithms/search/min-max-search
 // chapter 14
 export { binarySearch as binarySearchRecursive } from './algorithms/search/binary-search-recursive';
 export { minCoinChange as minCoinChange } from './algorithms/dynamic-programing/min-coin-change';
+export { ratInAMaze as ratInAMaze } from './algorithms/backtracking/rat-in-maze';
+export { sudokuSolver as sudokuSolver } from './algorithms/backtracking/sudoku-solver';
 
 
 /* import { hotPotato } from './others/hot-potato';

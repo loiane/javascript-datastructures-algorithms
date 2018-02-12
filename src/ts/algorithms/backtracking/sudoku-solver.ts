@@ -13,7 +13,6 @@ function solveSudoku(grid: Array<Array<number>>) {
   let col = 0;
   let checkBlankSpaces = false;
 
-  // If there is no unassigned location, we are done
   for (row = 0; row < grid.length; row++) {
     for (col = 0; col < grid[row].length; col++) {
       if (grid[row][col] === UNASSIGNED) {
@@ -28,21 +27,16 @@ function solveSudoku(grid: Array<Array<number>>) {
 
   if (checkBlankSpaces === false) {
     return true;
-  } // success!
+  }
 
-  // consider digits 1 to 9
   for (let num = 1; num <= 9; num++) {
-    // if looks promising
     if (isSafe(grid, row, col, num)) {
-      // make tentative assignment
       grid[row][col] = num;
 
-      // return, if success, yay!
       if (solveSudoku(grid)) {
         return true;
       }
 
-      // failure, unmake & try again
       grid[row][col] = UNASSIGNED;
     }
   }
@@ -50,8 +44,6 @@ function solveSudoku(grid: Array<Array<number>>) {
   return false;
 }
 
-/* Returns a boolean which indicates whether any assigned entry
-   in the specified row matches the given number. */
 function usedInRow(grid: Array<Array<number>>, row: number, num: number) {
   for (let col = 0; col < grid.length; col++) {
     if (grid[row][col] === num) {
@@ -61,8 +53,6 @@ function usedInRow(grid: Array<Array<number>>, row: number, num: number) {
   return false;
 }
 
-/* Returns a boolean which indicates whether any assigned entry
-   in the specified column matches the given number. */
 function usedInCol(grid: Array<Array<number>>, col: number, num: number) {
   for (let row = 0; row < grid.length; row++) {
     if (grid[row][col] === num) {
@@ -72,8 +62,6 @@ function usedInCol(grid: Array<Array<number>>, col: number, num: number) {
   return false;
 }
 
-/* Returns a boolean which indicates whether any assigned entry
-      within the specified 3x3 box matches the given number. */
 function usedInBox(
   grid: Array<Array<number>>,
   boxStartRow: number,
@@ -90,11 +78,7 @@ function usedInBox(
   return false;
 }
 
-/* Returns a boolean which indicates whether it will be legal to assign
-   num to the given row,col location. */
 function isSafe(grid: Array<Array<number>>, row: number, col: number, num: number) {
-  /* Check if 'num' is not already placed in current row,
-          current column and current 3x3 box */
   return (
     !usedInRow(grid, row, num) &&
     !usedInCol(grid, col, num) &&

@@ -33,4 +33,4 @@ export const testPrime = (n: number) => {
   return true;
 };
 
-const isPrime2 = (n: number) => ![...Array(n).keys()].slice(2).map(i => !(n % i)).includes(true) && ![0, 1].includes(n);
+export const isPrime2 = (n: number) => ![...Array(n).keys()].slice(2).map(i => !(n % i)).includes(true) && ![0, 1].includes(n);

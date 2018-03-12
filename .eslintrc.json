@@ -1,0 +1,34 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "expect": true,
+    "it": true,
+    "describe": true,
+    "beforeEach": true,
+    "afterEach": true,
+    "document": false,
+    "navigator": false,
+    "window": false
+  },
+  "parser": "babel-eslint",
+  "extends": "airbnb-base",
+  "rules": {
+    "class-methods-use-this": 0,
+    "no-plusplus": 0,
+    "arrow-parens": 0,
+    "no-console": 0,
+    "import/prefer-default-export": 0,
+    "comma-dangle": 0,
+    "no-underscore-dangle": 0,
+    "no-param-reassign": 0,
+    "no-return-assign": 0,
+    "no-restricted-globals": 0,
+    "no-multi-assign": 0,
+    "prefer-destructuring": ["error", {"object": true, "array": false}]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "ignore": [
+    "**/.vscode/**",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/examples/**"
+  ],
+  "test": [
+    "**/test/**"
+  ],
+  "critics": {
+    "lint": {
+      "engine": "eslint"
+    },
+    "wc": {
+      "limit": 1000
+    }
+  }
+}

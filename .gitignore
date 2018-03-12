@@ -2,3 +2,9 @@
 *.log
 node_modules
 coverage
+.nyc_output
+coverage.lcov
+mochawesome-report/*
+dist/js/*
+dist/ts/*
+snippet.js

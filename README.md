@@ -1,12 +1,87 @@
 Learning JavaScript Data Structures and Algorithms
 ====================================
 
-Source code of **Learning JavaScript Data Structures and Algorithms** book.
+[![Build Status](https://travis-ci.org/loiane/javascript-datastructures-algorithms.svg?branch=third-edition)](https://travis-ci.org/loiane/javascript-datastructures-algorithms)
+[![codecov](https://codecov.io/gh/loiane/javascript-datastructures-algorithms/branch/third-edition/graph/badge.svg)](https://codecov.io/gh/loiane/javascript-datastructures-algorithms)
 
-| 1st edition   | 2nd edition   | 
-| ------------- |:-------------:| 
-| ![1st edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/4874OS_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms.jpg)      | ![2nd edition](https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/5493OS_5348_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms,%20Second%20Edition.jpg) | 
-| [Book link](http://amzn.to/1Y1OWPx)| [Book link](http://amzn.to/1TSkcA1)|
+Source code of **Learning JavaScript Data Structures and Algorithms** book, third edition.
+
+Work in Progress.
+
+## List of available chapters:
+
+* 01: [JavaScript, ECMAScript and TypeScript: a quick overview](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter01)
+* 02: [Arrays](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter02)
+* 03: [Stacks](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter03)
+* 04: [Queues and Deques](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter04)
+* 05: [LinkedLists](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter05)
+* 06: [Sets](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter06)
+* 07: [Dictionaries and Hashes](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter07)
+* 08: [Recursion](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter08)
+* 09: [Trees](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter09)
+* 10: [Heap](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter10)
+* 11: [Graphs](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter11)
+* 12: [Sorting and Searching Algorithms](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter12)
+* 13: [String and Math Algorithms](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter13)
+* 14: [Algorithm Design and Techniques](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter14)
+* 15: [Algorithm Complexity](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter15)
+
+### Third Edition Updates
+
+* Algorithms using ES2015+ (ES6+)
+* New data structures and algorithms
+* All chapters rewritten and reviewed 
+* Three (3) new chapters
+* Creation of a Data Structures and Algorithms library that can be used in the browser or with Node.js
+* Algorithms tested with Mocha + Chai (test code available in `test` directory)
+* **TypeScript** version of the source code included (library and tests)
+
+## Project Structure
+
+`src/js/index.js` file contains all the data structures and algorithms listed by chapter.
+
+```
+|_examples (how to use each data structure and algorithm, organized by chapter)
+|_src 
+|___js (source code: JavaScript version)
+|_____data-structures
+|_______models (classes used by DS: Node, ValuePair, ...)
+|_____others (other algorithms such as palindome checker, hanoi tower)
+|___ts (source code: TypeScript version)
+|_____data-structures
+|_______models
+|_____others
+|_test (unit tests with Mocha and Chai for src)
+|___js (tests for JavaScript code)
+|___ts (tests for TypeScript code)
+```
+
+## Installing and running the book examples With Node
+
+* Install [Node](https://nodejs.org)
+* Open terminal/cmd and change directoty to this project folder: `cd /Users/.../javascript-datastructures-algorithms` (Linux/Max) or `cd C:/.../javascript-datastructures-algorithms`
+* run `npm install` to install all depencies
+* To see the examples, run `http-server html` or `npm run serve`. Open your browser `http:\\localhost:8080` to see the book examples
+* Or `cd html/chapter01` and run each javascript file with node: `node 02-Variables`
+
+## Running the examples in the browser
+
+* Right click on the html file you would like to see the examples, right click and 'Open with Chrome (or any other browser)'
+
+* Or open the `examples/index.html` file to easily nagivate through all examples:
+
+* Demo: [https://javascript-ds-algorithms-book.firebaseapp.com](https://javascript-ds-algorithms-book.firebaseapp.com)
+
+<img src="examples/examples-screenshot.png">
+
+Happy Coding!
+
+## Other editions
+
+| 1st edition   | 2nd edition   | 3rd edition   | 
+| ------------- |:-------------:|:-------------:| 
+| ![1st edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/4874OS_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms.jpg)      | ![2nd edition](https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/5493OS_5348_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms,%20Second%20Edition.jpg) | ![2nd edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B09377_MockupCover_0.png) |
+| [Book link](http://amzn.to/1Y1OWPx)| [Book link](http://amzn.to/1TSkcA1)| [Book link](http://a.co/cbMlYmJ)|
 
 Book link - first edition:
   - [Packt](https://www.packtpub.com/application-development/learning-javascript-data-structures-and-algorithms)
@@ -19,24 +94,9 @@ Book link - second edition:
  - [Amazon](http://amzn.to/1TSkcA1)
  - [Brazilian Portuguese version](https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript/)
 
-### List of Chapters:
-  
-* 01: [JavaScript: a quick overview](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter01)
-* 02: [Arrays](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter02)
-* 03: [Stacks](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter03)
-* 04: [Queues](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter04)
-* 05: [Linked Lists](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter05)
-* 06: [Sets](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter06)
-* 07: [Dictionaries and Hashes](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter07)
-* 08: [Trees](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter08)
-* 09: [Graphs](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter09)
-* 10: [Sorting and searching algorithms](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter10)
-* 11: [Pattern of algorithms](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter11)
-* 12: [Algorithm Complexity](https://github.com/loiane/javascript-datastructures-algorithms/tree/second-edition/chapter12)
-
-### First Edition source code:
-
-Please refer to [this link](https://github.com/loiane/javascript-datastructures-algorithms/tree/master)
+ Book link - third edition:
+ - [Packt](https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-third-edition)
+ - [Amazon](http://a.co/cbMlYmJ)
 
 ### Found an issue or have a question?
 

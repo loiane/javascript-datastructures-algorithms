@@ -1,0 +1,80 @@
+{
+  "name": "javascript-datastructures-algorithms",
+  "version": "0.0.1",
+  "description": "Learning JavaScript Data Structures and Algorithms",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loiane/javascript-datastructures-algorithms.git"
+  },
+  "keywords": [],
+  "author": "Loiane Groner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loiane/javascript-datastructures-algorithms/issues"
+  },
+  "homepage": "https://github.com/loiane/javascript-datastructures-algorithms",
+  "scripts": {
+    "clean": "rm -rf ./dist ./coverage ./.nyc_output ./coverage.lcov ./mochawesome-report",
+    "build:js": "babel src/js -d dist/js",
+    "build:ts": "tsc -p ./ --rootDir ./src/ts",
+    "build": "npm run build:js && npm run build:ts",
+    "lint:js": "eslint src/js && eslint test/js",
+    "lint:ts": "tslint -c tslint.json 'src/ts/**/*.ts' && tslint -c tslint.json 'test/ts/**/*.ts'",
+    "lint": "npm run lint:js && npm run lint:ts",
+    "test:js": "mocha --compilers js:babel-core/register ./test/js  --recursive --reporter mochawesome",
+    "test:ts": "mocha -r ts-node/register ./test/ts/**/*.spec.ts ./test/ts/**/**/*.spec.ts --recursive",
+    "test": "npm run test:js && npm run test:ts",
+    "dev": "npm run clean && npm run lint && npm run webpack && npm run generate-report",
+    "dev2": "npm run clean && npm run lint && npm run webpack && npm run generate-report2",
+    "coverage": "npm run generate-report && nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "generate-report": "nyc --report-dir coverage npm run test && nyc report --reporter=text",
+    "generate-report2": "nyc --report-dir coverage npm run test",
+    "go": "npm run clean && npm run lint && npm run build && npm run test",
+    "webpack": "webpack --env build"
+  },
+  "nyc": {
+    "include": [
+      "src/ts/*.ts",
+      "src/ts/**/*.ts",
+      "src/js/*.js",
+      "src/js/**/*.js"
+    ],
+    "exclude": [
+      "typings"
+    ],
+    "extension": [
+      ".ts",
+      ".js"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ],
+    "all": true
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.10",
+    "@types/mocha": "^2.2.45",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.1.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "codecov": "^3.0.0",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "istanbul": "^v1.1.0-alpha.1",
+    "mocha": "^4.0.1",
+    "mochawesome": "^3.0.0",
+    "nyc": "^11.4.1",
+    "ts-node": "^4.1.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0",
+    "yargs": "^10.0.3"
+  }
+}

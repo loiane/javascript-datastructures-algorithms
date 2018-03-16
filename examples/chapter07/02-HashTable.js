@@ -2,6 +2,12 @@ const { HashTable } = PacktDataStructuresAlgorithms;
 
 const hash = new HashTable();
 
+console.log(hash.hashCode('Gandalf') + ' - Gandalf');
+console.log(hash.hashCode('John') + ' - John');
+console.log(hash.hashCode('Tyrion') + ' - Tyrion');
+
+console.log(' ');
+
 console.log(hash.hashCode('Ygritte') + ' - Ygritte');
 console.log(hash.hashCode('Jonathan') + ' - Jonathan');
 console.log(hash.hashCode('Jamie') + ' - Jamie');

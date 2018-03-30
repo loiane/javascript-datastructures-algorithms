@@ -26,7 +26,7 @@ export class MinHeap {
   clear() {
     this.heap = [];
   }
-  find() {
+  findMinimum() {
     return this.isEmpty() ? undefined : this.heap[0];
   }
   insert(value) {
@@ -43,12 +43,15 @@ export class MinHeap {
     const left = this.getLeftIndex(index);
     const right = this.getRightIndex(index);
     const size = this.size();
-    if (left < size && this.compareFn(this.heap[element], this.heap[left]) > Compare.BIGGER_THAN) {
+    if (
+      left < size &&
+      this.compareFn(this.heap[element], this.heap[left]) === Compare.BIGGER_THAN
+    ) {
       element = left;
     }
     if (
       right < size &&
-      this.compareFn(this.heap[element], this.heap[right]) > Compare.BIGGER_THAN
+      this.compareFn(this.heap[element], this.heap[right]) === Compare.BIGGER_THAN
     ) {
       element = right;
     }
@@ -59,7 +62,10 @@ export class MinHeap {
   }
   siftUp(index) {
     let parent = this.getParentIndex(index);
-    while (index > 0 && this.compareFn(this.heap[parent], this.heap[index]) > Compare.BIGGER_THAN) {
+    while (
+      index > 0 &&
+      this.compareFn(this.heap[parent], this.heap[index]) === Compare.BIGGER_THAN
+    ) {
       swap(this.heap, parent, index);
       index = parent;
       parent = this.getParentIndex(index);
@@ -79,11 +85,15 @@ export class MinHeap {
   heapify(array) {
     if (array) {
       this.heap = array;
-      this.heap.unshift(null); // remove all null elements
     }
-    for (let i = this.size() - 1; i > 0; i--) {
+    const maxIndex = Math.floor(this.size() / 2) - 1;
+    for (let i = 0; i <= maxIndex; i++) {
       this.siftDown(i);
     }
+    return this.heap;
+  }
+  getAsArray() {
+    return this.heap;
   }
 }
 export class MaxHeap extends MinHeap {

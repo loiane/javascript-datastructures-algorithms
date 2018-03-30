@@ -1,5 +1,5 @@
 import 'mocha';
-// import { expect } from 'chai';
+import { expect } from 'chai';
 import { MinHeap } from '../../../src/ts/index';
 import { MaxHeap } from '../../../src/ts/data-structures/heap';
 import heapSort from '../../../src/ts/algorithms/sorting/heap-sort';
@@ -15,12 +15,27 @@ describe('Heap', () => {
 
   });
 
-  it('inserts elements in the AVLTree', () => {
+  it('inserts elements in the Heap', () => {
 
-    heap.insert(3);
+    let min = 2;
+
     heap.insert(2);
-    heap.insert(1);
+    expect(heap.findMinimum()).to.equal(min);
+    heap.insert(3);
+    expect(heap.findMinimum()).to.equal(min);
     heap.insert(4);
+    expect(heap.findMinimum()).to.equal(min);
+    heap.insert(5);
+    expect(heap.findMinimum()).to.equal(min);
+
+    heap.insert(1);
+    min = 1;
+    expect(heap.findMinimum()).to.equal(min);
+
+    heap.insert(6);
+    heap.insert(9);
+    heap.insert(10);
+    heap.insert(14);
 
     heap.extract();
     heap.extract();

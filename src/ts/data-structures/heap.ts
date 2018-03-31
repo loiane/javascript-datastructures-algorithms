@@ -103,6 +103,10 @@ export class MinHeap<T> {
 
     return this.heap;
   }
+
+  getAsArray() {
+    return this.heap;
+  }
 }
 
 export class MaxHeap<T> extends MinHeap<T> {

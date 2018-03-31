@@ -46,7 +46,7 @@ export const depthFirstSearch = (graph, callback) => {
 const DFSVisit = (u, color, d, f, p, time, adjList) => {
   // console.log('discovered ' + u);
   color[u] = Colors.GREY;
-  d[u] = ++time;
+  d[u] = ++time.count;
   const neighbors = adjList.get(u);
   for (let i = 0; i < neighbors.length; i++) {
     const w = neighbors[i];
@@ -56,7 +56,7 @@ const DFSVisit = (u, color, d, f, p, time, adjList) => {
     }
   }
   color[u] = Colors.BLACK;
-  f[u] = ++time;
+  f[u] = ++time.count;
   // console.log('explored ' + u);
 };
 
@@ -67,7 +67,7 @@ export const DFS = graph => {
   const d = {};
   const f = {};
   const p = {};
-  const time = 0;
+  const time = { count: 0 };
   for (let i = 0; i < vertices.length; i++) {
     f[vertices[i]] = 0;
     d[vertices[i]] = 0;

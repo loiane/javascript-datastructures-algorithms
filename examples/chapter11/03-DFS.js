@@ -46,9 +46,9 @@ graph.addEdge('C', 'F');
 graph.addEdge('F', 'E');
 
 const result = DFS(graph);
-console.log(result.discovery);
-console.log(result.finished);
-console.log(result.predecessors);
+console.log('discovery', result.discovery);
+console.log('finished', result.finished);
+console.log('predecessors', result.predecessors);
 
 const fTimes = result.finished;
 s = '';

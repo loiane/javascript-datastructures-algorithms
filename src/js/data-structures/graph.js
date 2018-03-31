@@ -20,7 +20,7 @@ export default class Graph {
       this.addVertex(b);
     }
     this.adjList.get(a).push(b);
-    if (!this.isDirected) {
+    if (this.isDirected !== true) {
       this.adjList.get(b).push(a);
     }
   }

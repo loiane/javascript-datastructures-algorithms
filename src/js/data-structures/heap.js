@@ -78,7 +78,8 @@ export class MinHeap {
     if (this.size() === 1) {
       return this.heap.shift();
     }
-    const removedValue = this.heap.shift();
+    const removedValue = this.heap[0];
+    this.heap[0] = this.heap.pop();
     this.siftDown(0);
     return removedValue;
   }

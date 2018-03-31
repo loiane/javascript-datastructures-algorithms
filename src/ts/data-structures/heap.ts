@@ -6,11 +6,11 @@ export class MinHeap<T> {
   constructor(protected compareFn: ICompareFunction<T> = defaultCompare) {}
 
   private getLeftIndex(index: number) {
-    return (2 * index) + 1;
+    return 2 * index + 1;
   }
 
   private getRightIndex(index: number) {
-    return (2 * index) + 2;
+    return 2 * index + 2;
   }
 
   private getParentIndex(index: number) {
@@ -71,7 +71,10 @@ export class MinHeap<T> {
 
   private siftUp(index: number): void {
     let parent = this.getParentIndex(index);
-    while (index > 0 && this.compareFn(this.heap[parent], this.heap[index]) === Compare.BIGGER_THAN) {
+    while (
+      index > 0 &&
+      this.compareFn(this.heap[parent], this.heap[index]) === Compare.BIGGER_THAN
+    ) {
       swap(this.heap, parent, index);
       index = parent;
       parent = this.getParentIndex(index);
@@ -85,7 +88,8 @@ export class MinHeap<T> {
     if (this.size() === 1) {
       return this.heap.shift();
     }
-    const removedValue = this.heap.shift();
+    const removedValue = this.heap[0];
+    this.heap[0] = this.heap.pop();
     this.siftDown(0);
     return removedValue;
   }

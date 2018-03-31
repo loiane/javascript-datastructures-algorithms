@@ -11,56 +11,67 @@ describe('Heap', () => {
     heap = new MinHeap<number>();
   });
 
-  it('starts empty', () => {
-
+  it('starts empty MinHeap', () => {
+    expect(heap.size()).to.equal(0);
+    expect(heap.isEmpty()).to.equal(true);
   });
 
-  it('inserts elements in the Heap', () => {
+  it('inserts values in the MinHeap', () => {
+    const resultArray = [];
+    for (let i = 1; i < 10; i++) {
+      resultArray.push(i);
+      heap.insert(i);
+      expect(heap.getAsArray()).to.deep.equal(resultArray);
+    }
+  });
 
-    let min = 2;
+  it('finds the min value from the MinHeap', () => {
+    const resultArray = [];
+    for (let i = 10; i >= 1; i--) {
+      resultArray.push(i);
+      heap.insert(i);
+      expect(heap.findMinimum()).to.equal(i);
+    }
+  });
 
-    heap.insert(2);
-    expect(heap.findMinimum()).to.equal(min);
-    heap.insert(3);
-    expect(heap.findMinimum()).to.equal(min);
-    heap.insert(4);
-    expect(heap.findMinimum()).to.equal(min);
-    heap.insert(5);
-    expect(heap.findMinimum()).to.equal(min);
+  it('performs heapify in the MinHeap', () => {
+    const resultArray = [];
+    for (let i = 10; i >= 1; i--) {
+      resultArray.push(i);
+    }
+    expect(heap.heapify(resultArray)).to.deep.equal(resultArray);
+  });
 
-    heap.insert(1);
-    min = 1;
-    expect(heap.findMinimum()).to.equal(min);
+  it('extracts the min value from the MinHeap', () => {
+    let resultArray = [];
+    for (let i = 1; i < 10; i++) {
+      resultArray.push(i);
+      heap.insert(i);
+      expect(heap.getAsArray()).to.deep.equal(resultArray);
+    }
 
-    heap.insert(6);
-    heap.insert(9);
-    heap.insert(10);
-    heap.insert(14);
+    resultArray = [
+      [],
+      [2, 4, 3, 8, 5, 6, 7, 9],
+      [3, 4, 6, 8, 5, 9, 7],
+      [4, 5, 6, 8, 7, 9],
+      [5, 7 , 6, 8, 9],
+      [6, 7, 9, 8],
+      [7, 8, 9],
+      [8, 9],
+      [9],
+      []
+    ];
 
-    heap.extract();
-    heap.extract();
-    heap.extract();
-    heap.extract();
-
-    heap.isEmpty();
-
-    const maxHeap = new MaxHeap<number>();
-    maxHeap.insert(3);
-    maxHeap.insert(2);
-    maxHeap.insert(1);
-    maxHeap.insert(4);
-
-    maxHeap.extract();
-    maxHeap.extract();
-    maxHeap.extract();
-    maxHeap.extract();
-
-    maxHeap.isEmpty();
+    for (let i = 1; i < 10; i++) {
+      expect(heap.extract()).to.equal(i);
+      expect(heap.getAsArray()).to.deep.equal(resultArray[i]);
+    }
   });
 
   it('Heap Sort', () => {
     const array = [3, 2, 5, 6, 1, 7, 8, 9];
 
-    heapSort(array);
+    expect(heapSort(array)).to.deep.equal([1, 2, 3, 5, 6, 7, 8, 9]);
   });
 });

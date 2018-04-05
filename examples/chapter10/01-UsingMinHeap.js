@@ -22,6 +22,6 @@ for (let i = 1; i < 10; i++) {
 
 console.log(heap.getAsArray());
 
-console.log('Extract minimum: ', heap.extract());
+console.log('Extract minimum: ', heap.extract()); // 1
 console.log(heap.getAsArray()); // [2, 4, 3, 8, 5, 6, 7, 9]
 

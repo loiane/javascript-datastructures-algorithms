@@ -23,6 +23,7 @@ export { fibonacciMemoization as fibonacciMemoization} from './others/fibonacci'
 // chapter 09
 export { default as BinarySearchTree } from './data-structures/binary-search-tree';
 export { default as AVLTree } from './data-structures/avl-tree';
+export { default as RedBlackTree } from './data-structures/red-black-tree';
 
 // chapter 10
 export { MinHeap as MinHeap } from './data-structures/heap';

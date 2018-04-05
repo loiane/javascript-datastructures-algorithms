@@ -1,14 +1,20 @@
+import { Node } from './node';
+
 export enum Colors {
   RED = 0,
   BLACK = 1
 }
 
-export class RedBlackNode<K> {
+export class RedBlackNode<K> extends Node<K> {
   left: RedBlackNode<K>;
   right: RedBlackNode<K>;
+  parent: RedBlackNode<K>;
   color: Colors;
 
-  constructor(public key: K) {}
+  constructor(public key: K) {
+    super(key);
+    this.color = Colors.RED;
+  }
 
   isRed() {
     return this.color === Colors.RED;
@@ -20,9 +26,5 @@ export class RedBlackNode<K> {
     } else {
       this.color = Colors.RED;
     }
-  }
-
-  toString() {
-    return `${this.key}`;
   }
 }

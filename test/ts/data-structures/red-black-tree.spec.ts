@@ -71,11 +71,37 @@ describe('RedBlackTree', () => {
     assertNode(node.left, 1, Colors.BLACK);
     assertNode(node.right, 3, Colors.BLACK);
     node = tree.getRoot().right;
-    assertNode(node, 5, Colors.RED);
+    assertNode(node, 6, Colors.RED);
     assertNode(node.left, 5, Colors.BLACK);
     assertNode(node.right, 7, Colors.BLACK);
     assertNode(node.right.right, 8, Colors.RED);
 
+    tree.insert(9);
+    assertNode(tree.getRoot(), 4, Colors.BLACK);
+    node = tree.getRoot().left;
+    assertNode(node, 2, Colors.RED);
+    assertNode(node.left, 1, Colors.BLACK);
+    assertNode(node.right, 3, Colors.BLACK);
+    node = tree.getRoot().right;
+    assertNode(node, 6, Colors.RED);
+    assertNode(node.left, 5, Colors.BLACK);
+    assertNode(node.right, 8, Colors.BLACK);
+    assertNode(node.right.left, 7, Colors.RED);
+    assertNode(node.right.right, 9, Colors.RED);
+
+    tree.insert(10);
+    assertNode(tree.getRoot(), 4, Colors.BLACK);
+    node = tree.getRoot().left;
+    assertNode(node, 2, Colors.BLACK);
+    assertNode(node.left, 1, Colors.BLACK);
+    assertNode(node.right, 3, Colors.BLACK);
+    node = tree.getRoot().right;
+    assertNode(node, 6, Colors.BLACK);
+    assertNode(node.left, 5, Colors.BLACK);
+    assertNode(node.right, 8, Colors.RED);
+    assertNode(node.right.left, 7, Colors.BLACK);
+    assertNode(node.right.right, 9, Colors.BLACK);
+    assertNode(node.right.right.right, 10, Colors.RED);
 
   });
 

@@ -23,7 +23,7 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
   private rotationLL(node: RedBlackNode<T>) {
     const tmp = node.left;
     node.left = tmp.right;
-    if (typeof tmp.right.key !== 'undefined') {
+    if (tmp.right && tmp.right.key) {
       tmp.right.parent = node;
     }
     tmp.parent = node.parent;
@@ -54,7 +54,7 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
   private rotationRR(node: RedBlackNode<T>) {
     const tmp = node.right;
     node.right = tmp.left;
-    if (typeof tmp.left.key !== 'undefined') {
+    if (tmp.left && tmp.left.key) {
       tmp.left.parent = node;
     }
     tmp.parent = node.parent;
@@ -101,101 +101,65 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
   }
 
   private fixTreeProperties(node: RedBlackNode<T>) {
-    let uncle: RedBlackNode<T>;
-    let grandParent: RedBlackNode<T>;
     while (node && node.parent && node.parent.color === Colors.RED && node.color !== Colors.BLACK) {
-      grandParent = node.parent.parent;
-      if (grandParent && grandParent.left === node.parent) {
-        if (grandParent.right != null) {
-          uncle = grandParent.right;
-          if (uncle.color === Colors.RED) {
-            node.parent.color = Colors.BLACK;
-            uncle.color = Colors.BLACK;
-            grandParent.color = Colors.RED;
-            node = grandParent;
-          }
-        } else {
-          if (node.parent.right === node) {
-            node = node.parent;
-            this.leftRotate(node);
-          }
-          node.parent.color = Colors.BLACK;
+       let parent = node.parent;
+       const grandParent = parent.parent;
+
+      // case A
+      if (grandParent && grandParent.left === parent) {
+
+        const uncle = grandParent.right;
+
+        // case 1: uncle of node is also red - only recoloring
+        if (uncle && uncle.color === Colors.RED) {
           grandParent.color = Colors.RED;
-          this.rightRotate(grandParent);
+          parent.color = Colors.BLACK;
+          uncle.color = Colors.BLACK;
+          node = grandParent;
+        } else {
+          // case 2: node is right child - left rotate
+          if (node === parent.right) {
+            this.rotationRR(parent);
+            node = parent;
+            parent = node.parent;
+          }
+
+          // case 3: node is left child - right rotate
+          this.rotationLL(grandParent);
+          // swap color
+          parent.color = Colors.BLACK;
+          grandParent.color = Colors.RED;
+          node = parent;
         }
-      } else {
-        if (grandParent.left != null) {
-          uncle = grandParent.left;
-          if (uncle.color === Colors.RED) {
-            node.parent.color = Colors.BLACK;
-            uncle.color = Colors.BLACK;
-            grandParent.color = Colors.RED;
-            node = grandParent;
-          }
-        } else {
-          if (node.parent.left === node) {
-            node = node.parent;
-            this.rightRotate(node);
-          }
-          node.parent.color = Colors.BLACK;
+
+      } else { // case B: parent is right child of grand parent
+
+        const uncle = grandParent.left;
+
+        // case 1: uncle is read - only recoloring
+        if (uncle && uncle.color === Colors.RED) {
           grandParent.color = Colors.RED;
-          this.leftRotate(grandParent);
+          parent.color = Colors.BLACK;
+          uncle.color = Colors.BLACK;
+          node = grandParent;
+        } else {
+          // case 2: node is left child - left rotate
+          if (node === parent.left) {
+            this.rotationLL(parent);
+            node = parent;
+            parent = node.parent;
+          }
+
+           // case 3: node is right child - left rotate
+          this.rotationRR(grandParent);
+          // swap color
+          parent.color = Colors.BLACK;
+          grandParent.color = Colors.RED;
+          node = parent;
         }
       }
     }
     this.root.color = Colors.BLACK;
-  }
-
-  leftRotate(p: RedBlackNode<T>) {
-    if (p.right != null) {
-      const y = p.right;
-      if (y.left != null) {
-        p.right = y.left;
-        y.left.parent = p;
-      } else {
-        p.right = null;
-      }
-      if (p.parent != null) {
-        y.parent = p.parent;
-      }
-      if (p.parent == null) {
-        this.root = y;
-      } else {
-        if (p === p.parent.left) {
-          p.parent.left = y;
-        } else {
-          p.parent.right = y;
-        }
-      }
-      y.left = p;
-      p.parent = y;
-    }
-  }
-
-  rightRotate(p: RedBlackNode<T>) {
-    if (p.left != null) {
-      const y = p.left;
-      if (y.right != null) {
-        p.left = y.right;
-        y.right.parent = p;
-      } else {
-        p.left = null;
-      }
-      if (p.parent != null) {
-        y.parent = p.parent;
-      }
-      if (p.parent == null) {
-        this.root = y;
-      } else {
-        if (p === p.parent.left) {
-          p.parent.left = y;
-        } else {
-          p.parent.right = y;
-        }
-      }
-      y.right = p;
-      p.parent = y;
-    }
   }
 
   getRoot() {

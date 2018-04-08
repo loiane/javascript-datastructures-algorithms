@@ -5,7 +5,7 @@ Learning JavaScript Data Structures and Algorithms
 [![codecov](https://codecov.io/gh/loiane/javascript-datastructures-algorithms/branch/third-edition/graph/badge.svg)](https://codecov.io/gh/loiane/javascript-datastructures-algorithms)
 [![devDependencies Status](https://david-dm.org/loiane/javascript-datastructures-algorithms/dev-status.svg)](https://david-dm.org/loiane/javascript-datastructures-algorithms?type=dev)
 [![dependencies Status](https://david-dm.org/loiane/javascript-datastructures-algorithms/status.svg)](https://david-dm.org/loiane/javascript-datastructures-algorithms)
-[![Greenkeeper badge](https://badges.greenkeeper.io/loiane/javascript-datastructures-algorithms.svg.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/loiane/javascript-datastructures-algorithms.svg)](https://greenkeeper.io/)
 
 
 Source code of **Learning JavaScript Data Structures and Algorithms** book, third edition.

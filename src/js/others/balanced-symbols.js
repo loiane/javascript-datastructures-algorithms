@@ -17,13 +17,12 @@ export function parenthesesChecker(symbols) {
     } else if (stack.isEmpty()) {
       balanced = false;
     } else {
-      // makes sure the stack isn't empty.
       if (!stack.isEmpty()) {
         top = stack.pop();
+        if (!(opens.indexOf(top) === closers.indexOf(symbol))) {
+          balanced = false;
+        }
       } else { // error case
-        balanced = false;
-      }
-      if (!(opens.indexOf(top) === closers.indexOf(symbol))) {
         balanced = false;
       }
     }

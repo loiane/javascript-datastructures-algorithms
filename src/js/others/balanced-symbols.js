@@ -11,21 +11,23 @@ export function parenthesesChecker(symbols) {
   let top;
 
   while (index < symbols.length && balanced) {
-    symbol = symbols.charAt(index);
+    symbol = symbols[index];
     if (opens.indexOf(symbol) >= 0) {
       stack.push(symbol);
     } else if (stack.isEmpty()) {
       balanced = false;
     } else {
-      top = stack.pop();
+      // makes sure the stack isn't empty.
+      if (!stack.isEmpty()) {
+        top = stack.pop();
+      } else { // error case
+        balanced = false;
+      }
       if (!(opens.indexOf(top) === closers.indexOf(symbol))) {
         balanced = false;
       }
     }
     index++;
   }
-  if (balanced && stack.isEmpty()) {
-    return true;
-  }
-  return false;
+  return balanced && stack.isEmpty();
 }

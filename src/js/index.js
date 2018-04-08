@@ -6,11 +6,11 @@ export const util = _util;
 // chapter 03
 export { default as StackArray } from './data-structures/stack-array';
 export { default as Stack } from './data-structures/stack';
-export { default as hanoi } from './others/hanoi';
-export { default as hanoiStack } from './others/hanoi';
-export { default as baseConverter } from './others/base-converter';
-export { default as decimalToBinary } from './others/base-converter';
-export { default as parenthesesChecker } from './others/balanced-symbols';
+export { hanoi } from './others/hanoi';
+export { hanoiStack } from './others/hanoi';
+export { baseConverter } from './others/base-converter';
+export { decimalToBinary } from './others/base-converter';
+export { parenthesesChecker } from './others/balanced-symbols';
 
 // chapter 04
 export { default as Queue } from './data-structures/queue';

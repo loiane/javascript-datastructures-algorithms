@@ -26,7 +26,6 @@ export function fibonacciMemoization(n) {
   const memo = [0, 1];
   const fibonacciMem = num => {
     if (memo[num] != null) { return memo[num]; }
-    memo[num] = fibonacciMem(num - 1) + fibonacciMem(num - 2);
     return (memo[num] = fibonacciMem(num - 1) + fibonacciMem(num - 2));
   };
   return fibonacciMem(n);

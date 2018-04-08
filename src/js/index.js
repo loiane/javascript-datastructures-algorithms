@@ -81,3 +81,9 @@ export { interpolationSearch } from './algorithms/search/interpolation-search';
 export { sequentialSearch } from './algorithms/search/sequential-search';
 export { findMaxValue } from './algorithms/search/min-max-search';
 export { findMinValue } from './algorithms/search/min-max-search';
+
+// chapter 14
+// export { binarySearch as binarySearchRecursive } from './algorithms/search/binary-search-recursive';
+export { minCoinChange } from './algorithms/dynamic-programing/min-coin-change';
+export { ratInAMaze } from './algorithms/backtracking/rat-in-maze';
+export { sudokuSolver } from './algorithms/backtracking/sudoku-solver';

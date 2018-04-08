@@ -8,7 +8,7 @@ export function ratInAMaze(maze: Array<Array<number>>) {
     }
   }
 
-  if (findPath(maze, 0, 0, solution) === false) {
+  if (findPath(maze, 0, 0, solution) === true) {
     return solution;
   } else {
     return 'NO PATH FOUND';

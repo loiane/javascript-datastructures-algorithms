@@ -7,11 +7,11 @@ function binarySearchRecursive(array, value, low, high, compareFn = defaultCompa
     const element = array[mid];
     if (compareFn(element, value) === Compare.LESS_THAN) {
       return binarySearchRecursive(array, value, mid + 1, high, compareFn);
-    } else if (compareFn(element, value) === Compare.BIGGER_THAN) {
-      return binarySearchRecursive(array, value, low, mid - 1, compareFn);
-    } else {
-      return mid;
     }
+    if (compareFn(element, value) === Compare.BIGGER_THAN) {
+      return binarySearchRecursive(array, value, low, mid - 1, compareFn);
+    }
+    return mid;
   }
   return DOES_NOT_EXIST;
 }

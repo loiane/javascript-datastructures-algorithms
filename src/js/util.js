@@ -18,7 +18,7 @@ export function biggerEquals(a, b, compareFn) {
 
 export function defaultCompare(a, b) {
   if (a === b) {
-    return 0;
+    return Compare.EQUALS;
   }
   return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
 }

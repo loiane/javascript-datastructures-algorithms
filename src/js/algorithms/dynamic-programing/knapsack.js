@@ -4,9 +4,9 @@ function findValues(n, capacity, kS) {
   // console.log('Items that are part of the solution:');
   while (i > 0 && k > 0) {
     if (kS[i][k] !== kS[i - 1][k]) {
-      /* console.log(
+     /* console.log(
               'item ' + i + ' can be part of solution w,v: ' + weights[i - 1] + ',' + values[i - 1]
-            ); */
+            );*/
       i--;
       k -= kS[i][k];
     } else {

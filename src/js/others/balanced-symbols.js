@@ -17,12 +17,8 @@ export function parenthesesChecker(symbols) {
     } else if (stack.isEmpty()) {
       balanced = false;
     } else {
-      if (!stack.isEmpty()) {
-        top = stack.pop();
-        if (!(opens.indexOf(top) === closers.indexOf(symbol))) {
-          balanced = false;
-        }
-      } else { // error case
+      top = stack.pop();
+      if (!(opens.indexOf(top) === closers.indexOf(symbol))) {
         balanced = false;
       }
     }

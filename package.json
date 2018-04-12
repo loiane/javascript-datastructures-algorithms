@@ -68,7 +68,7 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
     "istanbul": "^v1.1.0-alpha.1",
-    "mocha": "^5.0.4",
+    "mocha": "^5.1.0",
     "mochawesome": "^3.0.2",
     "nyc": "^11.6.0",
     "ts-node": "^5.0.1",

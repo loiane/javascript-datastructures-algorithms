@@ -15,8 +15,8 @@ export { parenthesesChecker } from './others/balanced-symbols';
 // chapter 04
 export { default as Queue } from './data-structures/queue';
 export { default as Deque } from './data-structures/deque';
-export { default as hotPotato } from './others/hot-potato';
-export { default as palindromeChecker } from './others/palindrome-checker';
+export { hotPotato } from './others/hot-potato';
+export { palindromeChecker } from './others/palindrome-checker';
 
 // chapter 05
 export { default as LinkedList } from './data-structures/linked-list';

@@ -4,18 +4,15 @@ function partition(array, left, right, compareFn) {
   const pivot = array[Math.floor((right + left) / 2)];
   let i = left;
   let j = right;
-  // console.log('pivot is ' + pivot + '; left is ' + left + '; right is ' + right);
+  
   while (i <= j) {
     while (compareFn(array[i], pivot) === Compare.LESS_THAN) {
       i++;
-      // console.log('i = ' + i);
     }
     while (compareFn(array[j], pivot) === Compare.BIGGER_THAN) {
       j--;
-      // console.log('j = ' + j);
     }
     if (i <= j) {
-      // console.log('swap ' + array[i] + ' with ' + array[j]);
       swap(array, i, j);
       i++;
       j--;

@@ -1,4 +1,4 @@
-function lcs(wordX: string, wordY: string, m = wordX.length, n = wordY.length): number {
+export function lcs(wordX: string, wordY: string, m = wordX.length, n = wordY.length): number {
   if (m === 0 || n === 0) {
     return 0;
   }

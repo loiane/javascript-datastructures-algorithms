@@ -4,7 +4,7 @@ import { Node } from './models/node';
 export default class BinarySearchTree {
   constructor(compareFn = defaultCompare) {
     this.compareFn = compareFn;
-    this.root = null;
+    this.root = undefined;
   }
   insert(key) {
     // special case: first key
@@ -99,7 +99,7 @@ export default class BinarySearchTree {
   }
   removeNode(node, key) {
     if (node == null) {
-      return null;
+      return undefined;
     }
     if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
       node.left = this.removeNode(node.left, key);
@@ -115,7 +115,7 @@ export default class BinarySearchTree {
     // 3 - a node with 2 children
     // case 1
     if (node.left == null && node.right == null) {
-      node = null;
+      node = undefined;
       return node;
     }
     // case 2

@@ -1,12 +1,12 @@
 import 'mocha';
 import { expect } from 'chai';
-import { MinHeap, heapSort } from '../../../src/ts/index';
+import { MinHeap, heapSort } from '../../../src/js/index';
 
 describe('Heap', () => {
-  let heap: MinHeap<number>;
+  let heap;
 
   beforeEach(() => {
-    heap = new MinHeap<number>();
+    heap = new MinHeap();
   });
 
   it('starts empty MinHeap', () => {

@@ -63,9 +63,17 @@ export { findMinValue as findMinValue } from './algorithms/search/min-max-search
 
 // chapter 14
 export { binarySearch as binarySearchRecursive } from './algorithms/search/binary-search-recursive';
-export { minCoinChange as minCoinChange } from './algorithms/dynamic-programing/min-coin-change';
-export { ratInAMaze as ratInAMaze } from './algorithms/backtracking/rat-in-maze';
-export { sudokuSolver as sudokuSolver } from './algorithms/backtracking/sudoku-solver';
+export { minCoinChange } from './algorithms/dynamic-programing/min-coin-change';
+export { minCoinChange as minCoinChangeGreedy } from './algorithms/greedy/min-coin-change';
+export { knapSack } from './algorithms/dynamic-programing/knapsack';
+export { knapSack as knapSackRecursive } from './algorithms/dynamic-programing/knapsack-recursive';
+export { knapSack as knapSackGreedy } from './algorithms/greedy/knapsack';
+export { lcs } from './algorithms/dynamic-programing/longest-common-subsequence';
+export { lcs as lcsPrint } from './algorithms/dynamic-programing/longest-common-subsequence-print';
+export { lcs as lcsRecursive } from './algorithms/greedy/longest-common-subsequence';
+export { ratInAMaze } from './algorithms/backtracking/rat-in-maze';
+export { sudokuSolver } from './algorithms/backtracking/sudoku-solver';
+
 
 
 /* import { hotPotato } from './others/hot-potato';

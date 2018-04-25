@@ -1,4 +1,4 @@
-function minCoinChange(coins: number[], amount: number) {
+export function minCoinChange(coins: number[], amount: number) {
   const change: number[] = [];
   let total = 0;
   for (let i = coins.length; i >= 0; i--) {

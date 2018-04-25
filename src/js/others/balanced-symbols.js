@@ -11,7 +11,7 @@ export function parenthesesChecker(symbols) {
   let top;
 
   while (index < symbols.length && balanced) {
-    symbol = symbols.charAt(index);
+    symbol = symbols[index];
     if (opens.indexOf(symbol) >= 0) {
       stack.push(symbol);
     } else if (stack.isEmpty()) {
@@ -24,8 +24,5 @@ export function parenthesesChecker(symbols) {
     }
     index++;
   }
-  if (balanced && stack.isEmpty()) {
-    return true;
-  }
-  return false;
+  return balanced && stack.isEmpty();
 }

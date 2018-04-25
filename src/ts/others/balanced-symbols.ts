@@ -10,7 +10,7 @@ export function parenthesesChecker(symbols: string) {
   let top: string;
 
   while (index < symbols.length && balanced) {
-    symbol = symbols.charAt(index);
+    symbol = symbols[index];
     if (opens.indexOf(symbol) >= 0) {
       stack.push(symbol);
       // console.log(`open symbol - stacking ${symbol}`);
@@ -36,8 +36,5 @@ export function parenthesesChecker(symbols: string) {
     }
     index++;
   }
-  if (balanced && stack.isEmpty()) {
-    return true;
-  }
-  return false;
+  return balanced && stack.isEmpty();
 }

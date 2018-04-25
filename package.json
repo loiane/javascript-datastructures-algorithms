@@ -30,7 +30,8 @@
     "generate-report": "nyc --report-dir coverage npm run test && nyc report --reporter=text",
     "generate-report2": "nyc --report-dir coverage npm run test",
     "go": "npm run clean && npm run lint && npm run build && npm run test",
-    "webpack": "webpack --env build"
+    "webpack": "webpack --env build",
+    "serve" :"http-server"
   },
   "nyc": {
     "include": [
@@ -77,5 +78,8 @@
     "webpack": "^4.1.1",
     "webpack-cli": "2.0.14",
     "yargs": "^11.0.0"
+  },
+  "dependencies": {
+    "http-server": "^0.11.1"
   }
 }

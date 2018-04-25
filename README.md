@@ -10,8 +10,6 @@ Learning JavaScript Data Structures and Algorithms
 
 Source code of **Learning JavaScript Data Structures and Algorithms** book, third edition.
 
-Work in Progress.
-
 ## List of available chapters:
 
 * 01: [JavaScript: a quick overview](https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter01)

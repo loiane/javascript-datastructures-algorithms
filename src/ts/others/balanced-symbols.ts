@@ -20,7 +20,7 @@ export function parenthesesChecker(symbols: string) {
         top = stack.pop();
         if (!(opens.indexOf(top) === closers.indexOf(symbol))) {
           balanced = false;
-        } 
+        }
       }
     }
     index++;

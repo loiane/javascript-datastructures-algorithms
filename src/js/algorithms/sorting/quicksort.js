@@ -4,7 +4,7 @@ function partition(array, left, right, compareFn) {
   const pivot = array[Math.floor((right + left) / 2)];
   let i = left;
   let j = right;
-  
+
   while (i <= j) {
     while (compareFn(array[i], pivot) === Compare.LESS_THAN) {
       i++;

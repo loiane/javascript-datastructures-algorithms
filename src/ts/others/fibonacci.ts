@@ -22,7 +22,7 @@ export function fibonacciMemoization(n: number) {
   if (n < 1) { return 0; }
   const memo = [0, 1];
   const fibonacciMem = (num: number): number => {
-    // if (memo[num] != null) { return memo[num]; }
+    if (memo[num] != null) { return memo[num]; }
     return (memo[num] = fibonacciMem(num - 1) + fibonacciMem(num - 2));
   };
   return fibonacciMem(n);

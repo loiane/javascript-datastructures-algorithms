@@ -10,7 +10,6 @@ export function palindromeChecker(aString) {
   }
   const deque = new Deque();
   const lowerString = aString.toLocaleLowerCase().split(' ').join('');
-  let isEqual = true;
   let firstChar;
   let lastChar;
 
@@ -18,13 +17,13 @@ export function palindromeChecker(aString) {
     deque.addBack(lowerString.charAt(i));
   }
 
-  while (deque.size() > 1 && isEqual) {
+  while (deque.size() > 1) {
     firstChar = deque.removeFront();
     lastChar = deque.removeBack();
     if (firstChar !== lastChar) {
-      isEqual = false;
+      return false;
     }
   }
 
-  return isEqual;
+  return true;
 }

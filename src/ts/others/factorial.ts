@@ -4,7 +4,7 @@ export function factorialIterative(number: number) {
   }
   let total = 1;
   for (let n = number; n > 1; n--) {
-    total  = total * n;
+    total  *= n;
   }
   return total;
 }

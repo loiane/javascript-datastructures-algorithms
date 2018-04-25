@@ -1,8 +1,8 @@
 export class Node {
   constructor(key) {
     this.key = key;
-    this.left = null;
-    this.right = null;
+    this.left = undefined;
+    this.right = undefined;
   }
   toString() {
     return `${this.key}`;

@@ -76,7 +76,7 @@
     "tslint": "^5.9.1",
     "typescript": "^2.7.2",
     "webpack": "^4.1.1",
-    "webpack-cli": "2.0.15",
+    "webpack-cli": "2.1.1",
     "yargs": "^11.0.0"
   },
   "dependencies": {

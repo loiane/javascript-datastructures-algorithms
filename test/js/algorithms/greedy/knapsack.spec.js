@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { knapSackGreedy } from '../../../../src/ts/index';
+import { knapSackGreedy } from '../../../../src/js/index';
 
 describe('KnapSack Greedy', () => {
 

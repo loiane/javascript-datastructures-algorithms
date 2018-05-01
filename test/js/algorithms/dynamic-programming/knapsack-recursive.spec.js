@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { knapSackRecursive } from '../../../../src/ts/index';
+import { knapSackRecursive } from '../../../../src/js/index';
 
 describe('KnapSack Dynamic Programming - Recursive', () => {
 

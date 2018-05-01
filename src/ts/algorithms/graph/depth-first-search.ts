@@ -54,12 +54,12 @@ const DFSVisit = (
   d: any,
   f: any,
   p: any,
-  time: number,
+  time: any,
   adjList: any
 ) => {
   // console.log('discovered ' + u);
   color[u] = Colors.GREY;
-  d[u] = ++time;
+  d[u] = ++time.count;
   const neighbors = adjList.get(u);
   for (let i = 0; i < neighbors.length; i++) {
     const w = neighbors[i];
@@ -69,35 +69,34 @@ const DFSVisit = (
     }
   }
   color[u] = Colors.BLACK;
-  f[u] = ++time;
+  f[u] = ++time.count;
   // console.log('explored ' + u);
 };
 
 export const DFS = (graph: Graph) => {
-
   const vertices = graph.getVertices();
   const adjList = graph.getAdjList();
   const color = initializeColor(vertices);
   const d: any = {};
   const f: any = {};
   const p: any = {};
-  const time = 0;
+  const time = { count: 0 };
 
   for (let i = 0; i < vertices.length; i++) {
-      f[vertices[i]] = 0;
-      d[vertices[i]] = 0;
-      p[vertices[i]] = null;
+    f[vertices[i]] = 0;
+    d[vertices[i]] = 0;
+    p[vertices[i]] = null;
   }
 
   for (let i = 0; i < vertices.length; i++) {
-      if (color[vertices[i]] === Colors.WHITE) {
-          DFSVisit(vertices[i], color, d, f, p, time, adjList);
-      }
+    if (color[vertices[i]] === Colors.WHITE) {
+      DFSVisit(vertices[i], color, d, f, p, time, adjList);
+    }
   }
 
   return {
-      discovery: d,
-      finished: f,
-      predecessors: p
+    discovery: d,
+    finished: f,
+    predecessors: p
   };
 };

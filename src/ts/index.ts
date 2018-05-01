@@ -71,6 +71,8 @@ export { knapSack as knapSackGreedy } from './algorithms/greedy/knapsack';
 export { lcs } from './algorithms/dynamic-programing/longest-common-subsequence';
 export { lcs as lcsPrint } from './algorithms/dynamic-programing/longest-common-subsequence-print';
 export { lcs as lcsRecursive } from './algorithms/greedy/longest-common-subsequence';
+export { matrixChainOrder } from './algorithms/dynamic-programing/matrix-chain-multiplication';
+export { matrixChainOrder as matrixChainOrderGreedy } from './algorithms/greedy/matrix-chain-multiplication';
 export { ratInAMaze } from './algorithms/backtracking/rat-in-maze';
 export { sudokuSolver } from './algorithms/backtracking/sudoku-solver';
 

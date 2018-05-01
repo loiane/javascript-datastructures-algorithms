@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { minCoinChangeGreedy } from '../../../../src/ts/index';
+import { minCoinChangeGreedy } from '../../../../src/js/index';
 
 describe('Min Coin Change Greedy', () => {
 

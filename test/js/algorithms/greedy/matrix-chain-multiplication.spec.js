@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { matrixChainOrderGreedy } from '../../../../src/ts/index';
+import { matrixChainOrderGreedy } from '../../../../src/js/index';
 
 describe('Matrix Chain Multiplication', () => {
 

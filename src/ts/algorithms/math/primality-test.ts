@@ -4,7 +4,7 @@ export const isPrime = (n: number) => {
   }
 
   const sqrt = Math.floor(Math.sqrt(n));
-  for (let i = 2; i < sqrt; i++) {
+  for (let i = 2; i <= sqrt; i++) {
     if (n % i === 0) {
       return false;
     }
@@ -33,4 +33,5 @@ export const testPrime = (n: number) => {
   return true;
 };
 
-export const isPrime2 = (n: number) => ![...Array(n).keys()].slice(2).map(i => !(n % i)).includes(true) && ![0, 1].includes(n);
+// tslint:disable-next-line:max-line-length
+export const isPrime2 = (n: number) => (n >= 2) ? (![...Array(n).keys()].slice(2).map(i => !(n % i)).includes(true) && ![0, 1].includes(n)) : false;

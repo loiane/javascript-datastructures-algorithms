@@ -19,12 +19,4 @@ export class RedBlackNode<K> extends Node<K> {
   isRed() {
     return this.color === Colors.RED;
   }
-
-  flipColor() {
-    if (this.color === Colors.RED) {
-      this.color = Colors.BLACK;
-    } else {
-      this.color = Colors.RED;
-    }
-  }
 }

@@ -111,7 +111,7 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
         const uncle = grandParent.right;
 
         // case 1: uncle of node is also red - only recoloring
-        if (uncle && uncle.color === Colors.RED) {
+        if (uncle && uncle.isRed()) {
           grandParent.color = Colors.RED;
           parent.color = Colors.BLACK;
           uncle.color = Colors.BLACK;
@@ -137,7 +137,7 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
         const uncle = grandParent.left;
 
         // case 1: uncle is read - only recoloring
-        if (uncle && uncle.color === Colors.RED) {
+        if (uncle && uncle.isRed()) {
           grandParent.color = Colors.RED;
           parent.color = Colors.BLACK;
           uncle.color = Colors.BLACK;

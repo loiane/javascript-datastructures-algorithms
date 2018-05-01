@@ -20,13 +20,10 @@ export default class Graph {
     if (!this.adjList.get(b)) {
       this.addVertex(b);
     }
-
     this.adjList.get(a).push(b);
-
-    if (!this.isDirected) {
+    if (this.isDirected !== true) {
       this.adjList.get(b).push(a);
     }
-    // adjList.get(w).push(v); //commented to run the improved DFS with topological sorting
   }
 
   getVertices() {

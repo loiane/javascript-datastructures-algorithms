@@ -15,16 +15,17 @@ const initializeColor = (vertices: (string | number)[]) => {
   return color;
 };
 
-export const breadthFirstSearch = (graph: Graph, callback: Function) => {
+export const breadthFirstSearch = (graph: Graph, startVertex: any, callback: Function) => {
   const vertices = graph.getVertices();
   const adjList = graph.getAdjList();
   const color = initializeColor(vertices);
   const queue = new Queue();
-  queue.enqueue(vertices);
+
+  queue.enqueue(startVertex);
 
   while (!queue.isEmpty()) {
-    const u = queue.dequeue(),
-      neighbors = adjList.get(u);
+    const u = queue.dequeue();
+    const neighbors = adjList.get(u);
     color[u] = Colors.GREY;
     for (let i = 0; i < neighbors.length; i++) {
       const w = neighbors[i];
@@ -40,7 +41,7 @@ export const breadthFirstSearch = (graph: Graph, callback: Function) => {
   }
 };
 
-export const bfs = (graph: Graph, startVertex: number) => {
+export const bfs = (graph: Graph, startVertex: any) => {
   const vertices = graph.getVertices();
   const adjList = graph.getAdjList();
   const color = initializeColor(vertices);

@@ -11,7 +11,7 @@ const graph = [
 
 console.log("********* Dijkstra's Algorithm - Shortest Path ***********");
 
-var dist = dijkstra(graph, 0);
+const dist = dijkstra(graph, 0);
 
 for (i = 0; i < dist.length; i++){
     console.log(i + '\t\t' + dist[i]);

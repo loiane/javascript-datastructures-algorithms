@@ -31,9 +31,9 @@ export function lcs(wordX: string, wordY: string) {
     // console.log(solution[i].join());
   }
 
-  printSolution(solution, wordX, m, n);
+  return printSolution(solution, wordX, m, n);
 
-  return l[m][n];
+  // return l[m][n];
 }
 
 function printSolution(solution: Array<Array<string>>, wordX: string, m: number, n: number) {
@@ -55,5 +55,6 @@ function printSolution(solution: Array<Array<string>>, wordX: string, m: number,
     x = solution[a][b];
   }
 
+  return answer;
   // console.log('lcs: ' + answer);
 }

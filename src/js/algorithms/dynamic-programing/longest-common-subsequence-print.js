@@ -15,7 +15,7 @@ function printSolution(solution, wordX, m, n) {
     }
     x = solution[a][b];
   }
-  // console.log('lcs: ' + answer);
+  return answer;
 }
 export function lcs(wordX, wordY) {
   const m = wordX.length;
@@ -47,6 +47,5 @@ export function lcs(wordX, wordY) {
     // console.log(l[i].join());
     // console.log(solution[i].join());
   }
-  printSolution(solution, wordX, m, n);
-  return l[m][n];
+  return printSolution(solution, wordX, m, n);
 }

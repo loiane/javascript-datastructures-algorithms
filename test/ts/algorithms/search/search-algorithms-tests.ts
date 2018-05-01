@@ -39,6 +39,14 @@ export function testSearchAlgorithm(
       expect(searchAlgorithm(array, SIZE)).to.equal(SIZE - 1);
     });
 
+    it('finds value at different positions', () => {
+      const array = createSortedArray();
+
+      for (let value = 1; value <= SIZE; value++) {
+        expect(searchAlgorithm(array, value)).to.equal(value - 1);
+      }
+    });
+
     if (config.customEquals) {
       it('finds value with custom equals function', () => {
         const array = [{ key: 1 }, { key: 2 }, { key: 3 }];

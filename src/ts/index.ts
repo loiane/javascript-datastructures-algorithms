@@ -76,6 +76,15 @@ export { matrixChainOrder as matrixChainOrderGreedy } from './algorithms/greedy/
 export { ratInAMaze } from './algorithms/backtracking/rat-in-maze';
 export { sudokuSolver } from './algorithms/backtracking/sudoku-solver';
 
+// others
+export { findDivisors } from './algorithms/math/find-divisors';
+export { gcd } from './algorithms/math/gcd';
+export { lcm } from './algorithms/math/lcm';
+export { greatestDifference } from './algorithms/math/greatest-difference';
+export { isPrime } from './algorithms/math/primality-test';
+export { testPrime } from './algorithms/math/primality-test';
+export { isPrime2 } from './algorithms/math/primality-test';
+export { sieveOfEratosthenes } from './algorithms/math/sieve-eratosthenes';
 
 
 /* import { hotPotato } from './others/hot-potato';

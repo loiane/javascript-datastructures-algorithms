@@ -12,6 +12,10 @@ export const findDivisors = (num: number) => {
     }
   }
 
+  if (num >= 2 && !divisors.includes(num)) {
+    divisors.push(num);
+  }
+
   divisors.sort((a, b) => a - b);
 
   return divisors;

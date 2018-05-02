@@ -67,7 +67,7 @@
     "codecov": "^3.0.0",
     "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-import": "2.10.0",
     "istanbul": "^v1.1.0-alpha.1",
     "mocha": "^5.0.4",
     "mochawesome": "^3.0.2",

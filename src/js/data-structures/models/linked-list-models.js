@@ -1,12 +1,16 @@
-export class Node {
-  constructor(element, next) {
+export var Node = (function () {
+  function Node(element, next) {
     this.element = element;
     this.next = next;
   }
-}
-export class DoublyNode extends Node {
-  constructor(element, next, prev) {
-    super(element, next);
+  return Node;
+}());
+
+export var DoublyNode = (function () {
+  function DoublyNode(element, next, prev) {
     this.prev = prev;
+    Node.call(this, element, next);
   }
-}
+
+  return DoublyNode;
+}());

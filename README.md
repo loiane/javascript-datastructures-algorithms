@@ -82,7 +82,7 @@ Happy Coding!
 
 | 1st edition   | 2nd edition   | 3rd edition   | 
 | ------------- |:-------------:|:-------------:| 
-| ![1st edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/4874OS_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms.jpg)      | ![2nd edition](https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/5493OS_5348_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms,%20Second%20Edition.jpg) | ![2nd edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B09377_MockupCover_0.png) |
+| ![1st edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/4874OS_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms.jpg)      | ![2nd edition](https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/5493OS_5348_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms,%20Second%20Edition.jpg) | ![3rd edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B09377.png) |
 | [Book link](http://amzn.to/1Y1OWPx)| [Book link](http://amzn.to/1TSkcA1)| [Book link](http://a.co/cbMlYmJ)|
 
 Book link - first edition:

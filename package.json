@@ -60,7 +60,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.4",
-    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-add-module-exports": "^0.3.0",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",

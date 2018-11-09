@@ -82,7 +82,7 @@ Happy Coding!
 
 | 1st edition   | 2nd edition   | 3rd edition   | 
 | ------------- |:-------------:|:-------------:| 
-| ![1st edition](https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/4874OS_Learning%20JavaScript%20Data%20Structures%20and%20Algorithms.jpg)      | ![2nd edition](https://images-na.ssl-images-amazon.com/images/I/51PWJ%2BoKc2L._SX403_BO1,204,203,200_.jpg) | ![3rd edition](https://images-na.ssl-images-amazon.com/images/I/41oSXp3VztL._SX404_BO1,204,203,200_.jpg) |
+| ![1st edition](https://images-na.ssl-images-amazon.com/images/I/51xXGv7QlBL._SX403_BO1,204,203,200_.jpg)      | ![2nd edition](https://images-na.ssl-images-amazon.com/images/I/51PWJ%2BoKc2L._SX403_BO1,204,203,200_.jpg) | ![3rd edition](https://images-na.ssl-images-amazon.com/images/I/41oSXp3VztL._SX404_BO1,204,203,200_.jpg) |
 | [Book link](http://amzn.to/1Y1OWPx)| [Book link](http://amzn.to/1TSkcA1)| [Book link](http://a.co/cbMlYmJ)|
 
 Book link - first edition:

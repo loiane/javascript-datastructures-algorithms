@@ -6,12 +6,14 @@ export default class Graph {
     this.vertices = [];
     this.adjList = new Dictionary();
   }
+
   addVertex(v) {
     if (!this.vertices.includes(v)) {
       this.vertices.push(v);
       this.adjList.set(v, []); // initialize adjacency list with array as well;
     }
   }
+
   addEdge(a, b) {
     if (!this.adjList.get(a)) {
       this.addVertex(a);
@@ -24,12 +26,15 @@ export default class Graph {
       this.adjList.get(b).push(a);
     }
   }
+
   getVertices() {
     return this.vertices;
   }
+
   getAdjList() {
     return this.adjList;
   }
+
   toString() {
     let s = '';
     for (let i = 0; i < this.vertices.length; i++) {

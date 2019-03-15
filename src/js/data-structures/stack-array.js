@@ -4,6 +4,7 @@ export default class StackArray {
   constructor() {
     this.items = [];
   }
+
   push(element) {
     this.items.push(element);
   }

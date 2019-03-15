@@ -16,12 +16,14 @@ export default class AVLTree extends BinarySearchTree {
     this.compareFn = compareFn;
     this.root = null;
   }
+
   getNodeHeight(node) {
     if (node == null) {
       return -1;
     }
     return Math.max(this.getNodeHeight(node.left), this.getNodeHeight(node.right)) + 1;
   }
+
   /**
    * Left left case: rotate right
    *
@@ -39,6 +41,7 @@ export default class AVLTree extends BinarySearchTree {
     tmp.right = node;
     return tmp;
   }
+
   /**
    * Right right case: rotate left
    *
@@ -56,6 +59,7 @@ export default class AVLTree extends BinarySearchTree {
     tmp.left = node;
     return tmp;
   }
+
   /**
    * Left right case: rotate left then right
    * @param node Node<T>
@@ -64,6 +68,7 @@ export default class AVLTree extends BinarySearchTree {
     node.left = this.rotationRR(node.left);
     return this.rotationLL(node);
   }
+
   /**
    * Right left case: rotate right then left
    * @param node Node<T>
@@ -72,6 +77,7 @@ export default class AVLTree extends BinarySearchTree {
     node.right = this.rotationLL(node.right);
     return this.rotationRR(node);
   }
+
   getBalanceFactor(node) {
     const heightDifference = this.getNodeHeight(node.left) - this.getNodeHeight(node.right);
     switch (heightDifference) {
@@ -87,13 +93,15 @@ export default class AVLTree extends BinarySearchTree {
         return BalanceFactor.BALANCED;
     }
   }
+
   insert(key) {
     this.root = this.insertNode(this.root, key);
   }
+
   insertNode(node, key) {
     if (node == null) {
       return new Node(key);
-    } else if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
+    } if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
       node.left = this.insertNode(node.left, key);
     } else if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
       node.right = this.insertNode(node.right, key);
@@ -122,6 +130,7 @@ export default class AVLTree extends BinarySearchTree {
     }
     return node;
   }
+
   removeNode(node, key) {
     node = super.removeNode(node, key); // {1}
     if (node == null) {
@@ -132,8 +141,8 @@ export default class AVLTree extends BinarySearchTree {
     if (balanceFactor === BalanceFactor.UNBALANCED_LEFT) {
       // Left left case
       if (
-        this.getBalanceFactor(node.left) === BalanceFactor.BALANCED ||
-        this.getBalanceFactor(node.left) === BalanceFactor.SLIGHTLY_UNBALANCED_LEFT
+        this.getBalanceFactor(node.left) === BalanceFactor.BALANCED
+        || this.getBalanceFactor(node.left) === BalanceFactor.SLIGHTLY_UNBALANCED_LEFT
       ) {
         return this.rotationLL(node);
       }
@@ -145,8 +154,8 @@ export default class AVLTree extends BinarySearchTree {
     if (balanceFactor === BalanceFactor.UNBALANCED_RIGHT) {
       // Right right case
       if (
-        this.getBalanceFactor(node.right) === BalanceFactor.BALANCED ||
-        this.getBalanceFactor(node.right) === BalanceFactor.SLIGHTLY_UNBALANCED_RIGHT
+        this.getBalanceFactor(node.right) === BalanceFactor.BALANCED
+        || this.getBalanceFactor(node.right) === BalanceFactor.SLIGHTLY_UNBALANCED_RIGHT
       ) {
         return this.rotationRR(node);
       }

@@ -6,6 +6,7 @@ export default class HashTable {
     this.toStrFn = toStrFn;
     this.table = {};
   }
+
   loseloseHashCode(key) {
     if (typeof key === 'number') {
       return key;
@@ -17,6 +18,7 @@ export default class HashTable {
     }
     return hash % 37;
   }
+
   /* djb2HashCode(key) {
     const tableKey = this.toStrFn(key);
     let hash = 5381;
@@ -28,6 +30,7 @@ export default class HashTable {
   hashCode(key) {
     return this.loseloseHashCode(key);
   }
+
   put(key, value) {
     if (key != null && value != null) {
       const position = this.hashCode(key);
@@ -36,10 +39,12 @@ export default class HashTable {
     }
     return false;
   }
+
   get(key) {
     const valuePair = this.table[this.hashCode(key)];
     return valuePair == null ? undefined : valuePair.value;
   }
+
   remove(key) {
     const hash = this.hashCode(key);
     const valuePair = this.table[hash];
@@ -49,18 +54,23 @@ export default class HashTable {
     }
     return false;
   }
+
   getTable() {
     return this.table;
   }
+
   isEmpty() {
     return this.size() === 0;
   }
+
   size() {
     return Object.keys(this.table).length;
   }
+
   clear() {
     this.table = {};
   }
+
   toString() {
     if (this.isEmpty()) {
       return '';

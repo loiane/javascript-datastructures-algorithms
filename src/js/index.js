@@ -36,11 +36,11 @@ export { default as HashTableLinearProbing } from './data-structures/hash-table-
 export { default as HashTableLinearProbingLazy } from './data-structures/hash-table-linear-probing-lazy';
 
 // chapter 08
-export { default as factorialIterative } from './others/factorial';
-export { default as factorial } from './others/factorial';
-export { default as fibonacci } from './others/fibonacci';
-export { default as fibonacciIterative } from './others/fibonacci';
-export { default as fibonacciMemoization } from './others/fibonacci';
+export { factorialIterative } from './others/factorial';
+export { factorial } from './others/factorial';
+export { fibonacci } from './others/fibonacci';
+export { fibonacciIterative } from './others/fibonacci';
+export { fibonacciMemoization } from './others/fibonacci';
 
 // chapter 09
 export { default as BinarySearchTree } from './data-structures/binary-search-tree';

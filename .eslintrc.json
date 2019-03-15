@@ -32,6 +32,8 @@
     "prefer-destructuring": ["error", {"object": true, "array": false}],
     "padded-blocks": 0,
     "no-sparse-arrays": 0,
-    "array-bracket-spacing": 0
+    "array-bracket-spacing": 0,
+    "import/no-named-as-default": 0,
+    "implicit-arrow-linebreak": 0
   }
 }

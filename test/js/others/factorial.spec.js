@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { factorialIterative, factorial } from './../../../src/js/others/factorial';
+import { factorialIterative, factorial } from '../../../src/js/others/factorial';
 
 describe('Factorial', () => {
   it('Iterative Factorial', () => {

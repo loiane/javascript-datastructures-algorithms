@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { DFS, depthFirstSearch, Graph } from '../../../../src/ts/index';
 
 describe('Depth First Search', () => {
-  let count;
+  let count: number;
   const vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
   const dfsCallBack = ['A', 'B', 'E', 'I', 'F', 'C', 'D', 'G', 'H'];
   let graph: Graph;
@@ -32,7 +32,7 @@ describe('Depth First Search', () => {
     depthFirstSearch(graph, assertCallback);
   });
 
-  function assertCallback(value) {
+  function assertCallback(value: string) {
     expect(value).to.equal(dfsCallBack[count]);
     count++;
   }

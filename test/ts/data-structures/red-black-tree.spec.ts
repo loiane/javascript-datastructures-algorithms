@@ -2,6 +2,7 @@ import { Colors } from './../../../src/ts/data-structures/models/red-black-node'
 import 'mocha';
 import { expect } from 'chai';
 import { RedBlackTree } from '../../../src/ts/index';
+import { RedBlackNode } from '../../../src/ts/data-structures/models/red-black-node';
 
 describe('RedBlackTree', () => {
   let tree: RedBlackTree<number>;
@@ -105,7 +106,7 @@ describe('RedBlackTree', () => {
 
   });
 
-  function assertNode(node, key, color) {
+  function assertNode(node: RedBlackNode<number>, key: number, color: Colors) {
     expect(node.color).to.equal(color);
     expect(node.key).to.equal(key);
   }

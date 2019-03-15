@@ -73,12 +73,12 @@
     "mocha": "^5.0.4",
     "mochawesome": "^3.0.2",
     "nyc": "11.7.2",
-    "ts-node": "^5.0.1",
-    "tslint": "^5.9.1",
-    "typescript": "^2.7.2",
+    "ts-node": "8.0.3",
+    "tslint": "5.14.0",
+    "typescript": "3.3.3333",
     "webpack": "^4.29.6",
     "webpack-cli": "2.1.1",
-    "yargs": "^11.0.0"
+    "yargs": "13.2.2"
   },
   "dependencies": {
     "http-server": "^0.11.1"

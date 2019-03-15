@@ -1,10 +1,10 @@
 import 'mocha';
 import { expect } from 'chai';
-import { BFS, breadthFirstSearch, Graph, Stack } from '../../../../src/ts/index';
+import { BFS, breadthFirstSearch, Graph } from '../../../../src/ts';
 
 describe('Breadth First Search', () => {
 
-  let count;
+  let count: number;
   const vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
   let graph: Graph;
 
@@ -32,7 +32,7 @@ describe('Breadth First Search', () => {
     breadthFirstSearch(graph, vertices[0], assertCallback);
   });
 
-  function assertCallback(value) {
+  function assertCallback(value: string) {
     expect(value).to.equal(vertices[count]);
     count++;
   }

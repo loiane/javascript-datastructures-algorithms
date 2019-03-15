@@ -16,7 +16,7 @@ describe('Primality Tests', () => {
     testIsPrime(isPrime2);
   });
 
-  function testIsPrime(primeFunction) {
+  function testIsPrime(primeFunction: Function) {
     expect(primeFunction(-1)).to.equal(false);
     expect(primeFunction(0)).to.equal(false);
     expect(primeFunction(1)).to.equal(false);

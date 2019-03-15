@@ -2,9 +2,9 @@ import Deque from '../data-structures/deque';
 
 export function palindromeChecker(aString) {
   if (
-    aString === undefined ||
-    aString === null ||
-    (aString !== null && aString.length === 0)
+    aString === undefined
+    || aString === null
+    || (aString !== null && aString.length === 0)
   ) {
     return false;
   }

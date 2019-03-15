@@ -6,6 +6,7 @@ export default class Dictionary {
     this.toStrFn = toStrFn;
     this.table = {};
   }
+
   set(key, value) {
     if (key != null && value != null) {
       const tableKey = this.toStrFn(key);
@@ -14,13 +15,16 @@ export default class Dictionary {
     }
     return false;
   }
+
   get(key) {
     const valuePair = this.table[this.toStrFn(key)];
     return valuePair == null ? undefined : valuePair.value;
   }
+
   hasKey(key) {
     return this.table[this.toStrFn(key)] != null;
   }
+
   remove(key) {
     if (this.hasKey(key)) {
       delete this.table[this.toStrFn(key)];
@@ -28,15 +32,19 @@ export default class Dictionary {
     }
     return false;
   }
+
   values() {
     return this.keyValues().map(valuePair => valuePair.value);
   }
+
   keys() {
     return this.keyValues().map(valuePair => valuePair.key);
   }
+
   keyValues() {
     return Object.values(this.table);
   }
+
   forEach(callbackFn) {
     const valuePairs = this.keyValues();
     for (let i = 0; i < valuePairs.length; i++) {
@@ -46,15 +54,19 @@ export default class Dictionary {
       }
     }
   }
+
   isEmpty() {
     return this.size() === 0;
   }
+
   size() {
     return Object.keys(this.table).length;
   }
+
   clear() {
     this.table = {};
   }
+
   toString() {
     if (this.isEmpty()) {
       return '';

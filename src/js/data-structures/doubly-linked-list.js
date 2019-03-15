@@ -7,6 +7,7 @@ export default class DoublyLinkedList extends LinkedList {
     super(equalsFn);
     this.tail = undefined;
   }
+
   push(element) {
     const node = new DoublyNode(element);
     if (this.head == null) {
@@ -20,6 +21,7 @@ export default class DoublyLinkedList extends LinkedList {
     }
     this.count++;
   }
+
   insert(element, index) {
     if (index >= 0 && index <= this.count) {
       const node = new DoublyNode(element);
@@ -51,6 +53,7 @@ export default class DoublyLinkedList extends LinkedList {
     }
     return false;
   }
+
   removeAt(index) {
     if (index >= 0 && index < this.count) {
       let current = this.head;
@@ -80,6 +83,7 @@ export default class DoublyLinkedList extends LinkedList {
     }
     return undefined;
   }
+
   indexOf(element) {
     let current = this.head;
     let index = 0;
@@ -92,16 +96,20 @@ export default class DoublyLinkedList extends LinkedList {
     }
     return -1;
   }
+
   getHead() {
     return this.head;
   }
+
   getTail() {
     return this.tail;
   }
+
   clear() {
     super.clear();
     this.tail = undefined;
   }
+
   toString() {
     if (this.head == null) {
       return '';
@@ -114,6 +122,7 @@ export default class DoublyLinkedList extends LinkedList {
     }
     return objString;
   }
+
   inverseToString() {
     if (this.tail == null) {
       return '';

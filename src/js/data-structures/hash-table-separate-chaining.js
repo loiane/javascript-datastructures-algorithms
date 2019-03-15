@@ -7,6 +7,7 @@ export default class HashTableSeparateChaining {
     this.toStrFn = toStrFn;
     this.table = {};
   }
+
   loseloseHashCode(key) {
     if (typeof key === 'number') {
       return key;
@@ -18,9 +19,11 @@ export default class HashTableSeparateChaining {
     }
     return hash % 37;
   }
+
   hashCode(key) {
     return this.loseloseHashCode(key);
   }
+
   put(key, value) {
     if (key != null && value != null) {
       const position = this.hashCode(key);
@@ -32,6 +35,7 @@ export default class HashTableSeparateChaining {
     }
     return false;
   }
+
   get(key) {
     const position = this.hashCode(key);
     const linkedList = this.table[position];
@@ -46,6 +50,7 @@ export default class HashTableSeparateChaining {
     }
     return undefined;
   }
+
   remove(key) {
     const position = this.hashCode(key);
     const linkedList = this.table[position];
@@ -64,9 +69,11 @@ export default class HashTableSeparateChaining {
     }
     return false;
   }
+
   isEmpty() {
     return this.size() === 0;
   }
+
   size() {
     let count = 0;
     Object.values(this.table).forEach(linkedList => {
@@ -74,12 +81,15 @@ export default class HashTableSeparateChaining {
     });
     return count;
   }
+
   clear() {
     this.table = {};
   }
+
   getTable() {
     return this.table;
   }
+
   toString() {
     if (this.isEmpty()) {
       return '';

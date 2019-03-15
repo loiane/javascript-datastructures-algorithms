@@ -6,6 +6,7 @@ export default class CircularLinkedList extends LinkedList {
   constructor(equalsFn = defaultEquals) {
     super(equalsFn);
   }
+
   push(element) {
     const node = new Node(element);
     let current;
@@ -19,6 +20,7 @@ export default class CircularLinkedList extends LinkedList {
     node.next = this.head;
     this.count++;
   }
+
   insert(element, index) {
     if (index >= 0 && index <= this.count) {
       const node = new Node(element);
@@ -45,6 +47,7 @@ export default class CircularLinkedList extends LinkedList {
     }
     return false;
   }
+
   removeAt(index) {
     if (index >= 0 && index < this.count) {
       let current = this.head;

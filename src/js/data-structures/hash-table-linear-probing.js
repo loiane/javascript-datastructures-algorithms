@@ -6,6 +6,7 @@ export default class HashTableLinearProbing {
     this.toStrFn = toStrFn;
     this.table = {};
   }
+
   loseloseHashCode(key) {
     if (typeof key === 'number') {
       return key;
@@ -17,9 +18,11 @@ export default class HashTableLinearProbing {
     }
     return hash % 37;
   }
+
   hashCode(key) {
     return this.loseloseHashCode(key);
   }
+
   put(key, value) {
     if (key != null && value != null) {
       const position = this.hashCode(key);
@@ -36,6 +39,7 @@ export default class HashTableLinearProbing {
     }
     return false;
   }
+
   get(key) {
     const position = this.hashCode(key);
     if (this.table[position] != null) {
@@ -52,6 +56,7 @@ export default class HashTableLinearProbing {
     }
     return undefined;
   }
+
   remove(key) {
     const position = this.hashCode(key);
     if (this.table[position] != null) {
@@ -72,6 +77,7 @@ export default class HashTableLinearProbing {
     }
     return false;
   }
+
   verifyRemoveSideEffect(key, removedPosition) {
     const hash = this.hashCode(key);
     let index = removedPosition + 1;
@@ -85,18 +91,23 @@ export default class HashTableLinearProbing {
       index++;
     }
   }
+
   isEmpty() {
     return this.size() === 0;
   }
+
   size() {
     return Object.keys(this.table).length;
   }
+
   clear() {
     this.table = {};
   }
+
   getTable() {
     return this.table;
   }
+
   toString() {
     if (this.isEmpty()) {
       return '';

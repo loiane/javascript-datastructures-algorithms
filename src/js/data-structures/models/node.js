@@ -4,6 +4,7 @@ export class Node {
     this.left = undefined;
     this.right = undefined;
   }
+
   toString() {
     return `${this.key}`;
   }

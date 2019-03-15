@@ -7,6 +7,7 @@ export default class SortedLinkedList extends LinkedList {
     this.equalsFn = equalsFn;
     this.compareFn = compareFn;
   }
+
   push(element) {
     if (this.isEmpty()) {
       super.push(element);
@@ -15,6 +16,7 @@ export default class SortedLinkedList extends LinkedList {
       super.insert(element, index);
     }
   }
+
   insert(element, index = 0) {
     if (this.isEmpty()) {
       return super.insert(element, index === 0 ? index : 0);
@@ -22,6 +24,7 @@ export default class SortedLinkedList extends LinkedList {
     const pos = this.getIndexNextSortedElement(element);
     return super.insert(element, pos);
   }
+
   getIndexNextSortedElement(element) {
     let current = this.head;
     let i = 0;

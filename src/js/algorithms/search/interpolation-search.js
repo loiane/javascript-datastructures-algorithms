@@ -21,9 +21,9 @@ export function interpolationSearch(
   let position = -1;
   let delta = -1;
   while (
-    low <= high &&
-    biggerEquals(value, array[low], compareFn) &&
-    lesserEquals(value, array[high], compareFn)
+    low <= high
+    && biggerEquals(value, array[low], compareFn)
+    && lesserEquals(value, array[high], compareFn)
   ) {
     delta = diffFn(value, array[low]) / diffFn(array[high], array[low]);
     position = low + Math.floor((high - low) * delta);

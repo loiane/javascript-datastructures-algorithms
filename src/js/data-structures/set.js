@@ -2,6 +2,7 @@ export default class Set {
   constructor() {
     this.items = {};
   }
+
   add(element) {
     if (!this.has(element)) {
       this.items[element] = element;
@@ -9,6 +10,7 @@ export default class Set {
     }
     return false;
   }
+
   delete(element) {
     if (this.has(element)) {
       delete this.items[element];
@@ -16,18 +18,22 @@ export default class Set {
     }
     return false;
   }
+
   has(element) {
     return Object.prototype.hasOwnProperty.call(this.items, element);
   }
+
   values() {
     return Object.values(this.items);
   }
+
   union(otherSet) {
     const unionSet = new Set();
     this.values().forEach(value => unionSet.add(value));
     otherSet.values().forEach(value => unionSet.add(value));
     return unionSet;
   }
+
   intersection(otherSet) {
     const intersectionSet = new Set();
     const values = this.values();
@@ -45,6 +51,7 @@ export default class Set {
     });
     return intersectionSet;
   }
+
   difference(otherSet) {
     const differenceSet = new Set();
     this.values().forEach(value => {
@@ -54,6 +61,7 @@ export default class Set {
     });
     return differenceSet;
   }
+
   isSubsetOf(otherSet) {
     if (this.size() > otherSet.size()) {
       return false;
@@ -68,15 +76,19 @@ export default class Set {
     });
     return isSubset;
   }
+
   isEmpty() {
     return this.size() === 0;
   }
+
   size() {
     return Object.keys(this.items).length;
   }
+
   clear() {
     this.items = {};
   }
+
   toString() {
     if (this.isEmpty()) {
       return '';

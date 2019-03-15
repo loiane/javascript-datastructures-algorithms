@@ -100,6 +100,8 @@ Book link - second edition:
  Book link - third edition:
  - [Packt](https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-third-edition)
  - [Amazon](http://a.co/cbMlYmJ)
+ - [Chinese version](http://www.ituring.com.cn/book/2653)
+ - [Brazilian Portuguese version](https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript-2ed/)
 
 ### Found an issue or have a question?
 

@@ -61,7 +61,7 @@ Source code of **Learning JavaScript Data Structures and Algorithms** book, thir
 ## Installing and running the book examples With Node
 
 * Install [Node](https://nodejs.org)
-* Open terminal/cmd and change directoty to this project folder: `cd /Users/.../javascript-datastructures-algorithms` (Linux/Max) or `cd C:/.../javascript-datastructures-algorithms`
+* Open terminal/cmd and change directory to this project folder: `cd /Users/.../javascript-datastructures-algorithms` (Linux/Max) or `cd C:/.../javascript-datastructures-algorithms`
 * run `npm install` to install all depencies
 * To see the examples, run `http-server html` or `npm run serve`. Open your browser `http:\\localhost:8080` to see the book examples
 * Or `cd html/chapter01` and run each javascript file with node: `node 02-Variables`

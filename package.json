@@ -78,7 +78,7 @@
     "typescript": "3.3.3333",
     "webpack": "^4.29.6",
     "webpack-cli": "3.3.0",
-    "yargs": "13.2.2"
+    "yargs": "13.2.4"
   },
   "dependencies": {
     "http-server": "^0.11.1"

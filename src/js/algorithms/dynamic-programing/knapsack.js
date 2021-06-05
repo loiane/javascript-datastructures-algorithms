@@ -1,4 +1,4 @@
-function findValues(n, capacity, kS) {
+function findValues(n, capacity, kS, weights, values) {
   let i = n;
   let k = capacity;
   // console.log('Items that are part of the solution:');
@@ -7,8 +7,8 @@ function findValues(n, capacity, kS) {
       // console.log(
       //  item ' + i + ' can be part of solution w,v: ' + weights[i - 1] + ',' + values[i - 1]
       //  );
+      k -= weights[i-1]
       i--;
-      k -= kS[i][k];
     } else {
       i--;
     }

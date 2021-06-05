@@ -25,7 +25,7 @@ export function matrixChainOrder(p) {
     }
   }
   for (let l = 2; l < n; l++) {
-    for (let i = 1; i <= (n - l) + 1; i++) {
+    for (let i = 1; i <= n - l; i++) {
       const j = (i + l) - 1;
       m[i][j] = Number.MAX_SAFE_INTEGER;
       for (let k = i; k <= j - 1; k++) {

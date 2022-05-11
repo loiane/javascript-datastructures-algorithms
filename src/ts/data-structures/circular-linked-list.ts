@@ -36,7 +36,7 @@ export default class CircularLinkedList<T> extends LinkedList<T> {
           node.next = this.head;
         } else {
           node.next = current;
-          current = this.getElementAt(this.size());
+          current = this.getElementAt(this.size() - 1);
           // update last element
           this.head = node;
           current.next = this.head;

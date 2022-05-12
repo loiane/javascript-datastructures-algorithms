@@ -75,20 +75,8 @@ export default class Set<T> {
   }
 
   isSubsetOf(otherSet: Set<T>) {
-    if (this.size() > otherSet.size()) {
-      return false;
-    }
-
-    let isSubset = true;
-    this.values().every(value => {
-      if (!otherSet.has(value)) {
-        isSubset = false;
-        return false;
-      }
-      return true;
-    });
-
-    return isSubset;
+    const values = this.values();
+    return values.every((value) => otherSet.has(value));
   }
 
   isEmpty() {

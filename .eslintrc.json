@@ -2,7 +2,7 @@
   "env": {
     "browser": true,
     "commonjs": true,
-    "es6": true,
+    "es2016": true,
     "node": true
   },
   "globals": {
@@ -16,6 +16,9 @@
     "window": false
   },
   "parser": "babel-eslint",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
   "extends": "airbnb-base",
   "rules": {
     "class-methods-use-this": 0,

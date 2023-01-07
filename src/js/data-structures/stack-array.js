@@ -5,8 +5,10 @@ export default class StackArray {
     this.items = [];
   }
 
-  push(element) {
-    this.items.push(element);
+  push() {
+    for (let i in arguments) {
+      this.items.push(arguments[i]);
+    }
   }
 
   pop() {

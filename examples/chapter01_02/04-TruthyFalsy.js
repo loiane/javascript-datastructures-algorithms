@@ -24,4 +24,4 @@ testTruthy({}); // true (object is always true)
 var obj = { name: 'John' };
 testTruthy(obj); // true
 testTruthy(obj.name); // true
-testTruthy(obj.age); // age (property does not exist)
+testTruthy(obj.age); // false (property age does not exist)

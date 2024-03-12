@@ -54,7 +54,7 @@ export default class HashTableLinearProbing<K, V> {
         index++;
       }
       if (this.table[index] != null && this.table[index].key === key) {
-        return this.table[position].value;
+        return this.table[index].value;
       }
     }
     return undefined;

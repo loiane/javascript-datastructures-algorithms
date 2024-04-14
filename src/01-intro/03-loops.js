@@ -1,4 +1,4 @@
-// Path: src/01-intro/04-loops.js
+// Path: src/01-intro/03-loops.js
 
 console.log('**** for example ****');
 /* for - example */
@@ -38,4 +38,4 @@ for (const value of arr) {
 }
 // output: 1 2 3
 
-// to see the output of this file use the command: node src/01-intro/04-loops.js
+// to see the output of this file use the command: node src/01-intro/03-loops.js

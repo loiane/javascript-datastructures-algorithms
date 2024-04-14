@@ -1,4 +1,4 @@
-// Path: src/01-intro/03-conditionals.js
+// Path: src/01-intro/02-conditionals.js
 
 /* Example 01 - if-else */
 let number = 0;
@@ -45,4 +45,4 @@ switch (month) {
     console.log('Month is not January, February or March');
 }
 
-// to see the output of this file use the command: node src/01-intro/03-conditionals.js
+// to see the output of this file use the command: node src/01-intro/02-conditionals.js

@@ -1,0 +1,12 @@
+{
+  "name": "javascript-datastructures-algorithms",
+  "version": "4.0.0",
+  "description": "Learning JavaScript Data Structures and Algorithms",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Loiane Groner",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

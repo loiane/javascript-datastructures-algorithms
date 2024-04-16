@@ -1,11 +1,17 @@
+// @ts-check
 // Path: src/01-intro/07-modern.js
 
-/* Arrow function example */
+/**
+ * Arrow function example, calculates the area of a circle 
+ * @param {number} radius 
+ * @returns 
+ */
 const circleAreaFn = function circleArea(radius) {  
   const PI = 3.14;  
   const area = PI * radius * radius;  
   return area;  
 };
+// circleAreaFn('book');
 console.log(circleAreaFn(2)); // 12.56
 
 // refactoring to use arrow function

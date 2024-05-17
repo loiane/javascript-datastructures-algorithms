@@ -3,6 +3,7 @@
   "version": "4.0.0",
   "description": "Learning JavaScript Data Structures and Algorithms",
   "scripts": {
+    "build:ts": "tsc -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Loiane Groner",

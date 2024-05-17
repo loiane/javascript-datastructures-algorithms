@@ -13,12 +13,12 @@ let langs = ['JavaScript', 'Ruby', 'Python'];
 favoriteLanguage = langs[0];
 
 /* Interfaces as type */
-interface Person {
+interface Friend {
   name: string;
   age: number;
 }
 
-function printName(person: Person) {
+function printName(person: Friend) {
     console.log(person.name);
 }
   

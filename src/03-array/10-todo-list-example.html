@@ -1,0 +1,54 @@
+<!-- Path: src/03-array/10-todo-list-example.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple TODO List (Array-Based)</title>
+</head>
+<body>
+  <h1>My TODO List</h1>
+
+  <input type="text" id="newTaskInput" placeholder="Add new task">
+  <button onclick="addTask()">Add</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    const taskList = document.getElementById('taskList');
+    const newTaskInput = document.getElementById('newTaskInput');
+
+    let tasks = []; // Initialize empty task array
+
+    function addTask() {
+      const taskText = newTaskInput.value.trim(); // {1}
+      if (taskText !== "") {
+        tasks.push({ text: taskText, completed: false }); // {2}
+        renderTasks(); // Update the displayed list
+        newTaskInput.value = ""; // Clear input
+      }
+    }
+
+    function renderTasks() {
+      taskList.innerHTML = ''; // Clear the list
+      tasks.forEach((task, index) => { // {3}
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `
+          <input type="checkbox" ${task.completed ? "checked" : ""} onchange="toggleComplete(${index})">
+          <span class="${task.completed ? "completed" : ""}">${task.text}</span>
+          <button onclick="removeTask(${index})">Delete</button>
+        `;
+        taskList.appendChild(listItem);
+      });
+    }
+
+    function toggleComplete(index) { // Toggle task completion status
+      tasks[index].completed = !tasks[index].completed; // {4}
+      renderTasks();
+    }
+
+    function removeTask(index) {
+      tasks.splice(index, 1); // {5} Remove from array
+      renderTasks();
+    }
+  </script>
+</body>
+</html>

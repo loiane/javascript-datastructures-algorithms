@@ -13,7 +13,20 @@ Source code of **Learning JavaScript Data Structures and Algorithms** (4th editi
 ## Part 2: Data Structures
 
 * 03: Arrays
+    * _Hackerrank_ exercises:
+        * Arrays DS
+        * Array Left Rotation
 * 04: Stacks
+    * Stack data structure (array-based)
+    * Stack data structure (object-based)
+    * Decimal to binary algorithm
+    * Decimal to bases 2-32 algorithm
+    * Decimal to bases 2-32 or 64 algorithm
+    * Tower of Hanoi algorithm
+    * _LeetCode_ exercises:
+        * Valid Parantheses
+        * MinStack
+        * Simplify Path
 * 05: Queues and Deques
 * 06: Linked Lists
 * 07: Sets

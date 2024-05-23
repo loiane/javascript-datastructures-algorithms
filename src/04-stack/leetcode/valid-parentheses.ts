@@ -21,7 +21,7 @@ const isValid = function(s) {
     }
   }
   return stack.length === 0;
-}  
+}
 
 // test
 console.log(isValid('()')); // true
@@ -60,5 +60,32 @@ console.log(isValid2('(')); // false
 
 // time complexity: O(n)
 // space complexity: O(n)
+
+// optimize the code
+const isValid3 = function(s) {
+
+  // optimization 1: if the length of the string is odd, return false
+  if (s.length % 2 === 1) return false;
+
+  // optimization 2: if the first character is a closing bracket, return false
+  if (s[0] === ')' || s[0] === ']' || s[0] === '}') return false;
+
+  // optimization 3: if the last character is an opening bracket, return false
+  if (s[s.length - 1] === '(' || s[s.length - 1] === '[' || s[s.length - 1] === '{') return false;
+
+  const stack = [];
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(' || s[i] === '[' || s[i] === '{') stack.push(s[i])
+    else {
+        const top = stack.pop()
+        if (top === '(' && s[i] !== ')') return false
+        if (top === '[' && s[i] !== ']') return false
+        if (top === '{' && s[i] !== '}') return false
+        if (top === undefined) return false
+    }
+  }
+
+  return stack.length === 0
+}
 
 // to see the output of this file use the command: node src/04-stack/leetcode/valid-parentheses.ts

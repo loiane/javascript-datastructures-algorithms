@@ -46,4 +46,62 @@ console.log(minStack.getMin()); // -2
 // time complexity: O(1)
 // space complexity: O(n)
 
+// optimized solution
+class MinStack2 {
+  stack: number[] = [];
+  min: number = +Infinity;
+
+  push(val: number): void {
+      this.min = Math.min(val, this.min);
+      this.stack.push(val);
+  }
+
+  pop(): void {
+      const val = this.stack.pop();
+      if (this.min === val) this.min = Math.min(...this.stack);
+  }
+
+  top(): number {
+      return this.stack[this.stack.length - 1];
+  }
+
+  getMin(): number {
+      return this.min;
+  }
+}
+
+class MinStack3 {
+  private stack: number[];
+  private minStack: number[];
+
+  constructor() {
+      this.stack = [];
+      this.minStack = [];
+  }
+
+  push(val: number): void {
+      this.stack.push(val);
+
+      if (this.minStack.length === 0) this.minStack.push(val);
+      else {
+          const currentMin = this.minStack[this.minStack.length - 1];
+
+          this.minStack.push(val < currentMin ? val : currentMin);
+      }
+  }
+
+  pop(): void {
+      this.stack.pop();
+      this.minStack.pop();
+  }
+
+  top(): number {
+      return this.stack[this.stack.length - 1];
+  }
+
+  getMin(): number {
+      return this.minStack[this.minStack.length - 1];
+  }
+}
+
 // to see the output of this file use the command: node src/04-stack/leetcode/min-stack.ts

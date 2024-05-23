@@ -1,7 +1,7 @@
 Learning JavaScript Data Structures and Algorithms
 ===================================================
 
-Source code of **Learning JavaScript Data Structures and Algorithms** book.
+Source code of **Learning JavaScript Data Structures and Algorithms** (4th edition) book.
 
 # Chapters
 
@@ -58,7 +58,13 @@ npm test
 
 ```
 cd src/01-intro
-node 01-hello-world.js
+node 01-hello-variables.js
+```
+
+or:
+
+```
+node src/01-intro/01-hello-variables.js
 ```
 
 ## 💻 Tecnologies

@@ -31,7 +31,7 @@ describe('Queue', () => {
     queue.dequeue();
     queue.dequeue();
 
-    expect(queue.size()).toBe(1);
+    expect(queue.size).toBe(1);
   });
 
   test('should return the correct front element after enqueueing and dequeueing elements', () => {
@@ -56,7 +56,7 @@ describe('Queue', () => {
     queue.clear();
 
     expect(queue.isEmpty()).toBe(true);
-    expect(queue.size()).toBe(0);
+    expect(queue.size).toBe(0);
   });
 
   test('should convert the queue to a string', () => {

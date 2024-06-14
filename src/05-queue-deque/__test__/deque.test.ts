@@ -69,7 +69,7 @@ describe('Deque', () => {
   test('should return the size of the deque', () => {
     deque.addFront(1);
     deque.addFront(2);
-    expect(deque.size()).toBe(2);
+    expect(deque.size).toBe(2);
   });
 
   test('should clear the deque', () => {

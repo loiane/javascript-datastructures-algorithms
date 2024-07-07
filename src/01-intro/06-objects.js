@@ -15,24 +15,24 @@ obj = {
 /* Class example */
 class Book {
 
-  #percentagePerSale = 0.12; // {1}
+  #percentagePerSale = 0.12; 
 
   constructor(title, pages, isbn) { 
-    this.title = title; // {2}
+    this.title = title;
     this.pages = pages;
     this.isbn = isbn;
   }
 
-  get price() { // {3}
+  get price() {
     return this.pages * this.#percentagePerSale;
   }
 
-  static copiesSold = 0; // {4}
-  static sellCopy() { // {5}
+  static copiesSold = 0; 
+  static sellCopy() {
     this.copiesSold++;
   }
 
-  printIsbn() { // {6}
+  printIsbn() {
     console.log(this.isbn);
   }
 }
@@ -52,13 +52,22 @@ console.log(Book.copiesSold); // 1
 Book.sellCopy();
 console.log(Book.copiesSold); // 2
 
-class Ebook extends Book { // {7}
+class Ebook extends Book { 
   constructor(title, pages, isbn, format) {
-    super(title, pages, isbn); // {8}
-    this.format = format; // {9}
+    super(title, pages, isbn); 
+    this.format = format; 
+  }
+  printIsbn() {
+    console.log('Ebook ISBN:',this.isbn);
   }
 }
-Ebook.sellCopy(); // {10}
-console.log(Ebook.copiesSold); // {11} 3
+Ebook.sellCopy();
+console.log(Ebook.copiesSold); // 3
+
+const myBook = new Book('title', 400, 'isbn');
+myBook.printIsbn(); // isbn
+const myEbook = new Ebook('Data Structures Ebook', 400, 'isbn 123', 'pdf');
+myEbook.printIsbn(); // Ebook ISBN: isbn 123
+
 
 // to see the output of this file use the command: node src/01-intro/06-objects.js

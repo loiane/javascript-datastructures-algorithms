@@ -18,6 +18,9 @@ if (number === 1) {
 // is the same as
 number === 1 ? number-- : number++;
 
+// is the same as
+number = number === 1 ? number - 1 : number + 1;
+
 /* Example 03 - if-else-if-else... */
 let month = 5;
 if (month === 1) {

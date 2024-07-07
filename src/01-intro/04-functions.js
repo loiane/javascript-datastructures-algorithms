@@ -11,7 +11,7 @@ function sum(num1, num2) {
     return num1 + num2;
 }
 
-var result = sum(1, 2);
+const result = sum(1, 2);
 console.log(result); // outputs 3
 
 /* function with default parameter */

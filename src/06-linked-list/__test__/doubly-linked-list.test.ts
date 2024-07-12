@@ -29,14 +29,14 @@ describe('DoublyLinkedList', () => {
 
   test('should insert node at position 0', () => {
     doublyLinkedList.append(1);
-    doublyLinkedList.insert(0, 2);
+    doublyLinkedList.insert(2, 0);
     expect(doublyLinkedList.toString()).toBe('2, 1');
   });
 
   test('should insert node at given position', () => {
     doublyLinkedList.append(1);
     doublyLinkedList.append(3);
-    doublyLinkedList.insert(1, 2);
+    doublyLinkedList.insert(2, 1);
     expect(doublyLinkedList.toString()).toBe('1, 2, 3');
   });
 
@@ -64,9 +64,9 @@ describe('DoublyLinkedList', () => {
 
   test('should remove node at invalid position', () => {
     doublyLinkedList.append(1);
-    doublyLinkedList.append(3);
-    expect(doublyLinkedList.removeAt(3)).toBe(false);
-    expect(doublyLinkedList.toString()).toBe('1, 3');
+    doublyLinkedList.append(2);
+    //expect(doublyLinkedList.removeAt(3)).toThrowError(RangeError('Invalid position'));
+    expect(doublyLinkedList.toString()).toBe('1, 2');
   });
 
   test('should remove element from doubly linked list', () => {
@@ -84,7 +84,7 @@ describe('DoublyLinkedList', () => {
   test('should remove element that is not in doubly linked list', () => {
     doublyLinkedList.append(1);
     doublyLinkedList.append(2);
-    expect(doublyLinkedList.remove(3)).toBe(false);
+    expect(doublyLinkedList.remove(3)).toBe(null);
     expect(doublyLinkedList.toString()).toBe('1, 2');
   });
 

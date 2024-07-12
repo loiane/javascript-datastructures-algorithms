@@ -173,7 +173,7 @@ class DoublyLinkedList {
     let current = this.#head;
     let objString = '';
     while (current) {
-      objString += this.elementToString(current.data);
+      objString += this.#elementToString(current.data);
       current = current.next;
       if (current) {
         objString += ', ';
@@ -187,13 +187,13 @@ class DoublyLinkedList {
     let current = this.#tail;
     let objString = '';
     while (current) {
-      objString += this.elementToString(current.data);
+      objString += this.#elementToString(current.data);
       current = current.previous;
     }
     return objString;
   }
 
-  private elementToString(data: T): string {
+  #elementToString(data) {
     if (typeof data === 'object' && data !== null) {
       return JSON.stringify(data);
     } else {
@@ -217,4 +217,4 @@ class DoublyLinkedList {
   }
 }
 
-export default DoublyLinkedList;
+module.exports = DoublyLinkedList;

@@ -190,4 +190,4 @@ class CircularLinkedList {
   }
 }
 
-export default CircularLinkedList;
+module.exports = CircularLinkedList;

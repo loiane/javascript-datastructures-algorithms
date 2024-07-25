@@ -126,6 +126,16 @@ class LinkedList {
     return this.#size;
   }
 
+  forEach(callback) {
+    let current = this.#head;
+    let index = 0;
+    while (current) {
+      callback(current.data, index);
+      current = current.next;
+      index++;
+    }
+  }
+
   toString() {
     let current = this.#head;
     let objString = '';

@@ -1,7 +1,7 @@
 // Path: src/03-array/07-multidimensional-arrays.js
 
-let averageTempDay1 = [72, 75, 79, 79, 81, 81];
-let averageTempDay2 = [81, 79, 75, 75, 73, 72];
+let averageHourlyTempDay1 = [72, 75, 79, 79, 81, 81];
+let averageHourlyTempDay2 = [81, 79, 75, 75, 73, 72];
 
 // multidimensional array representation
 let averageTempMultipleDays = [];

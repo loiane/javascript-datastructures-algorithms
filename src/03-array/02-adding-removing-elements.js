@@ -1,73 +1,81 @@
 // Path: src/03-array/02-adding-removing-elements.js
 
 // @ts-ignore
-let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let raffleTickets = [5, 6, 7, 8, 9];
 
-numbers[numbers.length] = 10;
+raffleTickets[raffleTickets.length] = 10;
 
 // using push method
-numbers.push(11);
-numbers.push(12, 13);
+raffleTickets.push(11);
+console.log(raffleTickets.push(12, 13)); // 9
+
+console.log('raffleTickets: ', raffleTickets); // raffleTickets:  [ 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
 
 // inserting elements at the beginning
-// @ts-ignore
-Array.prototype.insertAtBeginning = function (value) {
-    for (let i = this.length; i >= 0; i--) {
-        this[i] = this[i - 1];
+const insertAtBeginning = function (array, value) {
+    for (let i = array.length; i >= 0; i--) {
+        array[i] = array[i - 1];
     }
-    this[0] = value;
+    array[0] = value;
+    return array;
 };
-// @ts-ignore  
-numbers.insertAtBeginning(-1);
+raffleTickets = insertAtBeginning(raffleTickets, 4);
+console.log('raffleTickets: ', raffleTickets); // raffleTickets:  [ 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
 
 // using unshift method
-numbers.unshift(-2);
-numbers.unshift(-4, -3);
+raffleTickets.unshift(3);
+raffleTickets.unshift(0, 1, 2); 
+
+console.log('raffleTickets: ', raffleTickets); // raffleTickets:  [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
 
 // removing elements from the end
-numbers.pop(); // number 13 is removed
-// console.log('Removed element: ', numbers.pop()); // Removed element:  13
-console.log('array length: ', numbers.length); // array length:  17
+let winningTicket = raffleTickets.pop(); 
+console.log('The winning ticket is:', winningTicket); // The winning ticket is: 13
+
+console.log('raffleTickets: ', raffleTickets); // raffleTickets:  [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+console.log('array length: ', raffleTickets.length); // array length:  13
 
 // removing elements from the beginning
-for (let i = 0; i < numbers.length; i++) {
+for (let i = 0; i < raffleTickets.length; i++) {
     // numbers[i] = numbers[i + 1];  
 }
 
 // removing elements from the beginning - educational purposes only
-// @ts-ignore
-Array.prototype.reIndex = function (myArray) {
-    const newArray = [];
-    for (let i = 0; i < myArray.length; i++) {
-        if (myArray[i] !== undefined) {
-            newArray.push(myArray[i]);
-        }
+const removeFirstElement = function(array) {
+    for (let i = 1; i < array.length; i++) {
+        array[i - 1] = array[i];
+    }
+    array.length--;
+    return array;
+}
+  
+// Apply to our raffleTickets array
+raffleTickets = removeFirstElement(raffleTickets); 
+console.log('Updated raffleTickets:', raffleTickets); // Updated raffleTickets: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+console.log('array length: ', raffleTickets.length); // array length:  12
+
+// alternative way to remove elements from the beginning using a new array
+const removeFirstElementWithNewArray = function(array) {
+    let newArray = [];
+    for (let i = 1; i < array.length; i++) {
+        newArray.push(array[i]);
     }
     return newArray;
 }
-// remove first position manually and reIndex 
-// @ts-ignore 
-Array.prototype.removeFromBeginning = function () {
-    for (let i = 0; i < this.length; i++) {
-        this[i] = this[i + 1];
-    }
-    // @ts-ignore
-    return this.reIndex(this);
-};
-// @ts-ignore
-// numbers = numbers.removeFromBeginning();
 
 // using shift method
-numbers.shift();
-console.log('numbers after shift: ', numbers);
-console.log('array length: ', numbers.length); // array length:  16
+raffleTickets.shift();
+console.log('numbers after shift: ', raffleTickets); // numbers after shift:  [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+console.log('array length: ', raffleTickets.length); // array length:  11
 
 // adding and removing elements from a specific position
-// using the splice method
-numbers.splice(5, 3); // removes 3 elements starting from the 5th position
-console.log('numbers: ', numbers); // numbers:  [ -3, -2, -1, 0, 1, 5, 6, 7, 8, 9, 10, 11, 12 ] 
+// using the splice method to remove elements
+const prizeWinners = raffleTickets.splice(5, 3); // removes 3 elements starting from the 5th position
+console.log('prizeWinners: ', prizeWinners); // prizeWinners:  [ 7, 8, 9 ]
+console.log('remaing tickets: ', raffleTickets); // remaing tickets:  [ 2, 3, 4, 5, 6, 10, 11, 12 ]
 
-// adding elements, 2, 3 and 4 at the 5th position
-numbers.splice(5, 0, 2, 3, 4);
+// adding number 8 and 9 back to the array
+raffleTickets.splice(5, 0, 8, 9); // adds 8, 9 back to the array
+console.log('raffleTickets: ', raffleTickets); // raffleTickets:  [ 2, 3, 4, 5, 6, 8, 9, 10, 11, 12 ]
 
 // to see the output of this file use the command: node src/03-array/02-adding-removing-elements.js

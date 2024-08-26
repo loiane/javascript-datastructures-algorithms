@@ -1,45 +1,85 @@
 // Path: src/03-array/03-iterator-functions.js
 
-// @ts-ignore
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 // using forEach method
-numbers.forEach((value, index) => {
-  console.log(`numbers[${index}]`, value);
+const raffleParticipants = ['poppy@email.com', 'sera@email.com', 'millie@example.com'];
+const sendWelcomeEmail = email => {
+  console.log(`Welcome email sent to ${email}`);
+};
+
+raffleParticipants.forEach(email => sendWelcomeEmail(email));
+
+raffleParticipants.forEach(sendWelcomeEmail);
+
+const sendConfirmationEmail = (email, raffleNumber) => {
+  console.log(`Hi ${email}, your raffle number is ${raffleNumber}`);
+};
+
+const sendSpecialPrizeEmail = (email) => {
+  console.log(`Congrats ${email}! You've won a special prize!`);
+};
+
+raffleParticipants.forEach((value, index, array) => {
+  const raffleNumber = index + 1; // Raffle numbers start from 1
+  sendConfirmationEmail(value, raffleNumber);
+
+  if (index === array.length - 1) { // Check if it's the last element
+      sendSpecialPrizeEmail(value);
+  }
 });
 
-numbers.forEach(value => console.log(value));
-
 // using every method
-const isBelowSeven = numbers.every(value => value < 7);
-console.log('All values are below 7?:', isBelowSeven); // false
+const formFields = [
+  { id: 'username', value: 'poppy' }, 
+  { id: 'email', value: 'poppy@email.com' },
+  { id: 'password', value: 'bookClub123!' }];
 
-// rewriting the preceding code using for loop
-let isBelowSevenForLoop = true;
-for (let i = 0; i < numbers.length; i++) {
-  if (numbers[i] >= 7) {
-    isBelowSevenForLoop = false;
-    break;
+  const isFormValid = () => 
+    formFields.every(field => field.value !== '' && field.value !== null); 
+
+
+const onFormSubmit = () => {
+  if (isFormValid()) {
+    console.log('Form submitted successfully!');
+  } else {
+    console.log('Please fill out all required fields.');
   }
 }
-console.log('All values are below 7?:', isBelowSevenForLoop); // false
+onFormSubmit(); // Form submitted successfully!
+
+// using a for loop
+const isFormValidForLoop = () => {
+  for (let i = 0; i < formFields.length; i++) {
+    if (formFields[i].value === '' || formFields[i].value === null) {
+      return false;
+    }
+  }
+  return true;
+};
+
 
 // using some method
-const isSomeValueBelowSeven = numbers.some(value => value < 7);
-console.log('Is any value below 7?:', isSomeValueBelowSeven); // true
+const products = [
+  { name: 'Laptop', inStock: true },
+  { name: 'Smartphone', inStock: false },
+  { name: 'Headphones', inStock: true }
+];
 
-// rewriting the preceding code using for loop
-let isSomeValueBelowSevenForLoop = false;
-for (let i = 0; i < numbers.length; i++) {
-  if (numbers[i] < 7) {
-    isSomeValueBelowSevenForLoop = true;
-    break;
+const searchQuery = 'phone';
+const isProductAvailable = products.some(product => {
+  return product.name.toLowerCase().includes(searchQuery.toLowerCase()) && product.inStock;
+});
+
+console.log(isProductAvailable ? 'Product Available!' : 'No Products Found.'); // Product Available!
+
+// using a for loop
+const isProductAvailableForLoop = () => {
+  for (let i = 0; i < products.length; i++) {
+    if (products[i].name.toLowerCase().includes(searchQuery.toLowerCase()) && products[i].inStock) {
+      return true; // Found a match, no need to continue checking
+    }
   }
-}
+  return false; // No match found after checking all products
+};
 
-// using filter method
-// @ts-ignore
-const valuesBelowSeven = numbers.filter(value => value < 7);
-console.log('Values below 7:', valuesBelowSeven); // [1, 2, 3, 4, 5, 6]
 
 // to see the output of this file use the command: node src/03-array/03-iterator-functions.js

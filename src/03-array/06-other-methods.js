@@ -7,56 +7,63 @@ console.log(typeof { id: 1 }); // object
 console.log(typeof [1, 2, 3]); // object
 
 console.log(Array.isArray([1, 2, 3])); // true
+console.log(Array.isArray({ id: 1 })); // false
 
 // real world example
-const jsonString = JSON.stringify('[{"id":1,"title":"The Fellowship of the Ring"},{"id":2,"title":"Fourth Wing"}]');
-const dataReceived = JSON.parse(jsonString);
+const jsonStringFromAPI = '[{"id":1,"title":"The Lord of the Rings"},{"id":2,"title":"The Hobbit"}]';
+const dataReceived = JSON.parse(jsonStringFromAPI);
 
 if (Array.isArray(dataReceived)) {
-  console.log('It is an array');
-  // check if The Fellowship of the Ring is in the array
-  const fellowship = dataReceived.find((item) => {
-    return item.title === 'The Fellowship of the Ring'; 
-  });   
-  if (fellowship) {
-    console.log('We received the book we were looking for!');
+  console.log('Received an array of books!');
+  // check if The Hobbit is in the array
+  const hobbitBook = dataReceived.find(book => book.title === 'The Hobbit');
+  if (hobbitBook) {
+    console.log('Found The Hobbit!');
   } else {
-    console.log('We did not receive the book we were looking for!');
+    console.log('The Hobbit was not found in the results.');
   }
+} else {
+  console.log('Data received is not an array.'); 
+  // Handle other possible response types (single object, null, etc.)
 }
+// Received an array of books!
 
 // using Array.from() method
-// @ts-ignore
-const numbers = [1, 2, 3, 4, 5];
-const numbersCopy = Array.from(numbers);
-console.log(numbersCopy); // [1, 2, 3, 4, 5]
+const originalPixels = [255, 0, 0, 128, 128, 128]; // red, gray
+const backupPixels = Array.from(originalPixels); 
+console.log(backupPixels); // [255, 0, 0, 128, 128, 128]
 
-const evens = Array.from(numbers, x => (x % 2 == 0)); 
-console.log(evens); // [false, true, false, true, false]
+// increase each pixel value by 50
+const brightenedPixels = Array.from(originalPixels, pixelValue => pixelValue + 50); 
+console.log(brightenedPixels); // [305, 50, 50, 178, 178, 178]
+
 
 // Array.from() method creates a new, shallow-copied Array instance from an array-like or iterable object.
-// @ts-ignore
-const friends = [ 
+let friends = [ 
   { name: 'Frodo', age: 30 }, 
-  { name: 'Violet', age: 18 }, 
-  { name: 'Aelin', age: 20 } 
+  { name: 'Violet', age: 18 }
 ]; 
 const friendsCopy = Array.from(friends);
-console.log(friendsCopy);
+friends[0].name = 'Sam'; // modify the original
+console.log(friendsCopy[0].name); // 'Sam'
 
-friends[0].name = 'Sam';
-console.log(friendsCopy[0].name); // Sam
 
 // deep copy
-const friendsDeepCopy = JSON.parse(JSON.stringify(friends));
-friends[0].name = 'Frodo';
-console.log(friendsDeepCopy[0].name); // Sam
+const anotherBackup = [...originalPixels];
+const friendsDeepCopy = structuredClone(friends);
+friendsDeepCopy[0].name = 'Frodo';
+console.log(friends[0].name); // 'Sam' - dit not change the original array
+
 
 // using Array.of() method
-const numbersArray = Array.of(1, 2, 3, 4, 5);
-console.log(numbersArray); // [1, 2, 3, 4, 5]
+let suits = Array.of('Hearts', 'Diamonds', 'Clubs', 'Spades');
+console.log(suits); // ['Hearts', 'Diamonds', 'Clubs', 'Spades']
 
-let numbersCopy2 = Array.of(...numbersArray); 
+// same as:
+suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+
+const originalDeck = [ 1, 2, 3 ];
+const shuffledDeck = Array.of(...originalDeck); 
 
 // using Array.fill() method
 const tornamentResults = new Array(5).fill('pending'); 
@@ -70,5 +77,6 @@ const positiveNumbers = [1, 2, 3];
 const negativeNumbers = [-3, -2, -1]; 
 let allNumbers = negativeNumbers.concat(zero, positiveNumbers); 
 
+allNumbers = [...negativeNumbers,zero,...positiveNumbers];
 
 // to see the output of this file use the command: node src/03-array/06-other-methods.js

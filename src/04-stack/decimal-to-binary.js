@@ -15,13 +15,13 @@ function decimalToBinary(decimalNumber) {
     return '0';
   }
 
-  while (decimalNumber > 0) { // {1}
-    const remainder = Math.floor(decimalNumber % 2); // {2}
-    remainderStack.push(remainder); // {3}
-    decimalNumber = Math.floor(decimalNumber / 2); // {4}
+  while (decimalNumber > 0) { 
+    const remainder = Math.floor(decimalNumber % 2); 
+    remainderStack.push(remainder); 
+    decimalNumber = Math.floor(decimalNumber / 2); 
   }
 
-  while (!remainderStack.isEmpty()) { // {5}
+  while (!remainderStack.isEmpty()) { 
     binaryString += remainderStack.pop().toString();
   }
 

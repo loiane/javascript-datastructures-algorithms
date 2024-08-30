@@ -14,6 +14,12 @@ function decimalToBase(decimalNumber, base) {
     throw new Error('Base must be between 2 and 36');
   }
 
+  if (decimalNumber === 0) { return '0'; }
+
+  if (decimalNumber < 0) {
+    throw new Error('Negative numbers are not supported');
+  }
+
   const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // Digits for base 36
   const remainderStack = new Stack();
   let baseString = '';

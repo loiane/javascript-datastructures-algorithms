@@ -3,12 +3,13 @@
 import Stack from './stack';
 
 enum Action {
-  TYPE = 'typing'
+  TYPE = 'typing',
+  // Add more actions like DELETE, FORMAT, etc.
 }
 
 interface EditorAction {
   action: Action;
-  text: string;
+  text?: string; // Optional text for typing actions
 }
 
 const stack = new Stack<EditorAction>();

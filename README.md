@@ -98,7 +98,7 @@ Book link - second edition:
  - [Brazilian Portuguese version](https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript/)
 
  Book link - third edition:
- - [Packt](https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-third-edition)
+ - [Packt](https://www.packtpub.com/en-us/product/learning-javascript-data-structures-and-algorithms-9781788624947)
  - [Amazon](http://a.co/cbMlYmJ)
  - [Chinese version](http://www.ituring.com.cn/book/2653)
  - [Brazilian Portuguese version](https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript-2ed/)

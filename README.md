@@ -1,50 +1,6 @@
 Learning JavaScript Data Structures and Algorithms
 ===================================================
 
-Source code of **Learning JavaScript Data Structures and Algorithms** (4th edition) book.
-
-# Chapters
-
-## Part 1: Introduction
-
-* 01: Introducing Data Structures and Algorithms in JavaScript
-* 02: Understanding Big O Notation
-
-## Part 2: Data Structures
-
-* 03: Arrays
-    * _Hackerrank_ exercises:
-        * Arrays DS
-        * Array Left Rotation
-* 04: Stacks
-    * Stack data structure (array-based)
-    * Stack data structure (object-based)
-    * Decimal to binary algorithm
-    * Decimal to bases 2-32 algorithm
-    * Decimal to bases 2-32 or 64 algorithm
-    * Tower of Hanoi algorithm
-    * _LeetCode_ exercises:
-        * Valid Parantheses
-        * MinStack
-        * Simplify Path
-* 05: Queues and Deques
-* 06: Linked Lists
-* 07: Sets
-* 08: Dictionaries and Hashes
-* 09: Recursion
-* 10: Trees
-* 11: Binary Heap and Heap Sort
-* 12: Tries
-* 13: Graphs
-
-## Part 3: Algorithms
-
-* 14: Sorting Algorithms
-* 15: Searching and Shuffling Algorithms
-* 16: String Algorithms
-* 17: Math Algorithms
-* 18: Algorithm Designs and Techniques
-
 # Project Structure
 
 You can find the source code organized by chapter under the `src` folder.

@@ -65,7 +65,7 @@ describe('LinkedList', () => {
   test('should remove node at invalid position', () => {
     linkedList.append(1);
     linkedList.append(2);
-    expect(() => linkedList.removeAt(2)).toThrowError('Invalid position');
+    expect(() => linkedList.removeAt(2)).toThrow('Invalid position');
   });
 
   test('should remove element from linked list', () => {

@@ -1,12 +1,12 @@
 // src/06-linked-list/circular-linked-list.ts
 
 class LinkedListNode<T> {
-  constructor(public element: T, public next?: LinkedListNode<T>) {}
+  constructor(public element: T, public next: LinkedListNode<T> | null = null) {}
 }
 
 class CircularLinkedList<T> {
 
-  private head: LinkedListNode<T> | null;
+  private head: LinkedListNode<T> | null = null;
   private size = 0;
 
   append(element: T) {
@@ -15,23 +15,27 @@ class CircularLinkedList<T> {
       this.head = node;
       node.next = this.head;
     } else {
-      let current = this.head;
-      while (current.next !== this.head) {
+      let current: LinkedListNode<T> | null = this.head;
+      while (current !== null && current.next !== this.head) {
         current = current.next;
       }
-      current.next = node;
-      node.next = this.head;
+      if (current !== null) {
+        current.next = node;
+        node.next = this.head;
+      }
     }
     this.size++;
   }
 
   prepend(element: T) {
     const node = new LinkedListNode(element, this.head);
-    let current = this.head;
-    while (current.next !== this.head) {
+    let current: LinkedListNode<T> | null = this.head;
+    while (current !== null && current.next !== this.head) {
       current = current.next;
     }
-    current.next = node;
+    if (current !== null) {
+      current.next = node;
+    }
     this.head = node;
     this.size++;
   }
@@ -45,15 +49,17 @@ class CircularLinkedList<T> {
       this.prepend(element);
       return true;
     }
-    let current = this.head;
-    let previous = null;
+    let current: LinkedListNode<T> | null = this.head;
+    let previous: LinkedListNode<T> | null = null;
     let index = 0;
     while (index++ < position) {
       previous = current;
-      current = current.next;
+      current = current !== null ? current.next : null;
     }
     node.next = current;
-    previous.next = node;
+    if (previous !== null) {
+      previous.next = node;
+    }
     this.size++;
     return true;
   }
@@ -62,24 +68,29 @@ class CircularLinkedList<T> {
     if (this.isInvalidPosition(position)) {
       throw new Error('Invalid position');
     }
-    let current = this.head;
-    let previous = null;
+    let current: LinkedListNode<T> | null = this.head;
+    let previous: LinkedListNode<T> | null = null;
     if (position === 0) {
-      let last = this.head;
-      while (last.next !== this.head) {
+      let last: LinkedListNode<T> | null = this.head;
+      while (last !== null && last.next !== this.head) {
         last = last.next;
       }
-      this.head = current.next;
-      last.next = this.head;
+      this.head = current !== null ? current.next : null;
+      if (last !== null) {
+        last.next = this.head;
+      }
     } else {
       let index = 0;
       while (index++ < position) {
         previous = current;
-        current = current.next;
+        current = current !== null ? current.next : null;
       }
-      previous.next = current.next;
+      if (previous !== null) {
+        previous.next = current !== null ? current.next : null;
+      }
     }
     this.size--;
+    if (current === null) throw new Error('Node not found');
     return current.element;
   }
 

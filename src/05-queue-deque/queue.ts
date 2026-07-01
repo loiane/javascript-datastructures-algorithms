@@ -42,7 +42,7 @@ class Queue<T> {
         if (typeof item === 'object' && item !== null) { // {2}
           return JSON.stringify(item); // Handle objects
         } else {
-          return item.toString(); // Handle other types {3}
+          return String(item); // Handle other types {3}
         }
       }).join(', '); // {4}
     }

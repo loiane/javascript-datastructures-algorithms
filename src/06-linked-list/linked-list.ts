@@ -1,12 +1,12 @@
 // src/06-linked-list/linked-list.ts
 
 class LinkedListNode<T> {
-  constructor(public element: T, public next?: LinkedListNode<T>) {}
+  constructor(public element: T, public next: LinkedListNode<T> | null = null) {}
 }
 
 class LinkedList<T> {
 
-  private head: LinkedListNode<T> | null;
+  private head: LinkedListNode<T> | null = null;
   private size = 0;
 
   append(element: T) {
@@ -38,15 +38,17 @@ class LinkedList<T> {
       this.prepend(element);
       return true
     } 
-    let current = this.head;
-    let previous = null;
+    let current: LinkedListNode<T> | null = this.head;
+    let previous: LinkedListNode<T> | null = null;
     let index = 0;
     while (index++ < position) {
       previous = current;
-      current = current.next;
+      current = current !== null ? current.next : null;
     }
     node.next = current;
-    previous.next = node;
+    if (previous !== null) {
+      previous.next = node;
+    }
     this.size++;
     return true;
   }
@@ -55,18 +57,21 @@ class LinkedList<T> {
     if (this.isInvalidPosition(position)) {
       throw new Error('Invalid position');
     }
-    let current = this.head;
-    let previous = null;
+    let current: LinkedListNode<T> | null = this.head;
+    let previous: LinkedListNode<T> | null = null;
     if (position === 0) {
-      this.head = current.next;
+      this.head = current !== null ? current.next : null;
     } else {
       for (let index = 0; index < position; index++) {
         previous = current;
-        current = current.next;
+        current = current !== null ? current.next : null;
       }
-      previous.next = current.next;
+      if (previous !== null) {
+        previous.next = current !== null ? current.next : null;
+      }
     }
     this.size--;
+    if (current === null) throw new Error('Node not found');
     return current.element;
   }
 
@@ -138,7 +143,7 @@ class LinkedList<T> {
     if (typeof element === 'object' && element !== null) {
       return JSON.stringify(element);
     } else {
-      return element.toString(); 
+      return String(element); 
     }
   }
 }

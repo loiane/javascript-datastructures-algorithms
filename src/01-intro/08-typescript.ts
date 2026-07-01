@@ -1,4 +1,5 @@
 // Path: src/01-intro/08-typescript.ts
+export {};
 
 let myName = 'Packt';
 // myName = 10; // commented to avoid error

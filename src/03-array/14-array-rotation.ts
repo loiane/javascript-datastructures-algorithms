@@ -1,4 +1,5 @@
 // src/03-array/14-array-rotation.ts
+export {};
 
 /**
  * Array Rotation - Rotate array elements left or right by k positions

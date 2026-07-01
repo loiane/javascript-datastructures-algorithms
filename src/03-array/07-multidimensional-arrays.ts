@@ -49,7 +49,7 @@ console.table(averageTempMultipleDays);
 // Dimension 2 (j): location
 // Dimension 3 (z): temperature
 // declare a 3-dimensional Array 3x3x3:
-let averageTempMultipleDaysAndLocation = [];
+let averageTempMultipleDaysAndLocation: number[][][] = [];
 
 // day 1
 averageTempMultipleDaysAndLocation[0] = [];
@@ -70,7 +70,7 @@ averageTempMultipleDaysAndLocation[2][1] = [23, 24, 23]; // location 2
 averageTempMultipleDaysAndLocation[2][2] = [30, 31, 31]; // location 3
 
 
-function printMultidimensionalArray3D(myArray) {
+function printMultidimensionalArray3D(myArray: number[][][]) {
   for (let i = 0; i < myArray.length; i++) {
     for (let j = 0; j < myArray[i].length; j++) {
       for (let z = 0; z < myArray[i][j].length; z++) {

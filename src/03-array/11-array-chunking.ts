@@ -1,4 +1,5 @@
 // src/03-array/11-array-chunking.ts
+export {};
 
 /**
  * Array Chunking - Split an array into chunks of a specified size

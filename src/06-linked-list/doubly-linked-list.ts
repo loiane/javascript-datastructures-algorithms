@@ -3,14 +3,14 @@
 class DoublyLinkedListNode<T> {
   constructor(
     public data: T,
-    public next?: DoublyLinkedListNode<T>,
-    public previous?: DoublyLinkedListNode<T>
+    public next: DoublyLinkedListNode<T> | null = null,
+    public previous: DoublyLinkedListNode<T> | null = null
   ) {}
 }
 
 class DoublyLinkedList<T> {
-  private head: DoublyLinkedListNode<T> | null;
-  private tail: DoublyLinkedListNode<T> | null;
+  private head: DoublyLinkedListNode<T> | null = null;
+  private tail: DoublyLinkedListNode<T> | null = null;
   private size = 0;
 
   append(data: T) {
@@ -20,7 +20,9 @@ class DoublyLinkedList<T> {
       this.tail = node;
     } else {
       node.previous = this.tail;
-      this.tail.next = node;
+      if (this.tail !== null) {
+        this.tail.next = node;
+      }
       this.tail = node;
     }
     this.size++;
@@ -52,16 +54,16 @@ class DoublyLinkedList<T> {
       return true; 
     }
     const newNode = new DoublyLinkedListNode(data);
-    let current = this.head;
-    let previous = null;
+    let current: DoublyLinkedListNode<T> | null = this.head;
+    let previous: DoublyLinkedListNode<T> | null = null;
     for (let index = 0; index < position; index++) {
       previous = current;
-      current = current.next;
+      current = current !== null ? current.next : null;
     }
     newNode.next = current;
     newNode.previous = previous;
-    current.previous = newNode;
-    previous.next = newNode;
+    if (current !== null) current.previous = newNode;
+    if (previous !== null) previous.next = newNode;
     this.size++;
     return true;
   }
@@ -70,31 +72,40 @@ class DoublyLinkedList<T> {
     if (this.isInvalidPosition(position)) {
       throw new RangeError('Invalid position');
     }
-    let nodeToRemove = this.head;
-    let previousNode = null;
+    let nodeToRemove: DoublyLinkedListNode<T> | null = this.head;
+    let previousNode: DoublyLinkedListNode<T> | null = null;
 
     if (position === 0) {
-        this.head = nodeToRemove.next;
-        if (this.head) { // Check if new head exists
-            this.head.previous = null;
-        } else {
-            this.tail = null; // List becomes empty
-        }
+      if (nodeToRemove === null) throw new RangeError('List is empty');
+      this.head = nodeToRemove.next;
+      if (this.head !== null) {
+        this.head.previous = null;
+      } else {
+        this.tail = null;
+      }
     } else if (position === this.size - 1) {
-        nodeToRemove = this.tail;
-        this.tail = nodeToRemove.previous;
+      nodeToRemove = this.tail;
+      if (nodeToRemove === null) throw new RangeError('Unexpected null tail');
+      this.tail = nodeToRemove.previous;
+      if (this.tail !== null) {
         this.tail.next = null;
+      }
     } else {
-        let index = 0;
-        while (index < position) {
-            previousNode = nodeToRemove;
-            nodeToRemove = nodeToRemove.next;
-            index++;
-        }
+      let index = 0;
+      while (index < position) {
+        previousNode = nodeToRemove;
+        nodeToRemove = nodeToRemove !== null ? nodeToRemove.next : null;
+        index++;
+      }
+      if (previousNode !== null && nodeToRemove !== null) {
         previousNode.next = nodeToRemove.next;
-        nodeToRemove.next.previous = previousNode; 
+        if (nodeToRemove.next !== null) {
+          nodeToRemove.next.previous = previousNode;
+        }
+      }
     }
     this.size--;
+    if (nodeToRemove === null) throw new RangeError('Node not found');
     return nodeToRemove.data;
   }
 
@@ -165,7 +176,7 @@ class DoublyLinkedList<T> {
     if (typeof data === 'object' && data !== null) {
       return JSON.stringify(data);
     } else {
-      return data.toString(); 
+      return String(data); 
     }
   }
 

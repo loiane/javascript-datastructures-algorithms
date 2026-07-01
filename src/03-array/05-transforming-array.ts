@@ -39,9 +39,9 @@ const scores = [30, 70, 85, 90, 100];
 const highestScore = scores.reduce((max, score) => score > max ? score : max, scores[0]); // 100
 
 // using reduceRight method
-const reversedNumbers = numbers.reduceRight((acc, value) => {
+const reversedNumbers = numbers.reduceRight((acc: number[], value) => {
   acc.push(value);
   return acc;
-}, []); // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+}, [] as number[]); // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
 // to see the output of this file use the command: node src/03-array/05-transforming-array.ts

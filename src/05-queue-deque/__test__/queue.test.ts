@@ -2,7 +2,7 @@ import {describe, expect, test, beforeEach} from '@jest/globals';
 import Queue from '../queue';
 
 describe('Queue', () => {
-  let queue;
+  let queue: Queue<unknown>;
 
   beforeEach(() => {
     queue = new Queue();

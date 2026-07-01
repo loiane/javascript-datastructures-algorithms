@@ -35,7 +35,7 @@ class Stack<T> {
         if (typeof item === 'object' && item !== null) {
           return JSON.stringify(item);
         } else {
-          return item.toString();
+          return String(item);
         }
       }).join(', ');
     }

@@ -5,9 +5,6 @@ class HashTable<V> {
   private table: V[] = [];
 
   #loseLoseHashCode(key: string) {
-    // if (typeof key !== 'string') {
-    //   key = this.#elementToString(key);
-    // }
     const calcASCIIValue = (acc: number, char: string) => acc + char.charCodeAt(0);
     const hash = key.split('').reduce(calcASCIIValue, 0);
     return hash % 37;
@@ -19,21 +16,21 @@ class HashTable<V> {
 
   put(key: string, value: V) {
     const index = this.hash(key);
-    this.table[index] = value; 
+    this.table[index] = value;
     return true;
   }
 
-  get(key: string): V {
+  get(key: string): V | undefined {
     const index = this.hash(key);
     return this.table[index];
   }
 
-  remove(key: string) {
+  remove(key: string): boolean {
     if (key == null) {
       return false;
     }
     const index = this.hash(key);
-    if (this.table[index]) {
+    if (this.table[index] != null) {
       delete this.table[index];
       return true;
     }
@@ -44,7 +41,7 @@ class HashTable<V> {
     if (typeof data === 'object' && data !== null) {
       return JSON.stringify(data);
     } else {
-      return String(data); 
+      return String(data);
     }
   }
 

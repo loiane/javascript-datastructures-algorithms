@@ -1,15 +1,19 @@
 // src/08-dictionary-hash/hash-table.js
 
+class KeyValuePair {
+  constructor(key, value) {
+    this.key = key;
+    this.value = value;
+  }
+}
+
 class HashTable {
 
-  #table = [];
+  #table = new Map();
 
   #loseLoseHashCode(key) {
-    if (typeof key !== 'string') {
-      key = this.#elementToString(key);
-    }
     const hash = key.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-    return hash % 37; // mod to reduce the hash code
+    return hash % 37;
   }
 
   hash(key) {
@@ -17,50 +21,58 @@ class HashTable {
   }
 
   put(key, value) {
-    if (key == null && value == null)  {
-      return false;
-    }
     const index = this.hash(key);
-    this.#table[index] = value; 
+    if (!this.#table.has(index)) {
+      this.#table.set(index, []);
+    }
+    const chain = this.#table.get(index);
+    const existing = chain.find(pair => pair.key === key);
+    if (existing) {
+      existing.value = value;
+    } else {
+      chain.push(new KeyValuePair(key, value));
+    }
     return true;
   }
 
   get(key) {
-    if (key == null) {
-      return undefined;
-    }
     const index = this.hash(key);
-    return this.#table[index];
+    const chain = this.#table.get(index);
+    if (chain) {
+      const pair = chain.find(p => p.key === key);
+      return pair ? pair.value : undefined;
+    }
+    return undefined;
   }
 
   remove(key) {
-    if (key == null) {
-      return false;
-    }
     const index = this.hash(key);
-    if (this.#table[index]) {
-      delete this.#table[index];
-      return true;
+    const chain = this.#table.get(index);
+    if (!chain) return false;
+    const pairIndex = chain.findIndex(p => p.key === key);
+    if (pairIndex === -1) return false;
+    chain.splice(pairIndex, 1);
+    if (chain.length === 0) {
+      this.#table.delete(index);
     }
-    return false;
+    return true;
   }
 
   #elementToString(data) {
     if (typeof data === 'object' && data !== null) {
       return JSON.stringify(data);
     } else {
-      return data.toString(); 
+      return String(data);
     }
   }
 
   toString() {
-    const keys = Object.keys(this.#table);
-    let objString = `{${keys[0]} => ${this.#table[keys[0]].toString()}}`;
-    for (let i = 1; i < keys.length; i++) {
-      const value = this.#elementToString(this.#table[keys[i]]).toString();
-      objString = `${objString}\n{${keys[i]} => ${value}}`;
+    const lines = [];
+    for (const [hash, chain] of this.#table) {
+      const pairs = chain.map(p => `${p.key}: ${this.#elementToString(p.value)}`).join(', ');
+      lines.push(`{${hash} => [${pairs}]}`);
     }
-    return objString;
+    return lines.join('\n');
   }
 }
 

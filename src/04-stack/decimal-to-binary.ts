@@ -22,7 +22,10 @@ function decimalToBinary(decimalNumber: number) {
   }
 
   while (!remainderStack.isEmpty()) { // {5}
-    binaryString += remainderStack.pop().toString();
+    const digit = remainderStack.pop();
+    if (digit !== undefined) {
+      binaryString += digit.toString();
+    }
   }
 
   return binaryString;

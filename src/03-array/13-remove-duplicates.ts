@@ -1,4 +1,5 @@
 // src/03-array/13-remove-duplicates.ts
+export {};
 
 /**
  * Remove Duplicates from Arrays - Multiple approaches to eliminate duplicate values

@@ -25,7 +25,10 @@ function decimalToBase(decimalNumber: number, base : number) {
   }
 
   while (!remainderStack.isEmpty()) {
-    baseString += digits[remainderStack.pop()]; // Use digit mapping
+    const digit = remainderStack.pop();
+    if (digit !== undefined) {
+      baseString += digits[digit]; // Use digit mapping
+    }
   }
 
   return baseString;
@@ -56,7 +59,10 @@ function decimalToBase64(decimalNumber: number, base: number) {
   }
 
   while (!remainderStack.isEmpty()) {
-    baseString += digits[remainderStack.pop()];
+    const digit = remainderStack.pop();
+    if (digit !== undefined) {
+      baseString += digits[digit];
+    }
   }
 
   // Handle padding for Base64 (if necessary)

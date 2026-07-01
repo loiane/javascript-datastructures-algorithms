@@ -3,11 +3,11 @@
         "target": "ESNext",
         "module": "CommonJS",
         "lib": ["ESNext"],
-        //"outDir": "dist",
         "rootDir": "src",
-        // "strict": true,
+        "strict": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
+        "types": ["node"]
     },
     "include": ["src/**/*"],
     "exclude": [

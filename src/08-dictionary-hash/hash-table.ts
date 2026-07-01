@@ -1,12 +1,8 @@
 // src/08-dictionary-hash/hash-table.ts
 
-class KeyValuePair<V> {
-  constructor(public key: string, public value: V) {}
-}
-
 class HashTable<V> {
 
-  private table: KeyValuePair<V>[][] = [];
+  private table: V[] = [];
 
   #loseLoseHashCode(key: string) {
     const calcASCIIValue = (acc: number, char: string) => acc + char.charCodeAt(0);
@@ -20,40 +16,25 @@ class HashTable<V> {
 
   put(key: string, value: V) {
     const index = this.hash(key);
-    if (this.table[index] == null) {
-      this.table[index] = [];
-    }
-    const chain = this.table[index];
-    const existing = chain.find(pair => pair.key === key);
-    if (existing) {
-      existing.value = value;
-    } else {
-      chain.push(new KeyValuePair(key, value));
-    }
+    this.table[index] = value;
     return true;
   }
 
   get(key: string): V | undefined {
     const index = this.hash(key);
-    const chain = this.table[index];
-    if (chain != null) {
-      const pair = chain.find(p => p.key === key);
-      return pair?.value;
-    }
-    return undefined;
+    return this.table[index];
   }
 
   remove(key: string): boolean {
-    const index = this.hash(key);
-    const chain = this.table[index];
-    if (chain == null) return false;
-    const pairIndex = chain.findIndex(p => p.key === key);
-    if (pairIndex === -1) return false;
-    chain.splice(pairIndex, 1);
-    if (chain.length === 0) {
-      delete this.table[index];
+    if (key == null) {
+      return false;
     }
-    return true;
+    const index = this.hash(key);
+    if (this.table[index] != null) {
+      delete this.table[index];
+      return true;
+    }
+    return false;
   }
 
   #elementToString(data: V) {
@@ -66,11 +47,12 @@ class HashTable<V> {
 
   toString() {
     const keys = Object.keys(this.table);
-    return keys.map(k => {
-      const chain = this.table[Number(k)];
-      const pairs = chain.map(p => `${p.key}: ${this.#elementToString(p.value)}`).join(', ');
-      return `{${k} => [${pairs}]}`;
-    }).join('\n');
+    let objString = `{${keys[0]} => ${this.#elementToString(this.table[Number(keys[0])])}}`;
+    for (let i = 1; i < keys.length; i++) {
+      const value = this.#elementToString(this.table[Number(keys[i])]);
+      objString = `${objString}\n{${keys[i]} => ${value}}`;
+    }
+    return objString;
   }
 }
 

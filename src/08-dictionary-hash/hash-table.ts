@@ -8,7 +8,7 @@ class HashTable<V> {
     // if (typeof key !== 'string') {
     //   key = this.#elementToString(key);
     // }
-    const calcASCIIValue = (acc, char) => acc + char.charCodeAt(0);
+    const calcASCIIValue = (acc: number, char: string) => acc + char.charCodeAt(0);
     const hash = key.split('').reduce(calcASCIIValue, 0);
     return hash % 37;
   }
@@ -44,15 +44,15 @@ class HashTable<V> {
     if (typeof data === 'object' && data !== null) {
       return JSON.stringify(data);
     } else {
-      return data.toString(); 
+      return String(data); 
     }
   }
 
   toString() {
     const keys = Object.keys(this.table);
-    let objString = `{${keys[0]} => ${this.table[keys[0]].toString()}}`;
+    let objString = `{${keys[0]} => ${this.#elementToString(this.table[Number(keys[0])])}}`;
     for (let i = 1; i < keys.length; i++) {
-      const value = this.#elementToString(this.table[keys[i]]).toString();
+      const value = this.#elementToString(this.table[Number(keys[i])]);
       objString = `${objString}\n{${keys[i]} => ${value}}`;
     }
     return objString;

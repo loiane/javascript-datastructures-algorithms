@@ -67,7 +67,7 @@ class Trie {
     const shouldDeleteCurrentNode = this.#removeWord(node.children.get(char)!, word, index + 1);
     if (shouldDeleteCurrentNode) {
       node.children.delete(char);
-      return node.children.size === 0;
+      return node.children.size === 0 && !node.isEndOfWord;
     }
 
     return false;

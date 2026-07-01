@@ -6,7 +6,7 @@ class KeyValuePair<V> {
 
 class HashTable<V> {
 
-  private table: Map<number, KeyValuePair<V>[]> = new Map();
+  private table: KeyValuePair<V>[][] = [];
 
   #loseLoseHashCode(key: string) {
     const calcASCIIValue = (acc: number, char: string) => acc + char.charCodeAt(0);
@@ -20,10 +20,10 @@ class HashTable<V> {
 
   put(key: string, value: V) {
     const index = this.hash(key);
-    if (!this.table.has(index)) {
-      this.table.set(index, []);
+    if (this.table[index] == null) {
+      this.table[index] = [];
     }
-    const chain = this.table.get(index)!;
+    const chain = this.table[index];
     const existing = chain.find(pair => pair.key === key);
     if (existing) {
       existing.value = value;
@@ -35,8 +35,8 @@ class HashTable<V> {
 
   get(key: string): V | undefined {
     const index = this.hash(key);
-    const chain = this.table.get(index);
-    if (chain) {
+    const chain = this.table[index];
+    if (chain != null) {
       const pair = chain.find(p => p.key === key);
       return pair?.value;
     }
@@ -45,13 +45,13 @@ class HashTable<V> {
 
   remove(key: string): boolean {
     const index = this.hash(key);
-    const chain = this.table.get(index);
-    if (!chain) return false;
+    const chain = this.table[index];
+    if (chain == null) return false;
     const pairIndex = chain.findIndex(p => p.key === key);
     if (pairIndex === -1) return false;
     chain.splice(pairIndex, 1);
     if (chain.length === 0) {
-      this.table.delete(index);
+      delete this.table[index];
     }
     return true;
   }
@@ -65,12 +65,12 @@ class HashTable<V> {
   }
 
   toString() {
-    const lines: string[] = [];
-    for (const [hash, chain] of this.table) {
+    const keys = Object.keys(this.table);
+    return keys.map(k => {
+      const chain = this.table[Number(k)];
       const pairs = chain.map(p => `${p.key}: ${this.#elementToString(p.value)}`).join(', ');
-      lines.push(`{${hash} => [${pairs}]}`);
-    }
-    return lines.join('\n');
+      return `{${k} => [${pairs}]}`;
+    }).join('\n');
   }
 }
 

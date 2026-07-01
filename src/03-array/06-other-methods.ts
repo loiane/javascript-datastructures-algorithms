@@ -1,4 +1,5 @@
 // Path: src/03-array/06-other-methods.ts
+export {};
 
 // using Array.isArray() method
 console.log(typeof 'Learning Data Structures'); // string
@@ -26,7 +27,6 @@ if (Array.isArray(dataReceived)) {
 }
 
 // using Array.from() method
-// @ts-ignore
 const numbers = [1, 2, 3, 4, 5];
 const numbersCopy = Array.from(numbers);
 console.log(numbersCopy); // [1, 2, 3, 4, 5]
@@ -35,7 +35,6 @@ const evens = Array.from(numbers, x => (x % 2 == 0));
 console.log(evens); // [false, true, false, true, false]
 
 // Array.from() method creates a new, shallow-copied Array instance from an array-like or iterable object.
-// @ts-ignore
 const friends = [ 
   { name: 'Frodo', age: 30 }, 
   { name: 'Violet', age: 18 }, 

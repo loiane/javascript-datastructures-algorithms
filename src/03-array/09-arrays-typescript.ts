@@ -1,18 +1,17 @@
 // Path: src/03-array/09-arrays-typescript.ts
+export {};
 
 interface Friend { 
   name: string; 
   age: number; 
 } 
 
-// @ts-ignore
-const friends = [ 
+const friends: Friend[] = [ 
   { name: 'Frodo', age: 30 }, 
   { name: 'Violet', age: 18 }, 
   { name: 'Aelin', age: 20 } 
 ];
 
-// @ts-ignore
 const compareFriends = (friendA: Friend, friendB: Friend) => { 
   return friendA.age - friendB.age; 
 };

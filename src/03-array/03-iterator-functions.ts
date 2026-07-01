@@ -1,6 +1,6 @@
 // Path: src/03-array/03-iterator-functions.ts
+export {};
 
-// @ts-ignore
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // using forEach method
@@ -38,7 +38,6 @@ for (let i = 0; i < numbers.length; i++) {
 }
 
 // using filter method
-// @ts-ignore
 const valuesBelowSeven = numbers.filter(value => value < 7);
 console.log('Values below 7:', valuesBelowSeven); // [1, 2, 3, 4, 5, 6]
 

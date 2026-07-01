@@ -1,6 +1,6 @@
 // Path: src/03-array/05-transforming-array.ts
+export {};
 
-// @ts-ignore
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // using the map method
@@ -15,7 +15,6 @@ for (let i = 0; i < numbers.length; i++) {
 
 // using the split method
 const namesFromCSV = 'Aelin,Gandalf,Violet,Poppy';
-// @ts-ignore
 const names = namesFromCSV.split(',');
 console.log('Names:', names); // ['Aelin', 'Gandalf', 'Violet', 'Poppy']
 
@@ -24,14 +23,13 @@ const namesCSV = names.join(';');
 console.log('Names CSV:', namesCSV); // 'Aelin;Gandalf;Violet;Poppy'
 
 // using the reduce method
-// @ts-ignore
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const sum = numbers.reduce((acc, value) => acc + value, 0); // 55
+const numbersForReduce = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const sum = numbersForReduce.reduce((acc, value) => acc + value, 0); // 55
 
 // rewriting the above code using a loop
 let sumLoop = 0;
-for (let i = 0; i < numbers.length; i++) {
-  sumLoop += numbers[i];
+for (let i = 0; i < numbersForReduce.length; i++) {
+  sumLoop += numbersForReduce[i];
 }
 
 // using the reduce method to find the maximum value
@@ -39,7 +37,7 @@ const scores = [30, 70, 85, 90, 100];
 const highestScore = scores.reduce((max, score) => score > max ? score : max, scores[0]); // 100
 
 // using reduceRight method
-const reversedNumbers = numbers.reduceRight((acc: number[], value) => {
+const reversedNumbers = numbersForReduce.reduceRight((acc: number[], value) => {
   acc.push(value);
   return acc;
 }, [] as number[]); // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]

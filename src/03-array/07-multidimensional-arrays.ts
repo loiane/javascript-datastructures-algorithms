@@ -31,8 +31,7 @@ averageTempMultipleDays[1][3] = 75;
 averageTempMultipleDays[1][4] = 73;
 averageTempMultipleDays[1][5] = 73;
 
-// @ts-ignore
-function printMultidimensionalArray(myArray) {
+function printMultidimensionalArray(myArray: number[][]): void {
   for (let i = 0; i < myArray.length; i++) {
     for (let j = 0; j < myArray[i].length; j++) {
       console.log(myArray[i][j]);

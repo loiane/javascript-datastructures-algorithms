@@ -118,5 +118,48 @@ describe('DoublyLinkedList', () => {
     doublyLinkedList.append(2);
     expect(doublyLinkedList.toString()).toBe('1, 2');
   });
-  
+
+  test('should clear doubly linked list', () => {
+    doublyLinkedList.append(1);
+    doublyLinkedList.append(2);
+    doublyLinkedList.clear();
+    expect(doublyLinkedList.getSize()).toBe(0);
+    expect(doublyLinkedList.toString()).toBe('');
+    expect(doublyLinkedList.isEmpty()).toBe(true);
+  });
+
+  test('should return inverseToString in reverse order', () => {
+    doublyLinkedList.append(1);
+    doublyLinkedList.append(2);
+    doublyLinkedList.append(3);
+    // inverseToString has no separator between elements
+    expect(doublyLinkedList.inverseToString()).toBe('321');
+  });
+
+  test('should reverse doubly linked list', () => {
+    doublyLinkedList.append(1);
+    doublyLinkedList.append(2);
+    doublyLinkedList.append(3);
+    doublyLinkedList.reverse();
+    expect(doublyLinkedList.toString()).toBe('3, 2, 1');
+  });
+
+  test('should throw RangeError when removeAt with position >= size', () => {
+    doublyLinkedList.append(1);
+    doublyLinkedList.append(2);
+    expect(() => doublyLinkedList.removeAt(5)).toThrow(RangeError);
+  });
+
+  test('should throw RangeError when removeAt with negative position', () => {
+    doublyLinkedList.append(1);
+    expect(() => doublyLinkedList.removeAt(-1)).toThrow(RangeError);
+  });
+
+  test('should work with object data type (uses JSON.stringify in toString)', () => {
+    const objList = new DoublyLinkedList<{ id: number }>();
+    objList.append({ id: 1 });
+    objList.append({ id: 2 });
+    expect(objList.toString()).toContain('"id":1');
+  });
+
 });

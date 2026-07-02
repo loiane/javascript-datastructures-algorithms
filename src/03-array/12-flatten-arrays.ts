@@ -6,16 +6,35 @@
  */
 
 // Approach 1: Using flat() method (ES2019+)
+/**
+ * Flattens a nested array to the given depth using Array.flat().
+ * @param array - The nested array
+ * @param depth - Depth to flatten (default 1)
+ * @returns Flattened array
+ * @complexity Time O(n) | Space O(n) where n = total elements
+ */
 export function flattenSimple<T>(array: any[], depth: number = 1): T[] {
   return array.flat(depth);
 }
 
 // Approach 2: Deep flatten using flat(Infinity)
+/**
+ * Deeply flattens a nested array to a single level using flat(Infinity).
+ * @param array - The nested array
+ * @returns Fully flattened array
+ * @complexity Time O(n) | Space O(n)
+ */
 export function flattenDeep<T>(array: any[]): T[] {
   return array.flat(Infinity);
 }
 
 // Approach 3: Recursive approach (custom implementation)
+/**
+ * Deeply flattens a nested array recursively.
+ * @param array - The nested array
+ * @returns Fully flattened array
+ * @complexity Time O(n) | Space O(n)
+ */
 export function flattenRecursive<T>(array: any[]): T[] {
   const result: T[] = [];
   
@@ -31,6 +50,12 @@ export function flattenRecursive<T>(array: any[]): T[] {
 }
 
 // Approach 4: Using reduce (functional approach)
+/**
+ * Deeply flattens a nested array using reduce.
+ * @param array - The nested array
+ * @returns Fully flattened array
+ * @complexity Time O(n) | Space O(n)
+ */
 export function flattenReduce<T>(array: any[]): T[] {
   return array.reduce((acc: T[], item: any) => {
     return acc.concat(Array.isArray(item) ? flattenReduce<T>(item) : item);
@@ -38,6 +63,12 @@ export function flattenReduce<T>(array: any[]): T[] {
 }
 
 // Approach 5: Iterative approach using stack
+/**
+ * Deeply flattens a nested array iteratively using a stack.
+ * @param array - The nested array
+ * @returns Fully flattened array
+ * @complexity Time O(n) | Space O(n)
+ */
 export function flattenIterative<T>(array: any[]): T[] {
   const stack = [...array];
   const result: T[] = [];

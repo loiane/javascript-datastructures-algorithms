@@ -99,3 +99,5 @@ class HashTableLinearProbing {
     }
   }
 }
+
+module.exports = HashTableLinearProbing;

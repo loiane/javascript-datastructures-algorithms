@@ -3,6 +3,12 @@ class SegmentTree {
   #segmentTree: number[];
   #operationFallback: (a: number, b: number) => number;
 
+  /**
+   * Builds a segment tree from the input array using the given operation.
+   * @param inputArray - The source array
+   * @param operationFallback - Binary operation (e.g., Math.min, sum)
+   * @complexity Time O(n) | Space O(n)
+   */
   constructor(inputArray: number[], operationFallback: (a: number, b: number) => number) {
     this.#inputArray = inputArray;
     this.#operationFallback = operationFallback;
@@ -30,6 +36,13 @@ class SegmentTree {
     );
   }
 
+  /**
+   * Returns the result of applying the operation over the range [leftIndex, rightIndex].
+   * @param leftIndex - Left bound (0-based, inclusive)
+   * @param rightIndex - Right bound (0-based, inclusive)
+   * @returns The aggregated result for the range
+   * @complexity Time O(log n) | Space O(log n)
+   */
   query(leftIndex: number, rightIndex: number): number {
     return this.#query(0, 0, this.#inputArray.length - 1, leftIndex, rightIndex);
   }
@@ -53,6 +66,12 @@ class SegmentTree {
     );
   }
 
+  /**
+   * Updates the element at index to value and rebuilds affected tree nodes.
+   * @param index - 0-based index to update
+   * @param value - New value
+   * @complexity Time O(log n) | Space O(log n)
+   */
   update(index: number, value: number): void {
     this.#update(0, 0, this.#inputArray.length - 1, index, value);
   }
@@ -79,6 +98,11 @@ class SegmentTree {
     );
   }
 
+  /**
+   * Returns a comma-separated string of the internal segment tree array.
+   * @returns String representation
+   * @complexity Time O(n) | Space O(n)
+   */
   toString(): string {
     return this.#segmentTree.join(', ');
   }

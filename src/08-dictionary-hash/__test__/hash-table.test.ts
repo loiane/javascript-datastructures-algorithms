@@ -51,4 +51,17 @@ describe('HashTable', () => {
     const result = hashTable.toString();
     expect(result).toContain('Alice');
   });
+
+  test('remove with null key returns false', () => {
+    expect(hashTable.remove(null as any)).toBe(false);
+  });
+
+  test('toString with two distinct hash slots covers loop body multiple times', () => {
+    // Use two keys known to hash differently to exercise the full toString loop
+    hashTable.put('name', 'Alice');
+    hashTable.put('zip', 'London');
+    const result = hashTable.toString();
+    expect(result).toContain('Alice');
+    expect(result).toContain('London');
+  });
 });

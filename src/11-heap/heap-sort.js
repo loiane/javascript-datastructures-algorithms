@@ -1,6 +1,6 @@
 // src/11-heap/heap-sort.js
 
-const Comparator = require('../10-tree/comparator');
+const Comparator = require('../10-tree/comparator.js');
 
 /**
  * Heapify the array.

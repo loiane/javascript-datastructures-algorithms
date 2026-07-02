@@ -1,4 +1,10 @@
 // iterative approach
+/**
+ * Computes n! iteratively.
+ * @param number - Non-negative integer
+ * @returns The factorial, or undefined for negative input
+ * @complexity Time O(n) | Space O(1)
+ */
 export function factorialIterative(number: number): number | undefined {
   if (number < 0) {
     return undefined;
@@ -13,6 +19,12 @@ export function factorialIterative(number: number): number | undefined {
 console.log('5! =', factorialIterative(5)); // 5! = 120
 
 // recursive approach
+/**
+ * Computes n! recursively.
+ * @param number - Non-negative integer
+ * @returns The factorial, or undefined for negative input
+ * @complexity Time O(n) | Space O(n) call stack
+ */
 export function factorial(number: number): number | undefined {
   if (number < 0) { return undefined; }
   if (number === 1 || number === 0) { // base case

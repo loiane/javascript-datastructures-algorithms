@@ -1,4 +1,10 @@
 // iterative approach
+/**
+ * Computes the nth Fibonacci number iteratively.
+ * @param n - Non-negative integer index
+ * @returns The nth Fibonacci number
+ * @complexity Time O(n) | Space O(1)
+ */
 export function fibonacciIterative(n: number): number {
   if (n < 0) {
     throw new Error('Input must be a non-negative integer');
@@ -24,6 +30,12 @@ console.log('fibonacciIterative(4)', fibonacciIterative(4)); // 3
 console.log('fibonacciIterative(5)', fibonacciIterative(5)); // 5
 
 // recursive approach
+/**
+ * Computes the nth Fibonacci number recursively.
+ * @param n - Non-negative integer index
+ * @returns The nth Fibonacci number
+ * @complexity Time O(2^n) | Space O(n) call stack
+ */
 export function fibonacci(n: number): number {
   if (n < 0) {
     throw new Error('Input must be a non-negative integer');
@@ -35,6 +47,12 @@ export function fibonacci(n: number): number {
 console.log('fibonacci(5)', fibonacci(5)); // 5
 
 // memoization approach
+/**
+ * Computes the nth Fibonacci number using memoization.
+ * @param n - Non-negative integer index
+ * @returns The nth Fibonacci number
+ * @complexity Time O(n) | Space O(n) memo table
+ */
 export function fibonacciMemoization(n: number): number {
   if (n < 0) {
     throw new Error('Input must be a non-negative integer');

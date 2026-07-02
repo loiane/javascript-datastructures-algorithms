@@ -18,6 +18,12 @@ const initializeColor = (vertices: string[]): Record<string, Color> => {
   return color;
 };
 
+/**
+ * Performs a depth-first search on the entire graph, invoking callback for each vertex.
+ * @param graph - The graph to traverse
+ * @param callback - Optional function called for each discovered vertex
+ * @complexity Time O(V + E) | Space O(V)
+ */
 const depthFirstSearch = (
   graph: Graph<string>,
   callback?: (vertex: string) => void
@@ -53,6 +59,13 @@ const depthFirstSearchVisit = (
   color[vertex] = Colors.BLACK; // Mark as explored
 };
 
+/**
+ * Enhanced DFS returning discovery/finish times and predecessors for all vertices.
+ * @param graph - The graph to traverse
+ * @param callback - Optional function called for each discovered vertex
+ * @returns Object with discovery, finished, and predecessors for each vertex
+ * @complexity Time O(V + E) | Space O(V)
+ */
 const enhancedDepthFirstSearch = (
   graph: Graph<string>,
   callback?: (vertex: string) => void

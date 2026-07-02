@@ -20,6 +20,12 @@ const initializeMatrix = (graph: number[][]): number[][] => {
   return dist;
 };
 
+/**
+ * Computes all-pairs shortest paths using the Floyd-Warshall algorithm.
+ * @param graph - n×n adjacency matrix
+ * @returns n×n distance matrix with shortest paths between all pairs
+ * @complexity Time O(V³) | Space O(V²)
+ */
 const floydWarshall = (graph: number[][]): number[][] => {
   const { length } = graph;
   const dist = initializeMatrix(graph);

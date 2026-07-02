@@ -6,16 +6,34 @@
  */
 
 // Approach 1: Using Set (most efficient for primitives)
+/**
+ * Removes duplicate values using a Set.
+ * @param array - The source array
+ * @returns Array with duplicates removed
+ * @complexity Time O(n) | Space O(n)
+ */
 export function removeDuplicatesSet<T>(array: T[]): T[] {
   return [...new Set(array)];
 }
 
 // Approach 2: Using filter and indexOf
+/**
+ * Removes duplicate values using filter and indexOf.
+ * @param array - The source array
+ * @returns Array with duplicates removed
+ * @complexity Time O(n²) | Space O(n)
+ */
 export function removeDuplicatesFilter<T>(array: T[]): T[] {
   return array.filter((item, index) => array.indexOf(item) === index);
 }
 
 // Approach 3: Using reduce
+/**
+ * Removes duplicate values using reduce.
+ * @param array - The source array
+ * @returns Array with duplicates removed
+ * @complexity Time O(n²) | Space O(n)
+ */
 export function removeDuplicatesReduce<T>(array: T[]): T[] {
   return array.reduce((unique: T[], item: T) => {
     return unique.includes(item) ? unique : [...unique, item];
@@ -23,6 +41,12 @@ export function removeDuplicatesReduce<T>(array: T[]): T[] {
 }
 
 // Approach 4: Using a Map (preserves insertion order)
+/**
+ * Removes duplicate values using a Map (preserves insertion order).
+ * @param array - The source array
+ * @returns Array with duplicates removed
+ * @complexity Time O(n) | Space O(n)
+ */
 export function removeDuplicatesMap<T>(array: T[]): T[] {
   const map = new Map<T, boolean>();
   array.forEach(item => map.set(item, true));
@@ -30,6 +54,12 @@ export function removeDuplicatesMap<T>(array: T[]): T[] {
 }
 
 // Approach 5: Traditional loop approach
+/**
+ * Removes duplicate values using a traditional loop with includes.
+ * @param array - The source array
+ * @returns Array with duplicates removed
+ * @complexity Time O(n²) | Space O(n)
+ */
 export function removeDuplicatesLoop<T>(array: T[]): T[] {
   const unique: T[] = [];
   for (let i = 0; i < array.length; i++) {
@@ -41,6 +71,13 @@ export function removeDuplicatesLoop<T>(array: T[]): T[] {
 }
 
 // Approach 6: Remove duplicates from array of objects (by property)
+/**
+ * Removes duplicate objects from an array based on the value of a specified property.
+ * @param array - Array of objects
+ * @param property - Property key to deduplicate by
+ * @returns Array with duplicates removed
+ * @complexity Time O(n) | Space O(n)
+ */
 export function removeDuplicatesByProperty<T extends Record<string, any>>(
   array: T[], 
   property: keyof T

@@ -6,6 +6,13 @@
  */
 
 // Approach 1: Using slice method
+/**
+ * Splits an array into chunks of the given size using slice.
+ * @param array - The source array
+ * @param chunkSize - Size of each chunk (must be > 0)
+ * @returns Array of chunk arrays
+ * @complexity Time O(n) | Space O(n)
+ */
 export function chunkArray<T>(array: T[], chunkSize: number): T[][] {
   if (chunkSize <= 0) {
     throw new Error('Chunk size must be greater than 0');
@@ -19,6 +26,13 @@ export function chunkArray<T>(array: T[], chunkSize: number): T[][] {
 }
 
 // Approach 2: Using splice method (modifies original array)
+/**
+ * Splits a copy of the array into chunks using splice.
+ * @param array - The source array
+ * @param chunkSize - Size of each chunk (must be > 0)
+ * @returns Array of chunk arrays
+ * @complexity Time O(n) | Space O(n)
+ */
 export function chunkArraySplice<T>(array: T[], chunkSize: number): T[][] {
   if (chunkSize <= 0) {
     throw new Error('Chunk size must be greater than 0');
@@ -34,6 +48,13 @@ export function chunkArraySplice<T>(array: T[], chunkSize: number): T[][] {
 }
 
 // Approach 3: Using reduce method (functional approach)
+/**
+ * Splits an array into chunks using reduce.
+ * @param array - The source array
+ * @param chunkSize - Size of each chunk (must be > 0)
+ * @returns Array of chunk arrays
+ * @complexity Time O(n) | Space O(n)
+ */
 export function chunkArrayReduce<T>(array: T[], chunkSize: number): T[][] {
   if (chunkSize <= 0) {
     throw new Error('Chunk size must be greater than 0');

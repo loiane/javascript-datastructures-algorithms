@@ -169,4 +169,44 @@ describe('RedBlackTree', () => {
     rbt.insert(42);
     expect(() => rbt.print()).not.toThrow();
   });
+
+  test('insert ascending [1,2,3] triggers left rotation does not throw', () => {
+    expect(() => {
+      [1, 2, 3].forEach(v => rbt.insert(v));
+    }).not.toThrow();
+    expect(() => rbt.print()).not.toThrow();
+  });
+
+  test('insert descending [3,2,1] triggers right rotation does not throw', () => {
+    expect(() => {
+      [3, 2, 1].forEach(v => rbt.insert(v));
+    }).not.toThrow();
+    expect(() => rbt.print()).not.toThrow();
+  });
+
+  test('insert [1,3,2] triggers right-left rotation does not throw', () => {
+    expect(() => {
+      [1, 3, 2].forEach(v => rbt.insert(v));
+    }).not.toThrow();
+    expect(() => rbt.print()).not.toThrow();
+  });
+
+  test('remove a leaf does not throw', () => {
+    [10, 5, 15].forEach(v => rbt.insert(v));
+    expect(() => rbt.remove(5)).not.toThrow();
+  });
+
+  test('remove nonexistent key does not throw', () => {
+    [10, 5, 15].forEach(v => rbt.insert(v));
+    expect(() => rbt.remove(99)).not.toThrow();
+  });
+
+  test('remove all inserted values does not throw', () => {
+    [10, 20, 5].forEach(v => rbt.insert(v));
+    expect(() => {
+      rbt.remove(10);
+      rbt.remove(20);
+      rbt.remove(5);
+    }).not.toThrow();
+  });
 });

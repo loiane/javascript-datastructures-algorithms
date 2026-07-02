@@ -2,6 +2,12 @@
 
 const INF = Number.MAX_SAFE_INTEGER;
 
+/**
+ * Finds the Minimum Spanning Tree using Kruskal's algorithm.
+ * @param graph - n×n adjacency matrix (0 means no edge)
+ * @returns Parent array representing the MST edges
+ * @complexity Time O(E log E) | Space O(V)
+ */
 const kruskal = (graph: number[][]): number[] => {
   const { length } = graph;
   const parent: number[] = []; // Stores the MST

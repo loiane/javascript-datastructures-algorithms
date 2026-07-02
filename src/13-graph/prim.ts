@@ -14,6 +14,12 @@ const minKey = (graph: number[][], key: number[], visited: boolean[]): number =>
   return minIndex;
 };
 
+/**
+ * Finds the Minimum Spanning Tree using Prim's algorithm.
+ * @param graph - n×n adjacency matrix (0 means no edge)
+ * @returns Parent array representing the MST edges
+ * @complexity Time O(V²) | Space O(V)
+ */
 const prim = (graph: number[][]): number[] => {
   const parent: number[] = []; // Stores the MST
   const key: number[] = []; // Keeps track of the minimum edge weights

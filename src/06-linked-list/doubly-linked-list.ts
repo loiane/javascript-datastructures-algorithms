@@ -13,6 +13,11 @@ class DoublyLinkedList<T> {
   private tail: DoublyLinkedListNode<T> | null = null;
   private size = 0;
 
+  /**
+   * Appends an element to the end of the list.
+   * @param data - The element to add
+   * @complexity Time O(1) | Space O(1)
+   */
   append(data: T) {
     const node = new DoublyLinkedListNode(data);
     if (!this.head) {
@@ -28,6 +33,11 @@ class DoublyLinkedList<T> {
     this.size++;
   }
 
+  /**
+   * Prepends an element to the beginning of the list.
+   * @param data - The element to add
+   * @complexity Time O(1) | Space O(1)
+   */
   prepend(data: T) {
     const node = new DoublyLinkedListNode(data);
     if (!this.head) {
@@ -41,6 +51,13 @@ class DoublyLinkedList<T> {
     this.size++;
   }
 
+  /**
+   * Inserts an element at the given position.
+   * @param data - The element to insert
+   * @param position - Zero-based index to insert at
+   * @returns true on success, false if position is invalid
+   * @complexity Time O(n) | Space O(1)
+   */
   insert(data: T, position: number): boolean {
     if (this.isInvalidPosition(position)) {
       return false;
@@ -68,6 +85,13 @@ class DoublyLinkedList<T> {
     return true;
   }
 
+  /**
+   * Removes and returns the element at the given position.
+   * @param position - Zero-based index to remove
+   * @returns The removed element
+   * @throws RangeError if position is invalid
+   * @complexity Time O(n) | Space O(1)
+   */
   removeAt(position: number): T {
     if (this.isInvalidPosition(position)) {
       throw new RangeError('Invalid position');
@@ -113,14 +137,30 @@ class DoublyLinkedList<T> {
     return position < 0 || position >= this.size;
   }
 
+  /**
+   * Returns the number of elements in the list.
+   * @returns The list size
+   * @complexity Time O(1) | Space O(1)
+   */
   getSize() {
     return this.size;
   }
 
+  /**
+   * Returns true if the list has no elements.
+   * @returns Whether the list is empty
+   * @complexity Time O(1) | Space O(1)
+   */
   isEmpty() {
     return this.size === 0;
   }
 
+  /**
+   * Returns the zero-based index of the first occurrence of data, or -1.
+   * @param data - The element to search for
+   * @returns Index of the element, or -1 if not found
+   * @complexity Time O(n) | Space O(1)
+   */
   indexOf(data: T) {
     let current = this.head;
     let index = 0;
@@ -134,6 +174,12 @@ class DoublyLinkedList<T> {
     return -1;
   }
 
+  /**
+   * Removes the first occurrence of data and returns it, or null if not found.
+   * @param data - The element to remove
+   * @returns The removed element, or null if not found
+   * @complexity Time O(n) | Space O(1)
+   */
   remove(data: T): T | null {
     const index = this.indexOf(data);
     if (index === -1) {
@@ -142,12 +188,21 @@ class DoublyLinkedList<T> {
     return this.removeAt(index);
   }
 
+  /**
+   * Removes all elements from the list.
+   * @complexity Time O(1) | Space O(1)
+   */
   clear() {
     this.head = null;
     this.tail = null;
     this.size = 0;
   }
 
+  /**
+   * Returns a comma-separated string of all elements from head to tail.
+   * @returns String representation of the list
+   * @complexity Time O(n) | Space O(n)
+   */
   toString() {
     let current = this.head;
     let objString = '';
@@ -162,6 +217,11 @@ class DoublyLinkedList<T> {
   }
 
   // inverse toString
+  /**
+   * Returns a string of all elements traversed from tail to head.
+   * @returns Reverse string representation of the list
+   * @complexity Time O(n) | Space O(n)
+   */
   inverseToString() {
     let current = this.tail;
     let objString = '';
@@ -180,6 +240,10 @@ class DoublyLinkedList<T> {
     }
   }
 
+  /**
+   * Reverses the list in place.
+   * @complexity Time O(n) | Space O(1)
+   */
   reverse() {
     let current = this.head;
     let previous = null;

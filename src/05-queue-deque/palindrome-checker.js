@@ -1,4 +1,4 @@
-const Deque = require('./deque');
+const Deque = require('./deque.js');
 
 function isPalindrome(word) {
 
@@ -14,7 +14,7 @@ function isPalindrome(word) {
   }
 
   // Check if the word is a palindrome
-  while (deque.size() > 1) {
+  while (deque.size > 1) {
     if (deque.removeFront() !== deque.removeRear()) {
       return false;
     }
@@ -25,3 +25,5 @@ function isPalindrome(word) {
 
 // Test the palindrome checker
 console.log(isPalindrome("racecar")); // Output: true
+
+module.exports = isPalindrome;

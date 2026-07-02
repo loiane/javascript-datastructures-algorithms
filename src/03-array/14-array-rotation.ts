@@ -6,6 +6,13 @@
  */
 
 // Approach 1: Rotate Right using slice and concat
+/**
+ * Rotates the array k positions to the right using slice and concat.
+ * @param array - The source array
+ * @param k - Number of positions to rotate right
+ * @returns New rotated array
+ * @complexity Time O(n) | Space O(n)
+ */
 export function rotateRight<T>(array: T[], k: number): T[] {
   if (array.length === 0) return array;
   
@@ -18,6 +25,13 @@ export function rotateRight<T>(array: T[], k: number): T[] {
 }
 
 // Approach 2: Rotate Left using slice and concat
+/**
+ * Rotates the array k positions to the left using slice and concat.
+ * @param array - The source array
+ * @param k - Number of positions to rotate left
+ * @returns New rotated array
+ * @complexity Time O(n) | Space O(n)
+ */
 export function rotateLeft<T>(array: T[], k: number): T[] {
   if (array.length === 0) return array;
   
@@ -29,6 +43,13 @@ export function rotateLeft<T>(array: T[], k: number): T[] {
 }
 
 // Approach 3: Rotate Right using spread operator
+/**
+ * Rotates the array k positions to the right using the spread operator.
+ * @param array - The source array
+ * @param k - Number of positions to rotate right
+ * @returns New rotated array
+ * @complexity Time O(n) | Space O(n)
+ */
 export function rotateRightSpread<T>(array: T[], k: number): T[] {
   if (array.length === 0) return array;
   
@@ -40,6 +61,13 @@ export function rotateRightSpread<T>(array: T[], k: number): T[] {
 }
 
 // Approach 4: In-place rotation using reverse (most efficient)
+/**
+ * Rotates a copy of the array k positions to the right using the three-reversal algorithm.
+ * @param array - The source array
+ * @param k - Number of positions to rotate right
+ * @returns New rotated array
+ * @complexity Time O(n) | Space O(n) for the copy
+ */
 export function rotateRightInPlace<T>(array: T[], k: number): T[] {
   const arr = [...array]; // Create copy to avoid modifying original
   const n = arr.length;
@@ -68,6 +96,13 @@ export function rotateRightInPlace<T>(array: T[], k: number): T[] {
 }
 
 // Approach 5: Rotate using unshift and pop (simple but less efficient)
+/**
+ * Rotates a copy of the array k positions to the right using unshift/pop.
+ * @param array - The source array
+ * @param k - Number of positions to rotate right
+ * @returns New rotated array
+ * @complexity Time O(n·k) | Space O(n)
+ */
 export function rotateRightSimple<T>(array: T[], k: number): T[] {
   const arr = [...array];
   k = k % arr.length;

@@ -33,6 +33,11 @@ class AVLTree<T> extends BinarySearchTree<T> {
     this.#root = null;
   }
 
+  /**
+   * Inserts a value, rebalancing the AVL tree after insertion.
+   * @param data - The value to insert
+   * @complexity Time O(log n) | Space O(log n)
+   */
   insert(data: T): void {
     this.#root = this.#insertNode(data, this.#root);
   }
@@ -129,6 +134,11 @@ class AVLTree<T> extends BinarySearchTree<T> {
     return this.#rotateLeft(node); // Then, rotate left on the original node
   }
 
+  /**
+   * Removes a value, rebalancing the AVL tree after removal.
+   * @param data - The value to remove
+   * @complexity Time O(log n) | Space O(log n)
+   */
   remove(data: T): void {
     this.#root = this.#removeNode(data, this.#root);
   }

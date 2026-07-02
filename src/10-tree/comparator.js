@@ -1,6 +1,6 @@
 // src/10-tree/comparator.js
 
-const Compare = require('./compare');
+const Compare = require('./compare.js');
 
 class Comparator {
   #compareFn;

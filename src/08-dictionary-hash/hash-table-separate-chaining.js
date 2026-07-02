@@ -81,3 +81,5 @@ class HashTableSeparateChaining {
   }
   
 }
+
+module.exports = HashTableSeparateChaining;

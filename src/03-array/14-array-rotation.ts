@@ -1,5 +1,4 @@
 // src/03-array/14-array-rotation.ts
-export {};
 
 /**
  * Array Rotation - Rotate array elements left or right by k positions
@@ -7,7 +6,7 @@ export {};
  */
 
 // Approach 1: Rotate Right using slice and concat
-function rotateRight<T>(array: T[], k: number): T[] {
+export function rotateRight<T>(array: T[], k: number): T[] {
   if (array.length === 0) return array;
   
   // Normalize k to handle cases where k > array.length
@@ -19,7 +18,7 @@ function rotateRight<T>(array: T[], k: number): T[] {
 }
 
 // Approach 2: Rotate Left using slice and concat
-function rotateLeft<T>(array: T[], k: number): T[] {
+export function rotateLeft<T>(array: T[], k: number): T[] {
   if (array.length === 0) return array;
   
   k = k % array.length;
@@ -30,7 +29,7 @@ function rotateLeft<T>(array: T[], k: number): T[] {
 }
 
 // Approach 3: Rotate Right using spread operator
-function rotateRightSpread<T>(array: T[], k: number): T[] {
+export function rotateRightSpread<T>(array: T[], k: number): T[] {
   if (array.length === 0) return array;
   
   k = k % array.length;
@@ -41,7 +40,7 @@ function rotateRightSpread<T>(array: T[], k: number): T[] {
 }
 
 // Approach 4: In-place rotation using reverse (most efficient)
-function rotateRightInPlace<T>(array: T[], k: number): T[] {
+export function rotateRightInPlace<T>(array: T[], k: number): T[] {
   const arr = [...array]; // Create copy to avoid modifying original
   const n = arr.length;
   
@@ -69,7 +68,7 @@ function rotateRightInPlace<T>(array: T[], k: number): T[] {
 }
 
 // Approach 5: Rotate using unshift and pop (simple but less efficient)
-function rotateRightSimple<T>(array: T[], k: number): T[] {
+export function rotateRightSimple<T>(array: T[], k: number): T[] {
   const arr = [...array];
   k = k % arr.length;
   

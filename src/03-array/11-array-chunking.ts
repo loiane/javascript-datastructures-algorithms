@@ -1,5 +1,4 @@
 // src/03-array/11-array-chunking.ts
-export {};
 
 /**
  * Array Chunking - Split an array into chunks of a specified size
@@ -7,7 +6,7 @@ export {};
  */
 
 // Approach 1: Using slice method
-function chunkArray<T>(array: T[], chunkSize: number): T[][] {
+export function chunkArray<T>(array: T[], chunkSize: number): T[][] {
   if (chunkSize <= 0) {
     throw new Error('Chunk size must be greater than 0');
   }
@@ -20,7 +19,7 @@ function chunkArray<T>(array: T[], chunkSize: number): T[][] {
 }
 
 // Approach 2: Using splice method (modifies original array)
-function chunkArraySplice<T>(array: T[], chunkSize: number): T[][] {
+export function chunkArraySplice<T>(array: T[], chunkSize: number): T[][] {
   if (chunkSize <= 0) {
     throw new Error('Chunk size must be greater than 0');
   }
@@ -35,7 +34,7 @@ function chunkArraySplice<T>(array: T[], chunkSize: number): T[][] {
 }
 
 // Approach 3: Using reduce method (functional approach)
-function chunkArrayReduce<T>(array: T[], chunkSize: number): T[][] {
+export function chunkArrayReduce<T>(array: T[], chunkSize: number): T[][] {
   if (chunkSize <= 0) {
     throw new Error('Chunk size must be greater than 0');
   }

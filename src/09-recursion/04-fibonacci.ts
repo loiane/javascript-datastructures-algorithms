@@ -1,7 +1,5 @@
-export {};
-
 // iterative approach
-function fibonacciIterative(n: number): number {
+export function fibonacciIterative(n: number): number {
   if (n < 0) {
     throw new Error('Input must be a non-negative integer');
   }
@@ -26,7 +24,7 @@ console.log('fibonacciIterative(4)', fibonacciIterative(4)); // 3
 console.log('fibonacciIterative(5)', fibonacciIterative(5)); // 5
 
 // recursive approach
-function fibonacci(n: number): number {
+export function fibonacci(n: number): number {
   if (n < 0) {
     throw new Error('Input must be a non-negative integer');
   }
@@ -37,7 +35,7 @@ function fibonacci(n: number): number {
 console.log('fibonacci(5)', fibonacci(5)); // 5
 
 // memoization approach
-function fibonacciMemoization(n: number): number {
+export function fibonacciMemoization(n: number): number {
   if (n < 0) {
     throw new Error('Input must be a non-negative integer');
   }

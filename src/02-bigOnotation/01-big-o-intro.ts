@@ -1,7 +1,5 @@
-export {};
-
 // O(1) - Constant Time
-function secondsInDays(numberOfDays: number): number {
+export function secondsInDays(numberOfDays: number): number {
   if (numberOfDays <= 0 || !Number.isInteger(numberOfDays)) {
     throw new Error('Invalid number of days');
   }
@@ -14,7 +12,7 @@ console.log('Seconds in 10 days: ', secondsInDays(10)); // 864000
 console.log('Seconds in 100 days: ', secondsInDays(100)); // 8640000
 
 // O(n) - Linear Time
-function calculateTotalExpenses(monthlyExpenses: number[]): number {
+export function calculateTotalExpenses(monthlyExpenses: number[]): number {
   let total = 0;
   for (let i = 0; i < monthlyExpenses.length; i++) {
     total += monthlyExpenses[i]!;
@@ -29,7 +27,7 @@ console.log('February: ', calculateTotalExpenses([200, 300, 400])); // 900
 console.log('March: ', calculateTotalExpenses([30, 40, 50, 100, 50])); // 270
 
 // O(n^2) - Quadratic Time
-function calculateExpensesMatrix(monthlyExpenses: number[][]): number {
+export function calculateExpensesMatrix(monthlyExpenses: number[][]): number {
   let total = 0;
   for (let i = 0; i < monthlyExpenses.length; i++) {
     for (let j = 0; j < monthlyExpenses[i]!.length; j++) {
@@ -52,7 +50,7 @@ const monthlyExpenses = [
 console.log('Total expenses: ', calculateExpensesMatrix(monthlyExpenses)); // 18480
 
 // calculating the time complexity of the function calculateExpensesMatrix
-function multiplicationTable(num: number, x: number): void {
+export function multiplicationTable(num: number, x: number): void {
   let s = '';
   const numberOfAsterisks = num * x;
   for (let i = 1; i <= numberOfAsterisks; i++) {

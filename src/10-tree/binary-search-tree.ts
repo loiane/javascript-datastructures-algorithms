@@ -22,6 +22,11 @@ class BinarySearchTree<T> {
     this.#root = null;
   }
 
+  /**
+   * Inserts a value into the BST.
+   * @param data - The value to insert
+   * @complexity Time O(log n) average, O(n) worst | Space O(log n) average
+   */
   insert(data: T): void {
     if (!this.#root) {
       this.#root = new BSTNode(data);
@@ -46,6 +51,12 @@ class BinarySearchTree<T> {
     }
   }
 
+  /**
+   * Returns true if the value exists in the BST.
+   * @param data - The value to search for
+   * @returns Whether the value is present
+   * @complexity Time O(log n) average, O(n) worst | Space O(log n) average
+   */
   search(data: T): boolean {
     return this.#searchNode(data, this.#root);
   }
@@ -66,6 +77,11 @@ class BinarySearchTree<T> {
     }
   }
 
+  /**
+   * Removes the first occurrence of data from the BST.
+   * @param data - The value to remove
+   * @complexity Time O(log n) average, O(n) worst | Space O(log n) average
+   */
   remove(data: T): void {
     this.#root = this.#removeNode(data, this.#root);
   }
@@ -101,6 +117,11 @@ class BinarySearchTree<T> {
     }
   }
 
+  /**
+   * Returns the minimum value in the BST, or null if empty.
+   * @returns The minimum value, or null
+   * @complexity Time O(log n) average, O(n) worst | Space O(1)
+   */
   min(): T | null {
     if (!this.#root) {
       return null;
@@ -115,6 +136,11 @@ class BinarySearchTree<T> {
     return this.#findMinNode(node.left);
   }
 
+  /**
+   * Returns the maximum value in the BST, or null if empty.
+   * @returns The maximum value, or null
+   * @complexity Time O(log n) average, O(n) worst | Space O(1)
+   */
   max(): T | null {
     if (!this.#root) {
       return null;
@@ -129,10 +155,19 @@ class BinarySearchTree<T> {
     return this.#findMaxNode(node.right);
   }
 
+  /**
+   * The root node of the BST.
+   * @complexity Time O(1) | Space O(1)
+   */
   get root(): BSTNode<T> | null {
     return this.#root;
   }
 
+  /**
+   * Traverses the tree in-order (left, node, right) and calls callback for each node.
+   * @param callback - Function called with each node's data in sorted order
+   * @complexity Time O(n) | Space O(n) call stack
+   */
   inOrderTraverse(callback: (data: T) => void): void {
     this.#inOrderTraverseNode(this.#root, callback);
   }
@@ -145,6 +180,11 @@ class BinarySearchTree<T> {
     }
   }
 
+  /**
+   * Traverses the tree pre-order (node, left, right) and calls callback for each node.
+   * @param callback - Function called with each node's data
+   * @complexity Time O(n) | Space O(n) call stack
+   */
   preOrderTraverse(callback: (data: T) => void): void {
     this.#preOrderTraverseNode(this.#root, callback);
   }
@@ -157,6 +197,11 @@ class BinarySearchTree<T> {
     }
   }
 
+  /**
+   * Traverses the tree post-order (left, right, node) and calls callback for each node.
+   * @param callback - Function called with each node's data
+   * @complexity Time O(n) | Space O(n) call stack
+   */
   postOrderTraverse(callback: (data: T) => void): void {
     this.#postOrderTraverseNode(this.#root, callback);
   }

@@ -18,6 +18,13 @@ const initializeColor = (vertices: string[]): Record<string, Color> => {
   return color;
 };
 
+/**
+ * Performs a breadth-first search from startVertex, invoking callback on each visited vertex.
+ * @param graph - The graph to traverse
+ * @param startVertex - Vertex to start from
+ * @param callback - Optional function called for each vertex
+ * @complexity Time O(V + E) | Space O(V)
+ */
 const breadthFirstSearch = (
   graph: Graph<string>,
   startVertex: string,
@@ -46,6 +53,13 @@ const breadthFirstSearch = (
   }
 };
 
+/**
+ * BFS from startVertex, returning shortest distances and predecessor map.
+ * @param graph - The graph to traverse
+ * @param startVertex - Source vertex
+ * @returns Object with distances and predecessors for each vertex
+ * @complexity Time O(V + E) | Space O(V)
+ */
 const bfsShortestPath = (
   graph: Graph<string>,
   startVertex: string

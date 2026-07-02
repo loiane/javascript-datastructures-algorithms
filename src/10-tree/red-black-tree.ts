@@ -38,6 +38,11 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
   }
 
   // Insert a node
+  /**
+   * Inserts a value, maintaining Red-Black Tree properties.
+   * @param data - The value to insert
+   * @complexity Time O(log n) | Space O(log n)
+   */
   insert(data: T): void {
     if (this.#root) {
       const newNode = this.#insertNode(this.#root, data);
@@ -167,6 +172,11 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
     node.parent = newRoot;
   }
 
+  /**
+   * Removes a value, maintaining Red-Black Tree properties.
+   * @param data - The value to remove
+   * @complexity Time O(log n) | Space O(log n)
+   */
   remove(data: T): void {
     this.#root = this.#removeNode(data, this.#root) as RedBlackNode<T> | null;
   }
@@ -247,6 +257,10 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
     this.printInorder(node.right);
   }
 
+  /**
+   * Prints all nodes in-order to the console with their color.
+   * @complexity Time O(n) | Space O(n)
+   */
   print(): void {
     this.printInorder(this.#root);
   }

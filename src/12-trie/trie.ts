@@ -15,6 +15,11 @@ class Trie {
     this.root = new TrieNode();
   }
 
+  /**
+   * Inserts a word into the trie.
+   * @param word - The word to insert
+   * @complexity Time O(m) where m = word length | Space O(m)
+   */
   insert(word: string): void {
     let node = this.root;
     for (let char of word) {
@@ -26,6 +31,12 @@ class Trie {
     node.isEndOfWord = true;
   }
 
+  /**
+   * Returns true if the exact word is present in the trie.
+   * @param word - The word to search for
+   * @returns Whether the word exists
+   * @complexity Time O(m) | Space O(1)
+   */
   search(word: string): boolean {
     let node = this.root;
     for (let char of word) {
@@ -37,6 +48,12 @@ class Trie {
     return node.isEndOfWord;
   }
 
+  /**
+   * Returns true if any word in the trie starts with the given prefix.
+   * @param prefix - The prefix to check
+   * @returns Whether any word has this prefix
+   * @complexity Time O(m) | Space O(1)
+   */
   startsWith(prefix: string): boolean {
     let node = this.root;
     for (let char of prefix) {
@@ -48,6 +65,12 @@ class Trie {
     return true;
   }
 
+  /**
+   * Removes a word from the trie.
+   * @param word - The word to delete
+   * @returns true if the word was found and removed, false otherwise
+   * @complexity Time O(m) | Space O(m) call stack
+   */
   remove(word: string): boolean {
     return this.#removeWord(this.root, word, 0);
   }

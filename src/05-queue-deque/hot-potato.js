@@ -70,3 +70,5 @@ console.log(`The winner is: ${winner}!`);
 // The winner is: Violet!
 
 // to see the output of this file use the command: node src/05-queue-deque/hot-potato.js
+
+module.exports = { hotPotato, CircularQueue };

@@ -14,6 +14,13 @@ const minDistance = (dist: number[], visited: boolean[]): number => {
   return minIndex;
 };
 
+/**
+ * Runs Dijkstra's shortest-path algorithm on an adjacency-matrix graph.
+ * @param graph - n×n adjacency matrix (0 means no edge)
+ * @param src - Source vertex index
+ * @returns Object with shortest distances and predecessor paths from src
+ * @complexity Time O(V²) | Space O(V)
+ */
 const dijkstra = (
   graph: number[][],
   src: number

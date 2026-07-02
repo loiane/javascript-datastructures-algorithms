@@ -6,17 +6,17 @@
  */
 
 // Approach 1: Using flat() method (ES2019+)
-function flattenSimple<T>(array: any[], depth: number = 1): T[] {
+export function flattenSimple<T>(array: any[], depth: number = 1): T[] {
   return array.flat(depth);
 }
 
 // Approach 2: Deep flatten using flat(Infinity)
-function flattenDeep<T>(array: any[]): T[] {
+export function flattenDeep<T>(array: any[]): T[] {
   return array.flat(Infinity);
 }
 
 // Approach 3: Recursive approach (custom implementation)
-function flattenRecursive<T>(array: any[]): T[] {
+export function flattenRecursive<T>(array: any[]): T[] {
   const result: T[] = [];
   
   for (let item of array) {
@@ -31,14 +31,14 @@ function flattenRecursive<T>(array: any[]): T[] {
 }
 
 // Approach 4: Using reduce (functional approach)
-function flattenReduce<T>(array: any[]): T[] {
+export function flattenReduce<T>(array: any[]): T[] {
   return array.reduce((acc: T[], item: any) => {
     return acc.concat(Array.isArray(item) ? flattenReduce<T>(item) : item);
   }, []);
 }
 
 // Approach 5: Iterative approach using stack
-function flattenIterative<T>(array: any[]): T[] {
+export function flattenIterative<T>(array: any[]): T[] {
   const stack = [...array];
   const result: T[] = [];
   

@@ -1,7 +1,5 @@
-export {};
-
 // iterative approach
-function factorialIterative(number: number): number | undefined {
+export function factorialIterative(number: number): number | undefined {
   if (number < 0) {
     return undefined;
   }
@@ -15,7 +13,7 @@ function factorialIterative(number: number): number | undefined {
 console.log('5! =', factorialIterative(5)); // 5! = 120
 
 // recursive approach
-function factorial(number: number): number | undefined {
+export function factorial(number: number): number | undefined {
   if (number < 0) { return undefined; }
   if (number === 1 || number === 0) { // base case
     return 1;

@@ -1,5 +1,4 @@
 // src/03-array/13-remove-duplicates.ts
-export {};
 
 /**
  * Remove Duplicates from Arrays - Multiple approaches to eliminate duplicate values
@@ -7,31 +6,31 @@ export {};
  */
 
 // Approach 1: Using Set (most efficient for primitives)
-function removeDuplicatesSet<T>(array: T[]): T[] {
+export function removeDuplicatesSet<T>(array: T[]): T[] {
   return [...new Set(array)];
 }
 
 // Approach 2: Using filter and indexOf
-function removeDuplicatesFilter<T>(array: T[]): T[] {
+export function removeDuplicatesFilter<T>(array: T[]): T[] {
   return array.filter((item, index) => array.indexOf(item) === index);
 }
 
 // Approach 3: Using reduce
-function removeDuplicatesReduce<T>(array: T[]): T[] {
+export function removeDuplicatesReduce<T>(array: T[]): T[] {
   return array.reduce((unique: T[], item: T) => {
     return unique.includes(item) ? unique : [...unique, item];
   }, []);
 }
 
 // Approach 4: Using a Map (preserves insertion order)
-function removeDuplicatesMap<T>(array: T[]): T[] {
+export function removeDuplicatesMap<T>(array: T[]): T[] {
   const map = new Map<T, boolean>();
   array.forEach(item => map.set(item, true));
   return Array.from(map.keys());
 }
 
 // Approach 5: Traditional loop approach
-function removeDuplicatesLoop<T>(array: T[]): T[] {
+export function removeDuplicatesLoop<T>(array: T[]): T[] {
   const unique: T[] = [];
   for (let i = 0; i < array.length; i++) {
     if (!unique.includes(array[i])) {
@@ -42,7 +41,7 @@ function removeDuplicatesLoop<T>(array: T[]): T[] {
 }
 
 // Approach 6: Remove duplicates from array of objects (by property)
-function removeDuplicatesByProperty<T extends Record<string, any>>(
+export function removeDuplicatesByProperty<T extends Record<string, any>>(
   array: T[], 
   property: keyof T
 ): T[] {

@@ -1,4 +1,5 @@
-const Deque = require('./deque.js');
+const DequeModule = require('./deque.js');
+const Deque = DequeModule.default || DequeModule;
 
 function isPalindrome(word) {
 

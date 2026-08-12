@@ -10,9 +10,9 @@
   "devDependencies": {
     "@jest/globals": "^30.4.1",
     "@types/node": "^26.2.0",
+    "@typescript/native": "npm:typescript@^7.0.2",
     "jest": "^30.4.2",
     "ts-jest": "^29.4.12",
-    "ts-node": "^10.9.2",
-    "typescript": "^6.0.3"
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   }
 }

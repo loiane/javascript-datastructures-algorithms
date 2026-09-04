@@ -9,7 +9,7 @@
   "author": "Loiane Groner",
   "devDependencies": {
     "@jest/globals": "^30.5.0",
-    "@types/node": "^26.2.0",
+    "@types/node": "^26.4.0",
     "@typescript/native": "npm:typescript@^7.0.2",
     "jest": "^30.5.0",
     "ts-jest": "^29.4.12",

@@ -35,14 +35,15 @@ class HashTableSeparateChaining {
   get(key) {
     const index = this.hash(key);
     const linkedList = this.#table[index];
+    let value;
     if (linkedList != null) {
       linkedList.forEach((element) => {
         if (element.key === key) {
-          return element.value;
+          value = element.value;
         }
       });
     }
-    return undefined; // key not found
+    return value; // undefined if key not found
   }
 
   remove(key) {
@@ -74,7 +75,7 @@ class HashTableSeparateChaining {
     const keys = Object.keys(this.#table);
     let objString = `{${keys[0]} => ${this.#table[keys[0]].toString()}}`;
     for (let i = 1; i < keys.length; i++) {
-      const value = this.#elementToString(this.#table[keys[i]]).toString();
+      const value = this.#table[keys[i]].toString();
       objString = `${objString}\n{${keys[i]} => ${value}}`;
     }
     return objString;

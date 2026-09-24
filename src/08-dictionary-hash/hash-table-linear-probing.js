@@ -8,7 +8,7 @@ class HashTableLinearProbing {
       key = this.#elementToString(key);
     }
     const calcASCIIValue = (acc, char) => acc + char.charCodeAt(0);
-    const hash = key.split('').reduce((acc, char) => calcASCIIValue, 0);
+    const hash = key.split('').reduce(calcASCIIValue, 0);
     return hash % 37; // mod to reduce the hash code
   }
 
@@ -17,7 +17,7 @@ class HashTableLinearProbing {
       key = this.#elementToString(key);
     }
     const calcASCIIValue = (acc, char) => (acc * 33) + char.charCodeAt(0);
-    const hash = key.split('').reduce((acc, char) => calcASCIIValue, 5381);
+    const hash = key.split('').reduce(calcASCIIValue, 5381);
     return hash % 1013;
   } 
 
@@ -84,7 +84,7 @@ class HashTableLinearProbing {
 
   #verifyRemoveSideEffect(key, removedPosition) {
     const size = this.#table.length;
-    let index = removedPosition + 1; 
+    let index = (removedPosition + 1) % size;
     while (this.#table[index] != null) {
       const currentKey = this.#table[index].key;
       const currentHash = this.hash(currentKey);

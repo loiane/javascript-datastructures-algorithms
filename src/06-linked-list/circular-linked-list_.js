@@ -30,17 +30,17 @@ class CircularLinkedList {
 
   prepend(data) {
     const newNode = new LinkedListNode(data, this.#head);
-    if (!this.head) {
-      this.head = newNode;
-      newNode.next = this.head; // make it circular
+    if (!this.#head) {
+      this.#head = newNode;
+      newNode.next = this.#head; // make it circular
     } else {
       // Find the last node
-      let current = this.head;
-      while (current.next !== this.head) {
+      let current = this.#head;
+      while (current.next !== this.#head) {
         current = current.next;
       }
       current.next = newNode;
-      this.head = newNode;
+      this.#head = newNode;
     }
     this.#size++;
   }
@@ -119,6 +119,19 @@ class CircularLinkedList {
   }
   
 
+  #removeFromMiddle(position) {
+    let previous = null;
+    let current = this.#head;
+    let index = 0;
+    while (index++ < position) {
+      previous = current;
+      current = current.next;
+    }
+    previous.next = current.next;
+    this.#size--;
+    return current.data;
+  }
+
   #isInvalidPosition(position) {
     return position < 0 || position >= this.#size;
   }
@@ -136,7 +149,7 @@ class CircularLinkedList {
     this.#size = 0;
   }
 
-  remove(data: T): T | null {
+  remove(data) {
     const index = this.indexOf(data);
     if (index === -1) {
       return null;
@@ -144,7 +157,7 @@ class CircularLinkedList {
     return this.removeAt(index);
   }
 
-  indexOf(data: T): number {
+  indexOf(data) {
     let current = this.#head;
     let index = 0;
     while (current) {

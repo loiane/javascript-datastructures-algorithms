@@ -1,7 +1,9 @@
 // src/10-tree/red-black-tree.js
 
-const Comparator = require('./comparator');
-const BinarySearchTree = require('./binary-search-tree');
+// Explicit .js extensions: without them, Jest's moduleFileExtensions (ts before js)
+// resolves these to the .ts siblings instead of comparator.js/binary-search-tree.js.
+const Comparator = require('./comparator.js');
+const BinarySearchTree = require('./binary-search-tree.js');
 
 const NodeColor = {
   RED: 0,
@@ -138,6 +140,11 @@ class RedBlackTree extends BinarySearchTree {
 
     newRoot.left = node;
     node.parent = newRoot;
+
+    // Bug fix: must return the new subtree root, otherwise callers (e.g. #balance
+    // during #removeNode) receive `undefined` and overwrite an already-correct
+    // parent.left/right link with undefined, corrupting the tree.
+    return newRoot;
   }
 
   #rotateRight(node) {
@@ -160,6 +167,9 @@ class RedBlackTree extends BinarySearchTree {
 
     newRoot.right = node;
     node.parent = newRoot;
+
+    // Bug fix: return the new subtree root (see #rotateLeft for details).
+    return newRoot;
   }
 
   remove(data) {
@@ -181,10 +191,15 @@ class RedBlackTree extends BinarySearchTree {
       }
 
       if (!currentNode.left) {
+        // Bug fix: the promoted child must inherit currentNode's parent pointer,
+        // otherwise it's left stale, and a later rotation (which relies on
+        // .parent to relink nodes) can corrupt the tree structure.
+        currentNode.right.parent = currentNode.parent;
         return currentNode.right;
       }
 
       if (!currentNode.right) {
+        currentNode.left.parent = currentNode.parent;
         return currentNode.left;
       }
 
@@ -201,6 +216,91 @@ class RedBlackTree extends BinarySearchTree {
       return node;
     }
     return this.#findMinNode(node.left);
+  }
+
+  #findMaxNode(node) {
+    if (!node.right) {
+      return node;
+    }
+    return this.#findMaxNode(node.right);
+  }
+
+  // Bug fix: RedBlackTree keeps its own private #root (shadowing BinarySearchTree's),
+  // so the inherited root/search/min/max/traversal methods from BinarySearchTree
+  // always operated on the base class's (always-null) #root. Overriding them here
+  // so they use RedBlackTree's own #root and actually work.
+  get root() {
+    return this.#root;
+  }
+
+  search(data) {
+    return this.#searchNode(data, this.#root);
+  }
+
+  #searchNode(data, currentNode) {
+    if (!currentNode) {
+      return false;
+    }
+
+    if (this.#compareFn.equal(data, currentNode.data)) {
+      return true;
+    }
+
+    if (this.#compareFn.lessThan(data, currentNode.data)) {
+      return this.#searchNode(data, currentNode.left);
+    } else {
+      return this.#searchNode(data, currentNode.right);
+    }
+  }
+
+  min() {
+    if (!this.#root) {
+      return null;
+    }
+    return this.#findMinNode(this.#root).data;
+  }
+
+  max() {
+    if (!this.#root) {
+      return null;
+    }
+    return this.#findMaxNode(this.#root).data;
+  }
+
+  inOrderTraverse(callback) {
+    this.#inOrderTraverseNode(this.#root, callback);
+  }
+
+  #inOrderTraverseNode(node, callback) {
+    if (node) {
+      this.#inOrderTraverseNode(node.left, callback);
+      callback(node.data);
+      this.#inOrderTraverseNode(node.right, callback);
+    }
+  }
+
+  preOrderTraverse(callback) {
+    this.#preOrderTraverseNode(this.#root, callback);
+  }
+
+  #preOrderTraverseNode(node, callback) {
+    if (node) {
+      callback(node.data);
+      this.#preOrderTraverseNode(node.left, callback);
+      this.#preOrderTraverseNode(node.right, callback);
+    }
+  }
+
+  postOrderTraverse(callback) {
+    this.#postOrderTraverseNode(this.#root, callback);
+  }
+
+  #postOrderTraverseNode(node, callback) {
+    if (node) {
+      this.#postOrderTraverseNode(node.left, callback);
+      this.#postOrderTraverseNode(node.right, callback);
+      callback(node.data);
+    }
   }
 
   #balance(node) {

@@ -1,6 +1,8 @@
 // src/10-tree/binary-search-tree.js
 
-const Comparator = require('./comparator');
+// Explicit .js extension: without it, Jest's moduleFileExtensions (ts before js)
+// resolves this to comparator.ts instead of the sibling comparator.js.
+const Comparator = require('./comparator.js');
 
 class BSTNode {
   constructor(data) {

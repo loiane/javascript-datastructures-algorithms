@@ -197,7 +197,7 @@ class DoublyLinkedList {
     if (typeof data === 'object' && data !== null) {
       return JSON.stringify(data);
     } else {
-      return data.toString(); 
+      return String(data); 
     }
   }
 

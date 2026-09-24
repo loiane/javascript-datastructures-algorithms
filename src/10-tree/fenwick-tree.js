@@ -44,3 +44,6 @@ class FenwickTree {
     return this.#tree.join(', ');
   }
 }
+
+// Bug fix: module.exports was missing, so this class could never be require()'d.
+module.exports = FenwickTree;

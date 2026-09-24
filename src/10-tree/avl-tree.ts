@@ -181,6 +181,91 @@ class AVLTree<T> extends BinarySearchTree<T> {
     }
     return this.#findMinNode(node.left);
   }
+
+  #findMaxNode(node: AVLNode<T>): AVLNode<T> {
+    if (!node.right) {
+      return node;
+    }
+    return this.#findMaxNode(node.right);
+  }
+
+  // Bug fix: AVLTree keeps its own private #root (shadowing BinarySearchTree's),
+  // so the inherited root/search/min/max/traversal methods from BinarySearchTree
+  // always operated on the base class's (always-null) #root. Overriding them here
+  // so they use AVLTree's own #root and actually work.
+  override get root(): AVLNode<T> | null {
+    return this.#root;
+  }
+
+  override search(data: T): boolean {
+    return this.#searchNode(data, this.#root);
+  }
+
+  #searchNode(data: T, currentNode: AVLNode<T> | null): boolean {
+    if (!currentNode) {
+      return false;
+    }
+
+    if (this.#compareFn.equal(data, currentNode.data)) {
+      return true;
+    }
+
+    if (this.#compareFn.lessThan(data, currentNode.data)) {
+      return this.#searchNode(data, currentNode.left);
+    } else {
+      return this.#searchNode(data, currentNode.right);
+    }
+  }
+
+  override min(): T | null {
+    if (!this.#root) {
+      return null;
+    }
+    return this.#findMinNode(this.#root).data;
+  }
+
+  override max(): T | null {
+    if (!this.#root) {
+      return null;
+    }
+    return this.#findMaxNode(this.#root).data;
+  }
+
+  override inOrderTraverse(callback: (data: T) => void): void {
+    this.#inOrderTraverseNode(this.#root, callback);
+  }
+
+  #inOrderTraverseNode(node: AVLNode<T> | null, callback: (data: T) => void): void {
+    if (node) {
+      this.#inOrderTraverseNode(node.left, callback);
+      callback(node.data);
+      this.#inOrderTraverseNode(node.right, callback);
+    }
+  }
+
+  override preOrderTraverse(callback: (data: T) => void): void {
+    this.#preOrderTraverseNode(this.#root, callback);
+  }
+
+  #preOrderTraverseNode(node: AVLNode<T> | null, callback: (data: T) => void): void {
+    if (node) {
+      callback(node.data);
+      this.#preOrderTraverseNode(node.left, callback);
+      this.#preOrderTraverseNode(node.right, callback);
+    }
+  }
+
+  override postOrderTraverse(callback: (data: T) => void): void {
+    this.#postOrderTraverseNode(this.#root, callback);
+  }
+
+  #postOrderTraverseNode(node: AVLNode<T> | null, callback: (data: T) => void): void {
+    if (node) {
+      this.#postOrderTraverseNode(node.left, callback);
+      this.#postOrderTraverseNode(node.right, callback);
+      callback(node.data);
+    }
+  }
 }
 
 export default AVLTree;

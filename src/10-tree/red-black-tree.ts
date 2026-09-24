@@ -128,7 +128,7 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
     uncle.color = NodeColor.BLACK;
   }
 
-  #rotateLeft(node: RedBlackNode<T>): void {
+  #rotateLeft(node: RedBlackNode<T>): RedBlackNode<T> {
     const newRoot = node.right!;
     node.right = newRoot.left;
 
@@ -148,9 +148,14 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
 
     newRoot.left = node;
     node.parent = newRoot;
+
+    // Bug fix: must return the new subtree root, otherwise callers (e.g. #balance
+    // during #removeNode) receive `undefined` and overwrite an already-correct
+    // parent.left/right link with undefined, corrupting the tree.
+    return newRoot;
   }
 
-  #rotateRight(node: RedBlackNode<T>): void {
+  #rotateRight(node: RedBlackNode<T>): RedBlackNode<T> {
     const newRoot = node.left!;
     node.left = newRoot.right;
 
@@ -170,6 +175,9 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
 
     newRoot.right = node;
     node.parent = newRoot;
+
+    // Bug fix: return the new subtree root (see #rotateLeft for details).
+    return newRoot;
   }
 
   /**
@@ -196,10 +204,15 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
       }
 
       if (!currentNode.left) {
+        // Bug fix: the promoted child must inherit currentNode's parent pointer,
+        // otherwise it's left stale, and a later rotation (which relies on
+        // .parent to relink nodes) can corrupt the tree structure.
+        currentNode.right!.parent = currentNode.parent;
         return currentNode.right;
       }
 
       if (!currentNode.right) {
+        currentNode.left.parent = currentNode.parent;
         return currentNode.left;
       }
 
@@ -218,6 +231,91 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
     return this.#findMinNode(node.left);
   }
 
+  #findMaxNode(node: RedBlackNode<T>): RedBlackNode<T> {
+    if (!node.right) {
+      return node;
+    }
+    return this.#findMaxNode(node.right);
+  }
+
+  // Bug fix: RedBlackTree keeps its own private #root (shadowing BinarySearchTree's),
+  // so the inherited root/search/min/max/traversal methods from BinarySearchTree
+  // always operated on the base class's (always-null) #root. Overriding them here
+  // so they use RedBlackTree's own #root and actually work.
+  override get root(): RedBlackNode<T> | null {
+    return this.#root;
+  }
+
+  override search(data: T): boolean {
+    return this.#searchNode(data, this.#root);
+  }
+
+  #searchNode(data: T, currentNode: RedBlackNode<T> | null): boolean {
+    if (!currentNode) {
+      return false;
+    }
+
+    if (this.#compareFn.equal(data, currentNode.data)) {
+      return true;
+    }
+
+    if (this.#compareFn.lessThan(data, currentNode.data)) {
+      return this.#searchNode(data, currentNode.left);
+    } else {
+      return this.#searchNode(data, currentNode.right);
+    }
+  }
+
+  override min(): T | null {
+    if (!this.#root) {
+      return null;
+    }
+    return this.#findMinNode(this.#root).data;
+  }
+
+  override max(): T | null {
+    if (!this.#root) {
+      return null;
+    }
+    return this.#findMaxNode(this.#root).data;
+  }
+
+  override inOrderTraverse(callback: (data: T) => void): void {
+    this.#inOrderTraverseNode(this.#root, callback);
+  }
+
+  #inOrderTraverseNode(node: RedBlackNode<T> | null, callback: (data: T) => void): void {
+    if (node) {
+      this.#inOrderTraverseNode(node.left, callback);
+      callback(node.data);
+      this.#inOrderTraverseNode(node.right, callback);
+    }
+  }
+
+  override preOrderTraverse(callback: (data: T) => void): void {
+    this.#preOrderTraverseNode(this.#root, callback);
+  }
+
+  #preOrderTraverseNode(node: RedBlackNode<T> | null, callback: (data: T) => void): void {
+    if (node) {
+      callback(node.data);
+      this.#preOrderTraverseNode(node.left, callback);
+      this.#preOrderTraverseNode(node.right, callback);
+    }
+  }
+
+  override postOrderTraverse(callback: (data: T) => void): void {
+    this.#postOrderTraverseNode(this.#root, callback);
+  }
+
+  #postOrderTraverseNode(node: RedBlackNode<T> | null, callback: (data: T) => void): void {
+    if (node) {
+      this.#postOrderTraverseNode(node.left, callback);
+      this.#postOrderTraverseNode(node.right, callback);
+      callback(node.data);
+    }
+  }
+
   #balance(node: RedBlackNode<T>): RedBlackNode<T> | void {
     if (node.isRed()) {
       return node;
@@ -229,7 +327,7 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
       }
 
       if (node.left.right && node.left.right.isRed()) {
-        node.left = this.#rotateLeft(node.left) as unknown as RedBlackNode<T> | null;
+        node.left = this.#rotateLeft(node.left);
         return this.#rotateRight(node);
       }
     }
@@ -240,7 +338,7 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
       }
 
       if (node.right.left && node.right.left.isRed()) {
-        node.right = this.#rotateRight(node.right) as unknown as RedBlackNode<T> | null;
+        node.right = this.#rotateRight(node.right);
         return this.#rotateLeft(node);
       }
     }

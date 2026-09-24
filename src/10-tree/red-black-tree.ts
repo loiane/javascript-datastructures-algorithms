@@ -149,9 +149,6 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
     newRoot.left = node;
     node.parent = newRoot;
 
-    // Bug fix: must return the new subtree root, otherwise callers (e.g. #balance
-    // during #removeNode) receive `undefined` and overwrite an already-correct
-    // parent.left/right link with undefined, corrupting the tree.
     return newRoot;
   }
 
@@ -176,7 +173,6 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
     newRoot.right = node;
     node.parent = newRoot;
 
-    // Bug fix: return the new subtree root (see #rotateLeft for details).
     return newRoot;
   }
 
@@ -204,9 +200,6 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
       }
 
       if (!currentNode.left) {
-        // Bug fix: the promoted child must inherit currentNode's parent pointer,
-        // otherwise it's left stale, and a later rotation (which relies on
-        // .parent to relink nodes) can corrupt the tree structure.
         currentNode.right!.parent = currentNode.parent;
         return currentNode.right;
       }
@@ -238,10 +231,6 @@ class RedBlackTree<T> extends BinarySearchTree<T> {
     return this.#findMaxNode(node.right);
   }
 
-  // Bug fix: RedBlackTree keeps its own private #root (shadowing BinarySearchTree's),
-  // so the inherited root/search/min/max/traversal methods from BinarySearchTree
-  // always operated on the base class's (always-null) #root. Overriding them here
-  // so they use RedBlackTree's own #root and actually work.
   override get root(): RedBlackNode<T> | null {
     return this.#root;
   }

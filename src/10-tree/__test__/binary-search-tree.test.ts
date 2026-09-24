@@ -139,9 +139,7 @@ describe('AVLTree', () => {
     }).not.toThrow();
   });
 
-  // ─── correctness (regression: AVLTree's private #root shadowed the base
-  // class's #root, so search/min/max/root/traversals inherited from
-  // BinarySearchTree always operated on an always-null #root) ────────────────
+  // ─── correctness ──────────────────────────────────────────────────────────
 
   test('search finds inserted values and rejects missing ones', () => {
     [10, 20, 5, 15, 30, 25, 1].forEach(v => avl.insert(v));
@@ -246,9 +244,7 @@ describe('RedBlackTree', () => {
     }).not.toThrow();
   });
 
-  // ─── correctness (regression: RedBlackTree's private #root shadowed the
-  // base class's #root, so search/min/max/root/traversals inherited from
-  // BinarySearchTree always operated on an always-null #root) ────────────────
+  // ─── correctness ──────────────────────────────────────────────────────────
 
   test('search finds inserted values and rejects missing ones', () => {
     [10, 20, 30, 15, 25, 5, 1].forEach(v => rbt.insert(v));

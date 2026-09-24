@@ -1,7 +1,5 @@
 // src/10-tree/red-black-tree.js
 
-// Explicit .js extensions: without them, Jest's moduleFileExtensions (ts before js)
-// resolves these to the .ts siblings instead of comparator.js/binary-search-tree.js.
 const Comparator = require('./comparator.js');
 const BinarySearchTree = require('./binary-search-tree.js');
 
@@ -141,9 +139,6 @@ class RedBlackTree extends BinarySearchTree {
     newRoot.left = node;
     node.parent = newRoot;
 
-    // Bug fix: must return the new subtree root, otherwise callers (e.g. #balance
-    // during #removeNode) receive `undefined` and overwrite an already-correct
-    // parent.left/right link with undefined, corrupting the tree.
     return newRoot;
   }
 
@@ -168,7 +163,6 @@ class RedBlackTree extends BinarySearchTree {
     newRoot.right = node;
     node.parent = newRoot;
 
-    // Bug fix: return the new subtree root (see #rotateLeft for details).
     return newRoot;
   }
 
@@ -191,9 +185,6 @@ class RedBlackTree extends BinarySearchTree {
       }
 
       if (!currentNode.left) {
-        // Bug fix: the promoted child must inherit currentNode's parent pointer,
-        // otherwise it's left stale, and a later rotation (which relies on
-        // .parent to relink nodes) can corrupt the tree structure.
         currentNode.right.parent = currentNode.parent;
         return currentNode.right;
       }
@@ -225,10 +216,6 @@ class RedBlackTree extends BinarySearchTree {
     return this.#findMaxNode(node.right);
   }
 
-  // Bug fix: RedBlackTree keeps its own private #root (shadowing BinarySearchTree's),
-  // so the inherited root/search/min/max/traversal methods from BinarySearchTree
-  // always operated on the base class's (always-null) #root. Overriding them here
-  // so they use RedBlackTree's own #root and actually work.
   get root() {
     return this.#root;
   }

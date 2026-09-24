@@ -1,6 +1,4 @@
 // src/10-tree/avl-tree.js
-// Explicit .js extensions: without them, Jest's moduleFileExtensions (ts before js)
-// resolves these to the .ts siblings instead of comparator.js/binary-search-tree.js.
 const Comparator = require('./comparator.js');
 const BinarySearchTree = require('./binary-search-tree.js');
 
@@ -177,10 +175,6 @@ class AVLTree extends BinarySearchTree {
     return this.#findMaxNode(node.right);
   }
 
-  // Bug fix: AVLTree keeps its own private #root (shadowing BinarySearchTree's),
-  // so the inherited root/search/min/max/traversal methods from BinarySearchTree
-  // always operated on the base class's (always-null) #root. Overriding them here
-  // so they use AVLTree's own #root and actually work.
   get root() {
     return this.#root;
   }

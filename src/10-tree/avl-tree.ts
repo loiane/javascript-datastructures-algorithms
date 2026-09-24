@@ -189,10 +189,6 @@ class AVLTree<T> extends BinarySearchTree<T> {
     return this.#findMaxNode(node.right);
   }
 
-  // Bug fix: AVLTree keeps its own private #root (shadowing BinarySearchTree's),
-  // so the inherited root/search/min/max/traversal methods from BinarySearchTree
-  // always operated on the base class's (always-null) #root. Overriding them here
-  // so they use AVLTree's own #root and actually work.
   override get root(): AVLNode<T> | null {
     return this.#root;
   }

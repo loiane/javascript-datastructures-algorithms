@@ -45,5 +45,4 @@ class FenwickTree {
   }
 }
 
-// Bug fix: module.exports was missing, so this class could never be require()'d.
 module.exports = FenwickTree;

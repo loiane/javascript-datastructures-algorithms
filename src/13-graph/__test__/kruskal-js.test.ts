@@ -42,17 +42,10 @@ describe('kruskal (js)', () => {
   });
 
   test('a redundant edge consumes the edge budget and can leave a vertex disconnected', () => {
-    // Triangle 0-1(1), 1-2(2), 0-2(3) plus 2-3(4) connecting the 4th vertex.
-    // NOTE: because `find()` in this implementation treats parent[i] === 0
-    // as "no parent" (falsy, same as an undefined/unset entry), a vertex
-    // whose true root is 0 can be reported by find() as its own root once
-    // its direct parent pointer happens to equal 0. When that happens the
-    // (0,2) edge is "unioned" again even though 0 and 2 are already
-    // connected, which still increments the edge counter without adding a
-    // real tree edge — leaving vertex 3 unconnected from the MST. This same
-    // find() behavior exists in kruskal.ts, so it is a pre-existing shared
-    // algorithm quirk (not introduced by the js implementation) and is left
-    // unfixed here.
+    // find() treats parent[i] === 0 as "no parent" (falsy), so a vertex whose
+    // true root is 0 can be misreported as its own root, causing a redundant
+    // union that consumes an edge without connecting anything. Same behavior
+    // as kruskal.ts, left unfixed here.
     const g = [
       [0, 1, 3, 0],
       [1, 0, 2, 0],

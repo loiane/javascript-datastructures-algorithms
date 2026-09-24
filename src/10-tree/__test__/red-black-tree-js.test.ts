@@ -68,9 +68,6 @@ describe('RedBlackTree (red-black-tree.js)', () => {
     expect(rbt.root?.color).toBe(BLACK);
   });
 
-  // Regression test: RedBlackTree previously shadowed BinarySearchTree's private
-  // #root with its own, so inherited search/min/max/traversals always operated
-  // on the (always-null) base class root and were completely non-functional.
   test('search finds inserted values and reports missing ones as false', () => {
     [10, 20, 30, 15, 25, 5, 1].forEach(v => rbt.insert(v));
     expect(rbt.search(25)).toBe(true);

@@ -11,8 +11,6 @@ const SegmentTree = require('../segment-tree.js') as new (
 };
 
 describe('SegmentTree (segment-tree.js)', () => {
-  // Regression test: segment-tree.js was missing `module.exports`, so this
-  // class could never be require()'d/instantiated at all.
   test('can be constructed via require()', () => {
     expect(() => new SegmentTree([1, 2, 3], (a, b) => a + b)).not.toThrow();
   });
@@ -70,17 +68,10 @@ describe('SegmentTree (segment-tree.js)', () => {
       expect(tree.query(0, input.length - 1)).toBe(1);
     });
 
-    // Known limitation (shared identically with segment-tree.ts): #query's
-    // "no overlap" base case always returns 0, which is only a correct
-    // identity value for a `sum` operationFallback. For `min` (as documented
-    // as a supported use case in the .ts JSDoc), any partial-range query that
-    // does not fully cover the array combines with that spurious 0 and
-    // incorrectly returns 0 whenever all real values are positive. This test
-    // pins the actual (buggy) current behavior rather than asserting the
-    // mathematically correct minimum, since fixing it would require an API
-    // change (e.g. an identity-value constructor parameter) beyond the scope
-    // of a minimal, behavior-preserving fix, and the same flaw exists in the
-    // .ts sibling.
+    // "no overlap" base case always returns 0, which only works for `sum`.
+    // For `min`, this makes partial-range queries return 0 whenever the
+    // real values are all positive. Shared with the .ts sibling; pinning
+    // the current (incorrect) behavior here.
     test('query over a partial sub-range incorrectly returns 0 (documented limitation)', () => {
       expect(tree.query(0, 2)).toBe(0);
       expect(tree.query(3, 5)).toBe(0);

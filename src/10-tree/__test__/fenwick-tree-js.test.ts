@@ -11,8 +11,6 @@ const FenwickTree = require('../fenwick-tree.js') as new (
 };
 
 describe('FenwickTree (fenwick-tree.js)', () => {
-  // Regression test: fenwick-tree.js was missing `module.exports`, so this
-  // class could never be require()'d/instantiated at all.
   test('can be constructed via require()', () => {
     expect(() => new FenwickTree(5)).not.toThrow();
   });

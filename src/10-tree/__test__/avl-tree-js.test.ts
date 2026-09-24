@@ -44,9 +44,6 @@ describe('AVLTree (avl-tree.js)', () => {
     expect(avl.root?.data).toBe(5);
   });
 
-  // Regression test: AVLTree previously shadowed BinarySearchTree's private
-  // #root with its own, so inherited search/min/max/traversals always operated
-  // on the (always-null) base class root and were completely non-functional.
   test('search finds inserted values and reports missing ones as false', () => {
     [10, 20, 30, 40, 50, 25].forEach(v => avl.insert(v));
     expect(avl.search(25)).toBe(true);

@@ -17,7 +17,7 @@ class HashTable {
   }
 
   put(key, value) {
-    if (key == null && value == null)  {
+    if (key == null || value == null)  {
       return false;
     }
     const index = this.hash(key);
@@ -38,7 +38,7 @@ class HashTable {
       return false;
     }
     const index = this.hash(key);
-    if (this.#table[index]) {
+    if (this.#table[index] != null) {
       delete this.#table[index];
       return true;
     }
@@ -49,13 +49,13 @@ class HashTable {
     if (typeof data === 'object' && data !== null) {
       return JSON.stringify(data);
     } else {
-      return data.toString(); 
+      return String(data);
     }
   }
 
   toString() {
     const keys = Object.keys(this.#table);
-    let objString = `{${keys[0]} => ${this.#table[keys[0]].toString()}}`;
+    let objString = `{${keys[0]} => ${this.#elementToString(this.#table[keys[0]])}}`;
     for (let i = 1; i < keys.length; i++) {
       const value = this.#elementToString(this.#table[keys[i]]).toString();
       objString = `${objString}\n{${keys[i]} => ${value}}`;

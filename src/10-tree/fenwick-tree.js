@@ -44,3 +44,5 @@ class FenwickTree {
     return this.#tree.join(', ');
   }
 }
+
+module.exports = FenwickTree;

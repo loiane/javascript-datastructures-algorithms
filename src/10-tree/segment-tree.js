@@ -84,3 +84,5 @@ class SegmentTree {
     return this.#segmentTree.join(', ');
   }
 }
+
+module.exports = SegmentTree;

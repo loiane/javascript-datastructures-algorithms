@@ -25,7 +25,7 @@ class MySet {
   }
 
   has(value) {
-    return this.#items.hasOwnProperty(value); 
+    return Object.prototype.hasOwnProperty.call(this.#items, value);
   }
 
   values() {
@@ -39,7 +39,7 @@ class MySet {
   getSizeWithoutSizeProperty() {
     let count = 0;
     for (const key in this.#items) {
-      if (this.#items.hasOwnProperty(key)) { 
+      if (Object.prototype.hasOwnProperty.call(this.#items, key)) {
         count++;
       }
     }

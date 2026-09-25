@@ -138,6 +138,40 @@ describe('AVLTree', () => {
       [7, 6, 5, 4, 3, 2, 1].forEach(v => avl.insert(v));
     }).not.toThrow();
   });
+
+  // ─── correctness ──────────────────────────────────────────────────────────
+
+  test('search finds inserted values and rejects missing ones', () => {
+    [10, 20, 5, 15, 30, 25, 1].forEach(v => avl.insert(v));
+    [10, 20, 5, 15, 30, 25, 1].forEach(v => expect(avl.search(v)).toBe(true));
+    expect(avl.search(999)).toBe(false);
+  });
+
+  test('min and max return the correct values', () => {
+    [10, 20, 5, 15, 30, 25, 1].forEach(v => avl.insert(v));
+    expect(avl.min()).toBe(1);
+    expect(avl.max()).toBe(30);
+  });
+
+  test('root is populated after insertion and null when empty', () => {
+    expect(avl.root).toBeNull();
+    avl.insert(10);
+    expect(avl.root).not.toBeNull();
+  });
+
+  test('inOrderTraverse visits nodes in sorted order', () => {
+    [10, 20, 5, 15, 30, 25, 1].forEach(v => avl.insert(v));
+    const result: number[] = [];
+    avl.inOrderTraverse(v => result.push(v));
+    expect(result).toEqual([1, 5, 10, 15, 20, 25, 30]);
+  });
+
+  test('search reflects removal', () => {
+    [10, 20, 5, 15, 30].forEach(v => avl.insert(v));
+    avl.remove(20);
+    expect(avl.search(20)).toBe(false);
+    expect(avl.search(10)).toBe(true);
+  });
 });
 
 // ─── RedBlackTree ─────────────────────────────────────────────────────────────
@@ -208,5 +242,46 @@ describe('RedBlackTree', () => {
       rbt.remove(20);
       rbt.remove(5);
     }).not.toThrow();
+  });
+
+  // ─── correctness ──────────────────────────────────────────────────────────
+
+  test('search finds inserted values and rejects missing ones', () => {
+    [10, 20, 30, 15, 25, 5, 1].forEach(v => rbt.insert(v));
+    [10, 20, 30, 15, 25, 5, 1].forEach(v => expect(rbt.search(v)).toBe(true));
+    expect(rbt.search(999)).toBe(false);
+  });
+
+  test('min and max return the correct values', () => {
+    [10, 20, 30, 15, 25, 5, 1].forEach(v => rbt.insert(v));
+    expect(rbt.min()).toBe(1);
+    expect(rbt.max()).toBe(30);
+  });
+
+  test('root is populated after insertion and null when empty', () => {
+    expect(rbt.root).toBeNull();
+    rbt.insert(10);
+    expect(rbt.root).not.toBeNull();
+  });
+
+  test('inOrderTraverse visits nodes in sorted order', () => {
+    const values = [10, 20, 5, 15, 30, 25, 1, 2, 3, 4, 6, 7, 8, 9];
+    values.forEach(v => rbt.insert(v));
+    const result: number[] = [];
+    rbt.inOrderTraverse(v => result.push(v));
+    expect(result).toEqual([...values].sort((a, b) => a - b));
+  });
+
+  test('search reflects removal, including single-child promotion', () => {
+    const values = [10, 20, 5, 15, 30, 25, 1, 2, 3, 4, 6, 7, 8, 9];
+    values.forEach(v => rbt.insert(v));
+    rbt.remove(20);
+    expect(rbt.search(20)).toBe(false);
+    rbt.remove(1);
+    expect(rbt.search(1)).toBe(false);
+    const remaining = values.filter(v => v !== 20 && v !== 1).sort((a, b) => a - b);
+    const result: number[] = [];
+    rbt.inOrderTraverse(v => result.push(v));
+    expect(result).toEqual(remaining);
   });
 });

@@ -1,7 +1,7 @@
 // src/10-tree/red-black-tree.js
 
-const Comparator = require('./comparator');
-const BinarySearchTree = require('./binary-search-tree');
+const Comparator = require('./comparator.js');
+const BinarySearchTree = require('./binary-search-tree.js');
 
 const NodeColor = {
   RED: 0,
@@ -138,6 +138,8 @@ class RedBlackTree extends BinarySearchTree {
 
     newRoot.left = node;
     node.parent = newRoot;
+
+    return newRoot;
   }
 
   #rotateRight(node) {
@@ -160,6 +162,8 @@ class RedBlackTree extends BinarySearchTree {
 
     newRoot.right = node;
     node.parent = newRoot;
+
+    return newRoot;
   }
 
   remove(data) {
@@ -181,10 +185,12 @@ class RedBlackTree extends BinarySearchTree {
       }
 
       if (!currentNode.left) {
+        currentNode.right.parent = currentNode.parent;
         return currentNode.right;
       }
 
       if (!currentNode.right) {
+        currentNode.left.parent = currentNode.parent;
         return currentNode.left;
       }
 
@@ -201,6 +207,87 @@ class RedBlackTree extends BinarySearchTree {
       return node;
     }
     return this.#findMinNode(node.left);
+  }
+
+  #findMaxNode(node) {
+    if (!node.right) {
+      return node;
+    }
+    return this.#findMaxNode(node.right);
+  }
+
+  get root() {
+    return this.#root;
+  }
+
+  search(data) {
+    return this.#searchNode(data, this.#root);
+  }
+
+  #searchNode(data, currentNode) {
+    if (!currentNode) {
+      return false;
+    }
+
+    if (this.#compareFn.equal(data, currentNode.data)) {
+      return true;
+    }
+
+    if (this.#compareFn.lessThan(data, currentNode.data)) {
+      return this.#searchNode(data, currentNode.left);
+    } else {
+      return this.#searchNode(data, currentNode.right);
+    }
+  }
+
+  min() {
+    if (!this.#root) {
+      return null;
+    }
+    return this.#findMinNode(this.#root).data;
+  }
+
+  max() {
+    if (!this.#root) {
+      return null;
+    }
+    return this.#findMaxNode(this.#root).data;
+  }
+
+  inOrderTraverse(callback) {
+    this.#inOrderTraverseNode(this.#root, callback);
+  }
+
+  #inOrderTraverseNode(node, callback) {
+    if (node) {
+      this.#inOrderTraverseNode(node.left, callback);
+      callback(node.data);
+      this.#inOrderTraverseNode(node.right, callback);
+    }
+  }
+
+  preOrderTraverse(callback) {
+    this.#preOrderTraverseNode(this.#root, callback);
+  }
+
+  #preOrderTraverseNode(node, callback) {
+    if (node) {
+      callback(node.data);
+      this.#preOrderTraverseNode(node.left, callback);
+      this.#preOrderTraverseNode(node.right, callback);
+    }
+  }
+
+  postOrderTraverse(callback) {
+    this.#postOrderTraverseNode(this.#root, callback);
+  }
+
+  #postOrderTraverseNode(node, callback) {
+    if (node) {
+      this.#postOrderTraverseNode(node.left, callback);
+      this.#postOrderTraverseNode(node.right, callback);
+      callback(node.data);
+    }
   }
 
   #balance(node) {

@@ -1,6 +1,6 @@
 // src/10-tree/binary-search-tree.js
 
-const Comparator = require('./comparator');
+const Comparator = require('./comparator.js');
 
 class BSTNode {
   constructor(data) {

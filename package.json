@@ -12,7 +12,7 @@
     "@types/node": "^26.6.4",
     "@typescript/native": "npm:typescript@^7.0.2",
     "jest": "^30.5.2",
-    "ts-jest": "^29.4.14",
+    "ts-jest": "^29.4.15",
     "typescript": "npm:@typescript/typescript6@^6.0.2"
   }
 }
